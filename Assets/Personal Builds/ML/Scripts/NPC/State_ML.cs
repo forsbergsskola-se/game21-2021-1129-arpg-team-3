@@ -123,7 +123,7 @@ public class Patrol : State_ML
    }
    public override void Update()
    {
-      if (Agent.remainingDistance < 0.2f)
+      if (Agent.remainingDistance < 0.6f)
       {
          
          if (currentIndex >= WpManagerMl.CurrentNumberPoints - 1)

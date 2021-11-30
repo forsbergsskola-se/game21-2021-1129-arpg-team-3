@@ -39,7 +39,7 @@ public class WayPointManager_ML : MonoBehaviour
     {
         WayPoints = GameObject.FindGameObjectsWithTag("wp").ToList();
         CurrentWayPoint = WayPoints[0];
-        CurrentNumberPoints = CurrentWayPoint.GetComponent<WayPointDebug_ML>().currentNumberPoints;
+        CurrentNumberPoints = CurrentWayPoint.GetComponent<WayPointDebug_ML>().PointList.Count;
         CurrentWayPoint.GetComponent<WayPointDebug_ML>().GetLocationOfPoint(0);
         
         /**
