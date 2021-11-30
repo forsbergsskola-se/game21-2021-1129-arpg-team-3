@@ -27,7 +27,7 @@ public class CameraMovement2MA : MonoBehaviour
         {
             Vector3 direction = previousPosition - cam.ScreenToViewportPoint(Input.mousePosition);
             cam.transform.position = target.position;
-            cam.transform.Rotate(new Vector3(0.1f,0,0),direction.y*90); // Controls up and down 2 to 85 deg
+            cam.transform.Rotate(new Vector3(0,0,0),direction.y*90); // Controls up and down 2 to 85 deg
             cam.transform.Rotate(new Vector3(0,-0.1f,0),-direction.x*90,Space.World);
             cam.transform.Translate(new Vector3(0,0,-10));
             previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
