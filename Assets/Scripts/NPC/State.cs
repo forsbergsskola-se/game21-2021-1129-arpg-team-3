@@ -10,7 +10,7 @@ public  class State
 {
    public enum STATE
    {
-      Idle, Patrol, Pursue, Attack, Rest
+      Idle, Patrol, Pursue, Attack, Rest, Wander
    }
 
    public enum EVENT
@@ -90,7 +90,7 @@ public class Idle : State
          Stage = EVENT.Exit;
       }
       
-      else if (Random.Range(0, 200) < 10)
+      else if (Random.Range(0, 500) < 10)
       {
          NextState = new Patrol(Npc, Agent, Anim, Player);
          Stage = EVENT.Exit;
@@ -150,6 +150,62 @@ public class Patrol : State
    }
 }
 
+public class Wander : State
+{
+   private float WanderRadius = 10;
+   private float WanderDistance = 20;
+   private float WanderJitter = 1;
+   Vector3 WanderTarget = Vector3.zero;
+   public Wander(GameObject npc, NavMeshAgent agent, Animator anim, Transform player)
+      : base(npc, agent, anim, player)
+   {
+      Name = STATE.Wander;
+      SetupWander();
+   }
+
+   private void SetupWander()
+   {
+      WanderTarget += new Vector3(Random.Range(-1.0f, 1.0f) * WanderJitter, 0,
+         Random.Range(-1.0f, 1.0f) * WanderJitter);
+      WanderTarget.Normalize();
+      WanderTarget *= WanderRadius;
+
+      Vector3 targetLocal = WanderTarget + new Vector3(0, 0, WanderDistance);
+      Vector3 targetWorld = Npc.transform.InverseTransformVector(targetLocal);
+      Seek(targetWorld);
+   }
+
+   void Seek(Vector3 location)
+   {
+      Agent.SetDestination(location);
+   }
+   
+   public override void Enter()
+   {
+      base.Enter();
+      
+   }
+   public override void Update()
+   {
+        SetupWander();
+        
+        if (Random.Range(0, 1000) < 10)
+        {
+           NextState = new Idle(Npc, Agent, Anim, Player);
+           Stage = EVENT.Exit;
+        }
+        
+        if (seeing == Seeing.Player)
+        {
+           NextState = new Pursue(Npc, Agent, Anim, Player);
+           Stage = EVENT.Exit;
+        }
+   }
+   public override void Exit()
+   {
+      base.Exit();
+   }
+}
 
 public class Pursue : State
 {
