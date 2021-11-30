@@ -172,12 +172,17 @@ public class Pursue : State
    {
       base.Update();
 
-      if (Agent.remainingDistance < 1.7f)
+      if (Agent.remainingDistance < 1.2f)
       {
          Agent.isStopped = true;
          NextState = new Attack(Npc, Agent, Anim, Player);
          Stage = EVENT.Exit;
          Anim.SetFloat("Speed", 0);
+      }
+      else if (Agent.remainingDistance > 5)
+      {
+         NextState = new Patrol(Npc, Agent, Anim, Player);
+         Stage = EVENT.Exit;
       }
       
    }
@@ -213,8 +218,6 @@ public class Attack : State
          Anim.SetBool("CombatMode", false);
          Stage = EVENT.Exit;
       }
-      
-      base.Update();
    }
    
    
