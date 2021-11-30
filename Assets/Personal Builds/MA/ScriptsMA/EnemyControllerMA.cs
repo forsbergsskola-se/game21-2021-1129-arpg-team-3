@@ -1,35 +1,48 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyControllerMA : MonoBehaviour
 {
-    public float lookRadius = 10f;
+    public GameObject Player;
+    public float Distance;
+    public bool isAngered;
+    public NavMeshAgent _agent;
 
-    private Transform target;
-    private NavMeshAgent agent;
-    
-    void Start()
+
+    private void Start()
     {
-        target = PlayerManagerMA.instance.transform;
-        agent = GetComponent<NavMeshAgent>();
+        
     }
 
-    
-    void Update()
+
+    private void Update()
     {
-        float distance = Vector3.Distance(target.position, transform.position);
-        if (distance<=lookRadius)
+        Distance = Vector3.Distance(Player.transform.position, this.transform.position);
+        if (Distance<=5)
         {
-            agent.SetDestination(target.position);
+            isAngered = true;
         }
-    }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, lookRadius);
+        if (Distance>5f)
+        {
+            isAngered = false;
+        }
+
+        if (isAngered)
+        {
+            _agent.isStopped = false;
+            
+            _agent.SetDestination(Player.transform.position);
+        }
+
+        if (!isAngered)
+        {
+            _agent.isStopped = true;
+        }
+        
     }
 }
