@@ -9,7 +9,6 @@ public class AI : MonoBehaviour
     private NavMeshAgent Agent;
     private Animator anim = new Animator();
     public Transform player;
-    public Vector3 playerPos;
     private State currentState;
     private EnemyAttackScript attackScript;
     private NPCEyes eyes;

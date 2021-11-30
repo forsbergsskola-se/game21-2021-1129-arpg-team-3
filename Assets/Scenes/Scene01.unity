@@ -1199,7 +1199,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42.95
+  m_fontSize: 18.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1375,7 +1375,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d7ad11f2f5ca38428867bea143fae8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PointList: []
+  PointList:
+  - {fileID: 807832534}
+  - {fileID: 514000870}
+  - {fileID: 1897771927}
   PointToSpawn: {fileID: 3302072266118984585, guid: 83664d44ea1848f409b1e4cf97e3827a, type: 3}
 --- !u!4 &1428453303 stripped
 Transform:
@@ -1633,6 +1636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3048809390280419515, guid: 1c947578e96b25c43b76b1a553ddee58, type: 3}
+    - {fileID: 4454103398388904095, guid: 1c947578e96b25c43b76b1a553ddee58, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1c947578e96b25c43b76b1a553ddee58, type: 3}
 --- !u!1 &1653883662
 GameObject:
