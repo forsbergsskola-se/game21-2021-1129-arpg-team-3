@@ -15,11 +15,12 @@ public class DamagePos : MonoBehaviour
         HealthBar.renderMode = RenderMode.WorldSpace;
         
         HealthBar.GetComponentInChildren<Canvas>().transform.position = gameObject.transform.position + new Vector3(0,0.5f, 0);
+    //    ShrinkBar();
     }
 
     private void ShrinkBar()
     {
-        HealthBar.GetComponentInChildren<Canvas>().GetComponentInChildren<Canvas>();
+        HealthBar.GetComponentInChildren<Canvas>().GetComponentInChildren<Canvas>().transform.localScale = new Vector3(1f,1f);
     }
     
     private void LateUpdate()

@@ -5,9 +5,9 @@ using UnityEngine;
 using System.Linq;
 
 [System.Serializable]
-public struct Link
+public struct Link_ML
 {
-    public enum Direction
+    public enum Direction_ML
     {
         UNI,
         BI
@@ -15,14 +15,14 @@ public struct Link
 
     public GameObject node1;
     public GameObject node2;
-    public Direction dir;
+    public Direction_ML dir;
 
 }
 
 public class WayPointManager_ML : MonoBehaviour
 {
     public GameObject[] waypoints;
-    public Link[] links;
+//    public Link[] links;
 
     private List<GameObject> WayPoints;
 //    public Graph graph = new Graph();

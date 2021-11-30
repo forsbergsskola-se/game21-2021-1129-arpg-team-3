@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1844775292825968925}
   m_Layer: 5
   m_Name: Redbar
-  m_TagString: Untagged
+  m_TagString: Health
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &4698723173256389649
 MonoBehaviour:
   m_ObjectHideFlags: 0

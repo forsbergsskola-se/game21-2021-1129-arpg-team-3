@@ -12,6 +12,7 @@ TagManager:
   - wp
   - wpManager
   - Selectable
+  - Health
   layers:
   - Default
   - TransparentFX
