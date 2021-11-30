@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class PlayerController : MonoBehaviour
 {
 	[SerializeField] float playerMeleeRange;
-	[SerializeField] private float playerDamage;
+	[SerializeField] private float playerAttackDamage;
 	private NavMeshAgent _agent;
 	private Transform _target;
 	public CursorManagement cursorManagement;
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
 			//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
 			if (Vector3.Distance(this.transform.position, _target.position) <= playerMeleeRange &&
 			    (_target.CompareTag("Enemy") || _target.CompareTag("Destroyable"))) {
-				_target.GetComponent<EnemyStats>().TakeDamage(playerDamage);
+				_target.GetComponent<EnemyStats>().TakeDamage(playerAttackDamage);
 				Debug.Log("Play AttackSound");
 				_target = null; //Forces player to click again to attack
 			}

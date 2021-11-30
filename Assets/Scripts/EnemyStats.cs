@@ -7,6 +7,7 @@ public class EnemyStats : MonoBehaviour {
 	[SerializeField] protected float maxHealth = 100;
 	[SerializeField] protected float armour = 15;
 	private float minHealth = 0;
+	private TextMesh text;
 
 	private void Awake() {
 		health = maxHealth;
@@ -15,9 +16,11 @@ public class EnemyStats : MonoBehaviour {
 		if (health <= 0) {
 			gameObject.SetActive(false);
 		}
+		
 	}
 	public void TakeDamage(float damage) {
-		health -= damage - armour;
+		float damageReceived = damage - armour;
+		health -= damageReceived;
 		health = Mathf.Clamp(health, minHealth, maxHealth);
 	}
 }
