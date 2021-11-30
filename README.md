@@ -26,7 +26,7 @@ Game Artists
 Sound Designers
 - Troy 
 - Robert
--  
+
 Feel free to link any existing Linked.in Profiles or Portfolio Websites.
 
 ## Design Documents
