@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4577893592950267697}
+  - component: {fileID: 4454103398388904095}
   - component: {fileID: 3048809390280419515}
   m_Layer: 0
   m_Name: WaypointContainer
@@ -32,6 +33,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4454103398388904095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6403791287265836029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7ad11f2f5ca38428867bea143fae8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PointList: []
+  PointToSpawn: {fileID: 0}
 --- !u!114 &3048809390280419515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,8 +59,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e553aa1550a7756468898b785d2bc31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InputCanvas: {fileID: 1676064423067661977, guid: 2bfd0e3773c7dfd4ba37c85d9e48b2af, type: 3}
-  KeepCanvas: {fileID: 0}
   PointList: []
-  numberWayPoints: 0
   PointToSpawn: {fileID: 3302072266118984585, guid: 2118f3f5dff1b9b409f8819731a07c18, type: 3}
