@@ -20,7 +20,7 @@ public class AI_ML : MonoBehaviour
         anim = GetComponent<Animator>();
         eyes = GetComponent<NPCEyes_ML>();
         attackScript = GetComponent<EnemyAttackScript_ML>();
-        currentState = new Idle(gameObject, Agent, anim, player);
+    //    currentState = new Idle(gameObject, Agent, anim, player);
     }
     
     void Update()
@@ -29,10 +29,12 @@ public class AI_ML : MonoBehaviour
         {
             currentState.Player = player;
             currentState.seeing = Seeing.Player;
+           /**
             if (currentState is Attack attack)
             {
-                attack.attackScript = attackScript;
+            //    attack.attackScript = attackScript;
             }
+            **/
         }
         currentState = currentState.Process();
     }

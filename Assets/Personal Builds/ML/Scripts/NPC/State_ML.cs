@@ -70,9 +70,9 @@ public  class State_ML
    
 }
 
-public class Idle : State_ML
+public class Idle_ML : State_ML
 {
-   public Idle(GameObject npc, NavMeshAgent agent, Animator anim, Transform player)
+   public Idle_ML(GameObject npc, NavMeshAgent agent, Animator anim, Transform player)
       : base(npc, agent, anim, player)
    {
       Name = STATE.Idle;
@@ -86,13 +86,13 @@ public class Idle : State_ML
    {
       if (seeing == Seeing.Player)
       {
-         NextStateMl = new Pursue(Npc, Agent, Anim, Player);
+      //   NextStateMl = new Pursue(Npc, Agent, Anim, Player);
          Stage = EVENT.Exit;
       }
       
       else if (Random.Range(0, 200) < 10)
       {
-         NextStateMl = new Patrol(Npc, Agent, Anim, Player);
+      //   NextStateMl = new Patrol(Npc, Agent, Anim, Player);
          Stage = EVENT.Exit;
       }
    }
@@ -103,10 +103,10 @@ public class Idle : State_ML
 }
 
 
-public class Patrol : State_ML
+public class Patrol_ML : State_ML
 {
    private int currentIndex = -1;
-   public Patrol(GameObject npc, NavMeshAgent agent, Animator anim, Transform player)
+   public Patrol_ML(GameObject npc, NavMeshAgent agent, Animator anim, Transform player)
       : base(npc, agent, anim, player)
    {
       Name = STATE.Patrol;
@@ -139,7 +139,7 @@ public class Patrol : State_ML
          
          if (seeing == Seeing.Player)
          {
-            NextStateMl = new Pursue(Npc, Agent, Anim, Player);
+         //   NextStateMl = new Pursue(Npc, Agent, Anim, Player);
             Stage = EVENT.Exit;
          }
       }
@@ -151,9 +151,9 @@ public class Patrol : State_ML
 }
 
 
-public class Pursue : State_ML
+public class Pursue_ML : State_ML
 {
-   public Pursue(GameObject npc, NavMeshAgent agent, Animator anim, Transform player)
+   public Pursue_ML(GameObject npc, NavMeshAgent agent, Animator anim, Transform player)
       : base(npc, agent, anim, player)
    {
       Name = STATE.Pursue;
@@ -175,7 +175,7 @@ public class Pursue : State_ML
       if (Agent.remainingDistance < 1.7f)
       {
          Agent.isStopped = true;
-         NextStateMl = new Attack(Npc, Agent, Anim, Player);
+      //   NextStateMl = new Attack(Npc, Agent, Anim, Player);
          Stage = EVENT.Exit;
          Anim.SetFloat("Speed", 0);
       }
@@ -187,10 +187,10 @@ public class Pursue : State_ML
    }
 }
 
-public class Attack : State_ML
+public class Attack_ML : State_ML
 {
    public EnemyAttackScript_ML attackScript;
-   public Attack(GameObject npc, NavMeshAgent agent, Animator anim, Transform player)
+   public Attack_ML(GameObject npc, NavMeshAgent agent, Animator anim, Transform player)
       : base(npc, agent, anim, player)
    {
       Name = STATE.Attack;
@@ -209,7 +209,7 @@ public class Attack : State_ML
       
       if (Vector3.Distance(Player.position, Npc.transform.position) > 2)
       {
-         NextStateMl = new Pursue(Npc, Agent, Anim, Player);
+       //  NextStateMl = new Pursue(Npc, Agent, Anim, Player);
          Anim.SetBool("CombatMode", false);
          Stage = EVENT.Exit;
       }
