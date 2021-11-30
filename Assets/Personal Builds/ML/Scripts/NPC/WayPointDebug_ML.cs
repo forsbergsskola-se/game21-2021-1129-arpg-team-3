@@ -19,7 +19,7 @@ public class WayPointDebug_ML : MonoBehaviour
         public string name;
     }
 
-    [SerializeField] List<GameObject> PointList = new ();
+    public List<GameObject> PointList = new ();
     private int numberWayPoints = 0;
     public int currentNumberPoints { get; private set; }
     [SerializeField] private GameObject PointToSpawn;
@@ -63,7 +63,7 @@ public class WayPointDebug_ML : MonoBehaviour
     private void OnEnable()
     {
         finalizePoints = false;
-        currentNumberPoints = numberWayPoints;
+        currentNumberPoints = PointList.Count - 1;
     }
 
 
@@ -179,7 +179,7 @@ public class WayPointDebug_ML : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            currentNumberPoints = PointList.Count;
+        //    currentNumberPoints = PointList.Count;
             finalizePoints = true;
         //    FinishPoints();
         
@@ -190,19 +190,7 @@ public class WayPointDebug_ML : MonoBehaviour
     {
         if (Application.isEditor)
         {
-            if (!finalizePoints)
-            {
-                if (currentNumberPoints < numberWayPoints)
-                {
-                    SpawnWayPoints();
-                    currentNumberPoints = numberWayPoints;
-                }
-                else if (currentNumberPoints > numberWayPoints)
-                {
-                    RemovePoints();
-                    currentNumberPoints = numberWayPoints;
-                }
-            }
+          
         }
     }
 }

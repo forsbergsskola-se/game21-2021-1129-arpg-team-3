@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2322901244575010148}
+  - component: {fileID: 7405956398834168169}
   m_Layer: 0
   m_Name: DamageEmmiter
   m_TagString: Damage
@@ -31,6 +32,19 @@ Transform:
   m_Father: {fileID: 4247005340864470320}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7405956398834168169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3502505479043362775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab07727b93918c3499b80e7f9d0f43fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealtBarToUse: {fileID: 4745206159795707740, guid: 983252fefed8df547af46fd7e4bc68cc, type: 3}
 --- !u!1 &4847748823540846887
 GameObject:
   m_ObjectHideFlags: 0
