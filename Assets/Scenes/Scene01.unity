@@ -513,7 +513,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be06c719e65036a4e9e4c283d46284f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints: []
+  waypoints:
+  - {fileID: 807832534}
+  - {fileID: 514000870}
+  - {fileID: 1897771927}
+--- !u!1 &627693674 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8172442304542317006, guid: 6e4019dcbde26c8408f888128d0a9a67, type: 3}
+  m_PrefabInstance: {fileID: 1748707227}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &627693675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627693674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038be7ac33263014b84bd98531cde90a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackDelay: 2
 --- !u!1 &637998275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,6 +1108,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1031767145 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6403791287265836029, guid: 1c947578e96b25c43b76b1a553ddee58, type: 3}
+  m_PrefabInstance: {fileID: 1640798449}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1043712032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,7 +1199,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.7
+  m_fontSize: 42.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1337,6 +1363,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4577893592950267697, guid: 1c947578e96b25c43b76b1a553ddee58, type: 3}
   m_PrefabInstance: {fileID: 1640798449}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1379664584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031767145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7ad11f2f5ca38428867bea143fae8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PointList: []
+  PointToSpawn: {fileID: 3302072266118984585, guid: 83664d44ea1848f409b1e4cf97e3827a, type: 3}
 --- !u!4 &1428453303 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 269768421943818828, guid: 1e9b0fcf8cf4fc94990dabea0e52a905, type: 3}
@@ -1591,7 +1631,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaypointContainer
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3048809390280419515, guid: 1c947578e96b25c43b76b1a553ddee58, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1c947578e96b25c43b76b1a553ddee58, type: 3}
 --- !u!1 &1653883662
 GameObject:
@@ -1754,6 +1795,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4305477784891832978, guid: 6e4019dcbde26c8408f888128d0a9a67, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1834260063}
+    - target: {fileID: 5145504002519619929, guid: 6e4019dcbde26c8408f888128d0a9a67, type: 3}
+      propertyPath: PlayerTarget
+      value: 
+      objectReference: {fileID: 1834260063}
     - target: {fileID: 6782667309670242428, guid: 6e4019dcbde26c8408f888128d0a9a67, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1800,7 +1849,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8172442304542317006, guid: 6e4019dcbde26c8408f888128d0a9a67, type: 3}
       propertyPath: m_Name
-      value: LowPolySkeleton_ML
+      value: LowPolySkeleton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e4019dcbde26c8408f888128d0a9a67, type: 3}
