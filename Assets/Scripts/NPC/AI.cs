@@ -33,6 +33,10 @@ public class AI : MonoBehaviour
                 attack.attackScript = attackScript;
             }
         }
+        else
+        {
+            currentState.seeing = eyes.seeing;
+        }
         currentState = currentState.Process();
     }
 }

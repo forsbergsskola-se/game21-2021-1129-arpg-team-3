@@ -103,6 +103,7 @@ public class NPCEyes : MonoBehaviour
 
          if (!withinArc)
          {
+             seeing = Seeing.Nothing;
              return false;
          }
 
@@ -124,7 +125,7 @@ public class NPCEyes : MonoBehaviour
                  playerDestination = hit.transform.position;
                  GetComponent<AI>().player = hit.transform;
              }
-             
+
              Debug.DrawLine(transform.position, hit.point);
          }
          else

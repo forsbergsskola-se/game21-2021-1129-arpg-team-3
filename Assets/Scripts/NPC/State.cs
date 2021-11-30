@@ -123,7 +123,7 @@ public class Patrol : State
    }
    public override void Update()
    {
-      if (Agent.remainingDistance < 0.6f)
+      if (Agent.remainingDistance < 0.5f)
       {
          
          if (currentIndex >= WpManager.CurrentNumberPoints - 1)
@@ -136,12 +136,12 @@ public class Patrol : State
             currentIndex++;
             Agent.SetDestination(WpManager.GetLocationOfPoint(currentIndex));
          }
-         
-         if (seeing == Seeing.Player)
-         {
-            NextState = new Pursue(Npc, Agent, Anim, Player);
-            Stage = EVENT.Exit;
-         }
+      }
+      
+      if (seeing == Seeing.Player)
+      {
+         NextState = new Pursue(Npc, Agent, Anim, Player);
+         Stage = EVENT.Exit;
       }
    }
    public override void Exit()
@@ -170,7 +170,11 @@ public class Pursue : State
    }
    public override void Update()
    {
-      base.Update();
+      if (Agent.remainingDistance > 3)
+      {
+         NextState = new Idle(Npc, Agent, Anim, Player);
+         Stage = EVENT.Exit;
+      }
 
       if (Agent.remainingDistance < 1.2f)
       {
@@ -179,12 +183,6 @@ public class Pursue : State
          Stage = EVENT.Exit;
          Anim.SetFloat("Speed", 0);
       }
-      else if (Agent.remainingDistance > 5)
-      {
-         NextState = new Patrol(Npc, Agent, Anim, Player);
-         Stage = EVENT.Exit;
-      }
-      
    }
    public override void Exit()
    {
