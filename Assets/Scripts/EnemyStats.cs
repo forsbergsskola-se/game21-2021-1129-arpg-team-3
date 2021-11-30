@@ -16,7 +16,6 @@ public class EnemyStats : MonoBehaviour {
 		if (health <= 0) {
 			gameObject.SetActive(false);
 		}
-		
 	}
 	public void TakeDamage(float damage) {
 		float damageReceived = damage - armour;
