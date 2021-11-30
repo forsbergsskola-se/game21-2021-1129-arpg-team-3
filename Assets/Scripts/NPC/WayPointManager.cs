@@ -21,8 +21,7 @@ public struct Link
 
 public class WayPointManager : MonoBehaviour
 {
-    public GameObject[] waypoints;
- //   public Link[] links;
+    //   public Link[] links;
 
     private List<GameObject> WayPoints;
 //    public Graph graph = new Graph();
