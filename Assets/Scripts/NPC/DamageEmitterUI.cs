@@ -8,9 +8,7 @@ using UnityEngine;
 public class DamageEmitterUI : MonoBehaviour
 {
     public Canvas damageCanvas;
-  
-    private TextMeshPro mesh;
-  
+
     public void DoDamage(int damageAmount, Vector3 position)
     {
         Canvas tempCan = Instantiate(damageCanvas);

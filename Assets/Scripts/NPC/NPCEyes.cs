@@ -103,7 +103,10 @@ public class NPCEyes : MonoBehaviour
 
          if (!withinArc)
          {
-             SeeingMl = Seeing.Nothing;
+             if (SeeingMl == Seeing.Player)
+             {
+                 SeeingMl = Seeing.Nothing;    
+             }
              return false;
          }
 
