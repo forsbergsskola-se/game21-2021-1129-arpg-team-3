@@ -26,7 +26,7 @@ public  class State_ML
    protected State_ML NextStateMl;
    protected NavMeshAgent Agent;
    protected WayPointManager_ML WpManagerMl;
-   public Seeing seeing;
+   public Seeing_ML SeeingMl;
 
    public State_ML(GameObject npc, NavMeshAgent agent, Animator anim, Transform player)
    {
@@ -84,7 +84,7 @@ public class Idle_ML : State_ML
    }
    public override void Update()
    {
-      if (seeing == Seeing.Player)
+      if (SeeingMl == Seeing_ML.Player)
       {
       //   NextStateMl = new Pursue(Npc, Agent, Anim, Player);
          Stage = EVENT.Exit;
@@ -137,7 +137,7 @@ public class Patrol_ML : State_ML
             Agent.SetDestination(WpManagerMl.GetLocationOfPoint(currentIndex));
          }
          
-         if (seeing == Seeing.Player)
+         if (SeeingMl == Seeing_ML.Player)
          {
          //   NextStateMl = new Pursue(Npc, Agent, Anim, Player);
             Stage = EVENT.Exit;

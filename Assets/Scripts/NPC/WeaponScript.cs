@@ -19,7 +19,7 @@ public class WeaponScript : MonoBehaviour
         if (other.CompareTag("Player") && CanDamage)
         {
             Vector3 emitterPoint = other.GetComponentInChildren<DamagePos>().transform.position;
-            GameObject.FindWithTag("Damage").GetComponent<DamageEmitterUI_ML>().DoDamage(BaseDamage, emitterPoint);
+            GameObject.FindWithTag("Damage").GetComponent<DamageEmitterUI>().DoDamage(BaseDamage, emitterPoint);
             CanDamage = false;
             StartCoroutine(DelayStrike());
         }

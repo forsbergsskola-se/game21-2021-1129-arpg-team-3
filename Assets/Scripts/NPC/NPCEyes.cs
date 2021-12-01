@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-public enum SeeingGood
+public enum Seeing
 {
     Nothing,
     Player,
@@ -16,7 +16,7 @@ public enum SeeingGood
 
 public class NPCEyes : MonoBehaviour
 {
-    public Seeing seeing { get; private set; }
+    public Seeing SeeingMl { get; private set; }
     public Transform PlayerTarget = null;
     
     public float maxDistance = 10f;
@@ -52,7 +52,7 @@ public class NPCEyes : MonoBehaviour
     { 
        CheckVisibility();
        
-       if (seeing == Seeing.Player)
+       if (SeeingMl == Seeing.Player)
        {
         //   GetComponentInChildren<NPCMovement>().relevantTransform = PlayerTarget;
        //    GetComponent<NPCMovement>().SetADestination(playerDestination);
@@ -103,7 +103,7 @@ public class NPCEyes : MonoBehaviour
 
          if (!withinArc)
          {
-             seeing = Seeing.Nothing;
+             SeeingMl = Seeing.Nothing;
              return false;
          }
 
@@ -121,7 +121,7 @@ public class NPCEyes : MonoBehaviour
          {
              if (hit.collider.gameObject.CompareTag("Player"))
              {
-                 seeing = Seeing.Player;
+                 SeeingMl = Seeing.Player;
                  playerDestination = hit.transform.position;
                  GetComponent<AI>().player = hit.transform;
              }
@@ -139,12 +139,12 @@ public class NPCEyes : MonoBehaviour
      
      
 #if UNITY_EDITOR
-[CustomEditor(typeof(NPCEyes_ML))]
+[CustomEditor(typeof(NPCEyes))]
 public class EnemyVisibilityEditor : Editor 
 {
     private void OnSceneGUI()
     {
-        var visibility = target as NPCEyes_ML;
+        var visibility = target as NPCEyes;
         
         Handles.color = new Color(1, 1, 1, 0.1f);
 

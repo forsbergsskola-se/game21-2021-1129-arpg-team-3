@@ -24,10 +24,10 @@ public class AI : MonoBehaviour
     
     void Update()
     {
-        if (eyes.seeing == Seeing.Player)
+        if (eyes.SeeingMl == Seeing.Player)
         {
             currentState.Player = player;
-            currentState.seeing = Seeing.Player;
+            currentState.SeeingMl = Seeing.Player;
             if (currentState is Attack attack)
             {
                 attack.attackScript = attackScript;
@@ -35,7 +35,7 @@ public class AI : MonoBehaviour
         }
         else
         {
-            currentState.seeing = eyes.seeing;
+            currentState.SeeingMl = eyes.SeeingMl;
         }
         currentState = currentState.Process();
     }

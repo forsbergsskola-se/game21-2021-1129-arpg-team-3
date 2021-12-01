@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-public enum Seeing
+public enum Seeing_ML
 {
     Nothing,
     Player,
@@ -16,7 +16,7 @@ public enum Seeing
 
 public class NPCEyes_ML : MonoBehaviour
 {
-    public Seeing seeing { get; private set; }
+    public Seeing_ML SeeingMl { get; private set; }
     public Transform PlayerTarget = null;
     
     public float maxDistance = 10f;
@@ -52,7 +52,7 @@ public class NPCEyes_ML : MonoBehaviour
     { 
        CheckVisibility();
        
-       if (seeing == Seeing.Player)
+       if (SeeingMl == Seeing_ML.Player)
        {
         //   GetComponentInChildren<NPCMovement>().relevantTransform = PlayerTarget;
        //    GetComponent<NPCMovement>().SetADestination(playerDestination);
@@ -120,7 +120,7 @@ public class NPCEyes_ML : MonoBehaviour
          {
              if (hit.collider.gameObject.CompareTag("Player"))
              {
-                 seeing = Seeing.Player;
+                 SeeingMl = Seeing_ML.Player;
                  playerDestination = hit.transform.position;
                  GetComponent<AI_ML>().player = hit.transform;
              }
