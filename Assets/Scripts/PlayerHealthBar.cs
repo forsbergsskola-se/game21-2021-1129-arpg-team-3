@@ -9,12 +9,11 @@ public class PlayerHealthBar : MonoBehaviour {
 	public Gradient gradient;
 	
 	public Image _fill;
-	public PlayerStats _playerStats;
+	private PlayerStats _playerStats;
 	
 	private void Awake()
-	{
-		// _playerStats = GetComponentInParent<PlayerStatsLoader>().playerStats;
-		// _playerStats.InitializePlayerStats();
+	{ 
+		_playerStats = GetComponentInParent<PlayerStatsLoader>().playerStats;
 	}
 
 	private void LateUpdate() {
