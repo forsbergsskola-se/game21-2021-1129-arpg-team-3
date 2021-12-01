@@ -6,17 +6,13 @@ using UnityEngine;
 public class WeaponScript : MonoBehaviour
 {
     public int BaseDamage = 12;
+    public float StrikeDelay = 1.6f;
     private bool CanDamage = true;
-    void Start()
-    {
-        
-    }
+    public string targetTag = "Player";
 
-    
-    
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && CanDamage)
+        if (other.CompareTag(targetTag) && CanDamage)
         {
             Vector3 emitterPoint = other.GetComponentInChildren<DamagePos>().transform.position;
             GameObject.FindWithTag("Damage").GetComponent<DamageEmitterUI>().DoDamage(BaseDamage, emitterPoint);
@@ -27,7 +23,7 @@ public class WeaponScript : MonoBehaviour
 
     private IEnumerator DelayStrike()
     {
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(StrikeDelay);
         CanDamage = true;
 
     }
