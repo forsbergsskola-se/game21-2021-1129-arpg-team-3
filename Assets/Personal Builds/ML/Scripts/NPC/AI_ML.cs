@@ -25,10 +25,10 @@ public class AI_ML : MonoBehaviour
     
     void Update()
     {
-        if (eyes.seeing == Seeing.Player)
+        if (eyes.SeeingMl == Seeing_ML.Player)
         {
             currentState.Player = player;
-            currentState.seeing = Seeing.Player;
+            currentState.SeeingMl = Seeing_ML.Player;
            /**
             if (currentState is Attack attack)
             {
