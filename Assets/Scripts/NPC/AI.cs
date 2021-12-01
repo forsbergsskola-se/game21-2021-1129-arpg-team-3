@@ -12,6 +12,7 @@ public class AI : MonoBehaviour
     private State currentState;
     private EnemyAttackScript attackScript;
     private NPCEyes eyes;
+    private bool SetupAttack;
     
     void Start()
     {
@@ -24,21 +25,24 @@ public class AI : MonoBehaviour
     
     void Update()
     {
-        if (eyes.Seeing == Seeing.Player)
+        if (currentState is Attack attack)
         {
-            currentState.Player = player;
-            currentState.Seeing = Seeing.Player;
-            if (currentState is Attack attack)
+            if (SetupAttack)
             {
+                SetupAttack = false;
                 attack.attackScript = attackScript;
             }
         }
-        else
+        
+        if (eyes.Seeing == Seeing.Nothing)
         {
-            currentState.Seeing = eyes.Seeing;
+            SetupAttack = true;
+        }
+        
+        if (currentState is Pursue pursue)
+        {
+            SetupAttack = true;
         }
         currentState = currentState.Process();
-        if(currentState == null)
-            Debug.LogError("CurrentState.Process() returned null???");
     }
 }

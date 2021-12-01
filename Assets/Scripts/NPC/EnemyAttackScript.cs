@@ -7,26 +7,26 @@ public class EnemyAttackScript : MonoBehaviour
     private bool CanAttack = true;
     public float AttackDelay = 2;
 
-    public void TryAttack(Animator Anim)
+    public void TryAttack(Animator anim)
     {
         if (CanAttack)
         {
-            AttackOnce(Anim);
+            AttackOnce(anim);
         }
     }
     
-    public void AttackOnce(Animator Anim)
+    public void AttackOnce(Animator anim)
     {
         switch (Random.Range(0, 2))
         {
             case 0:
-                Anim.SetTrigger("AttackOne");
+                anim.SetTrigger("AttackOne");
                 break;
             case 1:
-                Anim.SetTrigger("AttackTwo");
+                anim.SetTrigger("AttackTwo");
                 break;
             case 2:
-                Anim.SetTrigger("AttackThree");
+                anim.SetTrigger("AttackThree");
                 break;
         }
 
