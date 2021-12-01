@@ -11,12 +11,7 @@ public class PlayerController : MonoBehaviour
 	private NavMeshAgent _agent;
 	private Transform _target;
 	public CursorManagement cursorManagement;
-	private PlayerStats _playerStats;
-
-	private void Awake() {
-		_playerStats = GetComponent<PlayerStatsLoader>().playerStats;
-		_playerStats.InitializePlayerStats();
-	}
+	
 	private void Start() {
 		_agent = GetComponent<NavMeshAgent>();
 	}
@@ -30,12 +25,7 @@ public class PlayerController : MonoBehaviour
 		ChangeCursor();
 		AttackEnemy();
 	}
-
-	private void OnCollisionEnter(Collision other) {
-		if (other.gameObject.CompareTag("SSword")) {
-			_playerStats.TakeDamage(10, gameObject);
-		}
-	}
+	
 	Ray GetCursorPosition() {
 		var ray = Camera.main.ScreenPointToRay(Input.mousePosition); //Fires ray
 		return ray;
