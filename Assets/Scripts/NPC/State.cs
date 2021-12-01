@@ -26,7 +26,7 @@ public  class State
    protected State NextState;
    protected NavMeshAgent Agent;
    protected WayPointManager WpManager;
-   public Seeing SeeingMl;
+   public Seeing Seeing;
 
    public State(GameObject npc, NavMeshAgent agent, Animator anim, Transform player)
    {
@@ -84,7 +84,7 @@ public class Idle : State
    }
    public override void Update()
    {
-      if (SeeingMl == Seeing.Player)
+      if (Seeing == Seeing.Player)
       {
          NextState = new Pursue(Npc, Agent, Anim, Player);
          Stage = EVENT.Exit;
@@ -138,7 +138,7 @@ public class Patrol : State
          }
       }
       
-      if (SeeingMl == Seeing.Player)
+      if (Seeing == Seeing.Player)
       {
          NextState = new Pursue(Npc, Agent, Anim, Player);
          Stage = EVENT.Exit;
@@ -195,7 +195,7 @@ public class Wander : State
            Stage = EVENT.Exit;
         }
         
-        if (SeeingMl == Seeing.Player)
+        if (Seeing == Seeing.Player)
         {
            NextState = new Pursue(Npc, Agent, Anim, Player);
            Stage = EVENT.Exit;

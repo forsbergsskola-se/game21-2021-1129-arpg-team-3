@@ -24,10 +24,10 @@ public class AI : MonoBehaviour
     
     void Update()
     {
-        if (eyes.SeeingMl == Seeing.Player)
+        if (eyes.Seeing == Seeing.Player)
         {
             currentState.Player = player;
-            currentState.SeeingMl = Seeing.Player;
+            currentState.Seeing = Seeing.Player;
             if (currentState is Attack attack)
             {
                 attack.attackScript = attackScript;
@@ -35,8 +35,10 @@ public class AI : MonoBehaviour
         }
         else
         {
-            currentState.SeeingMl = eyes.SeeingMl;
+            currentState.Seeing = eyes.Seeing;
         }
         currentState = currentState.Process();
+        if(currentState == null)
+            Debug.LogError("CurrentState.Process() returned null???");
     }
 }

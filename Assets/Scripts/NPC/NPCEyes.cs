@@ -16,7 +16,7 @@ public enum Seeing
 
 public class NPCEyes : MonoBehaviour
 {
-    public Seeing SeeingMl { get; private set; }
+    public Seeing Seeing { get; private set; }
     public Transform PlayerTarget = null;
     
     public float maxDistance = 10f;
@@ -52,7 +52,7 @@ public class NPCEyes : MonoBehaviour
     { 
        CheckVisibility();
        
-       if (SeeingMl == Seeing.Player)
+       if (Seeing == Seeing.Player)
        {
         //   GetComponentInChildren<NPCMovement>().relevantTransform = PlayerTarget;
        //    GetComponent<NPCMovement>().SetADestination(playerDestination);
@@ -103,7 +103,7 @@ public class NPCEyes : MonoBehaviour
 
          if (!withinArc)
          {
-             SeeingMl = Seeing.Nothing;
+             Seeing = Seeing.Nothing;
              return false;
          }
 
@@ -121,7 +121,7 @@ public class NPCEyes : MonoBehaviour
          {
              if (hit.collider.gameObject.CompareTag("Player"))
              {
-                 SeeingMl = Seeing.Player;
+                 Seeing = Seeing.Player;
                  playerDestination = hit.transform.position;
                  GetComponent<AI>().player = hit.transform;
              }

@@ -280,6 +280,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaypointManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7395676180997729498, guid: 91946df14a4b2c849ab499e0504c03d5, type: 3}
+      propertyPath: m_TagString
+      value: wpManager
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -1744232910176934497, guid: 91946df14a4b2c849ab499e0504c03d5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 91946df14a4b2c849ab499e0504c03d5, type: 3}
@@ -1177,7 +1181,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.25
+  m_fontSize: 42.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
