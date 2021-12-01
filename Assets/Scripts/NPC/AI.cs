@@ -12,7 +12,7 @@ public class AI : MonoBehaviour
     private State currentState;
     private EnemyAttackScript attackScript;
     private NPCEyes eyes;
-    private bool SetupAttack;
+    private bool SetupAttack = true;
     
     void Start()
     {
@@ -25,6 +25,14 @@ public class AI : MonoBehaviour
     
     void Update()
     {
+        
+        if (eyes.Seeing == Seeing.Player)
+        {
+            currentState.Player = player;
+            currentState.Seeing = Seeing.Player;
+            SetupAttack = true;
+        }
+        
         if (currentState is Attack attack)
         {
             if (SetupAttack)
