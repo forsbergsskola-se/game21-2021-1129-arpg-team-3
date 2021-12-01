@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class WeaponScript : MonoBehaviour
 {
-    public int BaseDamage = 12;
-    public float StrikeDelay = 1.6f;
+    [SerializeField] int BaseDamage = 12;
+    [SerializeField] float StrikeDelay = 1.6f;
+    [SerializeField] string targetTag = "Player";
     private bool CanDamage = true;
-    public string targetTag = "Player";
 
     private void OnTriggerEnter(Collider other)
     {

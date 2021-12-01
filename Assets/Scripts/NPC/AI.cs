@@ -33,13 +33,10 @@ public class AI : MonoBehaviour
             SetupAttack = true;
         }
         
-        if (currentState is Attack attack)
+        if (currentState is Attack attack && SetupAttack)
         {
-            if (SetupAttack)
-            {
-                SetupAttack = false;
-                attack.attackScript = attackScript;
-            }
+            SetupAttack = false;
+            attack.attackScript = attackScript;
         }
         
         if (eyes.Seeing == Seeing.Nothing)
