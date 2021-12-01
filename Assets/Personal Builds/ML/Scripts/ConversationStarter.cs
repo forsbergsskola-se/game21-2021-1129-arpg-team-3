@@ -51,6 +51,7 @@ public class ConversationStarter : MonoBehaviour
         }
         else
         {
+            continueButton.onClick.RemoveListener(ClickContinue);
             Destroy(currentDialogue.gameObject);
             sentenceCount = 0;
             boxIsUp = false;
