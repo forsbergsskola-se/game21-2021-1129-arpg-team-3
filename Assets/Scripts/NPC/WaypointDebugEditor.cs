@@ -6,7 +6,7 @@ using UnityEditor;
 //[CanEditMultipleObjects]
 public class WaypointDebugEditor : Editor 
 {
-    SerializedProperty lookAtPoint;
+   // SerializedProperty lookAtPoint;
     
     void OnEnable()
     {
