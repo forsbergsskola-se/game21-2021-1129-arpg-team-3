@@ -13,6 +13,7 @@ TagManager:
   - wpManager
   - Selectable
   - Health
+  - SSword
   layers:
   - Default
   - TransparentFX
