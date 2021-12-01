@@ -39,12 +39,12 @@ public class AI : MonoBehaviour
             attack.attackScript = attackScript;
         }
         
-        if (eyes.Seeing == Seeing.Nothing)
+        if (eyes.Seeing == Seeing.Nothing && !SetupAttack)
         {
             SetupAttack = true;
         }
         
-        if (currentState is Pursue pursue)
+        if (currentState is Pursue pursue && !SetupAttack)
         {
             SetupAttack = true;
         }
