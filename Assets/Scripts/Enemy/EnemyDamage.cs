@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class EnemyStats : MonoBehaviour {
+public class EnemyDamage : MonoBehaviour {
 	[SerializeField] protected float health = 100;
 	[SerializeField] protected float maxHealth = 100;
 	[SerializeField] protected float armour = 15;

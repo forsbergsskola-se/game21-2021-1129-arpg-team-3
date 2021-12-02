@@ -13,8 +13,10 @@ public class PlayerStats : ScriptableObject
     [SerializeField] private float mana;
     [SerializeField] private float minHealth;
     [SerializeField] private float maxHealth;
-    
-    
+    [SerializeField] private float weaponDamage;
+    [SerializeField] private float meeleeRange;
+
+
     public float Health {
         get => health;
         set {
@@ -36,6 +38,16 @@ public class PlayerStats : ScriptableObject
     public float Score {
         get => score;
         set => score = value;
+    }
+    
+    public float WeaponDamage {
+        get => weaponDamage;
+        set => weaponDamage = value;
+    }
+    
+    public float MeleeRange {
+        get => meeleeRange;
+        set => meeleeRange = value;
     }
 
     public void TakeDamage(float damage, GameObject player) {
