@@ -418,11 +418,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -439937292
-      Data2: 1272017079
-      Data3: 1425239204
-      Data4: 279782228
-    Path: event:/Player/Clic
+      Data1: -1879469829
+      Data2: 1163177662
+      Data3: 2134484388
+      Data4: 1567793919
+    Path: event:/Tonalt/Tonetest
   Event: 
   PlayEvent: 1
   StopEvent: 0
