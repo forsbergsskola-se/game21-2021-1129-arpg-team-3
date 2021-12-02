@@ -1574,6 +1574,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279720103}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1304424905 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3968441568344008032, guid: 7fcc7a22e2a3bc24188aa8fe8df057ea, type: 3}
+  m_PrefabInstance: {fileID: 1682097226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1304424909
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304424905}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &1304424910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304424905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dcc71438afffa84096d44363365c7bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
+  armour: 15
 --- !u!4 &1379664583 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4577893592950267697, guid: 1c947578e96b25c43b76b1a553ddee58, type: 3}
@@ -2075,9 +2111,33 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1834260063}
+    - target: {fileID: 3968441568344008032, guid: 7fcc7a22e2a3bc24188aa8fe8df057ea, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 3968441568344008033, guid: 7fcc7a22e2a3bc24188aa8fe8df057ea, type: 3}
       propertyPath: m_TagString
       value: SSword
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968441568344008034, guid: 7fcc7a22e2a3bc24188aa8fe8df057ea, type: 3}
+      propertyPath: m_Height
+      value: 1.70362
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968441568344008034, guid: 7fcc7a22e2a3bc24188aa8fe8df057ea, type: 3}
+      propertyPath: m_Radius
+      value: 0.47228855
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968441568344008034, guid: 7fcc7a22e2a3bc24188aa8fe8df057ea, type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968441568344008034, guid: 7fcc7a22e2a3bc24188aa8fe8df057ea, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968441568344008034, guid: 7fcc7a22e2a3bc24188aa8fe8df057ea, type: 3}
+      propertyPath: m_Center.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3968441568344008035, guid: 7fcc7a22e2a3bc24188aa8fe8df057ea, type: 3}
       propertyPath: m_IsTrigger
@@ -2158,6 +2218,10 @@ PrefabInstance:
     - target: {fileID: 8172442304542317006, guid: 7fcc7a22e2a3bc24188aa8fe8df057ea, type: 3}
       propertyPath: m_Name
       value: LowPolySkeleton
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172442304542317006, guid: 7fcc7a22e2a3bc24188aa8fe8df057ea, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fcc7a22e2a3bc24188aa8fe8df057ea, type: 3}

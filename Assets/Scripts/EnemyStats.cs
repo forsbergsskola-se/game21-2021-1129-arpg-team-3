@@ -14,7 +14,7 @@ public class EnemyStats : MonoBehaviour {
 	}
 	private void LateUpdate() {
 		if (health <= 0) {
-			gameObject.SetActive(false);
+			// gameObject.SetActive(false);
 		}
 	}
 	public void TakeDamage(float damage) {
