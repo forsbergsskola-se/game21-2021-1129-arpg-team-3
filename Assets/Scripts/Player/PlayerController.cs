@@ -77,31 +77,21 @@ public class PlayerController : MonoBehaviour
 		if (_target is not null) {
 			//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
 			if (Vector3.Distance(this.transform.position, _target.position) <= _playerStats.MeleeRange &&
-			    (_target.CompareTag("Enemy") || _target.CompareTag("Destroyable"))) {
+			    _target.CompareTag("Enemy")) {
 				_enemyStats1.TakeDamage(_playerStats.WeaponDamage, _target.gameObject);
 				Debug.Log("Play AttackSound");
 				_target = null; //Forces player to click again to attack
+			}
+			else if (Vector3.Distance(this.transform.position, _target.position) <= _playerStats.MeleeRange && _target.CompareTag("Destroyable"))
+			{
+				destroyObject.Kill();
 			}
 		}
 		// else {
 		// 	Debug.LogWarning("TARGET IS NULL!");
 		// }
 	}
-
-	private void DestroyObject()
-	{
-		if (_target is not null)
-		{
-			//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
-			if (Vector3.Distance(this.transform.position, _target.position) <= _playerStats.MeleeRange && _target.CompareTag("Destroyable"))
-			{
-				destroyObject.Kill();
-				
-				Debug.Log("Play AttackSound");
-				
-			}
-		}
-	}
+	
 
 
 	private void ChangeCursor() {
