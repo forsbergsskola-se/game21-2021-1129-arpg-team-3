@@ -16,18 +16,11 @@ public class ConversationStarter : MonoBehaviour
     private int sentenceCount = 0;
     private DialogueSystem dialogueSystem;
     private List<TextMeshProUGUI> texts;
-    
-    public void TriggerDialogue()
-    {
-         GameObject.FindWithTag("Dialogue").GetComponent<DialogueSystem>().StartDialogue(dialogue);
-    }
-    
+
     private void OnMouseDown()
     {
         if (!boxIsUp)
         {
-            TriggerDialogue();
-            
             boxIsUp = true;
             currentDialogue = Instantiate(dialoguePopup);
             texts = currentDialogue.GetComponentsInChildren<TextMeshProUGUI>().ToList();
@@ -42,11 +35,14 @@ public class ConversationStarter : MonoBehaviour
 
     private void ClickContinue()
     {
-        Debug.Log(sentenceCount);
-
         if (dialogue.sentences.Length > sentenceCount)
         {
             texts[0].text = dialogue.sentences[sentenceCount];
+            
+            if (sentenceCount == dialogue.sentences.Length - 1)
+            {
+                texts[2].text = "Leave";
+            }
             sentenceCount++;
         }
         else
@@ -56,7 +52,5 @@ public class ConversationStarter : MonoBehaviour
             sentenceCount = 0;
             boxIsUp = false;
         }
-
-        //   GameObject.FindWithTag("Dialogue").GetComponent<DialogueSystem>().DisplayNextSentence();
     }
 }
