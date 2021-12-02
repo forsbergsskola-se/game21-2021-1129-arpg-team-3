@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class DialogueNodeData : MonoBehaviour
+[Serializable]
+public class DialogueNodeData
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   public string NodeGUID;
+   public string DialogueText;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   public Vector2 position;
 }
