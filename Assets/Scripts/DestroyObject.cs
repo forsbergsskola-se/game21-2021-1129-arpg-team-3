@@ -6,7 +6,7 @@ public class DestroyObject : MonoBehaviour
 {
     public void Kill()
     {
-       // gameObject.SetActive(false);
-       Destroy(gameObject);
+       gameObject.SetActive(false);
+       // Destroy(gameObject);
     }
 }
