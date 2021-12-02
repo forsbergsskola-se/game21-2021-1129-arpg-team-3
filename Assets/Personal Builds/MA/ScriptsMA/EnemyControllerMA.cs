@@ -13,12 +13,7 @@ public class EnemyControllerMA : MonoBehaviour
     public NavMeshAgent _agent;
 
 
-    private void Start()
-    {
-        
-    }
-
-
+    
     private void Update()
     {
         Distance = Vector3.Distance(Player.transform.position, this.transform.position);
