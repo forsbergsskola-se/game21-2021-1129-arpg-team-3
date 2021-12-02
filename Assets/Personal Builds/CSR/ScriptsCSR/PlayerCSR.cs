@@ -34,7 +34,6 @@ public class PlayerCSR : MonoBehaviour
 
     private void Move(Vector3 point)
     {
-        Vector3 pint = default;
-        _agent.SetDestination(pint);
+        _agent.SetDestination(point);
     }
 }
