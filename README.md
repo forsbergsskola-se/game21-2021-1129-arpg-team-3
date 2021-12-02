@@ -20,7 +20,7 @@ Game Programmers
 
 Game Artists
 - Hanna Kjellman (Lead Artist)
-- Rasmus Martenson
+- Rasmus Mårtenson
 - Jonathan Tesfamichale
 
 Sound Designers
