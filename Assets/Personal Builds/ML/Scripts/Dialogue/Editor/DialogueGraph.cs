@@ -83,10 +83,16 @@ public class DialogueGraph : EditorWindow
     {
        ConstructGraphView();
        GenerateToolbar();
+       GenerateMiniMap();
     }
 
     private void OnDisable()
     {
         rootVisualElement.Remove(graphView);
+    }
+
+    private void GenerateMiniMap()
+    {
+      //  var miniMap = new MiniMap();
     }
 }

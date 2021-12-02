@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c801af6d4af804041aa881ef66ce4dcb, type: 3}
+  m_Name: Bleerk
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: 997d6f7e-e2a1-437a-936e-fd08101cf02c
+    PortName: NEXT
+    TargetNodeGUID: 54b4c088-b4da-4819-8931-4dc3ef8813f7
+  - BaseNodeGUID: 54b4c088-b4da-4819-8931-4dc3ef8813f7
+    PortName: Choice 0
+    TargetNodeGUID: c29f6709-06a7-4db8-87c1-0bab2e6ed010
+  DialogueNodeData:
+  - NodeGUID: 54b4c088-b4da-4819-8931-4dc3ef8813f7
+    DialogueText: Dialogue Node
+    position: {x: 331.2, y: 183.2}
+  - NodeGUID: c29f6709-06a7-4db8-87c1-0bab2e6ed010
+    DialogueText: Dialogue Node
+    position: {x: 655.2, y: 235.99998}
