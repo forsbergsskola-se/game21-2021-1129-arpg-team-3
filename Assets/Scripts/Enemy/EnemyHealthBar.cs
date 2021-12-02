@@ -15,6 +15,9 @@ public class EnemyHealthBar : MonoBehaviour {
 	{
 		enemyStats = GetComponentInParent<EnemyStats1Loader>().enemyStats1;
 	}
+	private void Update() {
+		transform.rotation = Camera.main.transform.rotation;
+	}
 
 	private void LateUpdate() {
 		SetMaxHealth();
