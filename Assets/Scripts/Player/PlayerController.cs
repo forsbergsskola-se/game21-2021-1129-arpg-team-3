@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 	public CursorManagement cursorManagement;
 	private PlayerStats _playerStats;
 	private EnemyStats1 _enemyStats1;
+	public DestroyObject destroyObject;
 
 	
 	private void Start() {
@@ -86,7 +87,23 @@ public class PlayerController : MonoBehaviour
 		// 	Debug.LogWarning("TARGET IS NULL!");
 		// }
 	}
-	
+
+	private void DestroyObject()
+	{
+		if (_target is not null)
+		{
+			//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
+			if (Vector3.Distance(this.transform.position, _target.position) <= _playerStats.MeleeRange && _target.CompareTag("Destroyable"))
+			{
+				destroyObject.Kill();
+				
+				Debug.Log("Play AttackSound");
+				
+			}
+		}
+	}
+
+
 	private void ChangeCursor() {
 		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) {
 			if (hitInfo.collider.CompareTag("Ground") || hitInfo.collider.CompareTag("Player")) {
@@ -104,3 +121,4 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 }
+	
