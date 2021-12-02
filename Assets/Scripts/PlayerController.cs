@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
 	
 	private void ChangeCursor() {
 		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) {
-			if (hitInfo.collider.CompareTag("Ground")) {
+			if (hitInfo.collider.CompareTag("Ground") || hitInfo.collider.CompareTag("Player")) {
 				cursorManagement.CursorChange(1);
 			}
 			else if (hitInfo.collider.CompareTag("Enemy") || hitInfo.collider.CompareTag("Destroyable")) {
