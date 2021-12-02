@@ -15,7 +15,10 @@ GameObject:
   - component: {fileID: 5588858277689648218}
   - component: {fileID: 2058520241523347843}
   - component: {fileID: 5757929034113006518}
-  m_Layer: 2
+  - component: {fileID: 1834260070}
+  - component: {fileID: 1834260077}
+  - component: {fileID: 1834260084}
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -136,8 +139,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 5588858277689648231}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.58
-  m_Speed: 6
+  m_Radius: 0.7
+  m_Speed: 12
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -161,9 +164,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630a82925f6912c40b9e20ec161ac1f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMeleeRange: 0
-  playerDamage: 0
   cursorManagement: {fileID: 0}
+  destroyObject: {fileID: 0}
+--- !u!114 &1834260070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588858277689648231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb105c7403244ad46b7a896bfe53eadd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 11400000, guid: 0fbd9e63108f6d6408d1da897568a19e, type: 2}
+--- !u!114 &1834260077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588858277689648231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beee0c3bc67580a498c5400e8473a367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SSwordDamage: 15
+--- !u!114 &1834260084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588858277689648231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d319acecd0f1e4b85907ffbe864090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyStats1: {fileID: 11400000, guid: a4f5e192899b99b4d946ff641e050d48, type: 2}
 --- !u!1 &5588858278119813874
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,7 +216,7 @@ GameObject:
   - component: {fileID: 5588858278119813877}
   - component: {fileID: 5588858278119813865}
   - component: {fileID: 5588858278119813878}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Player_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +299,7 @@ GameObject:
   - component: {fileID: 5588858278730126612}
   - component: {fileID: 5588858278730126601}
   - component: {fileID: 5588858278730126614}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Player_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
