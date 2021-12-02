@@ -96,8 +96,6 @@ public class PlayerController : MonoBehaviour
 		// }
 	}
 	
-
-
 	private void ChangeCursor() {
 		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) {
 			if (hitInfo.collider.CompareTag("Ground") || hitInfo.collider.CompareTag("Player")) {
