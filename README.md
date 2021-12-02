@@ -13,7 +13,7 @@ Game Designers
 Game Programmers
 - Olle (Project Co-manager, Game Design Assistant)
 - Ben - (Lead Programmer)
-- Mohammed
+- Muhammed
 - Yasin
 - Mattias
 - Cecilia
