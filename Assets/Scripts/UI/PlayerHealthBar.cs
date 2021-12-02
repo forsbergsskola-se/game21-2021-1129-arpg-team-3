@@ -22,7 +22,7 @@ public class PlayerHealthBar : MonoBehaviour {
 	}
 
 	private void SetMaxHealth() {
-		slider.maxValue = 100;
+		slider.maxValue = _playerStats.MaxHealth;
 		slider.value = _playerStats.Health;
 		_fill.color = gradient.Evaluate(1f);
 	}

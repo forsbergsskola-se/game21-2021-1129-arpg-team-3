@@ -24,6 +24,10 @@ public class PlayerStats : ScriptableObject
             health = Mathf.Clamp(health, minHealth, maxHealth);
         }
     }
+    
+    public float MaxHealth {
+        get => maxHealth;
+    }
 
     public float Gold {
         get => gold;
