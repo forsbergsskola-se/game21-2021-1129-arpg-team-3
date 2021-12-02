@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 	private Transform _target;
 	public CursorManagement cursorManagement;
 	private PlayerStats _playerStats;
+	private EnemyStats1 _enemyStats1;
 
 	
 	private void Start() {
@@ -21,6 +22,8 @@ public class PlayerController : MonoBehaviour
 	private void Awake() {
 		_playerStats = GetComponent<PlayerStatsLoader>().playerStats;
 		_playerStats.InitializePlayerStats();
+		_enemyStats1 = GetComponent<EnemyStats1Loader>().enemyStats1;
+		_enemyStats1.InitializeEnemyStats();
 	}
 
 	void Update() {
@@ -74,7 +77,7 @@ public class PlayerController : MonoBehaviour
 			//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
 			if (Vector3.Distance(this.transform.position, _target.position) <= _playerStats.MeleeRange &&
 			    (_target.CompareTag("Enemy") || _target.CompareTag("Destroyable"))) {
-				_target.GetComponent<EnemyDamage>().TakeDamage(_playerStats.WeaponDamage);
+				_enemyStats1.TakeDamage(_playerStats.WeaponDamage, _target.gameObject);
 				Debug.Log("Play AttackSound");
 				_target = null; //Forces player to click again to attack
 			}
