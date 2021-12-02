@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAttackScript : MonoBehaviour
 {
     private bool CanAttack = true;
-    public float AttackDelay = 2;
+    public float AttackDelay = 0;
 
     public void TryAttack(Animator anim)
     {

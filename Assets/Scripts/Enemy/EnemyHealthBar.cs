@@ -5,10 +5,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class EnemyHealthBar : MonoBehaviour {
-	public Slider slider;
-	public Gradient gradient;
+	[SerializeField] Slider slider;
+	[SerializeField] Gradient gradient;
 	
-	public Image fill;
+	[SerializeField] Image fill;
 	private EnemyStats1 enemyStats;
 	
 	private void Awake()

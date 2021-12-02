@@ -47,8 +47,8 @@ public class EnemyStats1 : ScriptableObject
 
 	public void TakeDamage(float damage, GameObject enemy) {
 		float damageReceived = damage - armour;
-		health -= damageReceived;
-		health = Mathf.Clamp(health, minHealth, maxHealth);		
+		Health -= damageReceived;
+		Health = Mathf.Clamp(health, minHealth, maxHealth);		
 		if (Health <= 0) {
 			KillEnemy(enemy);
 		}
