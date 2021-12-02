@@ -59,6 +59,7 @@ public class EnemyStats1 : ScriptableObject
 	}
 
 	public void KillEnemy(GameObject enemy) {
+		enemy.gameObject.SetActive(false);
 		Debug.Log("Enemy is Dead");
 	}
 }

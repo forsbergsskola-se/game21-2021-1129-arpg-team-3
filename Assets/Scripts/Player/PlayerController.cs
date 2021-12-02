@@ -68,6 +68,7 @@ public class PlayerController : MonoBehaviour
 	
 	void MoveAttack() {
 		if (Vector3.Distance(this.transform.position, _target.position) >= _playerStats.MeleeRange) { //only when player is not in melee range of enemy
+			_agent.transform.rotation = this.transform.rotation;
 			_agent.destination = _target.position;
 			_agent.stoppingDistance = _playerStats.MeleeRange; //stops player before melee range
 			Debug.Log("Play MoveSound");
