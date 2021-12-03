@@ -18,17 +18,17 @@ public class EnemyStats1Loader : MonoBehaviour
         ToggleHealthBar();
     }
     private void ToggleHealthBar() {
-        if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) {
-            if (hitInfo.collider.CompareTag("Enemy") || ai.showHealthBar) {
-                enemyHealthBar.gameObject.SetActive(true);
-            }
-            else {
-                enemyHealthBar.gameObject.SetActive(false);
-            }
+        Physics.Raycast(GetCursorPosition(), out var hitInfo);
+        if (hitInfo.collider.CompareTag("Enemy") || ai.showHealthBar) {
+            enemyHealthBar.gameObject.SetActive(true);
         }
-    }
-    Ray GetCursorPosition() {
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition); //Fires ray
-        return ray;
+        else {
+            enemyHealthBar.gameObject.SetActive(false);
+        }
+
+        Ray GetCursorPosition() {
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition); //Fires ray
+            return ray;
+        }
     }
 }
