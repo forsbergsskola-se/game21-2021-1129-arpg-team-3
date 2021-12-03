@@ -937,7 +937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerTarget: {fileID: 5588858277689648230, guid: d635506b3d185b849be5671a1e49df85, type: 3}
-  maxDistance: 5
+  maxDistance: 4
   angle: 250
   visualize: 1
 --- !u!114 &6652567088470929289
@@ -996,7 +996,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats1: {fileID: 11400000, guid: a4f5e192899b99b4d946ff641e050d48, type: 2}
-  enemyHealthBar: {fileID: 1382615361}
 --- !u!1 &6652567088485760994
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class AI : MonoBehaviour
     private EnemyAttackScript attackScript;
     private NPCEyes eyes;
     private bool SetupAttack = true;
-    private EnemyHealthBar enemyHealthBar;
+    public bool showHealthBar;
 
     void Start()
     {
@@ -22,40 +22,38 @@ public class AI : MonoBehaviour
         eyes = GetComponent<NPCEyes>();
         attackScript = GetComponent<EnemyAttackScript>();
         currentState = new Idle(gameObject, Agent, anim, player);
-        enemyHealthBar = GetComponentInChildren<EnemyHealthBar>();
-        enemyHealthBar.gameObject.SetActive(false);
     }
     
     void Update()
     {
-        
+        showHealthBar = false;
+
         if (eyes.Seeing == Seeing.Player)
         {
             currentState.Player = player;
             currentState.Seeing = Seeing.Player;
             SetupAttack = true;
-            enemyHealthBar.gameObject.SetActive(true);
+            showHealthBar = true;
         }
         
         if (currentState is Attack attack && SetupAttack)
         {
             SetupAttack = false;
             attack.attackScript = attackScript;
-            enemyHealthBar.gameObject.SetActive(true);
+            showHealthBar = true;
         }
         
         if (eyes.Seeing == Seeing.Nothing && !SetupAttack)
         {
             SetupAttack = true;
-            enemyHealthBar.gameObject.SetActive(false);
+            showHealthBar = false;
         }
         
         if (currentState is Pursue pursue && !SetupAttack)
         {
             SetupAttack = true;
-            enemyHealthBar.gameObject.SetActive(true);
+            showHealthBar = true;
         }
-
         currentState = currentState.Process();
     }
 }
