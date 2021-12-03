@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -11,6 +12,32 @@ public class DialogueGraph : EditorWindow
     private DialogueGraphView graphView;
 
     private string fileName = "New Narrative";
+
+    private void OnEnable()
+    {
+        ConstructGraphView();
+        GenerateToolbar();
+        GenerateBlackBoard();
+    }
+
+    
+    private void OnDisable()
+    {
+        rootVisualElement.Remove(graphView);
+    }
+
+    private void GenerateBlackBoard()
+    {
+        var blackBoard = new Blackboard(graphView);
+        blackBoard.Add(new BlackboardSection{title = "Exposed Properties"});
+        blackBoard.addItemRequested = blackBoard1 =>
+        {
+            graphView.AddPropertyToBlackBoard(new ExposedProperty());
+        };
+        blackBoard.SetPosition(new Rect(10,30, 200, 300));
+        graphView.Add(blackBoard);
+        graphView.blackBoard = blackBoard;
+    }
     
     [MenuItem("Graph/Dialogue Graph")]
     public static void OpenDialogueGraphWindow()
@@ -22,7 +49,7 @@ public class DialogueGraph : EditorWindow
 
     private void ConstructGraphView()
     {
-        graphView = new DialogueGraphView
+        graphView = new DialogueGraphView(this)
         {
             name = "Dialogue Graph"
         };
@@ -44,15 +71,6 @@ public class DialogueGraph : EditorWindow
         
         toolbar.Add(new Button(clickEvent: ()=> RequestDataOperation(true)){text ="Save Data"});
         toolbar.Add(new Button(clickEvent: ()=> RequestDataOperation(false)){text ="Load Data"});
-
-        var nodeCreateButton = new Button(clickEvent:() =>
-        {
-            graphView.CreateNode("Dialogue Node");
-        });
-
-        nodeCreateButton.text = "Create Node";
-        
-        toolbar.Add(nodeCreateButton);
         
         rootVisualElement.Add(toolbar);
     }
@@ -76,23 +94,10 @@ public class DialogueGraph : EditorWindow
             saveUtility.LoadGraph(fileName);
         }
     }
-    
-    
 
-    private void OnEnable()
-    {
-       ConstructGraphView();
-       GenerateToolbar();
-       GenerateMiniMap();
-    }
-
-    private void OnDisable()
-    {
-        rootVisualElement.Remove(graphView);
-    }
 
     private void GenerateMiniMap()
     {
-      //  var miniMap = new MiniMap();
+        //  var miniMap = new MiniMap();
     }
 }
