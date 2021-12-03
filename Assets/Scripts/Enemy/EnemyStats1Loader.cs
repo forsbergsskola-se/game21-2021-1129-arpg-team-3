@@ -12,7 +12,7 @@ public class EnemyStats1Loader : MonoBehaviour
     }
     private void ToggleHealthBar() {
         if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) {
-            if (hitInfo.collider.CompareTag("Enemy")) {
+            if (hitInfo.collider.CompareTag("Enemy") || enemyStats1.Health < 100) {
                 enemyHealthBar.gameObject.SetActive(true);
             }
             else {
