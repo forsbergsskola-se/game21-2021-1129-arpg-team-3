@@ -6,6 +6,5 @@ public class DialogueNodeData
 {
    public string NodeGUID;
    public string DialogueText;
-
-   public Vector2 position;
+   public Vector2 Position;
 }

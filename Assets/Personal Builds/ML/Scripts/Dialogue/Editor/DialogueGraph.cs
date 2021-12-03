@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+//using Subtegral.DialogueSystem.Editor;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
@@ -34,6 +36,20 @@ public class DialogueGraph : EditorWindow
         {
             graphView.AddPropertyToBlackBoard(new ExposedProperty());
         };
+        blackBoard.editTextRequested = (blackboard, element, newValue) =>
+        {
+            var oldPropertyName = ((BlackboardField) element).text;
+            if (graphView.ExposedProperties.Any(x => x.PropertyName == newValue))
+            {
+                EditorUtility.DisplayDialog("Error", "This property name already exists, chose another", "OK");
+                return;
+            }
+
+            var propertyIndex = graphView.ExposedProperties.FindIndex(x => x.PropertyName == oldPropertyName);
+            graphView.ExposedProperties[propertyIndex].PropertyName = newValue;
+            ((BlackboardField) element).text = newValue;
+        };
+        
         blackBoard.SetPosition(new Rect(10,30, 200, 300));
         graphView.Add(blackBoard);
         graphView.blackBoard = blackBoard;
@@ -91,7 +107,7 @@ public class DialogueGraph : EditorWindow
         }
         else
         {
-            saveUtility.LoadGraph(fileName);
+            saveUtility.LoadNarrative(fileName);
         }
     }
 

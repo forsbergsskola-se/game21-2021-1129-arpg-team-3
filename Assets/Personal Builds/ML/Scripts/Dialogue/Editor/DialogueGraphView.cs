@@ -9,7 +9,8 @@ using UnityEngine.UIElements;
 
 public class DialogueGraphView : GraphView
 {
-    public readonly Vector2 nodeScale = new Vector2(200, 150);
+    public readonly Vector2 DefaultCommentBlockSize = new Vector2(300, 200);
+    public readonly Vector2 DefaultNodeSize = new Vector2(200, 150);
     private NodeSearchWindow searchWindow;
 
     public Blackboard blackBoard;
@@ -119,7 +120,27 @@ public class DialogueGraphView : GraphView
         return node;
     }
 
+    public void ClearBlackBoardAndExposedProperties()
+    {
+        ExposedProperties.Clear();
+        blackBoard.Clear();
+    }
+    
+    public Group CreateCommentBlock(Rect rect, CommentBlockData commentBlockData = null)
+    {
+        if(commentBlockData==null)
+            commentBlockData = new CommentBlockData();
+        var group = new Group
+        {
+            autoUpdateGeometry = true,
+            title = commentBlockData.Title
+        };
+        AddElement(group);
+        group.SetPosition(rect);
+        return group;
+    }
 
+    
     public void CreateNode(string nodeName, Vector2 mousePosition)
     {
         AddElement(CreateDialogueNode(nodeName, mousePosition));
@@ -149,7 +170,7 @@ public class DialogueGraphView : GraphView
         
         RefreshDialogueNode(dialogueNode);
         
-        dialogueNode.SetPosition(new Rect (mousePosition, nodeScale));
+        dialogueNode.SetPosition(new Rect (mousePosition, DefaultNodeSize));
 
         return dialogueNode;
     }

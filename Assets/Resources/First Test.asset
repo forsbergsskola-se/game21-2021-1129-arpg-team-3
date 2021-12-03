@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c801af6d4af804041aa881ef66ce4dcb, type: 3}
+  m_Name: First Test
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: ddb22986-deb2-4ae7-9467-eb593de06a87
+    PortName: NEXT
+    TargetNodeGUID: 02d20378-e3f4-4e87-9540-e57c049c89de
+  - BaseNodeGUID: 02d20378-e3f4-4e87-9540-e57c049c89de
+    PortName: Choice 1
+    TargetNodeGUID: a14e0f8b-1f42-470a-8a49-67d80a063c93
+  - BaseNodeGUID: 02d20378-e3f4-4e87-9540-e57c049c89de
+    PortName: Choice 2
+    TargetNodeGUID: e9d58e03-59b9-47d6-ac2c-fd38780ccb8b
+  - BaseNodeGUID: 02d20378-e3f4-4e87-9540-e57c049c89de
+    PortName: Choice 3
+    TargetNodeGUID: 493b2fb2-42cd-4f62-9cf9-8439bcf53e55
+  DialogueNodeData:
+  - NodeGUID: 02d20378-e3f4-4e87-9540-e57c049c89de
+    DialogueText: This is the first line of the advanced dialogue system
+    Position: {x: 283.2, y: 152}
+  - NodeGUID: a14e0f8b-1f42-470a-8a49-67d80a063c93
+    DialogueText: The first choice
+    Position: {x: 870.4, y: 92.8}
+  - NodeGUID: 493b2fb2-42cd-4f62-9cf9-8439bcf53e55
+    DialogueText: The third Choice
+    Position: {x: 870.4, y: 319.2}
+  - NodeGUID: e9d58e03-59b9-47d6-ac2c-fd38780ccb8b
+    DialogueText: The second choice
+    Position: {x: 870.4, y: 210.4}
+  ExposedProperties: []
+  CommentBlockData: []
