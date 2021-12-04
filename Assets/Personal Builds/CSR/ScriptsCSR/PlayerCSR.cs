@@ -1,3 +1,6 @@
+// Cecilija Simic Rihtnesberg
+//     2021-11-29
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,14 +10,14 @@ public class PlayerCSR : MonoBehaviour
 {
     private NavMeshAgent _agent;
     
-    // Start is called before the first frame update
+  
     private void Start ()
     {
         _agent = GetComponent<NavMeshAgent>();
 
     }
 
-    // Update is called once per frame
+
     private void Update()
     {
         if(Input.GetMouseButtonDown(0))
