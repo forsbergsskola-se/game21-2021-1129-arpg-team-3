@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c676125a9a11602448c8e714046a93f8, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  health: 0
+  health: 55
   gold: 368
   score: 0
   mana: 0
   minHealth: 0
   maxHealth: 100
-  weaponDamage: 15
+  weaponDamage: 20
   meeleeRange: 2

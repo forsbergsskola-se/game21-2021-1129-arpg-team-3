@@ -46,7 +46,6 @@ public class PlayerStats : ScriptableObject
     
     public float WeaponDamage {
         get => weaponDamage;
-        set => weaponDamage = value;
     }
     
     public float MeleeRange {

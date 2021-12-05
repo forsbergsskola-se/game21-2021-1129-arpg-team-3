@@ -9,7 +9,7 @@
 // {
 //     public Canvas damageCanvas;
 //
-//     public void DoDamage(int damageAmount, Vector3 position)
+//     public void ShowDamage(float damageAmount, Vector3 position)
 //     {
 //         Canvas tempCan = Instantiate(damageCanvas);
 //         tempCan.GetComponent<TextMeshPro>().transform.position = position;

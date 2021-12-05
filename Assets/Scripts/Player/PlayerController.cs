@@ -8,22 +8,20 @@ public class PlayerController : MonoBehaviour
 {
 	// [SerializeField] float playerMeleeRange;
 	// [SerializeField] private float playerAttackDamage;
-	private NavMeshAgent _agent;
-	private Transform _target;
+	private NavMeshAgent agent;
+	private Transform target;
 	public CursorManagement cursorManagement;
-	private PlayerStats _playerStats;
-	private EnemyStats1 _enemyStats1;
-	public DestroyObject destroyObject;
+	private PlayerStats playerStats;
+	public Animator attackAnimation;
+	public GameObject playerModel;
 
-	
 	private void Start() {
-		_agent = GetComponent<NavMeshAgent>();
+		agent = GetComponent<NavMeshAgent>();
 	}
 
 	private void Awake() {
-		_playerStats = GetComponent<PlayerStatsLoader>().playerStats;
-		_playerStats.InitializePlayerStats();
-		_enemyStats1 = GetComponent<EnemyStats1Loader>().enemyStats1;
+		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
+		playerStats.InitializePlayerStats();
 	}
 
 	void Update() {
@@ -48,7 +46,7 @@ public class PlayerController : MonoBehaviour
 				MovePlayer(hitInfo.point); //Moves player to point.
 			}
 			else if (hitInfo.collider.CompareTag("Enemy") || hitInfo.collider.CompareTag("Destroyable")) {
-				_target = hitInfo.collider.transform; //Sets target
+				target = hitInfo.collider.transform; //Sets target
 				MoveAttack();
 			}
 			else {
@@ -60,39 +58,41 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 	void MovePlayer(Vector3 point) {
-		_agent.stoppingDistance = 0; //resets melee range setting
-		_agent.SetDestination(point); //moves player to point
+		agent.stoppingDistance = 0; //resets melee range setting
+		agent.SetDestination(point); //moves player to point
 		Debug.Log("Play MoveSound");
 	}
 	
 	void MoveAttack() {
-		if (Vector3.Distance(this.transform.position, _target.position) >= _playerStats.MeleeRange) { //only when player is not in melee range of enemy
-			_agent.transform.rotation = this.transform.rotation;
-			_agent.destination = _target.position;
-			_agent.stoppingDistance = _playerStats.MeleeRange; //stops player before melee range
+		if (Vector3.Distance(this.transform.position, target.position) >= playerStats.MeleeRange) { //only when player is not in melee range of enemy
+			agent.destination = target.position;
+			agent.stoppingDistance = playerStats.MeleeRange; //stops player before melee range
 			Debug.Log("Play MoveSound");
 		}
 	}
 	private void AttackEnemy() {
-		if (_target is not null) {
+		if (target is not null && target.CompareTag("Enemy")) {
 			//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
-			if (Vector3.Distance(this.transform.position, _target.position) <= _playerStats.MeleeRange)
-			{
-				if (_target.CompareTag("Enemy"))
-				{
-					_enemyStats1.TakeDamage(_playerStats.WeaponDamage, _target.gameObject);
+			if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange) {
+				transform.LookAt(target);
+				if (target.CompareTag("Enemy")) {
+					StartAttacking();
 					Debug.Log("Play AttackSound");
-					_target = null; //Forces player to click again to attack
-				}
-				else if (_target.CompareTag("Destroyable"))
-				{
-					destroyObject.Kill();
+					// target = null; //Forces player to click again to attack
 				}
 			}
+			if (target.gameObject.GetComponent<Enemy>().Health <= 0) {
+				StopAttacking();
+			}
 		}
-		// else {
-		// 	Debug.LogWarning("TARGET IS NULL!");
-		// }
+	}
+	private void StartAttacking() {
+		attackAnimation.gameObject.SetActive(true);
+		playerModel.gameObject.SetActive(false);
+	}
+	private void StopAttacking() {
+		attackAnimation.gameObject.SetActive(false);
+		playerModel.gameObject.SetActive(true);
 	}
 	
 	private void ChangeCursor() {
