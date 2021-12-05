@@ -100,11 +100,11 @@ public class PlayerController : MonoBehaviour
 			if (hitInfo.collider.CompareTag("Ground") || hitInfo.collider.CompareTag("Player")) {
 				cursorManagement.CursorChange(1);
 			}
-			else if (hitInfo.collider.CompareTag("Enemy") || hitInfo.collider.CompareTag("Destroyable")) {
-				cursorManagement.CursorChange(2);
+			else if (hitInfo.collider.CompareTag("Enemy")) {
+				cursorManagement.CursorChange(3);
 			}
 			else {
-				cursorManagement.CursorChange(3);
+				cursorManagement.CursorChange(8);
 			}
 		}
 		else {

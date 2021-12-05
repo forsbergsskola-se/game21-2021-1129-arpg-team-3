@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 26997620}
   - component: {fileID: 26997622}
   - component: {fileID: 26997621}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: wpname
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -427,7 +427,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 311
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 6c7e859c3d104884a960341d6551cbb7, type: 2}
   m_TargetDisplay: 0
@@ -541,7 +541,7 @@ GameObject:
   - component: {fileID: 514000873}
   - component: {fileID: 514000872}
   - component: {fileID: 514000871}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -912,9 +912,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rallypoint: {fileID: 5926361903692184401, guid: f6f238a1c67fb9c428bced83de9eae69, type: 3}
-  cursorIdle: {fileID: 2800000, guid: 1b362737dfa014a40a71ecaffce5e053, type: 3}
-  cursorEnemy: {fileID: 2800000, guid: ce683041f000c7c48b73e8fbda566384, type: 3}
-  cursorNegative: {fileID: 2800000, guid: 348d2265b48c67342a4db2a7062813fa, type: 3}
+  invalid: {fileID: 2800000, guid: 46ee8cc98544b7e4b8971a475ec8a6f6, type: 3}
+  attack: {fileID: 2800000, guid: ce683041f000c7c48b73e8fbda566384, type: 3}
+  arrowCursor: {fileID: 2800000, guid: 51cb6ee928f89b64691ef4dfd57c03e9, type: 3}
+  crosshairs: {fileID: 2800000, guid: 1b362737dfa014a40a71ecaffce5e053, type: 3}
+  handOpen: {fileID: 2800000, guid: 6d0916f30d4a8e84c839a037bed24d2a, type: 3}
+  handClosed: {fileID: 2800000, guid: d0bd63dc4e8d4a845a0f198c39644e18, type: 3}
+  doorUnlocked: {fileID: 2800000, guid: 314fd0fdd9a2b924ab07696cc6d7b3cc, type: 3}
+  doorLocked: {fileID: 2800000, guid: 8fd35b627e52e864cac501e50262a86b, type: 3}
 --- !u!1001 &685679355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1129,7 +1134,7 @@ GameObject:
   - component: {fileID: 750453982}
   - component: {fileID: 750453984}
   - component: {fileID: 750453983}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: wpname
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1226,7 +1231,7 @@ GameObject:
   - component: {fileID: 807832537}
   - component: {fileID: 807832536}
   - component: {fileID: 807832535}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2171,6 +2176,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaypointContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 6403791287265836029, guid: 1c947578e96b25c43b76b1a553ddee58, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3048809390280419515, guid: 1c947578e96b25c43b76b1a553ddee58, type: 3}
     - {fileID: 4454103398388904095, guid: 1c947578e96b25c43b76b1a553ddee58, type: 3}
@@ -2447,7 +2456,7 @@ GameObject:
   - component: {fileID: 1853417163}
   - component: {fileID: 1853417165}
   - component: {fileID: 1853417164}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: wpname
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2576,7 +2585,7 @@ GameObject:
   - component: {fileID: 1897771930}
   - component: {fileID: 1897771929}
   - component: {fileID: 1897771928}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2676,6 +2685,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1135651571866237960, guid: df2d5579087b34a429f217e8e4dd7759, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 311
+      objectReference: {fileID: 0}
     - target: {fileID: 1135651571866237962, guid: df2d5579087b34a429f217e8e4dd7759, type: 3}
       propertyPath: m_Name
       value: Main Camera
