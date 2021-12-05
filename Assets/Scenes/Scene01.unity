@@ -1178,11 +1178,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &752109048 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5588858277689648231, guid: d635506b3d185b849be5671a1e49df85, type: 3}
-  m_PrefabInstance: {fileID: 2058520240796977126}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &807832534
 GameObject:
   m_ObjectHideFlags: 0
@@ -2513,19 +2508,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5588858277689648230, guid: d635506b3d185b849be5671a1e49df85, type: 3}
   m_PrefabInstance: {fileID: 2058520240796977126}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1834260073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 752109048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1d319acecd0f1e4b85907ffbe864090, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyStats1: {fileID: 0}
 --- !u!1 &1853417162
 GameObject:
   m_ObjectHideFlags: 0
@@ -2869,6 +2851,5 @@ PrefabInstance:
       propertyPath: cursorManagement
       value: 
       objectReference: {fileID: 637998278}
-    m_RemovedComponents:
-    - {fileID: 1834260084, guid: d635506b3d185b849be5671a1e49df85, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d635506b3d185b849be5671a1e49df85, type: 3}

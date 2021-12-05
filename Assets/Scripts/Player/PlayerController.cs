@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
 		_playerStats = GetComponent<PlayerStatsLoader>().playerStats;
 		_playerStats.InitializePlayerStats();
 		_enemyStats1 = GetComponent<EnemyStats1Loader>().enemyStats1;
-		_enemyStats1.InitializeEnemyStats();
 	}
 
 	void Update() {
