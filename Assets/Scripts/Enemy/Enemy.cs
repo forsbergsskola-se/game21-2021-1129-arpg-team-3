@@ -3,13 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySkeleton : MonoBehaviour {
+public class Enemy : MonoBehaviour {
 	[SerializeField] protected float health;
 	[SerializeField] protected float maxHealth;
 	[SerializeField] protected float armour;
+	private float damageReceived;
 
 	public float Health => health;
 	public float MaxHealth => maxHealth;
+
+	public float DamageReceived => damageReceived;
 
 	private void Awake() {
 		health = maxHealth;
@@ -21,7 +24,7 @@ public class EnemySkeleton : MonoBehaviour {
 	}
 
 	public void TakeDamage(float damage) {
-		float damageReceived = damage - armour;
+		damageReceived = damage - armour;
 		health -= damageReceived; 
 		health = Mathf.Clamp(health, 0, maxHealth);
 	}

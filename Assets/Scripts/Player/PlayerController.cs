@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
 	private Transform target;
 	public CursorManagement cursorManagement;
 	private PlayerStats playerStats;
-	public DestroyObject destroyObject;
 	public Animator attackAnimation;
 	public GameObject playerModel;
 
@@ -23,7 +22,6 @@ public class PlayerController : MonoBehaviour
 	private void Awake() {
 		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
 		playerStats.InitializePlayerStats();
-		// attackAnimation = GetComponentInChildren<Animator>();
 	}
 
 	void Update() {
@@ -73,27 +71,28 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 	private void AttackEnemy() {
-		if (target is not null) {
+		if (target is not null && target.CompareTag("Enemy")) {
 			//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
-			if (Vector3.Distance(this.transform.position, target.position) <= playerStats.MeleeRange) {
+			if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange) {
 				transform.LookAt(target);
 				if (target.CompareTag("Enemy")) {
-					attackAnimation.gameObject.SetActive(true);
-					playerModel.gameObject.SetActive(false);
+					StartAttacking();
 					Debug.Log("Play AttackSound");
 					// target = null; //Forces player to click again to attack
 				}
-				else if (target.CompareTag("Destroyable"))
-				{
-					destroyObject.Kill();
-				}
 			}
-			else {
-				attackAnimation.gameObject.SetActive(false);
-				playerModel.gameObject.SetActive(true);
+			if (target.gameObject.GetComponent<Enemy>().Health <= 0) {
+				StopAttacking();
 			}
 		}
-
+	}
+	private void StartAttacking() {
+		attackAnimation.gameObject.SetActive(true);
+		playerModel.gameObject.SetActive(false);
+	}
+	private void StopAttacking() {
+		attackAnimation.gameObject.SetActive(false);
+		playerModel.gameObject.SetActive(true);
 	}
 	
 	private void ChangeCursor() {

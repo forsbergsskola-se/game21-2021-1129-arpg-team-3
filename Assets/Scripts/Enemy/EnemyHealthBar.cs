@@ -9,11 +9,11 @@ public class EnemyHealthBar : MonoBehaviour {
 	[SerializeField] Gradient gradient;
 	
 	[SerializeField] Image fill;
-	private EnemySkeleton enemySkeleton;
+	private Enemy enemy;
 	private AI ai;
 
 	private void Awake() {
-		enemySkeleton = GetComponentInParent<EnemySkeleton>();
+		enemy = GetComponentInParent<Enemy>();
 		ai = GetComponentInParent<AI>();
 	}
 	private void Update() {
@@ -34,12 +34,12 @@ public class EnemyHealthBar : MonoBehaviour {
 	}
 
 	private void SetMaxHealth() {
-		slider.maxValue = enemySkeleton.MaxHealth;
-		slider.value = enemySkeleton.Health;
+		slider.maxValue = enemy.MaxHealth;
+		slider.value = enemy.Health;
 		fill.color = gradient.Evaluate(1f);
 	}
 	private void ChangeHealthBar() {
-		slider.value = enemySkeleton.Health;
+		slider.value = enemy.Health;
 		fill.color = gradient.Evaluate(slider.normalizedValue);
 	}
 	private void DisableHealthBar() {
