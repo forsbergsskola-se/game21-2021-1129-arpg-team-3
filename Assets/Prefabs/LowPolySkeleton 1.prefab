@@ -839,10 +839,10 @@ GameObject:
   - component: {fileID: 6652567088470929284}
   - component: {fileID: 6652567088470929291}
   - component: {fileID: 6652567088470929290}
-  - component: {fileID: 6652567088470929289}
   - component: {fileID: 41683994697857174}
   - component: {fileID: 41683994697857169}
-  - component: {fileID: 41683994697857175}
+  - component: {fileID: -8413486687517660858}
+  - component: {fileID: 7141254435392659384}
   m_Layer: 0
   m_Name: LowPolySkeleton 1
   m_TagString: Enemy
@@ -899,7 +899,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 180
@@ -941,19 +941,6 @@ MonoBehaviour:
   maxDistance: 4
   angle: 250
   visualize: 1
---- !u!114 &6652567088470929289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6652567088470929335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 038be7ac33263014b84bd98531cde90a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AttackDelay: 0
 --- !u!54 &41683994697857174
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -984,7 +971,7 @@ CapsuleCollider:
   m_Height: 2.3860831
   m_Direction: 1
   m_Center: {x: 0, y: 0.69303906, z: 0}
---- !u!114 &41683994697857175
+--- !u!114 &-8413486687517660858
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -993,10 +980,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 6652567088470929335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1d319acecd0f1e4b85907ffbe864090, type: 3}
+  m_Script: {fileID: 11500000, guid: b74eca7a40ef4b74fb8b6a09c9c34dc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyStats1: {fileID: 11400000, guid: a4f5e192899b99b4d946ff641e050d48, type: 2}
+  health: 0
+  maxHealth: 100
+  armour: 5
+--- !u!114 &7141254435392659384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6652567088470929335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038be7ac33263014b84bd98531cde90a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackDelay: 0
 --- !u!1 &6652567088485760994
 GameObject:
   m_ObjectHideFlags: 0
