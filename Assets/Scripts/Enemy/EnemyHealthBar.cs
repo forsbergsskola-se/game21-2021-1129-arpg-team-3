@@ -10,18 +10,27 @@ public class EnemyHealthBar : MonoBehaviour {
 	
 	[SerializeField] Image fill;
 	private EnemyStats1 enemyStats;
-	
-	private void Awake()
-	{
+	private AI ai;
+
+	private void Awake() {
 		enemyStats = GetComponentInParent<EnemyStats1Loader>().enemyStats1;
+		ai = GetComponentInParent<AI>();
 	}
 	private void Update() {
 		transform.rotation = Camera.main.transform.rotation;
 	}
 
 	private void LateUpdate() {
-		SetMaxHealth();
-		ChangeHealthBar();
+		DisableHealthBar();
+		Physics.Raycast(GetCursorPosition(), out var hitInfo);
+		if (hitInfo.collider.CompareTag("Enemy") || ai.showHealthBar) {
+			SetMaxHealth();
+			ChangeHealthBar();
+		}
+		Ray GetCursorPosition() {
+			var ray = Camera.main.ScreenPointToRay(Input.mousePosition); //Fires ray
+			return ray;
+		}
 	}
 
 	private void SetMaxHealth() {
@@ -29,10 +38,12 @@ public class EnemyHealthBar : MonoBehaviour {
 		slider.value = enemyStats.Health;
 		fill.color = gradient.Evaluate(1f);
 	}
-
 	private void ChangeHealthBar() {
 		slider.value = enemyStats.Health;
 		fill.color = gradient.Evaluate(slider.normalizedValue);
 	}
-
+	private void DisableHealthBar() {
+		slider.value = 0;
+		fill.color = Color.clear;
+	}
 }
