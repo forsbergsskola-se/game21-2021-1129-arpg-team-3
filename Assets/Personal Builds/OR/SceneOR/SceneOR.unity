@@ -25429,7 +25429,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1598041507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25442,7 +25442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7802750c32a114b40accf5ed1285b15b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonBall: {fileID: 2035259475522314025, guid: 9a2d1c9407a04c948abf1acc38370e61, type: 3}
+  cannonBall: {fileID: 2035259475522314025, guid: 8ec4548d6c739be43849d8eb0a00a794, type: 3}
   shootForce: 1000
 --- !u!4 &1598041508
 Transform:
