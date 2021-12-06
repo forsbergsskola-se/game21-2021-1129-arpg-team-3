@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 	private PlayerStats playerStats;
 	public Animator attackAnimation;
 	public GameObject playerModel;
+	private KeyHolder keyHolder;
 
 	private void Start() {
 		agent = GetComponent<NavMeshAgent>();
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
 	private void Awake() {
 		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
 		playerStats.InitializePlayerStats();
+		keyHolder = GetComponent<KeyHolder>();
 	}
 
 	void Update() {
@@ -41,7 +43,10 @@ public class PlayerController : MonoBehaviour
 	
 	private void TargetCheck() {
 		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) {
-			if (hitInfo.collider.CompareTag("Ground")) {
+			if (hitInfo.collider.CompareTag("Ground") || 
+			    hitInfo.collider.CompareTag("Key") || 
+			    hitInfo.collider.CompareTag("Door"))
+			{
 				cursorManagement.SpawnRallyPoint(hitInfo.point);
 				MovePlayer(hitInfo.point); //Moves player to point.
 			}
@@ -74,7 +79,9 @@ public class PlayerController : MonoBehaviour
 		if (target is not null && target.CompareTag("Enemy")) {
 			//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
 			if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange) {
-				transform.LookAt(target);
+				if (Input.GetMouseButtonUp(0)) {
+					transform.LookAt(target);
+				}
 				if (target.CompareTag("Enemy")) {
 					StartAttacking();
 					Debug.Log("Play AttackSound");
@@ -102,6 +109,15 @@ public class PlayerController : MonoBehaviour
 			}
 			else if (hitInfo.collider.CompareTag("Enemy")) {
 				cursorManagement.CursorChange(3);
+			}
+			else if (hitInfo.collider.CompareTag("Key")) {
+				cursorManagement.CursorChange(4);
+			}
+			else if (hitInfo.collider.CompareTag("Door") && !keyHolder.doorUnlocked) {
+				cursorManagement.CursorChange(6);
+			}
+			else if (hitInfo.collider.CompareTag("Door") && keyHolder.doorUnlocked) {
+				cursorManagement.CursorChange(5);
 			}
 			else {
 				cursorManagement.CursorChange(8);

@@ -7,6 +7,7 @@ public class KeyHolder : MonoBehaviour
 {
     public event EventHandler OnKeysChanged;
     private List<Key.KeyType> keyList;
+    public bool doorUnlocked = false;
 
     private void Awake()
     {
@@ -42,6 +43,7 @@ public class KeyHolder : MonoBehaviour
         {
             AddKey(key.GetKeyType());
             Destroy(key.gameObject);
+            doorUnlocked = true;
         }
         KeyDoor keyDoor = collider.GetComponent<KeyDoor>();
         if (keyDoor != null)

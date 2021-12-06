@@ -16,6 +16,8 @@ TagManager:
   - SSword
   - Dialogue
   - DoorButton
+  - Door
+  - Key
   layers:
   - Default
   - TransparentFX
