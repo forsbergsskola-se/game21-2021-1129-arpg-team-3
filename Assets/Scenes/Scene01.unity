@@ -1174,7 +1174,7 @@ MonoBehaviour:
   health: 10
   maxHealth: 10
   armour: 0
-  sphere: {fileID: 8882830098181931991, guid: 4c811a7ea8c547041ad8657391bfdbde, type: 3}
+  damageText: {fileID: 0}
 --- !u!114 &590129691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1997,6 +1997,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyToSpawn: {fileID: 6652567088470929335, guid: 1394798047f968e4c9a16276fff6c9f4, type: 3}
   spawnPositions: {fileID: 1859173825}
+--- !u!1 &921110705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 921110706}
+  m_Layer: 0
+  m_Name: 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &921110706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921110705}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -106.3, y: 0, z: -72.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1859173826}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &994423455
 GameObject:
   m_ObjectHideFlags: 0
@@ -4080,6 +4111,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1587898571}
+  - {fileID: 921110706}
   m_Father: {fileID: 1480622664}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4650,6 +4682,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1834260077, guid: d635506b3d185b849be5671a1e49df85, type: 3}
+      propertyPath: damageText
+      value: 
+      objectReference: {fileID: 4662363426629045447, guid: db3f511c6d3ae074b9e8bea7d8ef6218, type: 3}
     - target: {fileID: 361754374957514409, guid: d635506b3d185b849be5671a1e49df85, type: 3}
       propertyPath: m_Enabled
       value: 1
