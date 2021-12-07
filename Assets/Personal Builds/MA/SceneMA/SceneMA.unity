@@ -2512,7 +2512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6536430282789925699, guid: 60621e4a15d22444db9048f10e260fb9, type: 3}
       propertyPath: lifetime
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60621e4a15d22444db9048f10e260fb9, type: 3}

@@ -19,13 +19,12 @@ public class DamageIndicatorMA : MonoBehaviour
     
     void Start()
     {
-        transform.LookAt(2*transform.position-Camera.main.transform.position);
+        transform.LookAt(transform.position-Camera.main.transform.position);
         
-        float direction = Random.rotation.eulerAngles.z;
         inipos = transform.position;
         float dist = Random.Range(minDist, maxDist);
-        targetPos = inipos + (Quaternion.Euler(0, 0, direction) * new Vector3(dist,dist,0f));
-        transform.localScale = Vector3.zero;
+        targetPos = inipos +  new Vector3(0,dist,0);
+        transform.localScale = Vector3.up;
     }
 
 
@@ -40,7 +39,7 @@ public class DamageIndicatorMA : MonoBehaviour
 
         {
             transform.position = Vector3.Lerp(inipos, targetPos, (timer / lifetime));
-            transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, (timer / lifetime));
+            transform.localScale = Vector3.Lerp(Vector3.zero, new Vector3(0.05f, 0.05f, 0), (timer / lifetime));
 
         }
     }
