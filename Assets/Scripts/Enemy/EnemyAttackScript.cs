@@ -19,7 +19,7 @@ public class EnemyAttackScript : MonoBehaviour
     
     public void AttackOnce(Animator anim)
     {
-        switch (Random.Range(0, 2))
+        switch (Random.Range(0, 0))
         {
             case 0:
                 anim.SetTrigger("AttackOne");

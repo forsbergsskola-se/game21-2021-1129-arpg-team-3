@@ -14,10 +14,10 @@ public class PlayerHealthBar : MonoBehaviour {
 	private void Awake()
 	{ 
 		_playerStats = GetComponentInParent<PlayerStatsLoader>().playerStats;
+		SetMaxHealth();
 	}
 
 	private void LateUpdate() {
-		SetMaxHealth();
 		ChangeHealthBar();
 	}
 

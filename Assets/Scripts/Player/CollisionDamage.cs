@@ -15,8 +15,12 @@ public class CollisionDamage : MonoBehaviour {
 		if (other.gameObject.CompareTag("SSword")) {
 			float damageReceived = SSwordDamage - _playerStats.PlayerArmour;
 			_playerStats.TakeDamage(damageReceived, gameObject);
-			DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
-			indicator.SetDamageText(Convert.ToInt32(damageReceived));
+			ShowPlayerDamage(damageReceived);
 		}
+	}
+	private void ShowPlayerDamage(float damageReceived) {
+
+		DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
+		indicator.SetDamageText(Convert.ToInt32(damageReceived));
 	}
 }

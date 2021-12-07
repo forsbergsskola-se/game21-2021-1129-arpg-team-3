@@ -13,7 +13,13 @@ public class Enemy : MonoBehaviour {
 	public GameObject damageText;
 
 
-	public float Health => health;
+	public float Health {
+		get => health;
+		set {
+			health = value;
+			health = Mathf.Clamp(health, 0, maxHealth);
+		}
+	}
 	public float MaxHealth => maxHealth;
 
 
@@ -24,15 +30,17 @@ public class Enemy : MonoBehaviour {
 		// useSphere.SetActive(false);
 	}
 	private void LateUpdate() {
-		if (health <= 0) {
+		if (Health <= 0) {
 			KillEnemy();
 		}
 	}
 
 	public void TakeDamage(float damage) {
 		float damageReceived = damage - armour;
-		health -= damageReceived;
-		health = Mathf.Clamp(health, 0, maxHealth);
+		Health -= damageReceived;
+		ShowEnemyDamage(damageReceived);
+	}
+	private void ShowEnemyDamage(float damageReceived) {
 		DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
 		indicator.SetDamageText(Convert.ToInt32(damageReceived));
 	}
