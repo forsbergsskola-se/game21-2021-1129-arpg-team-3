@@ -17,6 +17,12 @@ public class PlayerStats : ScriptableObject
     [SerializeField] private float maxHealth;
     [SerializeField] private float weaponDamage;
     [SerializeField] private float meeleeRange;
+    [SerializeField] private float experience;
+    [SerializeField] private float maxExperience;
+    [SerializeField] private float playerLevel;
+    [SerializeField] private float playerLevelMultiplier;
+
+
 
     public float Health {
         get => health;
@@ -58,6 +64,38 @@ public class PlayerStats : ScriptableObject
     
     public float MeleeRange {
         get => meeleeRange;
+    }
+
+    public float Experience {
+        get => experience;
+        set {
+            experience = value;
+            PlayerLeveling();
+        }
+    }
+    private void PlayerLeveling() {
+
+        if (experience >= MaxExperience) {
+            experience -= MaxExperience;
+            PlayerLevel++;
+            MaxExperience *= PlayerLevelMultiplier;
+            WeaponDamage += 5;
+            MaxHealth += 10;
+            Health = MaxHealth;
+        }
+    }
+    public float MaxExperience {
+        get => maxExperience;
+        set => maxExperience = value;
+
+    }
+    public float PlayerLevelMultiplier {
+        get => playerLevelMultiplier;
+        set => playerLevelMultiplier = value;
+    }
+    public float PlayerLevel {
+        get => playerLevel;
+        set => playerLevel = value;
     }
 
     public void TakeDamage(float damage, GameObject player) {

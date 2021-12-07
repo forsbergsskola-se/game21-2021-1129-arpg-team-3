@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour {
 	// [SerializeField] private GameObject sphere;
 	// private GameObject useSphere;
 	public GameObject damageText;
+	public PlayerStats playerStats;
 
 
 	public float Health {
@@ -23,7 +24,7 @@ public class Enemy : MonoBehaviour {
 	public float MaxHealth => maxHealth;
 
 
-	private void Awake() {
+	private void Start() {
 		health = maxHealth;
 		// useSphere = Instantiate(sphere);
 		// useSphere.transform.position = gameObject.transform.position;
@@ -35,8 +36,8 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
-	public void TakeDamage(float damage) {
-		float damageReceived = damage - armour;
+	public void TakeDamage() {
+		float damageReceived = playerStats.WeaponDamage - armour;
 		Health -= damageReceived;
 		ShowEnemyDamage(damageReceived);
 	}
@@ -49,6 +50,7 @@ public class Enemy : MonoBehaviour {
 		// useSphere.SetActive(true);
 		// gameObject.GetComponent<BoxCollider>().isTrigger = true;
 		// gameObject.GetComponent<NavMeshObstacle>().enabled = false;
+		playerStats.Experience += MaxHealth;
 		gameObject.SetActive(false);
 		Debug.Log("Enemy is Dead");
 	}

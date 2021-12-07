@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealthBar : MonoBehaviour {
+public class ExperienceBar : MonoBehaviour {
 	public Slider slider;
 	public Gradient gradient;
 	
@@ -17,18 +17,18 @@ public class PlayerHealthBar : MonoBehaviour {
 	}
 
 	private void LateUpdate() {
-		SetMaxHealth();
-		ChangeHealthBar();
+		SetMaxExperience();
+		ChangeExperienceBar();
 	}
 
-	private void SetMaxHealth() {
-		slider.maxValue = _playerStats.MaxHealth;
-		slider.value = _playerStats.Health;
+	private void SetMaxExperience() {
+		slider.maxValue = _playerStats.MaxExperience;
+		slider.value = _playerStats.Experience;
 		_fill.color = gradient.Evaluate(1f);
 	}
 
-	private void ChangeHealthBar() {
-		slider.value = _playerStats.Health;
+	private void ChangeExperienceBar() {
+		slider.value = _playerStats.Experience;
 		_fill.color = gradient.Evaluate(slider.normalizedValue);
 	}
 

@@ -12,7 +12,7 @@ public class EnemyDamage : MonoBehaviour {
 
 	private void OnCollisionEnter(Collision other) {
 		if (other.gameObject.CompareTag("Player")) {
-			enemy.TakeDamage(30);
+			enemy.TakeDamage();
 		}
 	}
 }

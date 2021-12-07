@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GoldDisplay : MonoBehaviour
+public class EXPDisplay : MonoBehaviour
 {
     private PlayerStats _playerStats;
     private Text _text;
@@ -13,6 +13,6 @@ public class GoldDisplay : MonoBehaviour
         _playerStats = GetComponentInParent<PlayerStatsLoader>().playerStats;
     }
     private void LateUpdate() {
-        _text.text = "Gold: " + _playerStats.Gold;
+        _text.text = $"LVL: {_playerStats.PlayerLevel} XP: {_playerStats.Experience} / {_playerStats.MaxExperience}";
     }
 }

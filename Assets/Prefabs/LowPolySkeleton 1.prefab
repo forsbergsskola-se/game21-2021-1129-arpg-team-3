@@ -986,8 +986,8 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   armour: 5
-  sphere: {fileID: 8882830098181931991, guid: 4c811a7ea8c547041ad8657391bfdbde, type: 3}
   damageText: {fileID: 4662363426629045447, guid: 37ba3322a7cdab9438106176a7de2cad, type: 3}
+  playerStats: {fileID: 11400000, guid: 0fbd9e63108f6d6408d1da897568a19e, type: 2}
 --- !u!114 &7141254435392659384
 MonoBehaviour:
   m_ObjectHideFlags: 0
