@@ -68,6 +68,6 @@ public class PlayerStats : ScriptableObject
     public void KillPlayer(GameObject player) {
         Debug.Log("Player is Dead");
         gold -= 50;
-        SceneManager.LoadScene("Scene01");
+        SceneManager.LoadScene(1);
     }
 }

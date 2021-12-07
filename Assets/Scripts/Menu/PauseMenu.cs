@@ -40,7 +40,7 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Load me the menu now!");
         //Can load Main Menu scene on click when we add Menu scene
-        //SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene(0);
     }
 
     public void QuitGame()
