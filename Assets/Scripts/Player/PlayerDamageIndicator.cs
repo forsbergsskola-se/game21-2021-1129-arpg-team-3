@@ -37,13 +37,13 @@ public class PlayerDamageIndicator : MonoBehaviour
 
         {
             transform.position = Vector3.Lerp(inipos, targetPos, (timer / lifetime));
-            transform.localScale = Vector3.Lerp(Vector3.zero, new Vector3(0.05f, 0.05f, 0), (timer / lifetime));
+            transform.localScale = Vector3.Lerp(Vector3.zero, new Vector3(0.02f, 0.02f, 0), (timer / lifetime));
 
         }
     }
 
     public void SetPlayerDamageText(int damage)
     {
-        text.text = (-damage).ToString();
+        text.text = (damage).ToString();
     }
 }

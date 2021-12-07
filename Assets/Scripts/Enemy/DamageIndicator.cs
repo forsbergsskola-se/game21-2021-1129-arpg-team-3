@@ -44,6 +44,6 @@ public class DamageIndicator : MonoBehaviour
 
     public void SetDamageText(int damage)
     {
-        text.text = (-damage).ToString();
+        text.text = (damage).ToString();
     }
 }
