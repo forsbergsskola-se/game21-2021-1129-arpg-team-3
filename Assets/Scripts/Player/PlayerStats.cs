@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(menuName = "ScriptableObject/Player/Stats", fileName = "Stats")]
 public class PlayerStats : ScriptableObject
@@ -66,5 +67,7 @@ public class PlayerStats : ScriptableObject
 
     public void KillPlayer(GameObject player) {
         Debug.Log("Player is Dead");
+        gold -= 50;
+        SceneManager.LoadScene("Scene01");
     }
 }

@@ -42,7 +42,7 @@ public class CursorManagement : MonoBehaviour {
 		}
 	}
 	public void SpawnRallyPoint(Vector3 position) {
-		rally = Instantiate(rallypoint, position, transform.rotation);
+		rally = Instantiate(rallypoint, new Vector3(position.x, 0.04f, position.z), transform.rotation);
 	}
 	public void DeSpawnRallyPoint() {
 		Destroy(rally);

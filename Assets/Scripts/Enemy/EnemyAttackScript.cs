@@ -1,12 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyAttackScript : MonoBehaviour
 {
     private bool CanAttack = true;
     public float AttackDelay = 0;
-
+    
     public void TryAttack(Animator anim)
     {
         if (CanAttack)

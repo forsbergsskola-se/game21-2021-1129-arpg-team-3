@@ -19,9 +19,9 @@ public class Enemy : MonoBehaviour {
 
 	private void Awake() {
 		health = maxHealth;
-		useSphere = Instantiate(sphere);
-		useSphere.transform.position = gameObject.transform.position;
-		useSphere.SetActive(false);
+		// useSphere = Instantiate(sphere);
+		// useSphere.transform.position = gameObject.transform.position;
+		// useSphere.SetActive(false);
 	}
 	private void LateUpdate() {
 		if (health <= 0) {
@@ -31,14 +31,14 @@ public class Enemy : MonoBehaviour {
 
 	public void TakeDamage(float damage) {
 		damageReceived = damage - armour;
-		health -= damageReceived; 
+		health -= damageReceived;
 		health = Mathf.Clamp(health, 0, maxHealth);
 	}
 	private void KillEnemy()
 	{
-		useSphere.SetActive(true);
-		gameObject.GetComponent<BoxCollider>().isTrigger = true;
-		gameObject.GetComponent<NavMeshObstacle>().enabled = false;
+		// useSphere.SetActive(true);
+		// gameObject.GetComponent<BoxCollider>().isTrigger = true;
+		// gameObject.GetComponent<NavMeshObstacle>().enabled = false;
 		gameObject.SetActive(false);
 		Debug.Log("Enemy is Dead");
 	}
