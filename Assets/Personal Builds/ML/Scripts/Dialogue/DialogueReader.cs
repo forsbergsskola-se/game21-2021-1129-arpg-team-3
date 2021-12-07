@@ -3,28 +3,45 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
 
 public class DialogueReader : MonoBehaviour
 {
     [SerializeField] private Dialogue dialogue;
     [SerializeField] private Canvas dialoguePopup;
     [SerializeField] private ScriptableObject dialogueObject;
+    [SerializeField] private Canvas AdditionalCanvas;
     
     private DialogueContainer dialogueContainer;
     private List<NodeLinkData> currentOutputNodes;
     
     
+    
     private bool boxIsUp = false;
     private Canvas currentDialogue;
     private Button continueButton;
-    private int sentenceCount = 0;
+
     private DialogueSystem dialogueSystem;
     private List<TextMeshProUGUI> texts;
     
     private string currentNodeGuid;
+    
+    public delegate void TradeStartDelegate();
 
+    public static event TradeStartDelegate OnStartTrade;
+
+
+    private void StartTrade()
+    {
+        if (OnStartTrade != null)
+        {
+            OnStartTrade();
+        }
+    }
+    
     private string GetFirstLineOfDialogue()
     {
         dialogueContainer = (DialogueContainer) dialogueObject; 
@@ -73,8 +90,6 @@ public class DialogueReader : MonoBehaviour
             SetupReplyButtons();
             
             texts[1].text = dialogue.name;
-            
-            sentenceCount++;
         }
     }
 
@@ -100,16 +115,16 @@ public class DialogueReader : MonoBehaviour
 
     private string GetDialogueFromNode(string guid)
     {
-        string outString = "";
+        string outDialogue = "";
         for (int i = 0; i < dialogueContainer.DialogueNodeData.Count; i++)
         {
             if (dialogueContainer.DialogueNodeData[i].NodeGUID == guid)
             {
-                outString = dialogueContainer.DialogueNodeData[i].DialogueText;
+                outDialogue = dialogueContainer.DialogueNodeData[i].DialogueText;
             }
         }
 
-        return outString;
+        return outDialogue;
     }
     
     private void GetOutputNodesFromNode()
@@ -123,14 +138,32 @@ public class DialogueReader : MonoBehaviour
         Destroy(currentDialogue.gameObject);
         boxIsUp = false;
     }
-    
+
+    private void PauseDialogue(string condition)
+    {
+        currentDialogue.gameObject.SetActive(false);
+        TradeSystem.OnEndTrade += ResumeDialogue;
+        StartTrade();
+    }
+
+    private void ResumeDialogue()
+    {
+        currentDialogue.gameObject.SetActive(true);
+        GetOutputNodesFromNode();
+        SetupReplyButtons();
+        ClickContinue(currentNodeGuid);
+        TradeSystem.OnEndTrade -= ResumeDialogue;
+    }
     
     private void ClickContinue(string nextNodeGuid)
     {
         string nextLine = GetDialogueFromNode(nextNodeGuid);
-        if (nextLine == "LEAVE")
+        
+      
+        if (nextLine == "TRADE")
         {
-            ShutDownDialogue();
+            currentNodeGuid = nextNodeGuid;
+            PauseDialogue(nextLine);
         }
 
         else
@@ -140,6 +173,11 @@ public class DialogueReader : MonoBehaviour
 
             GetOutputNodesFromNode();
             SetupReplyButtons();
+            
+            if (nextLine == "LEAVE")
+            {
+                ShutDownDialogue();
+            }
         }
     }
 }

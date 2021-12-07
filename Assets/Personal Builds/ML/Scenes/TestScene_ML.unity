@@ -148,6 +148,7 @@ MonoBehaviour:
     - This is the end of the conversation.
   dialoguePopup: {fileID: 8933333810018513405, guid: c44d766703db0e44c98837e713eea08e, type: 3}
   dialogueObject: {fileID: 11400000, guid: 59b3e3823b16f9649989e88ee93376ec, type: 2}
+  AdditionalCanvas: {fileID: 5947364675464789461, guid: dcd3b6deb545a8f458e777838b2d4fd9, type: 3}
 --- !u!1 &264462145 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4847748823540846887, guid: 3d0fe5c7374e38a498d42e1edde64827, type: 3}
@@ -171,6 +172,7 @@ MonoBehaviour:
     - Looking to buy something?
   dialoguePopup: {fileID: 8933333810018513405, guid: c44d766703db0e44c98837e713eea08e, type: 3}
   dialogueObject: {fileID: 0}
+  AdditionalCanvas: {fileID: 0}
 --- !u!1001 &412887099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -692,6 +694,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &6683585564205904306
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6683585564475401129, guid: 79f466d7bbf45a341b37c849a53f4366, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683585564475401129, guid: 79f466d7bbf45a341b37c849a53f4366, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.172087
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683585564475401129, guid: 79f466d7bbf45a341b37c849a53f4366, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.037315
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683585564475401129, guid: 79f466d7bbf45a341b37c849a53f4366, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18.057108
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683585564475401129, guid: 79f466d7bbf45a341b37c849a53f4366, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683585564475401129, guid: 79f466d7bbf45a341b37c849a53f4366, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683585564475401129, guid: 79f466d7bbf45a341b37c849a53f4366, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683585564475401129, guid: 79f466d7bbf45a341b37c849a53f4366, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683585564475401129, guid: 79f466d7bbf45a341b37c849a53f4366, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683585564475401129, guid: 79f466d7bbf45a341b37c849a53f4366, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683585564475401129, guid: 79f466d7bbf45a341b37c849a53f4366, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683585564475401131, guid: 79f466d7bbf45a341b37c849a53f4366, type: 3}
+      propertyPath: m_Name
+      value: TradeSystem
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 79f466d7bbf45a341b37c849a53f4366, type: 3}
 --- !u!1001 &7088041042432092558
 PrefabInstance:
   m_ObjectHideFlags: 0
