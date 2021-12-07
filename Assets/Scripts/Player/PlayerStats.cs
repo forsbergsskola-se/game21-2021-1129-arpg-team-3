@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class PlayerStats : ScriptableObject
 {
     [SerializeField] private float health;
+    [SerializeField] private float playerArmour;
     [SerializeField] private float gold;
     [SerializeField] private float score;
     [SerializeField] private float mana;
@@ -28,6 +29,11 @@ public class PlayerStats : ScriptableObject
     
     public float MaxHealth {
         get => maxHealth;
+    }
+    
+    public float PlayerArmour {
+        get => playerArmour;
+        set => playerArmour = value;
     }
 
     public float Gold {

@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 
 public class CollisionDamage : MonoBehaviour {
 
 	[SerializeField] private float SSwordDamage;
 	private PlayerStats _playerStats;
+	public GameObject damageText;
 
 	private void Awake() {
 		_playerStats = GetComponent<PlayerStatsLoader>().playerStats;
@@ -11,7 +13,10 @@ public class CollisionDamage : MonoBehaviour {
 	}
 	private void OnCollisionEnter(Collision other) {
 		if (other.gameObject.CompareTag("SSword")) {
-			_playerStats.TakeDamage(SSwordDamage, gameObject);
+			float damageReceived = SSwordDamage - _playerStats.PlayerArmour;
+			_playerStats.TakeDamage(damageReceived, gameObject);
+			DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
+			indicator.SetDamageText(Convert.ToInt32(damageReceived));
 		}
 	}
 }

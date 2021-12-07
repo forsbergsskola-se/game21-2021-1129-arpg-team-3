@@ -8,14 +8,14 @@ public class Enemy : MonoBehaviour {
 	[SerializeField] protected float health;
 	[SerializeField] protected float maxHealth;
 	[SerializeField] protected float armour;
-	private float damageReceived;
-	[SerializeField] private GameObject sphere;
-	private GameObject useSphere;
+	// [SerializeField] private GameObject sphere;
+	// private GameObject useSphere;
+	public GameObject damageText;
+
 
 	public float Health => health;
 	public float MaxHealth => maxHealth;
 
-	public float DamageReceived => damageReceived;
 
 	private void Awake() {
 		health = maxHealth;
@@ -30,9 +30,11 @@ public class Enemy : MonoBehaviour {
 	}
 
 	public void TakeDamage(float damage) {
-		damageReceived = damage - armour;
+		float damageReceived = damage - armour;
 		health -= damageReceived;
 		health = Mathf.Clamp(health, 0, maxHealth);
+		DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
+		indicator.SetDamageText(Convert.ToInt32(damageReceived));
 	}
 	private void KillEnemy()
 	{
