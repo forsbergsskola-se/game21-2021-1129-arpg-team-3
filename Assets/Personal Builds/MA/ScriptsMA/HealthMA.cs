@@ -6,6 +6,7 @@ using UnityEngine;
 public class HealthMA : MonoBehaviour
 {
     public float StartingHealth = 100f;
+    public GameObject damageText;
 
     public float HealthPoints
     {
@@ -33,5 +34,12 @@ public class HealthMA : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        DamageIndicatorMA indicator = Instantiate(damageText, transform.position, Quaternion.identity)
+            .GetComponent<DamageIndicatorMA>();
+        indicator.SetDamageText(damage);
     }
 }
