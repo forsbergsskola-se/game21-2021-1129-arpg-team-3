@@ -6,7 +6,7 @@ public class ScriptableObjectYY : ScriptableObject
 {
     [SerializeField] private int health;
     [SerializeField] private int maxHealth;
-    [SerializeField] private int armour;
+    [SerializeField] private int armor;
     void Start()
     {
         
