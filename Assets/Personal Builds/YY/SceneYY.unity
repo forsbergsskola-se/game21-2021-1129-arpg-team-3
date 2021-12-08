@@ -507,7 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1627258022}
-  Distance: 0
+  Distance: 5
   isAngered: 0
   _agent: {fileID: 1789592357}
 --- !u!65 &1789592352
