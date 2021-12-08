@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b020ad9197648042aae686e86fe307d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tradeCanvas: {fileID: 5947364675464789461, guid: dcd3b6deb545a8f458e777838b2d4fd9, type: 3}
+  itemCanvas: {fileID: 6496454272703509391, guid: 8b7f1065c6d2e764ba3db122e97bf57e, type: 3}
+  itemPanel: {fileID: 4551477620787006451, guid: a7310559e4751ed4c9a1e052be4bd7f2, type: 3}
