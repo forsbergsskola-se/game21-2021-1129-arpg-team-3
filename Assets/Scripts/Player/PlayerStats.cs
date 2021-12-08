@@ -21,6 +21,8 @@ public class PlayerStats : ScriptableObject
     [SerializeField] private float maxExperience;
     [SerializeField] private float playerLevel;
     [SerializeField] private float playerLevelMultiplier;
+    [SerializeField] private float xPMultiplier;
+
 
 
 
@@ -92,6 +94,11 @@ public class PlayerStats : ScriptableObject
     public float PlayerLevelMultiplier {
         get => playerLevelMultiplier;
         set => playerLevelMultiplier = value;
+    }
+    
+    public float XPMultiplier {
+        get => xPMultiplier;
+        set => xPMultiplier = value;
     }
     public float PlayerLevel {
         get => playerLevel;
