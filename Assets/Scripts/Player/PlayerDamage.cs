@@ -5,14 +5,13 @@ public class PlayerDamage : MonoBehaviour {
 
 	private PlayerStats playerStats;
 	public GameObject damageText;
-	public Weapons weapon;
 
 	private void Awake() {
 		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
 	}
 	private void OnCollisionEnter(Collision other) {
 		if (other.gameObject.CompareTag("SSword")) {
-			float damageReceived = other.gameObject.GetComponent<Enemy>().weapon.WeaponDamage - playerStats.PlayerArmour;
+			float damageReceived = other.gameObject.GetComponentInParent<Enemy>().weapon.WeaponDamage - playerStats.PlayerArmour;
 			ShowPlayerDamage(damageReceived);
 		}
 	}
