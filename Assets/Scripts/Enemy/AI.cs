@@ -10,7 +10,7 @@ public class AI : MonoBehaviour
     private Animator anim = new Animator();
     public Transform player;
     private State currentState;
-    private EnemyAttackScript attackScript;
+    private EnemyAttackAnimation attackAnimation;
     private NPCEyes eyes;
     private bool SetupAttack = true;
     public bool showHealthBar;
@@ -20,7 +20,7 @@ public class AI : MonoBehaviour
         Agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         eyes = GetComponent<NPCEyes>();
-        attackScript = GetComponent<EnemyAttackScript>();
+        attackAnimation = GetComponent<EnemyAttackAnimation>();
         currentState = new Idle(gameObject, Agent, anim, player);
     }
     
@@ -39,7 +39,7 @@ public class AI : MonoBehaviour
         if (currentState is Attack attack && SetupAttack)
         {
             SetupAttack = false;
-            attack.attackScript = attackScript;
+            attack.AttackAnimation = attackAnimation;
             showHealthBar = true;
         }
         

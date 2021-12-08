@@ -24,7 +24,7 @@ public class NPCEyes : MonoBehaviour
     [Range(0f, 360f)]
     public float angle = 45f;
     
-    [SerializeField] bool visualize = true;
+    // [SerializeField] bool visualize = true;
     
     public bool targetIsVisible { get; private set; }
 

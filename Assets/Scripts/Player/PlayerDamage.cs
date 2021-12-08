@@ -1,25 +1,22 @@
 using System;
 using UnityEngine;
 
-public class CollisionDamage : MonoBehaviour {
+public class PlayerDamage : MonoBehaviour {
 
-	private PlayerStats _playerStats;
+	private PlayerStats playerStats;
 	public GameObject damageText;
-	public Weapons weapons;
 
 	private void Awake() {
-		_playerStats = GetComponent<PlayerStatsLoader>().playerStats;
-		_playerStats.InitializePlayerStats();
+		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
 	}
 	private void OnCollisionEnter(Collision other) {
 		if (other.gameObject.CompareTag("SSword")) {
-			float damageReceived = weapons.WeaponDamage - _playerStats.PlayerArmour;
-			_playerStats.TakeDamage(damageReceived, gameObject);
+			float damageReceived = other.gameObject.GetComponentInParent<Enemy>().weapon.WeaponDamage - playerStats.PlayerArmour;
 			ShowPlayerDamage(damageReceived);
 		}
 	}
 	private void ShowPlayerDamage(float damageReceived) {
-
+		playerStats.TakeDamage(damageReceived, gameObject);
 		DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
 		indicator.SetDamageText(Convert.ToInt32(damageReceived));
 	}

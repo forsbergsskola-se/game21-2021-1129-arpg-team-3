@@ -13,12 +13,9 @@ public class DialogueReader : MonoBehaviour
     [SerializeField] private Dialogue dialogue;
     [SerializeField] private Canvas dialoguePopup;
     [SerializeField] private ScriptableObject dialogueObject;
-    [SerializeField] private Canvas AdditionalCanvas;
-    
+
     private DialogueContainer dialogueContainer;
     private List<NodeLinkData> currentOutputNodes;
-    
-    
     
     private bool boxIsUp = false;
     private Canvas currentDialogue;
@@ -28,12 +25,9 @@ public class DialogueReader : MonoBehaviour
     private List<TextMeshProUGUI> texts;
     
     private string currentNodeGuid;
-    
-    public delegate void TradeStartDelegate();
-
+    public delegate void TradeStartDelegate(); 
     public static event TradeStartDelegate OnStartTrade;
-
-
+    
     private void StartTrade()
     {
         if (OnStartTrade != null)
@@ -149,9 +143,12 @@ public class DialogueReader : MonoBehaviour
     private void ResumeDialogue()
     {
         currentDialogue.gameObject.SetActive(true);
+        
+        currentNodeGuid = currentOutputNodes[0].TargetNodeGUID;
         GetOutputNodesFromNode();
         SetupReplyButtons();
-        ClickContinue(currentNodeGuid);
+        texts[0].text = GetDialogueFromNode(currentNodeGuid);
+        //     ClickContinue(currentNodeGuid);
         TradeSystem.OnEndTrade -= ResumeDialogue;
     }
     
@@ -159,7 +156,6 @@ public class DialogueReader : MonoBehaviour
     {
         string nextLine = GetDialogueFromNode(nextNodeGuid);
         
-      
         if (nextLine == "TRADE")
         {
             currentNodeGuid = nextNodeGuid;

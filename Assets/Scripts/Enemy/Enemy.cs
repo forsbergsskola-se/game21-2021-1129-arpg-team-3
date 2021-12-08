@@ -1,20 +1,15 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour {
 	[SerializeField] protected float health;
 	[SerializeField] protected float maxHealth;
 	[SerializeField] protected float armour;
-	// [SerializeField] private GameObject sphere;
-	// private GameObject useSphere;
+	
 	public GameObject damageText;
 	public PlayerStats playerStats;
-	public Weapons weapons;
-
-
+	public Weapons weapon;
+	
 	public float Health {
 		get => health;
 		set {
@@ -33,6 +28,12 @@ public class Enemy : MonoBehaviour {
 			KillEnemy();
 		}
 	}
+	
+	private void OnCollisionEnter(Collision other) {
+		if (other.gameObject.CompareTag("Player")) {
+			TakeDamage();
+		}
+	}
 
 	public void TakeDamage() {
 		float damageReceived = playerStats.WeaponDamage - armour;
@@ -45,7 +46,7 @@ public class Enemy : MonoBehaviour {
 	}
 	private void KillEnemy()
 	{
-		playerStats.Experience += MaxHealth * weapons.WeaponDamage * playerStats.XPMultiplier;
+		playerStats.Experience += MaxHealth * weapon.WeaponDamage * playerStats.XPMultiplier;
 		gameObject.SetActive(false);
 		Debug.Log("Enemy is Dead");
 	}

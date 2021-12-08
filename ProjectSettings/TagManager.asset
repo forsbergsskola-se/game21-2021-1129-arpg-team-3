@@ -19,6 +19,7 @@ TagManager:
   - Door
   - Key
   - TradeSystem
+  - BigSword
   layers:
   - Default
   - TransparentFX

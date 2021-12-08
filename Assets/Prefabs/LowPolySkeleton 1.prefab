@@ -843,7 +843,6 @@ GameObject:
   - component: {fileID: 41683994697857169}
   - component: {fileID: -8413486687517660858}
   - component: {fileID: 7141254435392659384}
-  - component: {fileID: -5475872046091086192}
   m_Layer: 0
   m_Name: LowPolySkeleton 1
   m_TagString: Enemy
@@ -860,7 +859,7 @@ Transform:
   m_GameObject: {fileID: 6652567088470929335}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.83, y: 0.049999952, z: 6.1258087}
-  m_LocalScale: {x: 1.46, y: 1.46, z: 1.46}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6652567088486974764}
@@ -988,7 +987,7 @@ MonoBehaviour:
   armour: 5
   damageText: {fileID: 4662363426629045447, guid: 37ba3322a7cdab9438106176a7de2cad, type: 3}
   playerStats: {fileID: 11400000, guid: 0fbd9e63108f6d6408d1da897568a19e, type: 2}
-  weapons: {fileID: 11400000, guid: 8663b190e13e3b348a5986e539e03a5e, type: 2}
+  weapon: {fileID: 11400000, guid: 8663b190e13e3b348a5986e539e03a5e, type: 2}
 --- !u!114 &7141254435392659384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1002,18 +1001,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDelay: 0
---- !u!114 &-5475872046091086192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6652567088470929335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dcc71438afffa84096d44363365c7bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6652567088485760994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1877,8 +1864,8 @@ Transform:
   m_GameObject: {fileID: 6652567089820489526}
   m_LocalRotation: {x: -0.0036843985, y: 0.70738494, z: 0.7068012, w: 0.0050100796}
   m_LocalPosition: {x: 0.010721817, y: -0.00007797241, z: -0.0004193878}
-  m_LocalScale: {x: 1, y: 1.000001, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.97, y: 0.97, z: 0.97}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6652567089777882110}
   m_RootOrder: 0
