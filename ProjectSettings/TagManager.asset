@@ -20,6 +20,7 @@ TagManager:
   - Key
   - TradeSystem
   - BigSword
+  - Store
   layers:
   - Default
   - TransparentFX

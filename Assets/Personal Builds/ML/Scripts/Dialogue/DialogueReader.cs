@@ -19,12 +19,15 @@ public class DialogueReader : MonoBehaviour
     
     private bool boxIsUp = false;
     private Canvas currentDialogue;
-    private Button continueButton;
 
     private DialogueSystem dialogueSystem;
     private List<TextMeshProUGUI> texts;
     
     private string currentNodeGuid;
+
+    private string currentNpcLine;
+
+    private int clickCount;
     public delegate void TradeStartDelegate(); 
     public static event TradeStartDelegate OnStartTrade;
     
@@ -53,22 +56,6 @@ public class DialogueReader : MonoBehaviour
         return text;
     }
 
-    private List<string> GetAllChoicesFromNode(string nodeGuid)
-    {
-        List<string> outList = new List<string>();
-
-        foreach (var el in dialogueContainer.NodeLinks)
-        {
-            if (el.BaseNodeGUID == nodeGuid)
-            {
-                outList.Add(el.PortName);
-            }
-        }
-
-        return outList;
-    }
-    
-    
     private void OnMouseDown()
     {
         
@@ -77,8 +64,7 @@ public class DialogueReader : MonoBehaviour
             boxIsUp = true;
             currentDialogue = Instantiate(dialoguePopup);
             texts = currentDialogue.GetComponentsInChildren<TextMeshProUGUI>().ToList();
-            continueButton = currentDialogue.GetComponentInChildren<Button>();
-            
+
             texts[0].text = GetFirstLineOfDialogue();
             GetOutputNodesFromNode();
             SetupReplyButtons();
@@ -89,7 +75,7 @@ public class DialogueReader : MonoBehaviour
 
     private void SetupReplyButtons()
     {
-        
+        clickCount = 0;
         var buttons = currentDialogue.GetComponentsInChildren<Button>().ToList();
 
         foreach (var button in buttons)
@@ -143,36 +129,52 @@ public class DialogueReader : MonoBehaviour
     private void ResumeDialogue()
     {
         currentDialogue.gameObject.SetActive(true);
-        
-        currentNodeGuid = currentOutputNodes[0].TargetNodeGUID;
+
         GetOutputNodesFromNode();
         SetupReplyButtons();
+        currentNodeGuid = currentOutputNodes[0].TargetNodeGUID;
         texts[0].text = GetDialogueFromNode(currentNodeGuid);
+
+        GetOutputNodesFromNode();
+        SetupReplyButtons();
+
+        currentNodeGuid = currentOutputNodes[0].TargetNodeGUID;
         //     ClickContinue(currentNodeGuid);
         TradeSystem.OnEndTrade -= ResumeDialogue;
+    }
+
+    private void CheckCurrentNodeForSpecial(string guid)
+    {
+        string line = GetDialogueFromNode(guid);
     }
     
     private void ClickContinue(string nextNodeGuid)
     {
-        string nextLine = GetDialogueFromNode(nextNodeGuid);
-        
-        if (nextLine == "TRADE")
+        if (clickCount < 1)
         {
-            currentNodeGuid = nextNodeGuid;
-            PauseDialogue(nextLine);
-        }
+            clickCount++;
+            string nextLine = GetDialogueFromNode(nextNodeGuid);
 
-        else
-        {
-            texts[0].text = nextLine;
-            currentNodeGuid = nextNodeGuid;
-
-            GetOutputNodesFromNode();
-            SetupReplyButtons();
-            
-            if (nextLine == "LEAVE")
+            if (nextLine == "TRADE")
             {
-                ShutDownDialogue();
+                currentNodeGuid = nextNodeGuid;
+                PauseDialogue(nextLine);
+                
+                Debug.Log("TRADE");
+            }
+
+            else
+            {
+                texts[0].text = nextLine;
+                currentNodeGuid = nextNodeGuid;
+
+                GetOutputNodesFromNode();
+                SetupReplyButtons();
+
+                if (nextLine == "LEAVE")
+                {
+                    ShutDownDialogue();
+                }
             }
         }
     }

@@ -10,7 +10,7 @@ public class TradeSystem : MonoBehaviour
     private Canvas useTradeCanvas;
     [SerializeField] private Canvas itemCanvas;
     [SerializeField] private RawImage itemPanel;
-
+    private int itemCount;
     public delegate void EndTradeDelegate();
     public static event EndTradeDelegate OnEndTrade;
 
@@ -38,17 +38,18 @@ public class TradeSystem : MonoBehaviour
     {
         useTradeCanvas.gameObject.SetActive(true);
         useTradeCanvas.GetComponentInChildren<Button>().onClick.AddListener(CloseShop);
-        AddItemToStore();
+
+        Debug.Log("start to trade");
+        if (itemCount < 1)
+        {
+            AddItemToStore();
+            itemCount++;
+        }
     }
 
 
     private void AddItemToStore()
     {
-       RectTransform itemContainer = useTradeCanvas.GetComponentInChildren<RectTransform>();
-
-       
-       var newItem = Instantiate(itemPanel, itemContainer);
-       
-    //   newItem.transform.SetParent(itemContainer, false);
+       useTradeCanvas.GetComponentInChildren<List>().AddItem();
     }
 }
