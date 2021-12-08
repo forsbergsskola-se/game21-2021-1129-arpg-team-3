@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObject/Weapons", fileName = "Weapon")]
 public class Weapons : ScriptableObject {
-	[SerializeField] private string weaponName;
-	[SerializeField] private float weaponDamage;
+	[SerializeField] protected string weaponName;
+	[SerializeField] protected float weaponDamage;
 
 	public string WeaponName => weaponName;
 

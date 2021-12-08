@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class EnemyAttackScript : MonoBehaviour
+public class EnemyAttackAnimation : MonoBehaviour
 {
     private bool CanAttack = true;
     public float AttackDelay = 0;

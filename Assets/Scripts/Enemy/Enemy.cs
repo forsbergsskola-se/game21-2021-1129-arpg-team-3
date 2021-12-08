@@ -5,13 +5,11 @@ public class Enemy : MonoBehaviour {
 	[SerializeField] protected float health;
 	[SerializeField] protected float maxHealth;
 	[SerializeField] protected float armour;
-	// [SerializeField] private GameObject sphere;
-	// private GameObject useSphere;
+	
 	public GameObject damageText;
 	public PlayerStats playerStats;
-	public Weapons sSword;
-
-
+	public Weapons weapon;
+	
 	public float Health {
 		get => health;
 		set {
@@ -48,7 +46,7 @@ public class Enemy : MonoBehaviour {
 	}
 	private void KillEnemy()
 	{
-		playerStats.Experience += MaxHealth * sSword.WeaponDamage * playerStats.XPMultiplier;
+		playerStats.Experience += MaxHealth * weapon.WeaponDamage * playerStats.XPMultiplier;
 		gameObject.SetActive(false);
 		Debug.Log("Enemy is Dead");
 	}

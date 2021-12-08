@@ -248,7 +248,7 @@ public class Pursue : State
 
 public class Attack : State
 {
-   public EnemyAttackScript attackScript;
+   public EnemyAttackAnimation AttackAnimation;
    public Attack(GameObject npc, NavMeshAgent agent, Animator anim, Transform player)
       : base(npc, agent, anim, player)
    {
@@ -264,7 +264,7 @@ public class Attack : State
    }
    public override void Update()
    {
-      attackScript.TryAttack(Anim);
+      AttackAnimation.TryAttack(Anim);
       
       if (Vector3.Distance(Player.position, Npc.transform.position) > 2)
       {

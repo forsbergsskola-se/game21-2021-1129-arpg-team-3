@@ -22,10 +22,7 @@ public class PlayerStats : ScriptableObject
     [SerializeField] private float playerLevel;
     [SerializeField] private float playerLevelMultiplier;
     [SerializeField] private float xPMultiplier;
-
-
-
-
+    
     public float Health {
         get => health;
         set {
