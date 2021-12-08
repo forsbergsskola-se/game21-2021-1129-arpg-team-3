@@ -47,9 +47,6 @@ public class Enemy : MonoBehaviour {
 	}
 	private void KillEnemy()
 	{
-		// useSphere.SetActive(true);
-		// gameObject.GetComponent<BoxCollider>().isTrigger = true;
-		// gameObject.GetComponent<NavMeshObstacle>().enabled = false;
 		playerStats.Experience += MaxHealth;
 		gameObject.SetActive(false);
 		Debug.Log("Enemy is Dead");

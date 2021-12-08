@@ -55,8 +55,8 @@ public class CameraController : MonoBehaviour {
 		if (Input.GetMouseButton(2)) {
 			Vector3 direction = previousPosition - cam.ScreenToViewportPoint(Input.mousePosition);
 			cam.transform.position = player.position + offset;
-			cam.transform.Rotate(new Vector3(0,-0.1f,0),-direction.x*90,Space.World);
-			cam.transform.Translate(new Vector3(0,0,-10));
+			cam.transform.Rotate(new Vector3(0,0.1f,0),-direction.x*90,Space.World);
+			cam.transform.Translate(new Vector3(0,0,0));
 			previousPosition = Camera.main.ScreenToViewportPoint(Input.mousePosition);        
 		}
 	}
