@@ -3660,7 +3660,6 @@ GameObject:
   - component: {fileID: 590129688}
   - component: {fileID: 590129689}
   - component: {fileID: 590129690}
-  - component: {fileID: 590129691}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Enemy
@@ -3795,19 +3794,7 @@ MonoBehaviour:
   armour: 0
   damageText: {fileID: 4662363426629045447, guid: 37ba3322a7cdab9438106176a7de2cad, type: 3}
   playerStats: {fileID: 11400000, guid: 0fbd9e63108f6d6408d1da897568a19e, type: 2}
-  weapons: {fileID: 0}
---- !u!114 &590129691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590129681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dcc71438afffa84096d44363365c7bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  sSword: {fileID: 11400000, guid: 8663b190e13e3b348a5986e539e03a5e, type: 2}
 --- !u!1001 &596757871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15441,9 +15428,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1834260077, guid: d635506b3d185b849be5671a1e49df85, type: 3}
+      propertyPath: sSword
+      value: 
+      objectReference: {fileID: 11400000, guid: 8663b190e13e3b348a5986e539e03a5e, type: 2}
+    - target: {fileID: 1834260077, guid: d635506b3d185b849be5671a1e49df85, type: 3}
       propertyPath: weapons
       value: 
       objectReference: {fileID: 11400000, guid: 8663b190e13e3b348a5986e539e03a5e, type: 2}
+    - target: {fileID: 1834260077, guid: d635506b3d185b849be5671a1e49df85, type: 3}
+      propertyPath: bigSword
+      value: 
+      objectReference: {fileID: 11400000, guid: 54dcf692d47a2ec4facec90b2cc19a3f, type: 2}
     - target: {fileID: 1834260077, guid: d635506b3d185b849be5671a1e49df85, type: 3}
       propertyPath: damageText
       value: 

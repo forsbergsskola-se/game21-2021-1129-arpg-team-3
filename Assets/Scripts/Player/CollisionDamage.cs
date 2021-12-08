@@ -5,7 +5,8 @@ public class CollisionDamage : MonoBehaviour {
 
 	private PlayerStats _playerStats;
 	public GameObject damageText;
-	public Weapons weapons;
+	public Weapons sSword;
+	public Weapons bigSword;
 
 	private void Awake() {
 		_playerStats = GetComponent<PlayerStatsLoader>().playerStats;
@@ -13,13 +14,16 @@ public class CollisionDamage : MonoBehaviour {
 	}
 	private void OnCollisionEnter(Collision other) {
 		if (other.gameObject.CompareTag("SSword")) {
-			float damageReceived = weapons.WeaponDamage - _playerStats.PlayerArmour;
-			_playerStats.TakeDamage(damageReceived, gameObject);
+			float damageReceived = sSword.WeaponDamage - _playerStats.PlayerArmour;
+			ShowPlayerDamage(damageReceived);
+		}
+		else if (other.gameObject.CompareTag("BigSword")) {
+			float damageReceived = bigSword.WeaponDamage - _playerStats.PlayerArmour;
 			ShowPlayerDamage(damageReceived);
 		}
 	}
 	private void ShowPlayerDamage(float damageReceived) {
-
+		_playerStats.TakeDamage(damageReceived, gameObject);
 		DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
 		indicator.SetDamageText(Convert.ToInt32(damageReceived));
 	}

@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour {
 	[SerializeField] protected float health;
@@ -12,7 +9,7 @@ public class Enemy : MonoBehaviour {
 	// private GameObject useSphere;
 	public GameObject damageText;
 	public PlayerStats playerStats;
-	public Weapons weapons;
+	public Weapons sSword;
 
 
 	public float Health {
@@ -33,6 +30,12 @@ public class Enemy : MonoBehaviour {
 			KillEnemy();
 		}
 	}
+	
+	private void OnCollisionEnter(Collision other) {
+		if (other.gameObject.CompareTag("Player")) {
+			TakeDamage();
+		}
+	}
 
 	public void TakeDamage() {
 		float damageReceived = playerStats.WeaponDamage - armour;
@@ -45,7 +48,7 @@ public class Enemy : MonoBehaviour {
 	}
 	private void KillEnemy()
 	{
-		playerStats.Experience += MaxHealth * weapons.WeaponDamage * playerStats.XPMultiplier;
+		playerStats.Experience += MaxHealth * sSword.WeaponDamage * playerStats.XPMultiplier;
 		gameObject.SetActive(false);
 		Debug.Log("Enemy is Dead");
 	}
