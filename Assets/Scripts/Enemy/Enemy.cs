@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour {
 	// private GameObject useSphere;
 	public GameObject damageText;
 	public PlayerStats playerStats;
+	public Weapons weapons;
 
 
 	public float Health {
@@ -26,9 +27,6 @@ public class Enemy : MonoBehaviour {
 
 	private void Start() {
 		health = maxHealth;
-		// useSphere = Instantiate(sphere);
-		// useSphere.transform.position = gameObject.transform.position;
-		// useSphere.SetActive(false);
 	}
 	private void LateUpdate() {
 		if (Health <= 0) {
@@ -47,7 +45,7 @@ public class Enemy : MonoBehaviour {
 	}
 	private void KillEnemy()
 	{
-		playerStats.Experience += MaxHealth;
+		playerStats.Experience += MaxHealth * weapons.WeaponDamage * playerStats.XPMultiplier;
 		gameObject.SetActive(false);
 		Debug.Log("Enemy is Dead");
 	}

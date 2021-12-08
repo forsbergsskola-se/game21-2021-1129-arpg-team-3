@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class CollisionDamage : MonoBehaviour {
 
-	[SerializeField] private float SSwordDamage;
 	private PlayerStats _playerStats;
 	public GameObject damageText;
+	public Weapons weapons;
 
 	private void Awake() {
 		_playerStats = GetComponent<PlayerStatsLoader>().playerStats;
@@ -13,7 +13,7 @@ public class CollisionDamage : MonoBehaviour {
 	}
 	private void OnCollisionEnter(Collision other) {
 		if (other.gameObject.CompareTag("SSword")) {
-			float damageReceived = SSwordDamage - _playerStats.PlayerArmour;
+			float damageReceived = weapons.WeaponDamage - _playerStats.PlayerArmour;
 			_playerStats.TakeDamage(damageReceived, gameObject);
 			ShowPlayerDamage(damageReceived);
 		}
