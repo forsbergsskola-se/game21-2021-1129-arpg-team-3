@@ -8,12 +8,12 @@ public class TestInventory : MonoBehaviour
    
     void Start()
     {
-        
+        StoreList.OnMadeSale += IndexSale;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void IndexSale(InventoryItemObject obj)
     {
-        
+        inventory.AddItem(obj, 1);
     }
+
 }

@@ -13,29 +13,22 @@ public class StoreList : MonoBehaviour
     [SerializeField] private PlayerInventoryContainerTest container;
     public InventoryObject inventory;
 
-    public delegate void MadeSaleDelegate();
+    public delegate void MadeSaleDelegate(InventoryItemObject obj);
     public static event MadeSaleDelegate OnMadeSale;
 
 
-    private void MakeSale()
+    private void MakeSale(InventoryItemObject obj)
     {
         if (OnMadeSale != null)
         {
-            OnMadeSale();
+            OnMadeSale(obj);
         }
     }
-    
-    void Start ()
-    {
-        
-    }
-
-    
-    
 
     private void SetupButton(int index, Button button)
     {
-        button.onClick.AddListener(()=> MakeSale());
+        InventoryItemObject buyObj = inventory.container[index].item;
+        button.onClick.AddListener(()=> MakeSale(buyObj));
     }
     
 
