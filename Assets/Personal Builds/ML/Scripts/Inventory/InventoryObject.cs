@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Inventory",  menuName = "InventorySystem/Inventory")]
 public class InventoryObject : ScriptableObject
 {
     public List<InventorySlot> container = new();
@@ -20,7 +22,11 @@ public class InventoryObject : ScriptableObject
                 break;
             }
         }
-
+        
+        if (!hasItem)
+        {
+            container.Add(new InventorySlot(item, amount));
+        }
     }
 }
 

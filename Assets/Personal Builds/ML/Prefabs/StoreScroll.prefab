@@ -301,7 +301,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8545887374048893170}
   m_HandleRect: {fileID: 2494501782215181516}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -856,9 +856,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad26caf7c3c6a1844829ea6bf7132d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCount: 5
   itemContainer: {fileID: 8123279542575970187}
   testImage: {fileID: 2239924378606200347, guid: a7310559e4751ed4c9a1e052be4bd7f2, type: 3}
+  container: {fileID: 0}
+  inventory: {fileID: 11400000, guid: 55393f1f370b36e429b9924d34e31ced, type: 2}
 --- !u!1 &7251028037492523058
 GameObject:
   m_ObjectHideFlags: 0
