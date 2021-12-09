@@ -12,7 +12,7 @@ public class PlayerDamage : MonoBehaviour {
 	}
 	private void OnCollisionEnter(Collision other) {
 		if (other.gameObject.CompareTag("SSword")) {
-			float damageReceived = other.gameObject.GetComponentInParent<Enemy>().enemySo.WeaponDamage * Random.Range(playerStats.MinDamagePercent, 1f) - playerStats.PlayerArmour;
+			float damageReceived = other.gameObject.GetComponentInParent<Enemy>().enemySo.WeaponDamage * Random.Range(0.9f, 1f) - playerStats.PlayerArmour;
 			ShowPlayerDamage(damageReceived);
 		}
 	}
