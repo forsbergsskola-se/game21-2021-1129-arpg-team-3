@@ -1,34 +1,36 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CameraMovementYY : MonoBehaviour
 {
-    public Transform PlayerTransform;
-    private Vector3 _cameraOffset;
-    [Range(0.01f, 1.0f)] public float SmoothFactor = 0.5f;
-    public bool LookAtPlayer = false;
-    public bool RotateAroundPlayer = true;
-    public float RotationsSpeed = 5.0f;
-    void Start()
-    {
-        _cameraOffset = transform.position - PlayerTransform.position;
-    }
+    [SerializeField] private Camera cam;
+    [SerializeField] private Transform target;
+
+    private Vector3 previousPosition;
+    public float LookUp = 60;
+    public float LookDown = -60;
+
     
-    void LateUpdate()
+    
+
+    void Update()
     {
-        if (RotateAroundPlayer)
+        if (Input.GetMouseButtonDown(2))
         {
-             Quaternion camTurnAngle =
-                 Quaternion.AngleAxis(Input.GetAxis("Mouse ScrollWheel") * RotationsSpeed, Vector3.up);
-            
-             _cameraOffset = camTurnAngle * _cameraOffset;
+            previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
         }
 
-        Vector3 newPos = PlayerTransform.position + _cameraOffset;
-        transform.position = Vector3.Slerp(transform.position, newPos, SmoothFactor);
-
-        if (LookAtPlayer || RotateAroundPlayer)
-            transform.LookAt(PlayerTransform);
+        if (Input.GetMouseButton(2))
+        {
+            Vector3 direction = previousPosition - cam.ScreenToViewportPoint(Input.mousePosition);
+            cam.transform.position = target.position;
+            cam.transform.Rotate(new Vector3(0,0,0),direction.y*90); // Controls up and down 2 to 85 deg
+            cam.transform.Rotate(new Vector3(0,-0.1f,0),-direction.x*90,Space.World);
+            cam.transform.Translate(new Vector3(0,0,-10));
+            previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
+        }
     }
 }

@@ -28,11 +28,11 @@ public class PlayerController : MonoBehaviour
 
 	void Update() {
 		GetCursorPosition();
+		ChangeCursor();
 		if (Input.GetMouseButtonUp(0) & Camera.main is not null) {
 			cursorManagement.DeSpawnRallyPoint();
 			TargetCheck();
 		}
-		ChangeCursor();
 		AttackEnemy();
 	}
 	
@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
 	
 	private void TargetCheck() {
 		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) {
+			target = hitInfo.collider.transform; //Sets target
 			if (hitInfo.collider.CompareTag("Ground") || 
 			    hitInfo.collider.CompareTag("Key") || 
 			    hitInfo.collider.CompareTag("Door"))
@@ -51,7 +52,6 @@ public class PlayerController : MonoBehaviour
 				MovePlayer(hitInfo.point); //Moves player to point.
 			}
 			else if (hitInfo.collider.CompareTag("Enemy") || hitInfo.collider.CompareTag("Destroyable")) {
-				target = hitInfo.collider.transform; //Sets target
 				MoveAttack();
 			}
 			else {
@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 	void MovePlayer(Vector3 point) {
+		StopAttacking();
 		agent.stoppingDistance = 0; //resets melee range setting
 		agent.SetDestination(point); //moves player to point
 		Debug.Log("Play MoveSound");
@@ -70,7 +71,8 @@ public class PlayerController : MonoBehaviour
 	
 	void MoveAttack() {
 		if (Vector3.Distance(this.transform.position, target.position) >= playerStats.MeleeRange) { //only when player is not in melee range of enemy
-			agent.destination = target.position;
+			StopAttacking();
+			agent.SetDestination(target.position);
 			agent.stoppingDistance = playerStats.MeleeRange; //stops player before melee range
 			Debug.Log("Play MoveSound");
 		}
@@ -78,7 +80,7 @@ public class PlayerController : MonoBehaviour
 	private void AttackEnemy() {
 		if (target is not null && target.CompareTag("Enemy")) {
 			//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
-			if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange) {
+			if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange + 0.5) {
 				if (Input.GetMouseButtonUp(0)) {
 					transform.LookAt(target);
 				}
@@ -96,8 +98,10 @@ public class PlayerController : MonoBehaviour
 	private void StartAttacking() {
 		attackAnimation.gameObject.SetActive(true);
 		playerModel.gameObject.SetActive(false);
+		StartCoroutine(DelayAttack());
 	}
 	private void StopAttacking() {
+		GetComponent<Collider>().enabled = false;
 		attackAnimation.gameObject.SetActive(false);
 		playerModel.gameObject.SetActive(true);
 	}
@@ -126,6 +130,13 @@ public class PlayerController : MonoBehaviour
 		else {
 			Debug.LogWarning("Player RayCast Camera is NULL!");
 		}
+	}
+	
+	public IEnumerator DelayAttack()
+	{
+		GetComponent<Collider>().enabled = true;
+		yield return new WaitForSeconds(playerStats.AttackDelay);
+		GetComponent<Collider>().enabled = false;
 	}
 }
 	
