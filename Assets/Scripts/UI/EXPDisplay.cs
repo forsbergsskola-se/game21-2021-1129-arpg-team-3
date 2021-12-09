@@ -14,6 +14,6 @@ public class EXPDisplay : MonoBehaviour
         playerStats = GetComponentInParent<PlayerStatsLoader>().playerStats;
     }
     private void LateUpdate() {
-        text.text = $"LVL: {(int)playerStats.PlayerLevel} XP: {(int)playerStats.Experience} / {(int)playerStats.MaxExperience}";
+        text.text = $"LVL: {(int)playerStats.PlayerLevel} | XP: {(int)playerStats.Experience} / {(int)playerStats.MaxExperience}";
     }
 }
