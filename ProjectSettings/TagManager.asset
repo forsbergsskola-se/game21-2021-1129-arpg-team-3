@@ -22,7 +22,6 @@ TagManager:
   - BigSword
   - Store
   - Item
-  - PlayerOR
   layers:
   - Default
   - TransparentFX
