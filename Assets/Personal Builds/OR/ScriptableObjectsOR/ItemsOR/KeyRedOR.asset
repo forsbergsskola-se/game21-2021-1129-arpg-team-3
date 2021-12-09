@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d7853e21cd6b14f9969c8c9c67d706, type: 3}
   m_Name: KeyRedOR
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4322222723560012618, guid: b719c5470cabe6b4ba1b937c1385bb5a, type: 3}
+  prefab: {fileID: 380289941601094963, guid: 72cbe14c87b063544a9b8ba01e054afc, type: 3}
   type: 2
   description: "Diz b  key. Not Keith, Key. Key is not blue, nor is it green. Definitely
     not yellow. NEVER YELLOW!!\nIt \nIs\nRed"

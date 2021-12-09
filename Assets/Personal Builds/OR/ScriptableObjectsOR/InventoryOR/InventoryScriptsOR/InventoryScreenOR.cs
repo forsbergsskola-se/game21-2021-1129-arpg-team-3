@@ -12,7 +12,7 @@ public class InventoryScreenOR : MonoBehaviour
     public int X_SPACE_BETWEEN_ITEM_OR;
     public int NUMBER_OF_COLUMN_OR;
     public int Y_SPACE_BETWEEN_ITEM_OR;
-    private Dictionary<InventorySlot, GameObject> itemDisplayed = new Dictionary<InventorySlot, GameObject>();
+    private Dictionary<InventorySlotOR, GameObject> itemDisplayed = new Dictionary<InventorySlotOR, GameObject>();
 
     void Start()
     {
@@ -20,7 +20,7 @@ public class InventoryScreenOR : MonoBehaviour
     }
     void Update()
     {
-       // UpdateDisplay();
+       UpdateDisplay();
     }
     public void CreateDisplay()
     {
@@ -29,6 +29,7 @@ public class InventoryScreenOR : MonoBehaviour
             var obj = Instantiate(inventory.ContainerOR[i].item.prefab, Vector3.zero, Quaternion.identity, transform);
             obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
             obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.ContainerOR[i].amount.ToString("n0");
+            itemDisplayed.Add(inventory.ContainerOR[i], obj);
         }
     }
 
@@ -39,6 +40,20 @@ public class InventoryScreenOR : MonoBehaviour
     
     private void UpdateDisplay()
     {
-        throw new NotImplementedException();
+        for (int i = 0; i < inventory.ContainerOR.Count; i++)
+        {
+            if (itemDisplayed.ContainsKey(inventory.ContainerOR[i]))
+            {
+                itemDisplayed[inventory.ContainerOR[i]].GetComponentInChildren<TextMeshProUGUI>().text =
+                    inventory.ContainerOR[i].amount.ToString("n0");
+            }
+            else
+            {
+                var obj = Instantiate(inventory.ContainerOR[i].item.prefab, Vector3.zero, Quaternion.identity, transform);
+                obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
+                obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.ContainerOR[i].amount.ToString("n0");
+                itemDisplayed.Add(inventory.ContainerOR[i], obj);
+            }
+        }
     }
 }

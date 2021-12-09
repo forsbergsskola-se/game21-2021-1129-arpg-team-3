@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 332339254693159362, guid: 0a20436b64a06e349afe73b46563921b, type: 3}
       propertyPath: m_Name
-      value: Image Variant 3
+      value: PotionImage
       objectReference: {fileID: 0}
     - target: {fileID: 661206625494774525, guid: 0a20436b64a06e349afe73b46563921b, type: 3}
       propertyPath: m_Pivot.x
@@ -96,16 +96,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5689351085386049753, guid: 0a20436b64a06e349afe73b46563921b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7a0ae85d98e02f7458ddc9d27b1ab4da, type: 3}
+    - target: {fileID: 5689351085386049753, guid: 0a20436b64a06e349afe73b46563921b, type: 3}
       propertyPath: m_Color.b
-      value: 0.0925596
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5689351085386049753, guid: 0a20436b64a06e349afe73b46563921b, type: 3}
       propertyPath: m_Color.g
-      value: 0.9433962
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5689351085386049753, guid: 0a20436b64a06e349afe73b46563921b, type: 3}
       propertyPath: m_Color.r
-      value: 0.8917267
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7447024384046001995, guid: 0a20436b64a06e349afe73b46563921b, type: 3}
+      propertyPath: m_fontSize
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7447024384046001995, guid: 0a20436b64a06e349afe73b46563921b, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 7447024384046001995, guid: 0a20436b64a06e349afe73b46563921b, type: 3}
       propertyPath: m_fontColorGradient.topLeft.b
