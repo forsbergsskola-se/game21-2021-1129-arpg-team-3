@@ -25,60 +25,54 @@ MonoBehaviour:
   - BaseNodeGUID: 02d20378-e3f4-4e87-9540-e57c049c89de
     PortName: Random
     TargetNodeGUID: 493b2fb2-42cd-4f62-9cf9-8439bcf53e55
-  - BaseNodeGUID: a14e0f8b-1f42-470a-8a49-67d80a063c93
-    PortName: Trade
-    TargetNodeGUID: 3ed890e4-3729-4453-9e93-5844db104e9f
-  - BaseNodeGUID: a14e0f8b-1f42-470a-8a49-67d80a063c93
-    PortName: Leave
-    TargetNodeGUID: c72f99ca-23a7-48b8-a1bd-63150bccabaa
-  - BaseNodeGUID: 493b2fb2-42cd-4f62-9cf9-8439bcf53e55
-    PortName: Leave
-    TargetNodeGUID: c72f99ca-23a7-48b8-a1bd-63150bccabaa
-  - BaseNodeGUID: e9d58e03-59b9-47d6-ac2c-fd38780ccb8b
-    PortName: Yes
-    TargetNodeGUID: a69c3568-3eeb-482e-bfe0-70ba563de3c1
-  - BaseNodeGUID: e9d58e03-59b9-47d6-ac2c-fd38780ccb8b
-    PortName: No
-    TargetNodeGUID: c72f99ca-23a7-48b8-a1bd-63150bccabaa
   - BaseNodeGUID: a69c3568-3eeb-482e-bfe0-70ba563de3c1
     PortName: NEXT
     TargetNodeGUID: e3e9e94b-1ed1-43b5-8094-b1c7202ec83a
-  - BaseNodeGUID: e3e9e94b-1ed1-43b5-8094-b1c7202ec83a
+  - BaseNodeGUID: e9d58e03-59b9-47d6-ac2c-fd38780ccb8b
+    PortName: Yes
+    TargetNodeGUID: a69c3568-3eeb-482e-bfe0-70ba563de3c1
+  - BaseNodeGUID: a14e0f8b-1f42-470a-8a49-67d80a063c93
+    PortName: Trade
+    TargetNodeGUID: 8f5efe87-4612-46c6-a017-0771012be017
+  - BaseNodeGUID: a14e0f8b-1f42-470a-8a49-67d80a063c93
     PortName: Leave
-    TargetNodeGUID: c72f99ca-23a7-48b8-a1bd-63150bccabaa
+    TargetNodeGUID: 987bf441-7462-40af-8c9a-cbc03486fe4e
+  - BaseNodeGUID: e9d58e03-59b9-47d6-ac2c-fd38780ccb8b
+    PortName: No
+    TargetNodeGUID: 987bf441-7462-40af-8c9a-cbc03486fe4e
   - BaseNodeGUID: 8f5efe87-4612-46c6-a017-0771012be017
     PortName: Leave
-    TargetNodeGUID: c72f99ca-23a7-48b8-a1bd-63150bccabaa
-  - BaseNodeGUID: 3ed890e4-3729-4453-9e93-5844db104e9f
-    PortName: PAUSE
-    TargetNodeGUID: 8f5efe87-4612-46c6-a017-0771012be017
+    TargetNodeGUID: 987bf441-7462-40af-8c9a-cbc03486fe4e
+  - BaseNodeGUID: e3e9e94b-1ed1-43b5-8094-b1c7202ec83a
+    PortName: Leave
+    TargetNodeGUID: 987bf441-7462-40af-8c9a-cbc03486fe4e
+  - BaseNodeGUID: 493b2fb2-42cd-4f62-9cf9-8439bcf53e55
+    PortName: Leave
+    TargetNodeGUID: 987bf441-7462-40af-8c9a-cbc03486fe4e
   DialogueNodeData:
   - NodeGUID: 02d20378-e3f4-4e87-9540-e57c049c89de
     DialogueText: This is the first line of the advanced dialogue system
     Position: {x: 283.2, y: 152}
-  - NodeGUID: a14e0f8b-1f42-470a-8a49-67d80a063c93
-    DialogueText: Do you want to trade?
-    Position: {x: 876, y: -24.8}
   - NodeGUID: 493b2fb2-42cd-4f62-9cf9-8439bcf53e55
     DialogueText: Random dialogue
     Position: {x: 870.4, y: 321.6}
-  - NodeGUID: a69c3568-3eeb-482e-bfe0-70ba563de3c1
-    DialogueText: QUEST
-    Position: {x: 1329.6, y: 152}
-  - NodeGUID: e3e9e94b-1ed1-43b5-8094-b1c7202ec83a
-    DialogueText: Additional dialogue from quest giver
-    Position: {x: 1626.4, y: 152}
+  - NodeGUID: a14e0f8b-1f42-470a-8a49-67d80a063c93
+    DialogueText: Do you want to trade?
+    Position: {x: 870.4, y: -60.8}
+  - NodeGUID: 987bf441-7462-40af-8c9a-cbc03486fe4e
+    DialogueText: LEAVE
+    Position: {x: 1724, y: 344.80002}
   - NodeGUID: 8f5efe87-4612-46c6-a017-0771012be017
     DialogueText: Additional dialogue from trader
-    Position: {x: 1748, y: -17.599998}
-  - NodeGUID: 3ed890e4-3729-4453-9e93-5844db104e9f
-    DialogueText: TRADE
-    Position: {x: 1416, y: -96.8}
-  - NodeGUID: c72f99ca-23a7-48b8-a1bd-63150bccabaa
-    DialogueText: LEAVE
-    Position: {x: 1940.8, y: 344.80002}
+    Position: {x: 1256.8, y: -60.8}
   - NodeGUID: e9d58e03-59b9-47d6-ac2c-fd38780ccb8b
     DialogueText: Do you accept the quest?
     Position: {x: 823.2, y: 164.8}
+  - NodeGUID: a69c3568-3eeb-482e-bfe0-70ba563de3c1
+    DialogueText: QUEST
+    Position: {x: 1305.6, y: 152}
+  - NodeGUID: e3e9e94b-1ed1-43b5-8094-b1c7202ec83a
+    DialogueText: Additional dialogue from quest giver
+    Position: {x: 1584.8, y: 152}
   ExposedProperties: []
   CommentBlockData: []
