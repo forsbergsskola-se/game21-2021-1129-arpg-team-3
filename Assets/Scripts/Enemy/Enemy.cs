@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour {
 	}
 	
 	private void OnCollisionEnter(Collision other) {
-		if (other.gameObject.CompareTag("Player")) {
+		if (other.gameObject.CompareTag("PlayerWeapon")) {
 			TakeDamage();
 		}
 	}

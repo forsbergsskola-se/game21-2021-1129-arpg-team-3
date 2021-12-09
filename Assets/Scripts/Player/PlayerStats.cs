@@ -80,8 +80,8 @@ public class PlayerStats : ScriptableObject
             experience -= MaxExperience;
             PlayerLevel++;
             MaxExperience += PlayerLevelMultiplier;
-            WeaponDamage += 5;
-            MaxHealth += 10;
+            WeaponDamage += 3;
+            MaxHealth += 3;
             Health = MaxHealth;
         }
     }

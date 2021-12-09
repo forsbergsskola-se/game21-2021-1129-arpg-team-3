@@ -23,6 +23,7 @@ TagManager:
   - Store
   - Item
   - PlayerOR
+  - PlayerWeapon
   layers:
   - Default
   - TransparentFX

@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 	public Animator attackAnimation;
 	public GameObject playerModel;
 	private KeyHolder keyHolder;
+	public GameObject playerWeapon;
 
 	private void Start() {
 		agent = GetComponent<NavMeshAgent>();
@@ -29,7 +30,7 @@ public class PlayerController : MonoBehaviour
 	void Update() {
 		GetCursorPosition();
 		ChangeCursor();
-		if (Input.GetMouseButtonUp(0) & Camera.main is not null) {
+		if (Input.GetMouseButtonDown(0) & Camera.main is not null) {
 			cursorManagement.DeSpawnRallyPoint();
 			TargetCheck();
 		}
@@ -73,7 +74,7 @@ public class PlayerController : MonoBehaviour
 		if (Vector3.Distance(this.transform.position, target.position) >= playerStats.MeleeRange) { //only when player is not in melee range of enemy
 			StopAttacking();
 			agent.SetDestination(target.position);
-			agent.stoppingDistance = playerStats.MeleeRange; //stops player before melee range
+			agent.stoppingDistance = playerStats.MeleeRange -1; //stops player before melee range
 			Debug.Log("Play MoveSound");
 		}
 	}
@@ -101,7 +102,7 @@ public class PlayerController : MonoBehaviour
 		StartCoroutine(DelayAttack());
 	}
 	private void StopAttacking() {
-		GetComponent<Collider>().enabled = false;
+		playerWeapon.GetComponent<Collider>().enabled = false;
 		attackAnimation.gameObject.SetActive(false);
 		playerModel.gameObject.SetActive(true);
 	}
@@ -132,11 +133,10 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 	
-	public IEnumerator DelayAttack()
-	{
-		GetComponent<Collider>().enabled = true;
+	public IEnumerator DelayAttack() {
+		playerWeapon.GetComponent<Collider>().enabled = true;
 		yield return new WaitForSeconds(playerStats.AttackDelay);
-		GetComponent<Collider>().enabled = false;
+		playerWeapon.GetComponent<Collider>().enabled = false;
 	}
 }
 	
