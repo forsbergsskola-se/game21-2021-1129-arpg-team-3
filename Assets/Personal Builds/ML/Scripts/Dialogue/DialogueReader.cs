@@ -10,7 +10,6 @@ using Button = UnityEngine.UI.Button;
 
 public class DialogueReader : MonoBehaviour
 {
-    [SerializeField] private Dialogue dialogue;
     [SerializeField] private Canvas dialoguePopup;
     [SerializeField] private ScriptableObject dialogueObject;
 
@@ -58,7 +57,6 @@ public class DialogueReader : MonoBehaviour
 
     private void OnMouseDown()
     {
-        
         if (!boxIsUp)
         {
             boxIsUp = true;
@@ -69,7 +67,7 @@ public class DialogueReader : MonoBehaviour
             GetOutputNodesFromNode();
             SetupReplyButtons();
             
-            texts[1].text = dialogue.name;
+            texts[1].text = "Peasant";
         }
     }
 
@@ -77,17 +75,20 @@ public class DialogueReader : MonoBehaviour
     {
         clickCount = 0;
         var buttons = currentDialogue.GetComponentsInChildren<Button>().ToList();
-
+       
         foreach (var button in buttons)
         {
             Button butt = button;
+            butt.onClick.RemoveAllListeners();
             butt.GetComponentInChildren<TextMeshProUGUI>().text = "";
         }
 
         for (int i = 0; i < currentOutputNodes.Count; i++)
         {
             int test = i;
-            buttons[i].onClick.AddListener(() => ClickContinue(currentOutputNodes[test].TargetNodeGUID));
+            string targetGuid = currentOutputNodes[test].TargetNodeGUID;
+            string chosenLine = currentOutputNodes[test].PortName;
+            buttons[i].onClick.AddListener(() => ClickContinue(targetGuid, chosenLine));
             buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = i + 1 + "." + currentOutputNodes[i].PortName;
         }
 
@@ -130,39 +131,30 @@ public class DialogueReader : MonoBehaviour
     {
         currentDialogue.gameObject.SetActive(true);
 
+        currentNodeGuid = currentOutputNodes[0].TargetNodeGUID;
         GetOutputNodesFromNode();
         SetupReplyButtons();
-        currentNodeGuid = currentOutputNodes[0].TargetNodeGUID;
         texts[0].text = GetDialogueFromNode(currentNodeGuid);
 
-        GetOutputNodesFromNode();
-        SetupReplyButtons();
-
-        currentNodeGuid = currentOutputNodes[0].TargetNodeGUID;
-        //     ClickContinue(currentNodeGuid);
         TradeSystem.OnEndTrade -= ResumeDialogue;
     }
-
-    private void CheckCurrentNodeForSpecial(string guid)
-    {
-        string line = GetDialogueFromNode(guid);
-    }
     
-    private void ClickContinue(string nextNodeGuid)
+    private void ClickContinue(string nextNodeGuid, string selectedLine)
     {
         if (clickCount < 1)
         {
             clickCount++;
+        //    string currentLine = GetDialogueFromNode(currentNodeGuid);
             string nextLine = GetDialogueFromNode(nextNodeGuid);
 
-            if (nextLine == "TRADE")
+            if (selectedLine == "Trade")
             {
                 currentNodeGuid = nextNodeGuid;
                 PauseDialogue(nextLine);
-                
-                Debug.Log("TRADE");
             }
-
+            
+            
+            
             else
             {
                 texts[0].text = nextLine;
@@ -171,7 +163,7 @@ public class DialogueReader : MonoBehaviour
                 GetOutputNodesFromNode();
                 SetupReplyButtons();
 
-                if (nextLine == "LEAVE")
+                if (selectedLine == "Leave")
                 {
                     ShutDownDialogue();
                 }
