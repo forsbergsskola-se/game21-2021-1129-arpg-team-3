@@ -21,6 +21,7 @@ TagManager:
   - TradeSystem
   - BigSword
   - Store
+  - Item
   layers:
   - Default
   - TransparentFX
