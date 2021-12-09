@@ -1,14 +1,15 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour {
-	[SerializeField] protected float health;
-	[SerializeField] protected float maxHealth;
-	[SerializeField] protected float armour;
+	public float maxHealth;
+	public float health;
+	private float armor;
 	
 	public GameObject damageText;
 	public PlayerStats playerStats;
-	public Weapons weapon;
+	public EnemySO enemySo;
 	
 	public float Health {
 		get => health;
@@ -17,11 +18,10 @@ public class Enemy : MonoBehaviour {
 			health = Mathf.Clamp(health, 0, maxHealth);
 		}
 	}
-	public float MaxHealth => maxHealth;
-
-
-	private void Start() {
-		health = maxHealth;
+	
+	private void Awake() {
+		maxHealth = enemySo.EnemyHealth;
+		Health = enemySo.EnemyHealth;
 	}
 	private void LateUpdate() {
 		if (Health <= 0) {
@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	public void TakeDamage() {
-		float damageReceived = playerStats.WeaponDamage - armour;
+		float damageReceived = playerStats.WeaponDamage * Random.Range(enemySo.MinDamagePercent, 1f) - enemySo.EnemyArmor;
 		Health -= damageReceived;
 		ShowEnemyDamage(damageReceived);
 	}
@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour {
 	}
 	private void KillEnemy()
 	{
-		playerStats.Experience += MaxHealth * weapon.WeaponDamage * playerStats.XPMultiplier;
+		playerStats.Experience += maxHealth * enemySo.WeaponDamage * playerStats.XPMultiplier;
 		gameObject.SetActive(false);
 		Debug.Log("Enemy is Dead");
 	}
