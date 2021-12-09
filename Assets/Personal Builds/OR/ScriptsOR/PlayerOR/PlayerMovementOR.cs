@@ -44,6 +44,10 @@ public class PlayerMovementOR : MonoBehaviour
            }
        }
    }
+   private void OnApplicationQuit()
+   {
+       inventory.ContainerOR.Clear();
+   }
 
    private void Move(Vector3 point)
    {

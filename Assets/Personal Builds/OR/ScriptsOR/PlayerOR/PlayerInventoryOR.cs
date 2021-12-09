@@ -39,8 +39,5 @@ public class PlayerInventoryOR : MonoBehaviour
     //     }
     // }
 
-    private void OnApplicationQuit()
-    {
-        inventory.ContainerOR.Clear();
-    }
+    
 }
