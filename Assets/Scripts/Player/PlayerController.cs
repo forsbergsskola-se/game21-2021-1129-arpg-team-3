@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 	void Update() {
 		GetCursorPosition();
 		ChangeCursor();
-		if (Input.GetMouseButtonDown(0) & Camera.main is not null) {
+		if (Input.GetMouseButtonUp(0) & Camera.main is not null) {
 			cursorManagement.DeSpawnRallyPoint();
 			TargetCheck();
 		}
