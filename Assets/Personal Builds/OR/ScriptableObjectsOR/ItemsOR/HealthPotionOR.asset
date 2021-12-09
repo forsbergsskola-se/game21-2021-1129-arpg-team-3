@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cafd752cbe94aad43b23777ac090370f, type: 3}
   m_Name: HealthPotionOR
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 332339254693159362, guid: 0a20436b64a06e349afe73b46563921b, type: 3}
   type: 0
   description: It give life. Good shit, none of that stupid knock off potions either,
     it'll heal you up real nice! Buy now, many, you live much.

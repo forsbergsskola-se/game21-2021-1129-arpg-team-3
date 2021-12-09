@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e2a770d24ef6d347b1e9f14d891edff, type: 3}
   m_Name: KickassHelmetOR
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1024017511384872291, guid: cb3bc11fb02d01e4caa4e587852c569b, type: 3}
+  prefab: {fileID: 7975125931628978458, guid: a1501ad3d85073848ba24a7e46ff5a52, type: 3}
   type: 1
   description: This helmet is totally "kchk-kchk".
   armourValue: 999

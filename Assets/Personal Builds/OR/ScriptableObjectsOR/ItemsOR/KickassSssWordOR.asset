@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e2a770d24ef6d347b1e9f14d891edff, type: 3}
   m_Name: KickassSssWordOR
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 6270999973844737445, guid: 1c111181d2d6bdf4f83f58d0cc95e40b, type: 3}
   type: 1
   description: This SsssssWord is totally "kchk-kchk".
   armourValue: 0
