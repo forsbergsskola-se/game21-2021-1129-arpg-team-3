@@ -8940,6 +8940,41 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dcd02ec210788514f9917faf6c7eb949, type: 3}
   m_PrefabInstance: {fileID: 105725936}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1192118530 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4322222723560012618, guid: f9c17fd6774c6a54c87dfded8e171701, type: 3}
+  m_PrefabInstance: {fileID: 4322222722557902685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1192118535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192118530}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1435657013
+      Data2: 1155393887
+      Data3: -925003624
+      Data4: 1086597729
+    Path: event:/Vox/Voxmumbel loop
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!4 &1202745144 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dcd02ec210788514f9917faf6c7eb949, type: 3}
@@ -10756,7 +10791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5532848755827785468, guid: a2eb70fe61a10624ab4ca5a5e1e8fab7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -15.400024
+      value: -15.399902
       objectReference: {fileID: 0}
     - target: {fileID: 5532848755827785468, guid: a2eb70fe61a10624ab4ca5a5e1e8fab7, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -15024,6 +15059,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1135651571866237961, guid: df2d5579087b34a429f217e8e4dd7759, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1135651571866237962, guid: df2d5579087b34a429f217e8e4dd7759, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -15078,6 +15117,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df2d5579087b34a429f217e8e4dd7759, type: 3}
+--- !u!1 &1135651571180917116 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1135651571866237962, guid: df2d5579087b34a429f217e8e4dd7759, type: 3}
+  m_PrefabInstance: {fileID: 1135651571180917115}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1135651571180917117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135651571180917116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!1001 &2058520240796977126
 PrefabInstance:
   m_ObjectHideFlags: 0
