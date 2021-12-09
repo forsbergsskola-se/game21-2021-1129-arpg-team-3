@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerInventoryOR : MonoBehaviour
 {
     public InventoryObjectOR inventory;
-    public float pickupRange = 2f;
+    //public float pickupRange = 2f;
 
 
     // public void OnTriggerEnter(Collider other)
@@ -19,24 +19,25 @@ public class PlayerInventoryOR : MonoBehaviour
     //     }
     // }
 
-    public void Update()
-    {
-        Ray ray = new Ray(transform.position, transform.forward);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, pickupRange))
-        {
-            Debug.Log(hit.collider.gameObject);
-            if (hit.collider.CompareTag("Item"))
-            {
-                if (Input.GetMouseButtonDown(1))
-                {
-                    var item = hit.collider.gameObject.GetComponent<ItemOR>();
-                    inventory.AddItemOR(item.itemOR, 1);
-                    Destroy(hit.collider.gameObject);
-                }
-            }
-        }
-    }
+    // public void Update()
+    // {
+    //     Ray ray = new Ray(transform.position, transform.forward);
+    //     RaycastHit hit;
+    //     if (Physics.Raycast(ray, out hit, pickupRange))
+    //     {
+    //         var item = hit.collider.gameObject.GetComponent<ItemOR>();
+    //         Debug.Log(hit.collider.gameObject);
+    //         if (hit.collider.CompareTag("Item"))
+    //         {
+    //             if (Input.GetMouseButtonDown(1))
+    //             {
+    //                 
+    //                 inventory.AddItemOR(item.itemOR, 1);
+    //                 Destroy(hit.collider.gameObject);
+    //             }
+    //         }
+    //     }
+    // }
 
     private void OnApplicationQuit()
     {
