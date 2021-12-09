@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
 				cursorManagement.SpawnRallyPoint(hitInfo.point);
 				MovePlayer(hitInfo.point); //Moves player to point.
 			}
-			else if (hitInfo.collider.CompareTag("Enemy") || hitInfo.collider.CompareTag("Destroyable")) {
+			else if (hitInfo.collider.CompareTag("Enemy") || hitInfo.collider.CompareTag("Key")) {
 				MoveAttack();
 			}
 			else {
@@ -78,19 +78,19 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 	private void AttackEnemy() {
-		if (target is not null && target.CompareTag("Enemy")) {
+		if (target is not null && (target.CompareTag("Enemy") || target.CompareTag("Key") || target.CompareTag("Door"))) {
 			//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
 			if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange + 0.5) {
-				if (Input.GetMouseButtonUp(0)) {
-					transform.LookAt(target);
-				}
-				if (target.CompareTag("Enemy")) {
+				if (target.CompareTag("Enemy") || target.CompareTag("Key") || target.CompareTag("Door")) {
 					StartAttacking();
 					Debug.Log("Play AttackSound");
 					// target = null; //Forces player to click again to attack
+					if (Input.GetMouseButtonUp(0) && target.CompareTag("Enemy")) {
+						transform.LookAt(target);
+					}
 				}
 			}
-			if (target.gameObject.GetComponent<Enemy>().Health <= 0) {
+			if (target is not null && target.CompareTag("Enemy") && target.gameObject.GetComponent<Enemy>().Health <= 0) {
 				StopAttacking();
 			}
 		}

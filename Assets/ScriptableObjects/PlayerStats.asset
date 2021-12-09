@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c676125a9a11602448c8e714046a93f8, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  health: 120
+  health: 130.44754
   playerArmour: 10
-  gold: 0
+  gold: 200
   score: 0
   mana: 0
   minHealth: 0
-  maxHealth: 120
-  weaponDamage: 30
+  maxHealth: 140
+  weaponDamage: 40
   meeleeRange: 2
-  experience: 190
-  maxExperience: 200
-  playerLevel: 2
+  experience: 250
+  maxExperience: 300
+  playerLevel: 4
   playerLevelMultiplier: 50
   xPMultiplier: 0.025
   attackDelay: 0.5
