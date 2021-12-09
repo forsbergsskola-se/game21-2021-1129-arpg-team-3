@@ -42,7 +42,7 @@ public class KeyHolder : MonoBehaviour
         if (key != null)
         {
             AddKey(key.GetKeyType());
-            Destroy(key.gameObject);
+            key.gameObject.SetActive(false);
             doorUnlocked = true;
         }
         KeyDoor keyDoor = collider.GetComponent<KeyDoor>();
