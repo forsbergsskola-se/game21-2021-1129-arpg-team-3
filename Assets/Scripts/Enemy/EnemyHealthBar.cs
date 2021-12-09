@@ -34,7 +34,7 @@ public class EnemyHealthBar : MonoBehaviour {
 	}
 
 	private void SetMaxHealth() {
-		slider.maxValue = enemy.MaxHealth;
+		slider.maxValue = enemy.maxHealth;
 		slider.value = enemy.Health;
 		fill.color = gradient.Evaluate(1f);
 	}

@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40e625950b997094e847e22a55632c91, type: 3}
-  m_Name: NoWeapon
+  m_Script: {fileID: 11500000, guid: 076913c73e20f18478a32b66cf0e73a6, type: 3}
+  m_Name: Skeleton1
   m_EditorClassIdentifier: 
-  weaponName: NoWeapon
+  enemyName: 
   weaponDamage: 0
+  enemyHealth: 0
