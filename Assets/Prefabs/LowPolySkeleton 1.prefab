@@ -983,11 +983,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  maxHealth: 100
   armour: 5
+  minDamagePercent: 0.8
   damageText: {fileID: 4662363426629045447, guid: 37ba3322a7cdab9438106176a7de2cad, type: 3}
   playerStats: {fileID: 11400000, guid: 0fbd9e63108f6d6408d1da897568a19e, type: 2}
-  weapon: {fileID: 11400000, guid: 8663b190e13e3b348a5986e539e03a5e, type: 2}
+  enemySo: {fileID: 11400000, guid: 65a067d5e1d488f4bb51f9132fdd997e, type: 2}
 --- !u!114 &7141254435392659384
 MonoBehaviour:
   m_ObjectHideFlags: 0

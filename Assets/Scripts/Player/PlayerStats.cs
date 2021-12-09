@@ -79,7 +79,7 @@ public class PlayerStats : ScriptableObject
         if (experience >= MaxExperience) {
             experience -= MaxExperience;
             PlayerLevel++;
-            MaxExperience *= PlayerLevelMultiplier;
+            MaxExperience += PlayerLevelMultiplier;
             WeaponDamage += 5;
             MaxHealth += 10;
             Health = MaxHealth;
