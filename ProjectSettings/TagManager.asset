@@ -24,6 +24,7 @@ TagManager:
   - Item
   - PlayerOR
   - PlayerWeapon
+  - Fire
   layers:
   - Default
   - TransparentFX

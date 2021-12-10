@@ -6,6 +6,10 @@ public class PlayerDamage : MonoBehaviour {
 
 	private PlayerStats playerStats;
 	public GameObject damageText;
+	
+	[SerializeField] private float timeToTakeDamage;
+	private float _elapsedTime;
+
 
 	private void Awake() {
 		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
@@ -20,5 +24,16 @@ public class PlayerDamage : MonoBehaviour {
 		playerStats.TakeDamage(damageReceived, gameObject);
 		DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
 		indicator.SetDamageText(Convert.ToInt32(damageReceived));
+	}
+	private void OnTriggerStay(Collider other)
+	{
+		_elapsedTime += Time.deltaTime;
+        
+		if (other.gameObject.CompareTag("Fire") && _elapsedTime > timeToTakeDamage)
+		{
+			playerStats.TakeDamage(1, gameObject);
+			_elapsedTime = 0;
+			ShowPlayerDamage(1);
+		}
 	}
 }

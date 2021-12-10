@@ -49,7 +49,8 @@ public class PlayerController : MonoBehaviour
 			target = hitInfo.collider.transform; //Sets target
 			if (hitInfo.collider.CompareTag("Ground") || 
 			    hitInfo.collider.CompareTag("Key") || 
-			    hitInfo.collider.CompareTag("Door"))
+			    hitInfo.collider.CompareTag("Door") ||
+			    hitInfo.collider.CompareTag("Fire"))
 			{
 				cursorManagement.SpawnRallyPoint(hitInfo.point);
 				MovePlayer(hitInfo.point); //Moves player to point.
@@ -130,7 +131,7 @@ public class PlayerController : MonoBehaviour
 	
 	private void ChangeCursor() {
 		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) {
-			if (hitInfo.collider.CompareTag("Ground") || hitInfo.collider.CompareTag("Player")) {
+			if (hitInfo.collider.CompareTag("Ground") || hitInfo.collider.CompareTag("Player") || hitInfo.collider.CompareTag("Fire")) {
 				cursorManagement.CursorChange(1);
 			}
 			else if (hitInfo.collider.CompareTag("Enemy")) {
