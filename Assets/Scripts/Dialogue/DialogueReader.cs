@@ -81,7 +81,7 @@ public class DialogueReader : MonoBehaviour
             texts[1].text = "Peasant";
         }
 
-        if (OnStartEndDialogue != null)
+        if (OnStartEndDialogue != null && Vector3.Distance(transform.position, playerTrans.position) < 4)
         {
             OnStartEndDialogue();
         }

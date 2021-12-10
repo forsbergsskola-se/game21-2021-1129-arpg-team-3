@@ -5,7 +5,7 @@ public class CursorManagement : MonoBehaviour {
 	[SerializeField] private GameObject rallypoint;
 	public static CursorManagement instance;
 	private GameObject rally;
-	public Texture2D invalid, attack, arrowCursor, crosshairs, handOpen, handClosed, doorUnlocked, doorLocked;
+	public Texture2D invalid, attack, arrowCursor, crosshairs, handOpen, talk, doorUnlocked, doorLocked;
 
 	// public Texture2D cursorIdle;
 	// public Texture2D cursorEnemy;
@@ -34,8 +34,8 @@ public class CursorManagement : MonoBehaviour {
 		else if (tag == 6) { //Locked door
 			Cursor.SetCursor(doorLocked, new Vector2(crosshairs.width / 2, crosshairs.height / 2), CursorMode.Auto);
 		}
-		else if (tag == 7) { //Grabbed
-			Cursor.SetCursor(handClosed, new Vector2(crosshairs.width / 2, crosshairs.height / 2), CursorMode.Auto);
+		else if (tag == 7) { //Talk
+			Cursor.SetCursor(talk, new Vector2(crosshairs.width / 2, crosshairs.height / 2), CursorMode.Auto);
 		}
 		else if (tag == 8) { //Invalid
 			Cursor.SetCursor(invalid, new Vector2(crosshairs.width / 2, crosshairs.height / 2), CursorMode.Auto);

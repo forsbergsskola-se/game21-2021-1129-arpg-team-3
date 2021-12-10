@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.62906104, g: 0.64364403, b: 0.754528, a: 1}
+  m_IndirectSpecularColor: {r: 0.52586925, g: 0.58984923, b: 0.69241107, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4592,7 +4592,7 @@ MonoBehaviour:
   arrowCursor: {fileID: 2800000, guid: 51cb6ee928f89b64691ef4dfd57c03e9, type: 3}
   crosshairs: {fileID: 2800000, guid: 1b362737dfa014a40a71ecaffce5e053, type: 3}
   handOpen: {fileID: 2800000, guid: 6d0916f30d4a8e84c839a037bed24d2a, type: 3}
-  handClosed: {fileID: 2800000, guid: d0bd63dc4e8d4a845a0f198c39644e18, type: 3}
+  talk: {fileID: 2800000, guid: 442311c923fee7a4c97faa6fdeb43d7d, type: 3}
   doorUnlocked: {fileID: 2800000, guid: 314fd0fdd9a2b924ab07696cc6d7b3cc, type: 3}
   doorLocked: {fileID: 2800000, guid: 8fd35b627e52e864cac501e50262a86b, type: 3}
 --- !u!4 &650471119 stripped
@@ -8638,7 +8638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1064746098
 MonoBehaviour:
   m_ObjectHideFlags: 0

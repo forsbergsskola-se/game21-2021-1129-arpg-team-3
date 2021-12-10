@@ -63,20 +63,18 @@ public class PlayerController : MonoBehaviour
 	private void TargetCheck() {
 		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) {
 			target = hitInfo.collider.transform; //Sets target
-			if (hitInfo.collider.CompareTag("Ground") || 
+			if ((hitInfo.collider.CompareTag("Ground") || 
 			    hitInfo.collider.CompareTag("Key") || 
 			    hitInfo.collider.CompareTag("Door") ||
-			    hitInfo.collider.CompareTag("Fire"))
-			{
+			    hitInfo.collider.CompareTag("Fire") ||
+			    hitInfo.collider.CompareTag("Item")) &&
+			    !inDialogue)
+			{ 
 				cursorManagement.SpawnRallyPoint(hitInfo.point);
 				MovePlayer(hitInfo.point); //Moves player to point.
 			}
 			else if (hitInfo.collider.CompareTag("Enemy") || hitInfo.collider.CompareTag("Key")) {
 				MoveAttack();
-			}
-			else if (hitInfo.collider.CompareTag("Item")) {
-				cursorManagement.SpawnRallyPoint(hitInfo.point);
-				MovePlayer(hitInfo.point);
 			}
 			else {
 				Debug.Log("Play InvalidPosition sound");
@@ -112,7 +110,7 @@ public class PlayerController : MonoBehaviour
 		    (target.CompareTag("Enemy") || 
 		     target.CompareTag("Key") || 
 		     target.CompareTag("Door") || 
-		     target.CompareTag("Item")||
+		     target.CompareTag("Item") ||
 		     target.CompareTag("NPC"))) {
 			//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
 			if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange + 0.5) {
@@ -131,8 +129,6 @@ public class PlayerController : MonoBehaviour
 					Destroy(itemPickup.gameObject);
 					itemPickup = null;
 				}
-				
-				
 			}
 			if (target is not null && target.CompareTag("Enemy") && target.gameObject.GetComponent<Enemy>().Health <= 0) {
 				StopAttacking();
@@ -167,8 +163,9 @@ public class PlayerController : MonoBehaviour
 			else if (hitInfo.collider.CompareTag("Door") && keyHolder.doorUnlocked) {
 				cursorManagement.CursorChange(5);
 			}
-			
-			
+			else if (hitInfo.collider.CompareTag("NPC")) {
+				cursorManagement.CursorChange(7);
+			}
 			else {
 				cursorManagement.CursorChange(8);
 			}
