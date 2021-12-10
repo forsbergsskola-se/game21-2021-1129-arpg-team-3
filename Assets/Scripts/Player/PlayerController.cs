@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
 			cursorManagement.DeSpawnRallyPoint();
 			TargetCheck();
 		}
-		AttackEnemy();
+		Interact();
 	}
 	
 	Ray GetCursorPosition() {
@@ -93,6 +93,7 @@ public class PlayerController : MonoBehaviour
 			StopAttacking();
 			agent.stoppingDistance = 0; //resets melee range setting
 			agent.SetDestination(point); //moves player to point
+			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Clic");
 			Debug.Log("Play MoveSound");
 		}
 	}
@@ -105,7 +106,7 @@ public class PlayerController : MonoBehaviour
 			Debug.Log("Play MoveSound");
 		}
 	}
-	private void AttackEnemy() {
+	private void Interact() {
 		Physics.Raycast(GetCursorPosition(), out var hitInfo);
 		target = hitInfo.collider.transform; //Sets target
 		if (target is not null &&
@@ -116,9 +117,8 @@ public class PlayerController : MonoBehaviour
 		     target.CompareTag("NPC"))) {
 			//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
 			if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange + 0.5) {
-				if (target.CompareTag("Enemy") || target.CompareTag("Key") || target.CompareTag("Door")) {
+				if (target.CompareTag("Enemy") || target.CompareTag("Key") || target.CompareTag("Door")) { //Attack
 					StartAttacking();
-					Debug.Log("Play AttackSound");
 					// target = null; //Forces player to click again to attack
 					if (Input.GetMouseButtonUp(0) && target.CompareTag("Enemy")) {
 						transform.LookAt(target);
@@ -179,8 +179,11 @@ public class PlayerController : MonoBehaviour
 	
 	public IEnumerator DelayAttack() {
 		playerWeapon.GetComponent<Collider>().enabled = true;
+		Debug.Log("Play AttackSound");
 		yield return new WaitForSeconds(playerStats.AttackDelay);
 		playerWeapon.GetComponent<Collider>().enabled = false;
+		Debug.Log("Stop AttackSound");
+
 	}
 }
 	

@@ -100,8 +100,8 @@ GameObject:
   - component: {fileID: 1834260070}
   - component: {fileID: 1834260077}
   - component: {fileID: 1834260064}
-  - component: {fileID: 1834260073}
   - component: {fileID: 7430547610418540585}
+  - component: {fileID: 1834260074}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -242,8 +242,7 @@ MonoBehaviour:
   attackAnimation: {fileID: 361754374957514409}
   playerModel: {fileID: 1175506098081519692}
   playerWeapon: {fileID: 5588858278119813874}
-  pickupRange: 2
-  inventory: {fileID: 0}
+  inventory: {fileID: 11400000, guid: 5385c7530d40cf6488c20374f43d8c8e, type: 2}
 --- !u!114 &1834260070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageText: {fileID: 4662363426629045447, guid: db3f511c6d3ae074b9e8bea7d8ef6218, type: 3}
+  timeToTakeDamage: 1
 --- !u!114 &1834260064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,20 +283,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorUnlocked: 0
---- !u!136 &1834260073
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588858277689648231}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.595479
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.39111745, z: 0}
 --- !u!136 &7430547610418540585
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -311,6 +297,36 @@ CapsuleCollider:
   m_Height: 1.595479
   m_Direction: 1
   m_Center: {x: 0, y: 0.39111745, z: 0}
+--- !u!114 &1834260074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588858277689648231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -439937292
+      Data2: 1272017079
+      Data3: 1425239204
+      Data4: 279782228
+    Path: event:/Player/Clic
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &5588858278119813874
 GameObject:
   m_ObjectHideFlags: 0
