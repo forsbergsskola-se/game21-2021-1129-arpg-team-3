@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class OpenDoorMA : MonoBehaviour
 {
-    public GameObject Door;
-
+    public GameObject door;
+    public float minDistance;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && Vector3.Distance(door.transform.position, transform.position) <= minDistance)
         {
             OpenThisDoor();
         }
@@ -17,6 +17,6 @@ public class OpenDoorMA : MonoBehaviour
 
     private void OpenThisDoor()
     {
-        Destroy(Door);
+        Destroy(door);
     }
 }

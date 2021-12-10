@@ -1955,7 +1955,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf784fdcbb681f4bbe95f29386174ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Door: {fileID: 1036277718}
+  door: {fileID: 1036277718}
+  minDistance: 3
 --- !u!1 &1578552466
 GameObject:
   m_ObjectHideFlags: 0
