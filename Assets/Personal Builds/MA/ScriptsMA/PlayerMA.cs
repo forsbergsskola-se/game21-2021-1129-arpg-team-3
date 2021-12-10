@@ -25,7 +25,7 @@ public class PlayerMA : MonoBehaviour
             if (Physics.Raycast(ray, out hitinfo))
             {
                 print($"Hit{hitinfo.collider.name}");
-                Move(hitinfo.point);
+                _agent.SetDestination(hitinfo.point);
             }
         }
     }

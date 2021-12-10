@@ -9,11 +9,19 @@ public class KeyHolderMA : MonoBehaviour
     public event EventHandler OnKeysChanged;
     private List<Key.KeyType> keyList;
     public bool doorUnlocked = false;
+    public float minDistance;
+    public GameObject door;
     
     
     private void Awake()
     {
         keyList = new List<Key.KeyType>();
+    }
+
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.F) && Vector3.Distance(door.transform.position, transform.position) <= minDistance) {
+            DoorOpen();
+        }
     }
 
     public List<Key.KeyType> GetKeyList()
@@ -38,31 +46,9 @@ public class KeyHolderMA : MonoBehaviour
         return keyList.Contains(keyType);
     }
 
-    private void OnTriggerEnter(Collider collider) //You want to recode to IF Input.KeyDown
-    { //&& distance from door
-        Ray newRay = new Ray(transform.position, transform.forward);
-        RaycastHit hit;
-        int layerMask = 1 << 7;
-        if (Physics.Raycast(newRay,out hit,1))
-        {
-            if (hit.collider.CompareTag("Door"))
-            {
-                if (Input.GetKey(KeyCode.F))
-                {
-                   //(hit.collider.gameObject);
-
-                    hit.collider.gameObject.GetComponent<Door>();
-                }
-            }
-        }
-        Key key = collider.GetComponent<Key>();
-        if (key != null)
-        {
-            AddKey(key.GetKeyType());
-            Destroy(key.gameObject);
-            doorUnlocked = true;
-        }
-        KeyDoorMA keyDoor = collider.GetComponent<KeyDoorMA>(); // Gone
+    private void DoorOpen()
+    {
+        KeyDoor keyDoor = door.GetComponent<KeyDoor>();
         if (keyDoor != null)
         {
             if (ContainsKey(keyDoor.GetKeyType()))
@@ -70,9 +56,17 @@ public class KeyHolderMA : MonoBehaviour
                 //holding key to open door #Hodor
                 RemoveKey(keyDoor.GetKeyType());
                 keyDoor.OpenDoor();
-                
             }
         }
     }
-    
+
+    private void OnTriggerEnter(Collider other) {
+        Key key = other.GetComponent<Key>();
+        if (key != null)
+        {
+            AddKey(key.GetKeyType());
+            key.gameObject.SetActive(false);
+            doorUnlocked = true;
+        }
+    }
 }
