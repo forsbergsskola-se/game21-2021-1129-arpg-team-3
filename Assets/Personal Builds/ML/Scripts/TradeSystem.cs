@@ -43,6 +43,6 @@ public class TradeSystem : MonoBehaviour
 
     private void AddItemToStore()
     {
-       useTradeCanvas.GetComponentInChildren<StoreList>().AddItem();
+       useTradeCanvas.GetComponentInChildren<StoreList>().AddItems();
     }
 }

@@ -301,7 +301,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8545887374048893170}
   m_HandleRect: {fileID: 2494501782215181516}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -773,7 +773,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -218, y: 0.0017547607}
+  m_AnchoredPosition: {x: -240, y: -27}
   m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &636336253572719617
@@ -858,7 +858,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemContainer: {fileID: 8123279542575970187}
   testImage: {fileID: 2239924378606200347, guid: a7310559e4751ed4c9a1e052be4bd7f2, type: 3}
-  container: {fileID: 0}
   inventory: {fileID: 11400000, guid: 55393f1f370b36e429b9924d34e31ced, type: 2}
 --- !u!1 &7251028037492523058
 GameObject:
