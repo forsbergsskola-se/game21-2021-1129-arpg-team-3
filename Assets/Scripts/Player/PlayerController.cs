@@ -53,11 +53,14 @@ public class PlayerController : MonoBehaviour
 			    hitInfo.collider.CompareTag("Door"))
 			{
 				cursorManagement.SpawnRallyPoint(hitInfo.point);
-				itemPickup = hitInfo.collider.gameObject.GetComponent<Item>();
 				MovePlayer(hitInfo.point); //Moves player to point.
 			}
 			else if (hitInfo.collider.CompareTag("Enemy") || hitInfo.collider.CompareTag("Key")) {
 				MoveAttack();
+			}
+			else if (hitInfo.collider.CompareTag("Pickup")) {
+				itemPickup = hitInfo.collider.gameObject.GetComponent<Item>();
+				MovePlayer(hitInfo.point);
 			}
 			else {
 				Debug.Log("Play InvalidPosition sound");
