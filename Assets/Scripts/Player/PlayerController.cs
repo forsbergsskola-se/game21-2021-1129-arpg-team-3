@@ -148,6 +148,8 @@ public class PlayerController : MonoBehaviour
 			else if (hitInfo.collider.CompareTag("Door") && keyHolder.doorUnlocked) {
 				cursorManagement.CursorChange(5);
 			}
+			
+			
 			else {
 				cursorManagement.CursorChange(8);
 			}

@@ -26,10 +26,18 @@ public class DialogueReader : MonoBehaviour
 
     private string currentNpcLine;
 
+    private Transform playerTrans;
+
     private int clickCount;
     public delegate void TradeStartDelegate(); 
     public static event TradeStartDelegate OnStartTrade;
-    
+
+    private void Start()
+    {
+        playerTrans = GameObject.FindWithTag("Player").transform;
+    }
+
+
     private void StartTrade()
     {
         if (OnStartTrade != null)
@@ -57,7 +65,7 @@ public class DialogueReader : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!boxIsUp)
+        if (!boxIsUp && Vector3.Distance(transform.position, playerTrans.position) < 2)
         {
             boxIsUp = true;
             currentDialogue = Instantiate(dialoguePopup);
