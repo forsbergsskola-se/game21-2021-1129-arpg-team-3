@@ -74,14 +74,14 @@ public class PlayerController : MonoBehaviour
 	{
 		inventory.Container.Clear();
 	}
-	void MovePlayer(Vector3 point) {
+	private void MovePlayer(Vector3 point) {
 		StopAttacking();
 		agent.stoppingDistance = 0; //resets melee range setting
 		agent.SetDestination(point); //moves player to point
 		Debug.Log("Play MoveSound");
 	}
-	
-	void MoveAttack() {
+
+	private void MoveAttack() {
 		if (Vector3.Distance(this.transform.position, target.position) >= playerStats.MeleeRange) { //only when player is not in melee range of enemy
 			StopAttacking();
 			agent.SetDestination(target.position);
@@ -90,6 +90,8 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 	private void AttackEnemy() {
+		Physics.Raycast(GetCursorPosition(), out var hitInfo);
+		target = hitInfo.collider.transform; //Sets target
 		if (target is not null &&
 		    (target.CompareTag("Enemy") || 
 		     target.CompareTag("Key") || 
