@@ -11723,6 +11723,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flamethrower
       objectReference: {fileID: 0}
+    - target: {fileID: 8205408272427087926, guid: 6ab34ca0afce6e044abdf1aaf245578a, type: 3}
+      propertyPath: m_TagString
+      value: Fire
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ab34ca0afce6e044abdf1aaf245578a, type: 3}
 --- !u!1001 &1640798449
@@ -15700,6 +15704,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1834260077, guid: d635506b3d185b849be5671a1e49df85, type: 3}
+      propertyPath: timeToTakeDamage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5588858277689648230, guid: d635506b3d185b849be5671a1e49df85, type: 3}
       propertyPath: m_RootOrder
       value: 10
