@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 8205408272427087921}
   - component: {fileID: 8205408272427087920}
   - component: {fileID: 8205408272427087927}
+  - component: {fileID: 1131725459}
+  - component: {fileID: 1131725460}
   m_Layer: 0
   m_Name: Flamethrower
-  m_TagString: Untagged
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8205408272427087926}
-  m_LocalRotation: {x: -0.7917894, y: 0.089981824, z: -0.592022, w: 0.12034461}
+  m_LocalRotation: {x: -0.79179114, y: 0.08998763, z: -0.59201884, w: 0.12034403}
   m_LocalPosition: {x: -6.9, y: 3.63, z: 2.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4813,6 +4815,33 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!136 &1131725459
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8205408272427087926}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.7452224
+  m_Height: 3.760336
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 1.11}
+--- !u!114 &1131725460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8205408272427087926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ede1a89f4f3d9b4b9333438d98295c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 9999999
 --- !u!1 &8205408272723110936
 GameObject:
   m_ObjectHideFlags: 0

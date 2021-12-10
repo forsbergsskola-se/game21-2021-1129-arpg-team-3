@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
 				{
 					itemPickup = target.gameObject.GetComponent<Item>();
 					inventory.AddItem(itemPickup.item, 1); 
-					itemPickup.gameObject.SetActive(false);
+					Destroy(itemPickup.gameObject);
 					itemPickup = null;
 				}
 			}
