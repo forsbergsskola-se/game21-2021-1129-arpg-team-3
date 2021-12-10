@@ -820,6 +820,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 3723980448542435079, guid: 6123813559dfe314495709cb946a6b31, type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     - target: {fileID: 5851306819191131116, guid: 6123813559dfe314495709cb946a6b31, type: 3}
       propertyPath: m_RootOrder
       value: 1

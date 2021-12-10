@@ -18,17 +18,33 @@ public class PlayerController : MonoBehaviour
 	public GameObject playerWeapon;
 	private Item itemPickup;
 	public InventoryObjects inventory;
+	private bool inDialogue = false;
 
 	private void Start() {
 		agent = GetComponent<NavMeshAgent>();
+		DialogueReader.OnStartEndDialogue += StartEndDialogue;
 	}
-
+	
 	private void Awake() {
 		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
 		playerStats.InitializePlayerStats();
 		keyHolder = GetComponent<KeyHolder>();
 	}
 
+	private void StartEndDialogue()
+	{
+		if (!inDialogue)
+		{
+			inDialogue = true;
+			agent.isStopped = true;
+		}
+		else
+		{
+			inDialogue = false;
+			agent.isStopped = false;
+		}
+	}
+	
 	void Update() {
 		GetCursorPosition();
 		ChangeCursor();
@@ -96,7 +112,8 @@ public class PlayerController : MonoBehaviour
 		    (target.CompareTag("Enemy") || 
 		     target.CompareTag("Key") || 
 		     target.CompareTag("Door") || 
-		     target.CompareTag("Item"))) {
+		     target.CompareTag("Item")||
+		     target.CompareTag("NPC"))) {
 			//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
 			if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange + 0.5) {
 				if (target.CompareTag("Enemy") || target.CompareTag("Key") || target.CompareTag("Door")) {
@@ -114,6 +131,8 @@ public class PlayerController : MonoBehaviour
 					Destroy(itemPickup.gameObject);
 					itemPickup = null;
 				}
+				
+				
 			}
 			if (target is not null && target.CompareTag("Enemy") && target.gameObject.GetComponent<Enemy>().Health <= 0) {
 				StopAttacking();

@@ -25,6 +25,7 @@ TagManager:
   - PlayerOR
   - PlayerWeapon
   - Fire
+  - NPC
   layers:
   - Default
   - TransparentFX
