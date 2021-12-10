@@ -16,6 +16,7 @@ public class PlayerDamage : MonoBehaviour {
 	}
 	private void OnCollisionEnter(Collision other) {
 		if (other.gameObject.CompareTag("SSword")) {
+			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/SwordHit");
 			float damageReceived = other.gameObject.GetComponentInParent<Enemy>().enemySo.WeaponDamage * Random.Range(0.9f, 1f) - playerStats.PlayerArmour;
 			ShowPlayerDamage(damageReceived);
 		}

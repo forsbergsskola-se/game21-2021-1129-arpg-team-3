@@ -38,6 +38,8 @@ public class Enemy : MonoBehaviour {
 	public void TakeDamage() {
 		float damageReceived = playerStats.WeaponDamage * Random.Range(0.9f, 1f) - enemySo.EnemyArmor;
 		Health -= damageReceived;
+		FMODUnity.RuntimeManager.PlayOneShot("event:/Enemy/EHit");
+		FMODUnity.RuntimeManager.PlayOneShot("event:/Player/SwordHit");
 		ShowEnemyDamage(damageReceived);
 	}
 	private void ShowEnemyDamage(float damageReceived) {

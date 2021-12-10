@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
 			StopAttacking();
 			agent.stoppingDistance = 0; //resets melee range setting
 			agent.SetDestination(point); //moves player to point
-			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Clic");
+			FMODUnity.RuntimeManager.PlayOneShot("event:/Clicks/MainClick");
 			Debug.Log("Play MoveSound");
 		}
 	}
@@ -179,10 +179,10 @@ public class PlayerController : MonoBehaviour
 	
 	public IEnumerator DelayAttack() {
 		playerWeapon.GetComponent<Collider>().enabled = true;
+		// FMODUnity.RuntimeManager.PlayOneShot("event:/Player/SwordSwing");
 		Debug.Log("Play AttackSound");
 		yield return new WaitForSeconds(playerStats.AttackDelay);
 		playerWeapon.GetComponent<Collider>().enabled = false;
-		Debug.Log("Stop AttackSound");
 
 	}
 }
