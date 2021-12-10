@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
 	public GameObject playerModel;
 	private KeyHolder keyHolder;
 	public GameObject playerWeapon;
+	private Item itemPickup;
+	public float pickupRange = 2f;
+	public InventoryObjects inventory;
 
 	private void Start() {
 		agent = GetComponent<NavMeshAgent>();
@@ -50,6 +53,7 @@ public class PlayerController : MonoBehaviour
 			    hitInfo.collider.CompareTag("Door"))
 			{
 				cursorManagement.SpawnRallyPoint(hitInfo.point);
+				itemPickup = hitInfo.collider.gameObject.GetComponent<Item>();
 				MovePlayer(hitInfo.point); //Moves player to point.
 			}
 			else if (hitInfo.collider.CompareTag("Enemy") || hitInfo.collider.CompareTag("Key")) {
@@ -59,9 +63,25 @@ public class PlayerController : MonoBehaviour
 				Debug.Log("Play InvalidPosition sound");
 			}
 		}
+		if (itemPickup)
+		{
+			Vector3 playerPosition = gameObject.transform.position;
+			Vector3 itemPosition = itemPickup.gameObject.transform.position;
+			float distanceCheck = Vector3.Distance(playerPosition, itemPosition);
+			if (distanceCheck <= pickupRange)
+			{
+				inventory.AddItem(itemPickup.item, 1);
+				Destroy(itemPickup.gameObject);
+				itemPickup = null;
+			}
+		}
 		else {
 			Debug.LogWarning("Player RayCast Camera is NULL!");
 		}
+	}
+	private void OnApplicationQuit()
+	{
+		inventory.Container.Clear();
 	}
 	void MovePlayer(Vector3 point) {
 		StopAttacking();
