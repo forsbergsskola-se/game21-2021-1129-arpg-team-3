@@ -4131,6 +4131,7 @@ GameObject:
   - component: {fileID: 590129688}
   - component: {fileID: 590129689}
   - component: {fileID: 590129690}
+  - component: {fileID: 590129691}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Enemy
@@ -4265,6 +4266,36 @@ MonoBehaviour:
   damageText: {fileID: 4662363426629045447, guid: 37ba3322a7cdab9438106176a7de2cad, type: 3}
   playerStats: {fileID: 11400000, guid: 0fbd9e63108f6d6408d1da897568a19e, type: 2}
   enemySo: {fileID: 11400000, guid: 6df4889c94aef3a47b1d0348eb4d8807, type: 2}
+--- !u!114 &590129691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590129681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1584462359
+      Data2: 1143586648
+      Data3: -3832670
+      Data4: -835985562
+    Path: event:/Impacts/Destroy Barrel
+  Event: 
+  PlayEvent: 12
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &596757871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10287,6 +10318,36 @@ MonoBehaviour:
   - {fileID: 514000870}
   - {fileID: 1897771927}
   PointToSpawn: {fileID: 3302072266118984585, guid: 83664d44ea1848f409b1e4cf97e3827a, type: 3}
+--- !u!114 &1379664585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031767145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1465225973
+      Data2: 1079237044
+      Data3: 923364764
+      Data4: -742030101
+    Path: event:/Terrain/Crystals
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1386999162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13149,6 +13210,36 @@ MonoBehaviour:
       Data3: -1385784408
       Data4: -1530136342
     Path: event:/Player/SwordHit
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1834260075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287395596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 581547862
+      Data2: 1307790276
+      Data3: 965870252
+      Data4: -39093833
+    Path: event:/Enemy/EHit
   Event: 
   PlayEvent: 0
   StopEvent: 0

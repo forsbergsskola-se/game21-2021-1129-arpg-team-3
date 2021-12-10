@@ -929,6 +929,7 @@ GameObject:
   - component: {fileID: 7141254435392659384}
   - component: {fileID: 8765071337147131466}
   - component: {fileID: 2332600623780634939}
+  - component: {fileID: 544657319158219733}
   m_Layer: 0
   m_Name: LowPolySkeleton 1
   m_TagString: Enemy
@@ -1139,6 +1140,36 @@ MonoBehaviour:
     Path: event:/Player/SwordHit
   Event: 
   PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &544657319158219733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6652567088470929335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1471151225
+      Data2: 1274432159
+      Data3: -2086136667
+      Data4: -924013132
+    Path: event:/Terrain/Owl
+  Event: 
+  PlayEvent: 12
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0

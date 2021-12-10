@@ -32,6 +32,7 @@ public class PlayerDamage : MonoBehaviour {
         
 		if (other.gameObject.CompareTag("Fire") && _elapsedTime > timeToTakeDamage)
 		{
+			FMODUnity.RuntimeManager.PlayOneShot("event:/Enemy/Ehit");
 			playerStats.TakeDamage(1, gameObject);
 			_elapsedTime = 0;
 			ShowPlayerDamage(1);
