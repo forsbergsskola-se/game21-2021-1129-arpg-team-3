@@ -279,7 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SwitchSettingsMigration: 1
   HasSourceProject: 0
-  HasPlatforms: 1
+  HasPlatforms: 0
   sourceProjectPath: 
   sourceBankPath: Assets/StreamingAssets
   SourceBankPathUnformatted: 
@@ -304,7 +304,7 @@ MonoBehaviour:
   RealChannelSettings: []
   Plugins: []
   MasterBanks:
-  - Master
+  - Desktop/Master
   Banks: []
   BanksToLoad: []
   LiveUpdatePort: 9264
