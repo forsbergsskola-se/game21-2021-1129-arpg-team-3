@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
 	private KeyHolder keyHolder;
 	public GameObject playerWeapon;
 	private Item itemPickup;
-	public float pickupRange = 2f;
 	public InventoryObjects inventory;
 
 	private void Start() {
@@ -58,24 +57,12 @@ public class PlayerController : MonoBehaviour
 			else if (hitInfo.collider.CompareTag("Enemy") || hitInfo.collider.CompareTag("Key")) {
 				MoveAttack();
 			}
-			else if (hitInfo.collider.CompareTag("Pickup")) {
-				itemPickup = hitInfo.collider.gameObject.GetComponent<Item>();
+			else if (hitInfo.collider.CompareTag("Item")) {
+				cursorManagement.SpawnRallyPoint(hitInfo.point);
 				MovePlayer(hitInfo.point);
 			}
 			else {
 				Debug.Log("Play InvalidPosition sound");
-			}
-		}
-		if (itemPickup)
-		{
-			Vector3 playerPosition = gameObject.transform.position;
-			Vector3 itemPosition = itemPickup.gameObject.transform.position;
-			float distanceCheck = Vector3.Distance(playerPosition, itemPosition);
-			if (distanceCheck <= pickupRange)
-			{
-				inventory.AddItem(itemPickup.item, 1);
-				Destroy(itemPickup.gameObject);
-				itemPickup = null;
 			}
 		}
 		else {
@@ -102,7 +89,11 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 	private void AttackEnemy() {
-		if (target is not null && (target.CompareTag("Enemy") || target.CompareTag("Key") || target.CompareTag("Door"))) {
+		if (target is not null &&
+		    (target.CompareTag("Enemy") || 
+		     target.CompareTag("Key") || 
+		     target.CompareTag("Door") || 
+		     target.CompareTag("Item"))) {
 			//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
 			if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange + 0.5) {
 				if (target.CompareTag("Enemy") || target.CompareTag("Key") || target.CompareTag("Door")) {
@@ -112,6 +103,13 @@ public class PlayerController : MonoBehaviour
 					if (Input.GetMouseButtonUp(0) && target.CompareTag("Enemy")) {
 						transform.LookAt(target);
 					}
+				}
+				else if (target.CompareTag("Item"))
+				{
+					itemPickup = target.gameObject.GetComponent<Item>();
+					inventory.AddItem(itemPickup.item, 1); 
+					itemPickup.gameObject.SetActive(false);
+					itemPickup = null;
 				}
 			}
 			if (target is not null && target.CompareTag("Enemy") && target.gameObject.GetComponent<Enemy>().Health <= 0) {
@@ -138,7 +136,7 @@ public class PlayerController : MonoBehaviour
 			else if (hitInfo.collider.CompareTag("Enemy")) {
 				cursorManagement.CursorChange(3);
 			}
-			else if (hitInfo.collider.CompareTag("Key")) {
+			else if (hitInfo.collider.CompareTag("Key") || hitInfo.collider.CompareTag("Item")) {
 				cursorManagement.CursorChange(4);
 			}
 			else if (hitInfo.collider.CompareTag("Door") && !keyHolder.doorUnlocked) {
