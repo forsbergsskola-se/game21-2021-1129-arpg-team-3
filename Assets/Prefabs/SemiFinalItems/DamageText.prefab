@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 2349576612628915798}
   lifetime: 3
-  minDist: 0
+  minDist: 5
   maxDist: 0
 --- !u!1 &5732958221667783233
 GameObject:

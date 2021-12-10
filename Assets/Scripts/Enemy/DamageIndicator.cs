@@ -20,7 +20,7 @@ public class DamageIndicator : MonoBehaviour
     void Awake() {
         inipos = transform.position;
         float dist = Random.Range(minDist, maxDist);
-        targetPos = inipos +  new Vector3(0,dist,0);
+        targetPos = inipos +  new Vector3(dist,dist,0);
         transform.localScale = Vector3.up;
     }
 
@@ -36,7 +36,7 @@ public class DamageIndicator : MonoBehaviour
             text.color = Color.Lerp(text.color, Color.clear, (timer - fraction) / (lifetime - fraction));
 
         {
-            transform.position = Vector3.Lerp(inipos, targetPos, (timer / lifetime));
+            transform.position = Vector3.Lerp(inipos, targetPos, timer / lifetime);
             transform.localScale = Vector3.Lerp(Vector3.zero, new Vector3(0.05f, 0.05f, 0), (timer / lifetime));
 
         }

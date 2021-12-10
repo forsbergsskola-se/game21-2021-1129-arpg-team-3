@@ -20,7 +20,7 @@ public class PlayerDamageIndicator : MonoBehaviour
     void Awake() {
         inipos = transform.position;
         float dist = Random.Range(minDist, maxDist);
-        targetPos = inipos +  new Vector3(0,dist,0);
+        targetPos = inipos +  new Vector3(dist,dist,0);
         transform.localScale = Vector3.up;
     }
 

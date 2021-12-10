@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour
 				MoveAttack();
 			}
 			else {
+				FMODUnity.RuntimeManager.PlayOneShot("event:/Impacts/Destroy Barrel");
 				Debug.Log("Play InvalidPosition sound");
 			}
 		}
@@ -160,6 +161,7 @@ public class PlayerController : MonoBehaviour
 				cursorManagement.CursorChange(4);
 			}
 			else if (hitInfo.collider.CompareTag("Door") && !keyHolder.doorUnlocked) {
+				FMODUnity.RuntimeManager.PlayOneShot("event:/Item/KeyPickup");
 				cursorManagement.CursorChange(6);
 			}
 			else if (hitInfo.collider.CompareTag("Door") && keyHolder.doorUnlocked) {
@@ -181,7 +183,7 @@ public class PlayerController : MonoBehaviour
 		playerWeapon.GetComponent<Collider>().enabled = true;
 		// FMODUnity.RuntimeManager.PlayOneShot("event:/Player/SwordSwing");
 		Debug.Log("Play AttackSound");
-		yield return new WaitForSeconds(playerStats.AttackDelay);
+		yield return new WaitForSeconds(playerStats.AttackDelay * Time.deltaTime);
 		playerWeapon.GetComponent<Collider>().enabled = false;
 
 	}
