@@ -1119,6 +1119,34 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 11400000, guid: a3231846bda4aec46a760722608bb482, type: 2}
+    - target: {fileID: 7579658911574199337, guid: ecb317dab71fa4f4a96d1a295bee1889, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7579658911574199337, guid: ecb317dab71fa4f4a96d1a295bee1889, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7579658911574199337, guid: ecb317dab71fa4f4a96d1a295bee1889, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7579658911574199337, guid: ecb317dab71fa4f4a96d1a295bee1889, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 218.419
+      objectReference: {fileID: 0}
+    - target: {fileID: 7579658911574199337, guid: ecb317dab71fa4f4a96d1a295bee1889, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 177.7652
+      objectReference: {fileID: 0}
+    - target: {fileID: 7579658911574199337, guid: ecb317dab71fa4f4a96d1a295bee1889, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -109.20972
+      objectReference: {fileID: 0}
+    - target: {fileID: 7579658911574199337, guid: ecb317dab71fa4f4a96d1a295bee1889, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -152.69739
+      objectReference: {fileID: 0}
     - target: {fileID: 7579658911574199338, guid: ecb317dab71fa4f4a96d1a295bee1889, type: 3}
       propertyPath: m_Name
       value: InventoryScreen
@@ -1232,10 +1260,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 5385c7530d40cf6488c20374f43d8c8e, type: 2}
-  X_START: -135
-  Y_START: 162
+  X_START: -75
+  Y_START: 50
   X_SPACE_BETWEEN_ITEM: 45
-  NUMBER_OF_COLUMN: 10
+  NUMBER_OF_COLUMN: 2
   Y_SPACE_BETWEEN_ITEM: 45
 --- !u!1 &204145396
 GameObject:

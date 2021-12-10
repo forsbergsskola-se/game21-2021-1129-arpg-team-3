@@ -3,18 +3,13 @@ using UnityEngine;
 
 public class CursorManagement : MonoBehaviour {
 	[SerializeField] private GameObject rallypoint;
-	public static CursorManagement instance;
 	private GameObject rally;
 	public Texture2D invalid, attack, arrowCursor, crosshairs, handOpen, talk, doorUnlocked, doorLocked;
 
 	// public Texture2D cursorIdle;
 	// public Texture2D cursorEnemy;
 	// public Texture2D cursorNegative;
-
-	private void Awake() {
-		instance = this;
-	}
-
+	
 	public void CursorChange(int tag) {
 		if (tag == 1) { //Default
 			Cursor.SetCursor(arrowCursor, Vector2.zero, CursorMode.Auto);

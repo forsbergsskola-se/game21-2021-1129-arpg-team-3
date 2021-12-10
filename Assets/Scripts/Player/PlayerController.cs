@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 	void Update() {
 		GetCursorPosition();
 		ChangeCursor();
-		if (Input.GetMouseButtonUp(0) & Camera.main is not null) {
+		if (Input.GetMouseButtonDown(0) & Camera.main is not null) {
 			cursorManagement.DeSpawnRallyPoint();
 			TargetCheck();
 		}
@@ -89,10 +89,12 @@ public class PlayerController : MonoBehaviour
 		inventory.Container.Clear();
 	}
 	private void MovePlayer(Vector3 point) {
-		StopAttacking();
-		agent.stoppingDistance = 0; //resets melee range setting
-		agent.SetDestination(point); //moves player to point
-		Debug.Log("Play MoveSound");
+		if (!inDialogue) {
+			StopAttacking();
+			agent.stoppingDistance = 0; //resets melee range setting
+			agent.SetDestination(point); //moves player to point
+			Debug.Log("Play MoveSound");
+		}
 	}
 
 	private void MoveAttack() {
