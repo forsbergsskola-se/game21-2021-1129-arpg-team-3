@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "New Consumeable Object", menuName = "Inventory System/Items/Consumeable")]
+[CreateAssetMenu(fileName = "New ConsumeableOR Object", menuName = "Inventory SystemOR/Items/ConsumeableOR")]
 public class ConsumableObjectOR : ItemObjectOR
 {
     public int restoreHealthValue;

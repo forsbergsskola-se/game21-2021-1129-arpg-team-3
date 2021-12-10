@@ -17,4 +17,4 @@ MonoBehaviour:
   description: This is a shield. It's....pretty meh.
   armourValue: 5
   damageBonus: 1
-  tierGrade: S+
+  tierGrade: D

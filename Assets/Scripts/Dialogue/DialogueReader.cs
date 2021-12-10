@@ -26,10 +26,21 @@ public class DialogueReader : MonoBehaviour
 
     private string currentNpcLine;
 
+    private Transform playerTrans;
+
     private int clickCount;
     public delegate void TradeStartDelegate(); 
     public static event TradeStartDelegate OnStartTrade;
     
+    public delegate void StartEndDialogueDelegate(); 
+    public static event StartEndDialogueDelegate OnStartEndDialogue;
+
+    private void Start()
+    {
+        playerTrans = GameObject.FindWithTag("Player").transform;
+    }
+
+
     private void StartTrade()
     {
         if (OnStartTrade != null)
@@ -57,7 +68,7 @@ public class DialogueReader : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!boxIsUp)
+        if (!boxIsUp && Vector3.Distance(transform.position, playerTrans.position) < 4)
         {
             boxIsUp = true;
             currentDialogue = Instantiate(dialoguePopup);
@@ -68,6 +79,11 @@ public class DialogueReader : MonoBehaviour
             SetupReplyButtons();
             
             texts[1].text = "Peasant";
+        }
+
+        if (OnStartEndDialogue != null && Vector3.Distance(transform.position, playerTrans.position) < 4)
+        {
+            OnStartEndDialogue();
         }
     }
 
@@ -118,6 +134,11 @@ public class DialogueReader : MonoBehaviour
     //    continueButton.onClick.RemoveListener(() =>ClickContinue(nextNodeGuid));
         Destroy(currentDialogue.gameObject);
         boxIsUp = false;
+
+        if (OnStartEndDialogue != null)
+        {
+            OnStartEndDialogue();
+        }
     }
 
     private void PauseDialogue(string condition)

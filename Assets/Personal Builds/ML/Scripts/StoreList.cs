@@ -10,44 +10,50 @@ public class StoreList : MonoBehaviour
 {
     [SerializeField] RectTransform itemContainer;
     [SerializeField] private GameObject testImage;
-    [SerializeField] private PlayerInventoryContainerTest container;
     public InventoryObject inventory;
 
-    public delegate void MadeSaleDelegate(InventoryItemObject obj);
+    public delegate void MadeSaleDelegate(InventoryItemObject obj, int cost);
     public static event MadeSaleDelegate OnMadeSale;
 
 
-    private void MakeSale(InventoryItemObject obj)
+    private void MakeSale(InventoryItemObject obj, int cost)
     {
         if (OnMadeSale != null)
         {
-            OnMadeSale(obj);
+            OnMadeSale(obj, cost);
         }
     }
 
+    private void TryMakeSale(InventoryItemObject obj, int cost)
+    {
+        if (cost <= TestInventory.amountCash)
+        {
+            MakeSale(obj, cost);
+        }
+        else
+        {
+            Debug.Log("You can't afford to buy it!");
+        }
+    }
+    
     private void SetupButton(int index, Button button)
     {
         InventoryItemObject buyObj = inventory.container[index].item;
-        button.onClick.AddListener(()=> MakeSale(buyObj));
+        int itemCost = inventory.container[index].item.baseValue;
+        button.onClick.AddListener(()=> TryMakeSale(buyObj, itemCost));
     }
     
 
-    public void AddItem()
+    public void AddItems()
     {
         for (int i = 0; i < inventory.container.Count; i++)
         {
             var newItem = Instantiate(testImage, itemContainer, false);
             var button = newItem.GetComponentInChildren<Button>();
-            newItem.GetComponentInChildren<TextMeshProUGUI>().text = "Cost: " + inventory.container[i].item.baseValue;
+            newItem.GetComponentsInChildren<TextMeshProUGUI>()[0].text = "Cost: " + inventory.container[i].item.baseValue;
+            newItem.GetComponentsInChildren<TextMeshProUGUI>()[2].text =  inventory.container[i].item.description;
             newItem.GetComponentsInChildren<Image>()[1].sprite = inventory.container[i].item.displayImage;
             SetupButton(i, button);
         }
-    }
-    
-    public void CreateNewListItem(string label)
-    {
-        var newItem = Instantiate(testImage, itemContainer, false);
-        newItem.GetComponentInChildren<TextMeshProUGUI>().text = Convert.ToString(10);
-
     }
 }

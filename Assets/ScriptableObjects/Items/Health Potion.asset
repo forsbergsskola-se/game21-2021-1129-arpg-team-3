@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b03d68d30abd4d644842528c9a6d8179, type: 3}
+  m_Name: Health Potion
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 7631410586540881360, guid: 7b471a746fde1c94495b41aae446294b, type: 3}
+  type: 0
+  description: It give life. Good shit, none of that stupid knock off potions either,
+    it'll heal you up real nice! Buy now, many, you live much.
+  restoreHealthValue: 20

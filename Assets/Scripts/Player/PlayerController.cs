@@ -16,21 +16,39 @@ public class PlayerController : MonoBehaviour
 	public GameObject playerModel;
 	private KeyHolder keyHolder;
 	public GameObject playerWeapon;
+	private Item itemPickup;
+	public InventoryObjects inventory;
+	private bool inDialogue = false;
 
 	private void Start() {
 		agent = GetComponent<NavMeshAgent>();
+		DialogueReader.OnStartEndDialogue += StartEndDialogue;
 	}
-
+	
 	private void Awake() {
 		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
 		playerStats.InitializePlayerStats();
 		keyHolder = GetComponent<KeyHolder>();
 	}
 
+	private void StartEndDialogue()
+	{
+		if (!inDialogue)
+		{
+			inDialogue = true;
+			agent.isStopped = true;
+		}
+		else
+		{
+			inDialogue = false;
+			agent.isStopped = false;
+		}
+	}
+	
 	void Update() {
 		GetCursorPosition();
 		ChangeCursor();
-		if (Input.GetMouseButtonUp(0) & Camera.main is not null) {
+		if (Input.GetMouseButtonDown(0) & Camera.main is not null) {
 			cursorManagement.DeSpawnRallyPoint();
 			TargetCheck();
 		}
@@ -45,10 +63,13 @@ public class PlayerController : MonoBehaviour
 	private void TargetCheck() {
 		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) {
 			target = hitInfo.collider.transform; //Sets target
-			if (hitInfo.collider.CompareTag("Ground") || 
+			if ((hitInfo.collider.CompareTag("Ground") || 
 			    hitInfo.collider.CompareTag("Key") || 
-			    hitInfo.collider.CompareTag("Door"))
-			{
+			    hitInfo.collider.CompareTag("Door") ||
+			    hitInfo.collider.CompareTag("Fire") ||
+			    hitInfo.collider.CompareTag("Item")) &&
+			    !inDialogue)
+			{ 
 				cursorManagement.SpawnRallyPoint(hitInfo.point);
 				MovePlayer(hitInfo.point); //Moves player to point.
 			}
@@ -63,14 +84,20 @@ public class PlayerController : MonoBehaviour
 			Debug.LogWarning("Player RayCast Camera is NULL!");
 		}
 	}
-	void MovePlayer(Vector3 point) {
-		StopAttacking();
-		agent.stoppingDistance = 0; //resets melee range setting
-		agent.SetDestination(point); //moves player to point
-		Debug.Log("Play MoveSound");
+	private void OnApplicationQuit()
+	{
+		inventory.Container.Clear();
 	}
-	
-	void MoveAttack() {
+	private void MovePlayer(Vector3 point) {
+		if (!inDialogue) {
+			StopAttacking();
+			agent.stoppingDistance = 0; //resets melee range setting
+			agent.SetDestination(point); //moves player to point
+			Debug.Log("Play MoveSound");
+		}
+	}
+
+	private void MoveAttack() {
 		if (Vector3.Distance(this.transform.position, target.position) >= playerStats.MeleeRange) { //only when player is not in melee range of enemy
 			StopAttacking();
 			agent.SetDestination(target.position);
@@ -79,7 +106,14 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 	private void AttackEnemy() {
-		if (target is not null && (target.CompareTag("Enemy") || target.CompareTag("Key") || target.CompareTag("Door"))) {
+		Physics.Raycast(GetCursorPosition(), out var hitInfo);
+		target = hitInfo.collider.transform; //Sets target
+		if (target is not null &&
+		    (target.CompareTag("Enemy") || 
+		     target.CompareTag("Key") || 
+		     target.CompareTag("Door") || 
+		     target.CompareTag("Item") ||
+		     target.CompareTag("NPC"))) {
 			//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
 			if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange + 0.5) {
 				if (target.CompareTag("Enemy") || target.CompareTag("Key") || target.CompareTag("Door")) {
@@ -89,6 +123,13 @@ public class PlayerController : MonoBehaviour
 					if (Input.GetMouseButtonUp(0) && target.CompareTag("Enemy")) {
 						transform.LookAt(target);
 					}
+				}
+				else if (target.CompareTag("Item"))
+				{
+					itemPickup = target.gameObject.GetComponent<Item>();
+					inventory.AddItem(itemPickup.item, 1); 
+					Destroy(itemPickup.gameObject);
+					itemPickup = null;
 				}
 			}
 			if (target is not null && target.CompareTag("Enemy") && target.gameObject.GetComponent<Enemy>().Health <= 0) {
@@ -109,13 +150,13 @@ public class PlayerController : MonoBehaviour
 	
 	private void ChangeCursor() {
 		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) {
-			if (hitInfo.collider.CompareTag("Ground") || hitInfo.collider.CompareTag("Player")) {
+			if (hitInfo.collider.CompareTag("Ground") || hitInfo.collider.CompareTag("Player") || hitInfo.collider.CompareTag("Fire")) {
 				cursorManagement.CursorChange(1);
 			}
 			else if (hitInfo.collider.CompareTag("Enemy")) {
 				cursorManagement.CursorChange(3);
 			}
-			else if (hitInfo.collider.CompareTag("Key")) {
+			else if (hitInfo.collider.CompareTag("Key") || hitInfo.collider.CompareTag("Item")) {
 				cursorManagement.CursorChange(4);
 			}
 			else if (hitInfo.collider.CompareTag("Door") && !keyHolder.doorUnlocked) {
@@ -123,6 +164,9 @@ public class PlayerController : MonoBehaviour
 			}
 			else if (hitInfo.collider.CompareTag("Door") && keyHolder.doorUnlocked) {
 				cursorManagement.CursorChange(5);
+			}
+			else if (hitInfo.collider.CompareTag("NPC")) {
+				cursorManagement.CursorChange(7);
 			}
 			else {
 				cursorManagement.CursorChange(8);
