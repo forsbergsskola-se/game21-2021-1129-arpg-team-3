@@ -419,6 +419,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6932518542485951456, guid: 4c5e328bd37d8d849914004632fe1634, type: 3}
+      propertyPath: questCode
+      value: KILL1
+      objectReference: {fileID: 0}
     - target: {fileID: 8727810860352592830, guid: 4c5e328bd37d8d849914004632fe1634, type: 3}
       propertyPath: m_Name
       value: QuestTestEnemy
