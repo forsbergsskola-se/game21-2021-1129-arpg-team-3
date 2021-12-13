@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealthYY : MonoBehaviour
+public class HealthYY : MonoBehaviour
 {
     public float StartingHealth = 100f;
     public GameObject damageText;
@@ -34,11 +34,5 @@ public class EnemyHealthYY : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
-    }
-
-    public void TakeDamage(int damage)
-    {
-        DamageYY indicator = Instantiate(damageText, transform.position, Quaternion.identity)
-            .GetComponent<DamageYY>();
     }
 }
