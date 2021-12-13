@@ -20,7 +20,7 @@ public enum QuestState
 public abstract class QuestObject : ScriptableObject
 {
     public QuestType type;
-    public QuestState state;
+    private QuestState state;
     
     public string questCode;
     
@@ -35,6 +35,11 @@ public abstract class QuestObject : ScriptableObject
     
     [TextArea(15, 20)] 
     public string questDescription;
+
+    public void ResetTargets()
+    {
+        numberTargetsGot = 0;
+    }
     
     public void TargetGot()
     {

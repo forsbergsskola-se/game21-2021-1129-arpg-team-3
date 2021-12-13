@@ -13,6 +13,7 @@ public class QuestManager : MonoBehaviour
     private readonly float buttonIncrement = 7;
     [SerializeField] private RawImage questLogPanel;
     private Canvas keepQuest;
+    private KeyCode openLogKey = KeyCode.F3;
     
     public delegate void QuestCompletedDelegate(string questCode);
 
@@ -29,7 +30,8 @@ public class QuestManager : MonoBehaviour
 
     void Start()
     {
-        questLogObject.quests.Clear();
+    //    ResetLog();
+    //    questLogObject.quests.Clear();
         keepQuest = Instantiate(questLogCanvas);
         keepQuest.gameObject.SetActive(false);
         DialogueReader.OnAcceptQuest += AcceptQuest;
@@ -83,7 +85,7 @@ public class QuestManager : MonoBehaviour
     {
         foreach (var el in questLogObject.quests)
         {
-            el.numberTargetsGot = 0;
+            el.ResetTargets();
         }
     }
     
@@ -99,9 +101,9 @@ public class QuestManager : MonoBehaviour
     
     private void OnApplicationQuit()
     {
+        ResetLog();
         questLogObject.quests.Clear();
-        keepQuest.GetComponentsInChildren<TextMeshProUGUI>()[0].text = "";
-        keepQuest.GetComponentsInChildren<TextMeshProUGUI>()[1].text = "";
+ 
     }
     
     
@@ -120,7 +122,7 @@ public class QuestManager : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F3))
+        if (Input.GetKeyDown(openLogKey))
         {
             ActivateQuestLog();
         }
