@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour {
 	public GameObject damageText;
 	public PlayerStats playerStats;
 	public EnemySO enemySo;
+	public GameObject smoke;
 	
 	public float Health {
 		get => health;
@@ -50,6 +51,7 @@ public class Enemy : MonoBehaviour {
 	{
 		playerStats.Experience += maxHealth * enemySo.WeaponDamage * playerStats.XPMultiplier;
 		gameObject.SetActive(false);
+		Instantiate(smoke, transform.position, Quaternion.identity);
 		Debug.Log("Enemy is Dead");
 	}
 }

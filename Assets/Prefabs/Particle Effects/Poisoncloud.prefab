@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5573682537066934486}
   - component: {fileID: 5573682537066934487}
   - component: {fileID: 5573682537066934484}
-  - component: {fileID: 9145260301737441734}
   - component: {fileID: 3591558371507619119}
   m_Layer: 0
   m_Name: Poisoncloud
@@ -4815,19 +4814,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!135 &9145260301737441734
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5573682537066934485}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 5.2993984
-  m_Center: {x: -0.0000009537339, y: -1.2871151e-10, z: -0.094578266}
 --- !u!114 &3591558371507619119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4840,7 +4826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ede1a89f4f3d9b4b9333438d98295c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 9999999
+  lifeTime: 1
 --- !u!1 &5573682537930004076
 GameObject:
   m_ObjectHideFlags: 0
