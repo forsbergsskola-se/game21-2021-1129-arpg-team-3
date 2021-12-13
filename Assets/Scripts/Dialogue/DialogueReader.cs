@@ -36,7 +36,7 @@ public class DialogueReader : MonoBehaviour
     public delegate void StartEndDialogueDelegate(); 
     public static event StartEndDialogueDelegate OnStartEndDialogue;
     
-    public delegate void AcceptQuestDelegate(); 
+    public delegate void AcceptQuestDelegate(QuestObject attachedQuest); 
     public static event AcceptQuestDelegate OnAcceptQuest;
     
 
@@ -46,11 +46,11 @@ public class DialogueReader : MonoBehaviour
     }
 
 
-    private void AcceptQuest()
+    private void AcceptQuest(QuestObject theAttachedQuest)
     {
         if (OnAcceptQuest != null)
         {
-            OnAcceptQuest();
+            OnAcceptQuest(theAttachedQuest);
         }
     }
 
@@ -197,7 +197,7 @@ public class DialogueReader : MonoBehaviour
 
                 if (selectedLine == "Accept Quest")
                 {
-                    AcceptQuest();
+                    AcceptQuest(attachedQuest);
                 }
                 if (selectedLine == "Leave")
                 {
