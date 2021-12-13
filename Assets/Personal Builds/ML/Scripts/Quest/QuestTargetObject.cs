@@ -5,10 +5,13 @@ using UnityEngine;
 
 
 
-public class QuestTarget : ScriptableObject
+public class QuestTargetObject : ScriptableObject
 {
     public QuestType target;
     
+    public delegate void TargetReachedDelegate();
+
+    public static event TargetReachedDelegate OnTargetReached;
     
     
     private void OnDestroy()

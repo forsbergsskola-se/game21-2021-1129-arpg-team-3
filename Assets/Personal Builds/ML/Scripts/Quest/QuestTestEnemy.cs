@@ -5,24 +5,25 @@ using UnityEngine;
 
 public class QuestTestEnemy : MonoBehaviour
 {
-    [SerializeField] private QuestTarget target;
+    [SerializeField] private string questCode;
+    [SerializeField] private QuestTargetObject targetObject;
     
-    public delegate void QuestTargetReachedDelegate();
+    public delegate void QuestTargetReachedDelegate(string theQuestCode);
 
     public static event QuestTargetReachedDelegate OnQuestTarget;
 
-    private void Target()
+    private void Target(string theQuestCode)
     {
         if (OnQuestTarget != null)
         {
-            OnQuestTarget();
+            OnQuestTarget(theQuestCode);
         }
             
     }
     
     private void OnMouseDown()
     {
-        Target();
+        Target(questCode);
         Destroy(gameObject);
     }
 

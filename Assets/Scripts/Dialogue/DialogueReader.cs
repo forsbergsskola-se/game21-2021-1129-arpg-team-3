@@ -11,8 +11,9 @@ using Button = UnityEngine.UI.Button;
 public class DialogueReader : MonoBehaviour
 {
     [SerializeField] private Canvas dialoguePopup;
-    [SerializeField] private ScriptableObject dialogueObject;
-
+    [SerializeField] private DialogueContainer dialogueObject;
+    [SerializeField] private QuestObject attachedQuest;
+    
     private DialogueContainer dialogueContainer;
     private List<NodeLinkData> currentOutputNodes;
     
@@ -34,12 +35,24 @@ public class DialogueReader : MonoBehaviour
     
     public delegate void StartEndDialogueDelegate(); 
     public static event StartEndDialogueDelegate OnStartEndDialogue;
+    
+    public delegate void AcceptQuestDelegate(); 
+    public static event AcceptQuestDelegate OnAcceptQuest;
+    
 
     private void Start()
     {
         playerTrans = GameObject.FindWithTag("Player").transform;
     }
 
+
+    private void AcceptQuest()
+    {
+        if (OnAcceptQuest != null)
+        {
+            OnAcceptQuest();
+        }
+    }
 
     private void StartTrade()
     {
@@ -51,7 +64,7 @@ public class DialogueReader : MonoBehaviour
     
     private string GetFirstLineOfDialogue()
     {
-        dialogueContainer = (DialogueContainer) dialogueObject; 
+        dialogueContainer =  dialogueObject; 
         currentNodeGuid = dialogueContainer.NodeLinks[0].TargetNodeGUID;
         string text = " ";
 
