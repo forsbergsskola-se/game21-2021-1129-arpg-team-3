@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 	private Item itemPickup;
 	public InventoryObjects inventory;
 	private bool inDialogue = false;
+	private bool canAttack = true;
 
 	private void Start() {
 		agent = GetComponent<NavMeshAgent>();
@@ -101,7 +102,6 @@ public class PlayerController : MonoBehaviour
 
 	private void MoveAttack() {
 		if (Vector3.Distance(this.transform.position, target.position) >= playerStats.MeleeRange) { //only when player is not in melee range of enemy
-			StopAttacking();
 			agent.SetDestination(target.position);
 			agent.stoppingDistance = playerStats.MeleeRange -1; //stops player before melee range
 			Debug.Log("Play MoveSound");
@@ -139,9 +139,17 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 	private void StartAttacking() {
-		attackAnimation.gameObject.SetActive(true);
-		playerModel.gameObject.SetActive(false);
-		StartCoroutine(DelayAttack());
+		if (canAttack) {
+			attackAnimation.gameObject.SetActive(true);
+			playerModel.gameObject.SetActive(false);
+			playerWeapon.GetComponent<Collider>().enabled = true;
+			// FMODUnity.RuntimeManager.PlayOneShot("event:/Player/SwordSwing");
+			Debug.Log("Play AttackSound");
+			StartCoroutine(DelayAttack());
+		}
+		else {
+			StopAttacking();
+		}
 	}
 	private void StopAttacking() {
 		playerWeapon.GetComponent<Collider>().enabled = false;
@@ -180,11 +188,10 @@ public class PlayerController : MonoBehaviour
 	}
 	
 	public IEnumerator DelayAttack() {
-		playerWeapon.GetComponent<Collider>().enabled = true;
-		// FMODUnity.RuntimeManager.PlayOneShot("event:/Player/SwordSwing");
-		Debug.Log("Play AttackSound");
+		canAttack = false;
 		yield return new WaitForSeconds(playerStats.AttackDelay * Time.deltaTime);
-		playerWeapon.GetComponent<Collider>().enabled = false;
+		canAttack = true;
+
 
 	}
 }
