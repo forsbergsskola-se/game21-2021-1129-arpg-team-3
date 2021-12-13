@@ -38,8 +38,7 @@ public class EnemyHealthYY : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        DamageIndicatorMA indicator = Instantiate(damageText, transform.position, Quaternion.identity)
-            .GetComponent<DamageIndicatorMA>();
-        indicator.SetDamageText(damage);
+        DamageYY indicator = Instantiate(damageText, transform.position, Quaternion.identity)
+            .GetComponent<DamageYY>();
     }
 }
