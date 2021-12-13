@@ -44,4 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4112147b3aba59a46a9922afa02704bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questLog: {fileID: 8796852920603645203, guid: 661c4911d98892e46b42099118660a3c, type: 3}
+  questLogCanvas: {fileID: 0}
+  questLogObject: {fileID: 0}
+  questLogPanel: {fileID: 6240857430159548203, guid: 1eaec5e65efbd1140b7a7af201d1153a, type: 3}
