@@ -35,4 +35,22 @@ public abstract class QuestObject : ScriptableObject
     
     [TextArea(15, 20)] 
     public string questDescription;
+    
+    public void TargetGot()
+    {
+        numberTargetsGot++;
+        if (numberTargetsGot == numberTargets)
+        {
+            if (state == QuestState.Accepted)
+            {
+                state = QuestState.CompletedWithAccept;
+            }
+            else if (state == QuestState.NotAccepted)
+            {
+                state = QuestState.CompletedWithoutAccept;
+            }
+        }
+        
+    }
+    
 }
