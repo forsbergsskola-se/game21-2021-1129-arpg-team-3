@@ -5,13 +5,17 @@ using UnityEngine;
 
 public class DamageYY : MonoBehaviour
 {
-    public float DamagePoints = 10f;
+    public EnemyHealthYY enemyHealthYY;
+    
+    public float damagePoints = 10f;
     private void OnTriggerStay(Collider other)
     {
-        EnemyHealthYY H = other.GetComponent<EnemyHealthYY>();
-        if (H==null) return;
-        {
-            H.HealthPoints -= DamagePoints* Time.deltaTime;
-        }
+        TakeDamage();
+    }
+
+    private void TakeDamage()
+    {
+        float hp = enemyHealthYY.healthPoints;
+        hp -= Math.Clamp(damagePoints, 0, hp);
     }
 }
