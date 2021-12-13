@@ -13,8 +13,12 @@ public abstract class QuestObject : ScriptableObject
 {
     public QuestType type;
     public string questCode;
+    public int numberTargets;
+    public string questName;
 }
 
+
+[CreateAssetMenu(fileName ="New Kill Quest", menuName = "QuestSystem/QuestObjects/KillQuest")]
 public class KillQuestObject : QuestObject
 {
     public KillQuestObject()
@@ -23,6 +27,7 @@ public class KillQuestObject : QuestObject
     }
 }
 
+[CreateAssetMenu(fileName ="New Collect Quest", menuName = "QuestSystem/QuestObjects/CollectQuest")]
 public class CollectQuestObject : QuestObject
 {
     public CollectQuestObject()

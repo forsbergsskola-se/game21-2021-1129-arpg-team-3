@@ -187,8 +187,6 @@ public class DialogueReader : MonoBehaviour
                 PauseDialogue(nextLine);
             }
             
-            
-            
             else
             {
                 texts[0].text = nextLine;
@@ -197,6 +195,10 @@ public class DialogueReader : MonoBehaviour
                 GetOutputNodesFromNode();
                 SetupReplyButtons();
 
+                if (selectedLine == "Accept Quest")
+                {
+                    AcceptQuest();
+                }
                 if (selectedLine == "Leave")
                 {
                     ShutDownDialogue();
