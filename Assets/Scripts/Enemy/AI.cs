@@ -40,6 +40,7 @@ public class AI : MonoBehaviour
         {
             SetupAttack = false;
             attack.AttackAnimation = attackAnimation;
+            transform.LookAt(player);
             showHealthBar = true;
         }
         
