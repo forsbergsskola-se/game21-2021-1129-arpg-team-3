@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
 		     target.CompareTag("Item") ||
 		     target.CompareTag("NPC"))) {
 			//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
-			if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange + 0.5) {
+			if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange) {
 				if (target.CompareTag("Enemy") || target.CompareTag("Key") || target.CompareTag("Door")) { //Attack
 					StartAttacking();
 					// target = null; //Forces player to click again to attack
@@ -143,13 +143,14 @@ public class PlayerController : MonoBehaviour
 			attackAnimation.gameObject.SetActive(true);
 			playerModel.gameObject.SetActive(false);
 			playerWeapon.GetComponent<Collider>().enabled = true;
+			transform.Translate(new Vector3(0, 0, 0));
 			// FMODUnity.RuntimeManager.PlayOneShot("event:/Player/SwordSwing");
 			Debug.Log("Play AttackSound");
 			StartCoroutine(DelayAttack());
 		}
-		else {
-			StopAttacking();
-		}
+		// else {
+		// 	StopAttacking();
+		// }
 	}
 	private void StopAttacking() {
 		playerWeapon.GetComponent<Collider>().enabled = false;
