@@ -30,6 +30,7 @@ public class DialogueReader : MonoBehaviour
     [SerializeField] private Canvas dialoguePopup;
     [SerializeField] private QuestObject attachedQuest;
     [SerializeField] private List<DialogueHolder> multiDialogues;
+    [SerializeField] private string NPCName;
     private DialogueCriteria currentCriteria;
     private DialogueContainer dialogueContainer;
     private List<NodeLinkData> currentOutputNodes;
@@ -56,6 +57,9 @@ public class DialogueReader : MonoBehaviour
     public delegate void AcceptQuestDelegate(QuestObject attachedQuest); 
     public static event AcceptQuestDelegate OnAcceptQuest;
     
+    public delegate void QuestRewardDelegate(QuestObject attachedQuest); 
+    public static event QuestRewardDelegate OnRewardGiven;
+    
 
     private void Start()
     {
@@ -64,7 +68,13 @@ public class DialogueReader : MonoBehaviour
         QuestManager.OnQuestComplete += CompletedQuest;
     }
 
-
+    private void GiveReward()
+    {
+        if (OnRewardGiven != null)
+        {
+            OnRewardGiven(attachedQuest);
+        }
+    }
     private void CompletedQuest(string questCode)
     {
         if (questCode == attachedQuest.questCode)
@@ -126,7 +136,7 @@ public class DialogueReader : MonoBehaviour
             GetOutputNodesFromNode();
             SetupReplyButtons();
             
-            texts[1].text = "Peasant";
+            texts[1].text = NPCName;
         }
 
         if (OnStartEndDialogue != null && Vector3.Distance(transform.position, playerTrans.position) < 4)
@@ -234,6 +244,12 @@ public class DialogueReader : MonoBehaviour
                 {
                     AcceptQuest(attachedQuest);
                 }
+
+                if (selectedLine == "Accept Reward")
+                {
+                    GiveReward();
+                }
+                
                 if (selectedLine == "Leave")
                 {
                     if (currentCriteria == DialogueCriteria.CompletedQuest)

@@ -10,6 +10,7 @@ public class QuestManager : MonoBehaviour
     [SerializeField] private Canvas questLogCanvas;
     [SerializeField] private QuestLog questLogObject;
     private readonly Vector3 buttonStartPos = new (-158, 168);
+    private readonly float buttonIncrement = 7;
     [SerializeField] private RawImage questLogPanel;
     private Canvas keepQuest;
     
@@ -25,7 +26,7 @@ public class QuestManager : MonoBehaviour
             OnQuestComplete(questCode);
         }
     }
-    
+
     void Start()
     {
         questLogObject.quests.Clear();
@@ -51,21 +52,19 @@ public class QuestManager : MonoBehaviour
         }
     }
     
-    private void SetupReward(int questIndex)
-    {
-        
-    }
-    
     private void AcceptQuest(QuestObject acceptedQuest)
     {
+        acceptedQuest.numberTargetsGot = 0;
         questLogObject.quests.Add(acceptedQuest);
-        SetupQuestButton(0);
+        SetupQuestButton(questLogObject.quests.Count - 1);
     }
 
     private void SetupQuestButton(int questIndex)
     {
+        Vector3 addVector = new Vector3(0, questLogObject.quests.Count * buttonIncrement);
+        
         var panel = Instantiate(questLogPanel, keepQuest.transform);
-        panel.GetComponent<RectTransform>().localPosition = buttonStartPos;
+        panel.GetComponent<RectTransform>().localPosition = buttonStartPos + addVector;
         panel.GetComponentInChildren<TextMeshProUGUI>().text = questLogObject.quests[questIndex].questName;
         panel.GetComponentInChildren<Button>().onClick.AddListener(()=> TestButtonClick(questIndex));
     }
@@ -79,17 +78,30 @@ public class QuestManager : MonoBehaviour
         texts[3].text = questLogObject.quests[questIndex].numberTargetsGot +  "/" + questLogObject.quests[questIndex].numberTargets;
 
     }
+
+    private void ResetLog()
+    {
+        foreach (var el in questLogObject.quests)
+        {
+            el.numberTargetsGot = 0;
+        }
+    }
+    
+    private void ResetLogTexts()
+    {
+        var texts = keepQuest.GetComponentsInChildren<TextMeshProUGUI>();
+
+        for (int i = 0; i < 4; i++)
+        {
+            texts[i].text = " ";
+        }
+    }
     
     private void OnApplicationQuit()
     {
         questLogObject.quests.Clear();
         keepQuest.GetComponentsInChildren<TextMeshProUGUI>()[0].text = "";
         keepQuest.GetComponentsInChildren<TextMeshProUGUI>()[1].text = "";
-
-        foreach (var el in questLogObject.quests)
-        {
-            el.numberTargetsGot = 0;
-        }
     }
     
     
@@ -98,6 +110,7 @@ public class QuestManager : MonoBehaviour
         if (!keepQuest.isActiveAndEnabled)
         {
             keepQuest.gameObject.SetActive(true);
+            ResetLogTexts();
         }
         else
         {
