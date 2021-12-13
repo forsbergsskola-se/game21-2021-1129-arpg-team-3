@@ -13,7 +13,10 @@ public abstract class QuestObject : ScriptableObject
 {
     public QuestType type;
     public string questCode;
+    
     public int numberTargets;
+    public int numberTargetsGot;
+    
     public string questName;
     public InventoryItemObject itemReward;
     public int cashReward;

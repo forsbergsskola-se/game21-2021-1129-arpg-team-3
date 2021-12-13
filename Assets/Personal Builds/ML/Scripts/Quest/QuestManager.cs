@@ -13,20 +13,53 @@ public class QuestManager : MonoBehaviour
     [SerializeField] private RawImage questLogPanel;
     private Canvas keepQuest;
     
+    public delegate void QuestCompletedDelegate(string questCode);
+
+    public static event QuestCompletedDelegate OnQuestComplete;
+
+
+    private void QuestComplete(string questCode)
+    {
+        if (OnQuestComplete != null)
+        {
+            OnQuestComplete(questCode);
+        }
+    }
+    
     void Start()
     {
         questLogObject.quests.Clear();
         keepQuest = Instantiate(questLogCanvas);
         keepQuest.gameObject.SetActive(false);
         DialogueReader.OnAcceptQuest += AcceptQuest;
+        QuestTestEnemy.OnQuestTarget += HitTarget;
     }
 
+    private void HitTarget(string questCode)
+    {
+        foreach (var el in questLogObject.quests)
+        {
+            if (el.questCode == questCode)
+            {
+                el.numberTargetsGot++;
+
+                if (el.numberTargetsGot >= el.numberTargets)
+                {
+                    QuestComplete(el.questCode);
+                }
+            }
+        }
+    }
+    
+    private void SetupReward(int questIndex)
+    {
+        
+    }
+    
     private void AcceptQuest(QuestObject acceptedQuest)
     {
         questLogObject.quests.Add(acceptedQuest);
         SetupQuestButton(0);
-        
-        WriteToLog();
     }
 
     private void SetupQuestButton(int questIndex)
@@ -39,8 +72,12 @@ public class QuestManager : MonoBehaviour
 
     private void TestButtonClick(int questIndex)
     {
-        keepQuest.GetComponentsInChildren<TextMeshProUGUI>()[0].text = questLogObject.quests[questIndex].questName;
-        keepQuest.GetComponentsInChildren<TextMeshProUGUI>()[1].text = questLogObject.quests[questIndex].questDescription;
+        var texts = keepQuest.GetComponentsInChildren<TextMeshProUGUI>();
+        texts[0].text = questLogObject.quests[questIndex].questName;
+        texts[1].text = questLogObject.quests[questIndex].questDescription;
+        texts[2].text = "You Will receive " + questLogObject.quests[questIndex].cashReward + " gold";
+        texts[3].text = questLogObject.quests[questIndex].numberTargetsGot +  "/" + questLogObject.quests[questIndex].numberTargets;
+
     }
     
     private void OnApplicationQuit()
@@ -48,13 +85,13 @@ public class QuestManager : MonoBehaviour
         questLogObject.quests.Clear();
         keepQuest.GetComponentsInChildren<TextMeshProUGUI>()[0].text = "";
         keepQuest.GetComponentsInChildren<TextMeshProUGUI>()[1].text = "";
-    }
 
-    private void WriteToLog()
-    {
-    //    keepQuest.GetComponentsInChildren<TextMeshProUGUI>()[0].text = questLogObject.quests[0].questName;
-    //    keepQuest.GetComponentsInChildren<TextMeshProUGUI>()[1].text = questLogObject.quests[0].questDescription;
+        foreach (var el in questLogObject.quests)
+        {
+            el.numberTargetsGot = 0;
+        }
     }
+    
     
     private void ActivateQuestLog()
     {

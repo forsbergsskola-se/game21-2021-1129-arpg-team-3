@@ -8,12 +8,29 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
 
+
+public enum DialogueCriteria
+{
+    First,
+    AcceptedQuest,
+    CompletedQuest,
+    FinalDialogue
+}
+
+[Serializable]
+public class DialogueHolder
+{
+    public DialogueContainer dialogueObject;
+    public DialogueCriteria criteria;
+}
+
+
 public class DialogueReader : MonoBehaviour
 {
     [SerializeField] private Canvas dialoguePopup;
-    [SerializeField] private DialogueContainer dialogueObject;
     [SerializeField] private QuestObject attachedQuest;
-    
+    [SerializeField] private List<DialogueHolder> multiDialogues;
+    private DialogueCriteria currentCriteria;
     private DialogueContainer dialogueContainer;
     private List<NodeLinkData> currentOutputNodes;
     
@@ -42,12 +59,23 @@ public class DialogueReader : MonoBehaviour
 
     private void Start()
     {
+        currentCriteria = DialogueCriteria.First;
         playerTrans = GameObject.FindWithTag("Player").transform;
+        QuestManager.OnQuestComplete += CompletedQuest;
     }
 
 
+    private void CompletedQuest(string questCode)
+    {
+        if (questCode == attachedQuest.questCode)
+        {
+            currentCriteria = DialogueCriteria.CompletedQuest;
+        }
+    }
+    
     private void AcceptQuest(QuestObject theAttachedQuest)
     {
+        currentCriteria = DialogueCriteria.AcceptedQuest;
         if (OnAcceptQuest != null)
         {
             OnAcceptQuest(theAttachedQuest);
@@ -64,7 +92,14 @@ public class DialogueReader : MonoBehaviour
     
     private string GetFirstLineOfDialogue()
     {
-        dialogueContainer =  dialogueObject; 
+        foreach (var el in multiDialogues)
+        {
+            if (currentCriteria == el.criteria)
+            {
+                dialogueContainer =  el.dialogueObject; 
+            }
+        }
+        
         currentNodeGuid = dialogueContainer.NodeLinks[0].TargetNodeGUID;
         string text = " ";
 
@@ -201,6 +236,10 @@ public class DialogueReader : MonoBehaviour
                 }
                 if (selectedLine == "Leave")
                 {
+                    if (currentCriteria == DialogueCriteria.CompletedQuest)
+                    {
+                        currentCriteria = DialogueCriteria.FinalDialogue;
+                    }
                     ShutDownDialogue();
                 }
             }

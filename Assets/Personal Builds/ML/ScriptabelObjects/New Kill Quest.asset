@@ -15,5 +15,8 @@ MonoBehaviour:
   type: 0
   questCode: KILL1
   numberTargets: 1
+  numberTargetsGot: 0
   questName: Kill all the cubes.
+  itemReward: {fileID: 0}
+  cashReward: 200
   questDescription: Kill all the cubes for a meagre award.
