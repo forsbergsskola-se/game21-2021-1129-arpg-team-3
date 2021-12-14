@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: New Kill Quest
   m_EditorClassIdentifier: 
   type: 0
-  state: 0
   questCode: KILL1
   numberTargets: 1
-  numberTargetsGot: 1
+  numberTargetsGot: 0
   questName: Kill all the cubes.
   itemReward: {fileID: 0}
   cashReward: 200
+  XPReward: 500
   questDescription: Kill all the cubes for a meagre award.

@@ -198,8 +198,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialoguePopup: {fileID: 8933333810018513405, guid: c44d766703db0e44c98837e713eea08e, type: 3}
-  dialogueObject: {fileID: 11400000, guid: 37c3bcc79df71884e9f760266889f221, type: 2}
   attachedQuest: {fileID: 11400000, guid: 87e680ee7eb9e22418b2c7c4b09a1cc3, type: 2}
+  multiDialogues:
+  - dialogueObject: {fileID: 11400000, guid: 37c3bcc79df71884e9f760266889f221, type: 2}
+    criteria: 0
+  - dialogueObject: {fileID: 11400000, guid: f7f7228f49a7be04880890c435b41901, type: 2}
+    criteria: 1
+  - dialogueObject: {fileID: 11400000, guid: f412872f47380384fa0cfc479b05ea82, type: 2}
+    criteria: 2
+  - dialogueObject: {fileID: 11400000, guid: 99b35f69052511044a471637af316b3e, type: 2}
+    criteria: 3
+  NPCName: Peasant
 --- !u!1 &179915755 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3557926641381535982, guid: 72181b2e4e5f13a40998d444ec2327ba, type: 3}
@@ -236,8 +245,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialoguePopup: {fileID: 8933333810018513405, guid: c44d766703db0e44c98837e713eea08e, type: 3}
-  dialogueObject: {fileID: 11400000, guid: 59b3e3823b16f9649989e88ee93376ec, type: 2}
   attachedQuest: {fileID: 11400000, guid: 87e680ee7eb9e22418b2c7c4b09a1cc3, type: 2}
+  multiDialogues: []
+  NPCName: 
 --- !u!1001 &412887099
 PrefabInstance:
   m_ObjectHideFlags: 0

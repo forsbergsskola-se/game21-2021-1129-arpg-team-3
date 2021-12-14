@@ -20,7 +20,7 @@ public enum QuestState
 public abstract class QuestObject : ScriptableObject
 {
     public QuestType type;
-    private QuestState state;
+    public QuestState state;
     
     public string questCode;
     

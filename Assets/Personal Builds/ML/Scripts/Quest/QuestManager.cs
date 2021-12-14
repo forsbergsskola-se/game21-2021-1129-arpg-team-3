@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,8 +31,6 @@ public class QuestManager : MonoBehaviour
 
     void Start()
     {
-    //    ResetLog();
-    //    questLogObject.quests.Clear();
         keepQuest = Instantiate(questLogCanvas);
         keepQuest.gameObject.SetActive(false);
         DialogueReader.OnAcceptQuest += AcceptQuest;
@@ -53,6 +52,19 @@ public class QuestManager : MonoBehaviour
             }
         }
     }
+
+    private void RegisterAcceptQuest(string questCode)
+    {
+         questLogObject.quests.Where(x =>
+         {
+             if (x.questCode == questCode)
+             {
+                 x.state = QuestState.Accepted;
+                 return true;
+             }
+             return false;
+        });
+    }
     
     private void AcceptQuest(QuestObject acceptedQuest)
     {
@@ -63,22 +75,21 @@ public class QuestManager : MonoBehaviour
 
     private void SetupQuestButton(int questIndex)
     {
-        Vector3 addVector = new Vector3(0, questLogObject.quests.Count * buttonIncrement);
+        Vector3 addVector = new Vector3(0, questIndex * buttonIncrement);
         
         var panel = Instantiate(questLogPanel, keepQuest.transform);
         panel.GetComponent<RectTransform>().localPosition = buttonStartPos + addVector;
         panel.GetComponentInChildren<TextMeshProUGUI>().text = questLogObject.quests[questIndex].questName;
-        panel.GetComponentInChildren<Button>().onClick.AddListener(()=> TestButtonClick(questIndex));
+        panel.GetComponentInChildren<Button>().onClick.AddListener(()=> SelectQuestButton(questIndex));
     }
 
-    private void TestButtonClick(int questIndex)
+    private void SelectQuestButton(int questIndex)
     {
         var texts = keepQuest.GetComponentsInChildren<TextMeshProUGUI>();
         texts[0].text = questLogObject.quests[questIndex].questName;
         texts[1].text = questLogObject.quests[questIndex].questDescription;
         texts[2].text = "You Will receive " + questLogObject.quests[questIndex].cashReward + " gold";
         texts[3].text = questLogObject.quests[questIndex].numberTargetsGot +  "/" + questLogObject.quests[questIndex].numberTargets;
-
     }
 
     private void ResetLog()
@@ -103,7 +114,6 @@ public class QuestManager : MonoBehaviour
     {
         ResetLog();
         questLogObject.quests.Clear();
- 
     }
     
     
