@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventory")]
 public class InventoryObjects : ScriptableObject, ISerializationCallbackReceiver
 {
+    public string savePath;
     public ItemDataBaseObject database;
     public List<InventorySlotS> Container = new List<InventorySlotS>();
 
@@ -19,6 +21,18 @@ public class InventoryObjects : ScriptableObject, ISerializationCallbackReceiver
             }
         }
         Container.Add(new InventorySlotS(database.GetID[_item], _item, _amount));
+    }
+
+    public void Save()
+    {
+        string saveData = JsonUtility.ToJson(this, true);
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(string)
+    }
+
+    public void Load()
+    {
+        
     }
     public void RemoveItem(ItemObject item, int amount) 
     {
