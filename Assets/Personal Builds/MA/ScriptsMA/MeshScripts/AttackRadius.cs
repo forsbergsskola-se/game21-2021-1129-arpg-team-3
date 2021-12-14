@@ -7,18 +7,18 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class AttackRadius : MonoBehaviour
 {
-   private List<iDamageMA> Damagesables = new List<iDamageMA>();
+   private List<IDamageableMA> Damagesables = new List<IDamageableMA>();
    public int Damage = 10;
    public float AttackDelay = 0.5f;
 
-   public delegate void AttackEvent(iDamageMA target);
+   public delegate void AttackEvent(IDamageableMA Target);
 
    public AttackEvent OnAttack;
    private Coroutine attackCoroutine;
 
    private void OnTriggerEnter(Collider other)
    {
-      iDamageMA damagesable = other.GetComponent<iDamageMA>();
+      IDamageableMA damagesable = other.GetComponent<IDamageableMA>();
       if (damagesable != null)
          Damagesables.Add(damagesable);
       if (attackCoroutine == null)
@@ -29,7 +29,7 @@ public class AttackRadius : MonoBehaviour
 
    private void OnTriggerExit(Collider other)
    {
-      iDamageMA damageable = other.GetComponent<iDamageMA>();
+      IDamageableMA damageable = other.GetComponent<IDamageableMA>();
       if (damageable != null)
       {
          Damagesables.Remove(damageable);
@@ -46,19 +46,19 @@ public class AttackRadius : MonoBehaviour
          WaitForSeconds Wait = new WaitForSeconds(AttackDelay);
          yield return Wait;
 
-         iDamageMA closestDamageable = null;
+         IDamageableMA closestDamageable = null;
          float closestDistance = float.MaxValue;
 
          while (Damagesables.Count > 0)
          {
             for (int i = 0; i < Damagesables.Count; i++)
             {
-              // Transform damageableTransform = Damagesables[i].GetTransform();
-               //float distance = Vector3.Distance(transform.position, damageableTransform.position);
+               Transform damageableTransform = Damagesables[i].GetTransform();
+               float distance = Vector3.Distance(transform.position, damageableTransform.position);
 
-               //if (distance < closestDistance)
+               if (distance < closestDistance)
                {
-                 // closestDistance = distance;
+                  closestDistance = distance;
                   //closestDistance = Damagesables[i];
                }
             }
@@ -66,7 +66,7 @@ public class AttackRadius : MonoBehaviour
             if (closestDamageable != null)
             {
                OnAttack?.Invoke(closestDamageable);
-               //closestDamageable.TakeDamage(Damage);
+               closestDamageable.TakeDamage(Damage);
                
             }
 
@@ -76,14 +76,14 @@ public class AttackRadius : MonoBehaviour
             //Damagesables.RemoveAll(DisableDamageables);
          }
 
-        // attackCoroutine = null;
+         attackCoroutine = null;
       }
 
-      //private bool DisabledDamageables(iDamageMA Damageable)
-      //{
-         //return Damageable != null && !Damageable.GetTransform().gameObject.activeSelf;
+      private bool DisabledDamageables(IDamageableMA Damageable)
+      {
+         return Damageable != null && !Damageable.GetTransform().gameObject.activeSelf;
       
-      //}
+      }
 }
  
    

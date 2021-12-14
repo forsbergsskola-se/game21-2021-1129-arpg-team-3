@@ -1,18 +1,56 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMAA : MonoBehaviour
+public class PlayerMAA : MonoBehaviour, IDamageableMA
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private AttackRadius AttackRadius;
+    private Coroutine lookCoroutine;
+    [SerializeField] private int Health = 300;
+    private const string ATTACK_TRIGGER = "Attack";
+
+    private void Awake()
     {
-        
+        AttackRadius.OnAttack += OnAttack;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnAttack(IDamageableMA Target)
     {
-        
+        if (lookCoroutine != null)
+        {
+            StopCoroutine(lookCoroutine);
+        }
+
+        lookCoroutine = StartCoroutine(LookAt(Target.GetTransform()));
+    }
+
+    private IEnumerator LookAt(Transform Target)
+    {
+        Quaternion lookRotation = Quaternion.LookRotation(Target.position - transform.position);
+        float time = 0;
+
+        while (time < 1)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, time);
+            time += Time.deltaTime * 2;
+            yield return null;
+        }
+
+        transform.rotation = lookRotation;
+    }
+
+    public void TakeDamage(int Damage)
+    {
+        Health -= Damage;
+        if (Health <=0)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    public Transform GetTransform()
+    {
+        return transform;
     }
 }
