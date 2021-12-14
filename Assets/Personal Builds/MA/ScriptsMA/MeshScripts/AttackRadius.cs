@@ -53,8 +53,8 @@ public class AttackRadius : MonoBehaviour
          {
             for (int i = 0; i < Damagesables.Count; i++)
             {
-               //Transform damageableTransform = Damagesables[i].GetTransform();
-              // float distance = Vector3.Distance(transform.position, damageableTransform.position);
+              // Transform damageableTransform = Damagesables[i].GetTransform();
+               //float distance = Vector3.Distance(transform.position, damageableTransform.position);
 
                //if (distance < closestDistance)
                {
@@ -76,13 +76,14 @@ public class AttackRadius : MonoBehaviour
             //Damagesables.RemoveAll(DisableDamageables);
          }
 
-         attackCoroutine = null;
+        // attackCoroutine = null;
       }
 
-      private bool DisabledDamageables(iDamageMA Damageable)
-      {
+      //private bool DisabledDamageables(iDamageMA Damageable)
+      //{
          //return Damageable != null && !Damageable.GetTransform().gameObject.activeSelf;
-      }
+      
+      //}
 }
  
    
