@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class iDamageMA : MonoBehaviour
 {
-   void TakeDamage(int Damage);
+   //void TakeDamage(int Damage);
 
-   Transform GetTransform();
+   //Transform GetTransform();
 }
