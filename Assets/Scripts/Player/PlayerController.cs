@@ -108,33 +108,33 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 	private void Interact() {
-		Physics.Raycast(GetCursorPosition(), out var hitInfo);
-		target = hitInfo.collider.transform; //Sets target
-		if (target is not null &&
-		    (target.CompareTag("Enemy") || 
-		     target.CompareTag("Key") || 
-		     target.CompareTag("Door") || 
-		     target.CompareTag("Item") ||
-		     target.CompareTag("NPC"))) {
-			//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
-			if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange + 0.5) {
-				if (target.CompareTag("Enemy") || target.CompareTag("Key") || target.CompareTag("Door")) { //Attack
-					StartAttacking();
-					// target = null; //Forces player to click again to attack
-					if (Input.GetMouseButtonUp(0) && target.CompareTag("Enemy")) {
-						transform.LookAt(target);
+		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) {
+			target = hitInfo.collider.transform; //reset target
+			if (target.CompareTag("Enemy") ||
+			    target.CompareTag("Key") ||
+			    target.CompareTag("Door") ||
+			    target.CompareTag("Item") ||
+			    target.CompareTag("NPC")) {
+				//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
+				if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange + 0.5) {
+					if (target.CompareTag("Enemy") || target.CompareTag("Key") || target.CompareTag("Door")) {
+						//Attack
+						StartAttacking();
+						// target = null; //Forces player to click again to attack
+						if (Input.GetMouseButtonUp(0) && target.CompareTag("Enemy")) {
+							transform.LookAt(target); //focus on target if facing the wrong direction
+						}
+					}
+					else if (target.CompareTag("Item")) {
+						itemPickup = target.gameObject.GetComponent<Item>();
+						inventory.AddItem(itemPickup.item, 1);
+						Destroy(itemPickup.gameObject);
+						itemPickup = null;
 					}
 				}
-				else if (target.CompareTag("Item"))
-				{
-					itemPickup = target.gameObject.GetComponent<Item>();
-					inventory.AddItem(itemPickup.item, 1); 
-					Destroy(itemPickup.gameObject);
-					itemPickup = null;
+				if (target is not null && target.CompareTag("Enemy") && target.gameObject.GetComponent<Enemy>().Health <= 0) {
+					StopAttacking();
 				}
-			}
-			if (target is not null && target.CompareTag("Enemy") && target.gameObject.GetComponent<Enemy>().Health <= 0) {
-				StopAttacking();
 			}
 		}
 	}
@@ -144,13 +144,8 @@ public class PlayerController : MonoBehaviour
 			playerModel.gameObject.SetActive(false);
 			playerWeapon.GetComponent<Collider>().enabled = true;
 			transform.Translate(new Vector3(0, 0, 0));
-			// FMODUnity.RuntimeManager.PlayOneShot("event:/Player/SwordSwing");
-			Debug.Log("Play AttackSound");
 			StartCoroutine(DelayAttack());
 		}
-		// else {
-		// 	StopAttacking();
-		// }
 	}
 	private void StopAttacking() {
 		playerWeapon.GetComponent<Collider>().enabled = false;
@@ -160,23 +155,24 @@ public class PlayerController : MonoBehaviour
 	
 	private void ChangeCursor() {
 		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) {
-			if (hitInfo.collider.CompareTag("Ground") || hitInfo.collider.CompareTag("Player") || hitInfo.collider.CompareTag("Fire")) {
+			var cursorHit = hitInfo.collider;
+			if (cursorHit.CompareTag("Ground") || cursorHit.CompareTag("Player") || cursorHit.CompareTag("Fire")) {
 				cursorManagement.CursorChange(1);
 			}
-			else if (hitInfo.collider.CompareTag("Enemy")) {
+			else if (cursorHit.CompareTag("Enemy")) {
 				cursorManagement.CursorChange(3);
 			}
-			else if (hitInfo.collider.CompareTag("Key") || hitInfo.collider.CompareTag("Item")) {
+			else if (cursorHit.CompareTag("Key") || cursorHit.CompareTag("Item")) {
 				cursorManagement.CursorChange(4);
 			}
-			else if (hitInfo.collider.CompareTag("Door") && !keyHolder.doorUnlocked) {
+			else if (cursorHit.CompareTag("Door") && !keyHolder.doorUnlocked) {
 				FMODUnity.RuntimeManager.PlayOneShot("event:/Item/KeyPickup");
 				cursorManagement.CursorChange(6);
 			}
-			else if (hitInfo.collider.CompareTag("Door") && keyHolder.doorUnlocked) {
+			else if (cursorHit.CompareTag("Door") && keyHolder.doorUnlocked) {
 				cursorManagement.CursorChange(5);
 			}
-			else if (hitInfo.collider.CompareTag("NPC")) {
+			else if (cursorHit.CompareTag("NPC")) {
 				cursorManagement.CursorChange(7);
 			}
 			else {
@@ -192,8 +188,6 @@ public class PlayerController : MonoBehaviour
 		canAttack = false;
 		yield return new WaitForSeconds(playerStats.AttackDelay * Time.deltaTime);
 		canAttack = true;
-
-
 	}
 }
 	
