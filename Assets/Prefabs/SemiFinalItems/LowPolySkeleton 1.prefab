@@ -1076,6 +1076,7 @@ MonoBehaviour:
   playerStats: {fileID: 11400000, guid: 0fbd9e63108f6d6408d1da897568a19e, type: 2}
   enemySo: {fileID: 11400000, guid: 65a067d5e1d488f4bb51f9132fdd997e, type: 2}
   smoke: {fileID: 5573682537066934485, guid: bcebc379d8b72f049b14651b9e529225, type: 3}
+  drop: {fileID: 3418357648049215993, guid: df9559a8d31543b428f4e110c78b4ca0, type: 3}
 --- !u!114 &7141254435392659384
 MonoBehaviour:
   m_ObjectHideFlags: 0

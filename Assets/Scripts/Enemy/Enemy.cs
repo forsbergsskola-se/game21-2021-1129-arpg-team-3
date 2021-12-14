@@ -1,4 +1,6 @@
 using System;
+using Unity.Mathematics;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,6 +13,7 @@ public class Enemy : MonoBehaviour {
 	public PlayerStats playerStats;
 	public EnemySO enemySo;
 	public GameObject smoke;
+	public GameObject drop;
 	
 	public float Health {
 		get => health;
@@ -52,6 +55,19 @@ public class Enemy : MonoBehaviour {
 		playerStats.Experience += maxHealth * enemySo.WeaponDamage * playerStats.XPMultiplier;
 		gameObject.SetActive(false);
 		Instantiate(smoke, transform.position, Quaternion.identity);
+		RandomDrop();
 		Debug.Log("Enemy is Dead");
+	}
+
+	private void RandomDrop() {
+		var choice = Random.Range(0, 3);
+		switch (choice) {
+			case <= 1:
+				Instantiate(drop, transform.position, quaternion.identity);
+				break;
+			case >= 1:
+				playerStats.Gold += 50;
+				break;
+		}
 	}
 }
