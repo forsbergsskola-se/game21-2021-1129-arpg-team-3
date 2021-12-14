@@ -27,7 +27,7 @@ public class InventoryObjects : ScriptableObject, ISerializationCallbackReceiver
     {
         string saveData = JsonUtility.ToJson(this, true);
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(string)
+        FileStream file = File.Create(string.Concat(Application.persistentDataPath));
     }
 
     public void Load()
