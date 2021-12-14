@@ -46,7 +46,6 @@ public class PlayerController : MonoBehaviour
 			agent.isStopped = false;
 		}
 	}
-	
 	void Update() {
 		GetCursorPosition();
 		ChangeCursor();
