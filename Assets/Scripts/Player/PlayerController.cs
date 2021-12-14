@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 	private Item itemPickup;
 	public InventoryObjects inventory;
 	private bool inDialogue = false;
-	private bool canAttack = true;
+	private bool cannotAttack = true;
 
 	private void Start() {
 		agent = GetComponent<NavMeshAgent>();
@@ -120,7 +120,11 @@ public class PlayerController : MonoBehaviour
 						StartAttacking();
 						// target = null; //Forces player to click again to attack
 						if (Input.GetMouseButtonUp(0) && target.CompareTag("Enemy")) {
-							transform.LookAt(target); //focus on target if facing the wrong direction
+							var targetRotation = Quaternion.LookRotation(target.transform.position - transform.position);
+							// Smoothly rotate towards the target point.
+							transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 60 * Time.deltaTime);
+
+							// transform.LookAt(target); //focus on target if facing the wrong direction
 						}
 					}
 					else if (target.CompareTag("Item")) {
@@ -137,15 +141,15 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 	private void StartAttacking() {
-		if (canAttack) {
-			attackAnimation.gameObject.SetActive(true);
-			playerModel.gameObject.SetActive(false);
-			playerWeapon.GetComponent<Collider>().enabled = true;
-			transform.Translate(new Vector3(0, 0, 0));
+		if (cannotAttack) {
+			playerWeapon.GetComponent<Collider>().enabled = false;
 			StartCoroutine(DelayAttack());
 		}
 		else {
-			playerWeapon.GetComponent<Collider>().enabled = false;
+			attackAnimation.gameObject.SetActive(true);
+			playerModel.gameObject.SetActive(false);
+			playerWeapon.GetComponent<Collider>().enabled = true;
+			transform.Translate(new Vector3(0, 0, 0));		
 		}
 	}
 	private void StopAttacking() {
@@ -185,9 +189,9 @@ public class PlayerController : MonoBehaviour
 	}
 	
 	public IEnumerator DelayAttack() {
-		canAttack = false;
+		cannotAttack = false;
 		yield return new WaitForSeconds(playerStats.AttackDelay * Time.deltaTime);
-		canAttack = true;
+		cannotAttack = true;
 	}
 }
 	
