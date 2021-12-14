@@ -9,8 +9,10 @@ public class InventoryObjects : ScriptableObject
 
     public void AddItem(ItemObject _item, int _amount) {
         bool hasItem = false;
-        for (int i = 0; i < Container.Count; i++) {
-            if (Container[i].item == _item) {
+        for (int i = 0; i < Container.Count; i++)
+        {
+            if (Container[i].item == _item)
+            {
                 Container[i].AddAmount(_amount);
                 hasItem = true;
                 break;
