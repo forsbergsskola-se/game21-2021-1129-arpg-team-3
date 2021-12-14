@@ -41,6 +41,10 @@ public class PauseMenu : MonoBehaviour
     {
         inventory.Save();
     }
+    public void LoadGame()
+    {
+        inventory.Load();
+    }
 
     public void LoadMenu()
     {
