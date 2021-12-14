@@ -79,7 +79,6 @@ public class PlayerController : MonoBehaviour
 			}
 			else {
 				FMODUnity.RuntimeManager.PlayOneShot("event:/Impacts/Destroy Barrel");
-				Debug.Log("Play InvalidPosition sound");
 			}
 		}
 		else {
@@ -96,7 +95,6 @@ public class PlayerController : MonoBehaviour
 			agent.stoppingDistance = 0; //resets melee range setting
 			agent.SetDestination(point); //moves player to point
 			FMODUnity.RuntimeManager.PlayOneShot("event:/Clicks/MainClick");
-			Debug.Log("Play MoveSound");
 		}
 	}
 
@@ -104,7 +102,7 @@ public class PlayerController : MonoBehaviour
 		if (Vector3.Distance(this.transform.position, target.position) >= playerStats.MeleeRange) { //only when player is not in melee range of enemy
 			agent.SetDestination(target.position);
 			agent.stoppingDistance = playerStats.MeleeRange -1; //stops player before melee range
-			Debug.Log("Play MoveSound");
+			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/SwordSwing");
 		}
 	}
 	private void Interact() {
@@ -146,9 +144,11 @@ public class PlayerController : MonoBehaviour
 			transform.Translate(new Vector3(0, 0, 0));
 			StartCoroutine(DelayAttack());
 		}
+		else {
+			playerWeapon.GetComponent<Collider>().enabled = false;
+		}
 	}
 	private void StopAttacking() {
-		playerWeapon.GetComponent<Collider>().enabled = false;
 		attackAnimation.gameObject.SetActive(false);
 		playerModel.gameObject.SetActive(true);
 	}
