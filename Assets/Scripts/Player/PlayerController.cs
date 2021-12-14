@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 	public InventoryObjects inventory;
 	private bool inDialogue = false;
 	private bool cannotAttack = true;
+	public Key key;
 
 	private void Start() {
 		agent = GetComponent<NavMeshAgent>();
@@ -115,7 +116,7 @@ public class PlayerController : MonoBehaviour
 			    target.CompareTag("NPC")) {
 				//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
 				if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange + 0.5) {
-					if (target.CompareTag("Enemy") || target.CompareTag("Key") || target.CompareTag("Door")) {
+					if (target.CompareTag("Enemy") || target.CompareTag("Door")) {
 						//Attack
 						StartAttacking();
 						// target = null; //Forces player to click again to attack
@@ -132,6 +133,14 @@ public class PlayerController : MonoBehaviour
 						inventory.AddItem(itemPickup.item, 1);
 						Destroy(itemPickup.gameObject);
 						itemPickup = null;
+					}
+					else if (target.CompareTag("Key")) {
+						var holder = GetComponent<KeyHolder>();
+						holder.AddKey(key.GetKeyType());
+						itemPickup = target.gameObject.GetComponent<Item>();
+						inventory.AddItem(itemPickup.item, 1);
+						Destroy(itemPickup.gameObject);
+						holder.doorUnlocked = true;
 					}
 				}
 				if (target is not null && target.CompareTag("Enemy") && target.gameObject.GetComponent<Enemy>().Health <= 0) {

@@ -7,23 +7,22 @@ public class InventoryObjects : ScriptableObject
 {
     public List<InventorySlotS> Container = new List<InventorySlotS>();
 
-    public void AddItem(ItemObject _item, int _amount)
-    {
+    public void AddItem(ItemObject _item, int _amount) {
         bool hasItem = false;
-        for (int i = 0; i < Container.Count; i++)
-        {
-            if (Container[i].item == _item)
-            {
+        for (int i = 0; i < Container.Count; i++) {
+            if (Container[i].item == _item) {
                 Container[i].AddAmount(_amount);
                 hasItem = true;
                 break;
             }
         }
-
         if (!hasItem)
         {
             Container.Add(new InventorySlotS(_item, _amount));
         }
+    }
+    public void RemoveItem(ItemObject item, int amount) {
+        // Container.Remove(item);
     }
 }
 

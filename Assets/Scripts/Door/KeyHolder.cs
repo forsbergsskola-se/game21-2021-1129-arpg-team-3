@@ -8,6 +8,7 @@ public class KeyHolder : MonoBehaviour
     public event EventHandler OnKeysChanged;
     private List<Key.KeyType> keyList;
     public bool doorUnlocked = false;
+    public KeyDoor keyDoor;
 
     private void Awake()
     {
@@ -35,27 +36,19 @@ public class KeyHolder : MonoBehaviour
     {
         return keyList.Contains(keyType);
     }
+    
+    private void Update() {
+        TryDoor();
+    }
+    private void TryDoor() {
 
-    private void OnTriggerEnter(Collider collider)
-    {
-        Key key = collider.GetComponent<Key>();
-        if (key != null)
-        {
-            AddKey(key.GetKeyType());
-            key.gameObject.SetActive(false);
-            doorUnlocked = true;
-        }
-        KeyDoor keyDoor = collider.GetComponent<KeyDoor>();
-        if (keyDoor != null)
-        {
-            if (ContainsKey(keyDoor.GetKeyType()))
-            {
+        if (keyDoor != null) {
+            if (ContainsKey(keyDoor.GetKeyType()) && Input.GetKeyDown(KeyCode.F) && Vector3.Distance(keyDoor.transform.position, transform.position) <= 5) {
                 //holding key to open door #Hodor
                 RemoveKey(keyDoor.GetKeyType());
                 keyDoor.OpenDoor();
-                
+                //RemoveItem();
             }
         }
     }
-    
 }
