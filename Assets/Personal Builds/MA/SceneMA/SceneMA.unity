@@ -1341,7 +1341,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101198498}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4a65df7a9e78b1449947172d242fbb0, type: 3}
   m_Name: 
@@ -1716,7 +1716,6 @@ GameObject:
   - component: {fileID: 1479986295}
   - component: {fileID: 1479986297}
   - component: {fileID: 1479986296}
-  - component: {fileID: 1479986299}
   - component: {fileID: 1479986300}
   - component: {fileID: 1479986301}
   - component: {fileID: 1479986302}
@@ -1753,7 +1752,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1479986293}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6abb96fa5661c246a0b9109d9cb26e1, type: 3}
   m_Name: 
@@ -1796,21 +1795,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1479986299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1479986293}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e644a6677031b804a8d0204ccbc4a23c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartingHealth: 100
-  damageText: {fileID: 4662363426629045447, guid: 60621e4a15d22444db9048f10e260fb9, type: 3}
-  _HealthPoints: 100
 --- !u!65 &1479986300
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1865,7 +1849,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1479986293}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6cf3ee9d3caaa94388d8bf0e81adb23, type: 3}
   m_Name: 

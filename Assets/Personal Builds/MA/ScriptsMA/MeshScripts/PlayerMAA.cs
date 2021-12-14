@@ -17,6 +17,7 @@ public class PlayerMAA : MonoBehaviour, IDamageableMA
 
     private void OnAttack(IDamageableMA Target)
     {
+        
         if (lookCoroutine != null)
         {
             StopCoroutine(lookCoroutine);
