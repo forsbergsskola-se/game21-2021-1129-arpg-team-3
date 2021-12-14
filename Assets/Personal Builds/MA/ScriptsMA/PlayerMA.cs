@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
 
-public class PlayerMA : MonoBehaviour
+public class PlayerMA : MonoBehaviour 
 {
     private NavMeshAgent _agent;
 
