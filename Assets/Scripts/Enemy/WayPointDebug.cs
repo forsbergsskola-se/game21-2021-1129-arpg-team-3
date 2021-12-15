@@ -23,7 +23,7 @@ public class WayPointDebug : MonoBehaviour
     private int numberWayPoints = 0;
     public int currentNumberPoints { get; private set; }
     [SerializeField] private GameObject PointToSpawn;
-    // private bool finalizePoints = false;
+    private bool finalizePoints = false;
     
     
     private string GetName(int index)
@@ -62,7 +62,7 @@ public class WayPointDebug : MonoBehaviour
 
     private void OnEnable()
     {
-        // finalizePoints = false;
+        finalizePoints = true;
         currentNumberPoints = PointList.Count - 1;
     }
 
@@ -179,9 +179,9 @@ public class WayPointDebug : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-        //    currentNumberPoints = PointList.Count;
-            // finalizePoints = true;
-        //    FinishPoints();
+            //    currentNumberPoints = PointList.Count;
+            //    finalizePoints = true;
+            //    FinishPoints();
         
         }
     }

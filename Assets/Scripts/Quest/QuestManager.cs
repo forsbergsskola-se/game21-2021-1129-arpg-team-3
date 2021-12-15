@@ -10,12 +10,14 @@ public class QuestManager : MonoBehaviour
 {
     [SerializeField] private Canvas questLogCanvas;
     [SerializeField] private QuestLog questLogObject;
-    private readonly Vector3 buttonStartPos = new (-158, 168);
-    private readonly float buttonIncrement = 7;
     [SerializeField] private RawImage questLogPanel;
+    
     private Canvas keepQuest;
     private KeyCode openLogKey = KeyCode.F3;
-    
+
+    private readonly Vector3 buttonStartPos = new (-158, 168);
+    private readonly float buttonIncrement = 7;
+
     public delegate void QuestCompletedDelegate(string questCode);
 
     public static event QuestCompletedDelegate OnQuestComplete;
@@ -44,10 +46,15 @@ public class QuestManager : MonoBehaviour
             if (el.questCode == questCode)
             {
                 el.numberTargetsGot++;
-
+                
                 if (el.numberTargetsGot >= el.numberTargets)
                 {
                     QuestComplete(el.questCode);
+
+                    if (el.state == QuestState.Accepted)
+                    {
+                        ChangeQuestState(questCode, QuestState.CompletedWithAccept);
+                    }
                 }
             }
         }
@@ -63,17 +70,34 @@ public class QuestManager : MonoBehaviour
             }
         }
     }
+
+    private int CountActiveQuests()
+    {
+        int outInt = 0;
+        for (int i = 0; i < questLogObject.quests.Count; i++)
+        {
+            if (questLogObject.quests[i].state != QuestState.NotAccepted)
+            {
+                outInt++;
+            }
+        }
+        return outInt;
+    }
+    
     
     private void AcceptQuest(QuestObject acceptedQuest)
     {
-        acceptedQuest.numberTargetsGot = 0;
-        questLogObject.quests.Add(acceptedQuest);
-        SetupQuestButton(questLogObject.quests.Count - 1);
+        ChangeQuestState(acceptedQuest.questCode, QuestState.Accepted);
+        int numberQuests = CountActiveQuests();
+        int questIndex = questLogObject.quests.IndexOf(acceptedQuest);
+        Debug.Log(questIndex);
+        
+        SetupQuestButton(questIndex, numberQuests);
     }
 
-    private void SetupQuestButton(int questIndex)
+    private void SetupQuestButton(int questIndex, int numberQuests)
     {
-        Vector3 addVector = new Vector3(0, questIndex * buttonIncrement);
+        Vector3 addVector = new Vector3(0, numberQuests * buttonIncrement);
         
         var panel = Instantiate(questLogPanel, keepQuest.transform);
         panel.GetComponent<RectTransform>().localPosition = buttonStartPos + addVector;
@@ -94,7 +118,7 @@ public class QuestManager : MonoBehaviour
     {
         foreach (var el in questLogObject.quests)
         {
-            el.ResetTargets();
+            el.ResetQuest();
         }
     }
     
@@ -111,7 +135,6 @@ public class QuestManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         ResetLog();
-        questLogObject.quests.Clear();
     }
     
     

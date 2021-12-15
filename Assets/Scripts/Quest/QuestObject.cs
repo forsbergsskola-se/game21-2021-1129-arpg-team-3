@@ -36,9 +36,15 @@ public abstract class QuestObject : ScriptableObject
     [TextArea(15, 20)] 
     public string questDescription;
 
-    public void ResetTargets()
+    public bool HasQuestCode(string testCode)
+    {
+        return questCode == testCode;
+    }
+    
+    public void ResetQuest()
     {
         numberTargetsGot = 0;
+        state = QuestState.NotAccepted;
     }
     
     public void TargetGot()

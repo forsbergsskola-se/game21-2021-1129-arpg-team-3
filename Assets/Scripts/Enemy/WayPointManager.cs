@@ -41,24 +41,24 @@ public class WayPointManager : MonoBehaviour
         CurrentNumberPoints = CurrentWayPoint.GetComponent<WayPointDebug>().PointList.Count;
         CurrentWayPoint.GetComponent<WayPointDebug>().GetLocationOfPoint(0);
         
-        /**
-        if (waypoints.Length > 0)
-        {
-            foreach (var el in waypoints)
-            {
-                graph.AddNode(el);
-            }
-
-            foreach (var el in links)
-            {
-                graph.AddEdge(el.node1, el.node2);
-                if (el.dir == Link.Direction.BI)
-                {
-                    graph.AddEdge(el.node2, el.node1);
-                }
-            }
-        }
-        **/
+        
+        // if (waypoints.Length > 0)
+        // {
+        //     foreach (var el in waypoints)
+        //     {
+        //         graph.AddNode(el);
+        //     }
+        //
+        //     foreach (var el in links)
+        //     {
+        //         graph.AddEdge(el.node1, el.node2);
+        //         if (el.dir == Link.Direction.BI)
+        //         {
+        //             graph.AddEdge(el.node2, el.node1);
+        //         }
+        //     }
+        // }
+        
     }
     
     
