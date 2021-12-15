@@ -45,6 +45,13 @@ public class InventoryObjects : ScriptableObject
         //set up function for when inventory is full
         return null;
     }
+
+    public void MoveItem(InventorySlotS item1, InventorySlotS item2)
+    {
+        InventorySlotS temp = new InventorySlotS(item2.ID, item2.item, item2.amount);
+        item2.UpdateSlots(item1.ID, item1.item, item1.amount);
+        item1.UpdateSlots(temp.ID, temp.item, temp.amount);
+    }
     [ContextMenu("Save")]
     public void Save()
     {

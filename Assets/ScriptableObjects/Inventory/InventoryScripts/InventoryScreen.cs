@@ -74,9 +74,14 @@ public class InventoryScreen : MonoBehaviour
 
     public void OnEnter(GameObject obj)
     {
+        mouseItem.hoverObj = obj;
+        if (itemsDisplayed.ContainsKey(obj))
+            mouseItem.hoverSlot = itemsDisplayed[obj];
     }
     public void OnExit(GameObject obj)
     {
+        mouseItem.hoverObj = null;
+        mouseItem.hoverSlot = null;
     }
     public void OnDragStart(GameObject obj)
     {
@@ -96,6 +101,15 @@ public class InventoryScreen : MonoBehaviour
     }
     public void OnDragEnd(GameObject obj)
     {
+        if (mouseItem.hoverObj)
+        {
+            inventory.MoveItem(itemsDisplayed[obj], itemsDisplayed[mouseItem.hoverObj]);
+        }
+        else
+        {
+        }
+        Destroy(mouseItem.obj);
+        mouseItem.item = null;
     }
     public void OnDrag(GameObject obj)
     {
@@ -115,6 +129,6 @@ public class MouseItem
 {
     public GameObject obj;
     public InventorySlotS item;
-    public InventorySlotS hoverItem;
+    public InventorySlotS hoverSlot;
     public GameObject hoverObj;
 }
