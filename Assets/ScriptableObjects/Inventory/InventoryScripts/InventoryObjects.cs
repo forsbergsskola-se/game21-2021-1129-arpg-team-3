@@ -52,6 +52,7 @@ public class InventoryObjects : ScriptableObject
         item2.UpdateSlots(item1.ID, item1.item, item1.amount);
         item1.UpdateSlots(temp.ID, temp.item, temp.amount);
     }
+    
     [ContextMenu("Save")]
     public void Save()
     {
@@ -66,6 +67,16 @@ public class InventoryObjects : ScriptableObject
         formatter.Serialize(stream, Container);
         stream.Close();
     }
+    public void RemoveItem(Item _item) 
+    {
+        for (int i = 0; i < Container.Items.Length; i++)
+        {
+            if (Container.Items[i].item == _item)
+            {
+                Container.Items[i].UpdateSlots(-1, null, 0);
+            }
+        }
+    }
 
     [ContextMenu("Load")]
     public void Load()
@@ -79,7 +90,11 @@ public class InventoryObjects : ScriptableObject
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath),
                 FileMode.Open, FileAccess.Read);
-            Container = (Inventory)formatter.Deserialize(stream);
+            Inventory newContainer = (Inventory)formatter.Deserialize(stream);
+            for (int i = 0; i < Container.Items.Length; i++)
+            {
+                Container.Items[i].UpdateSlots(newContainer.Items[i].ID, newContainer.Items[i].item, newContainer.Items[i].amount);
+            }
             stream.Close();
         }
     }
@@ -88,11 +103,6 @@ public class InventoryObjects : ScriptableObject
     {
         Container = new Inventory();
     }
-    public void RemoveItem(ItemObject item, int amount) 
-    {
-        // Container.Remove(item);
-    }
-    
 }
 
 [System.Serializable]
