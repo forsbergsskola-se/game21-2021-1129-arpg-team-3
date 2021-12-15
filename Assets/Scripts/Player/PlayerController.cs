@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
 	}
 	private void OnApplicationQuit()
 	{
-		//inventory.Container.Clear();
+		inventory.Container.Items.Clear();
 	}
 	private void MovePlayer(Vector3 point) {
 		if (!inDialogue) {

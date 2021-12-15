@@ -11,7 +11,7 @@ using UnityEditor;
 public class InventoryObjects : ScriptableObject
 {
     public string savePath;
-    private ItemDataBaseObject database;
+    public ItemDataBaseObject database;
     public Inventory Container;
     
     public void AddItem(Item _item, int _amount) 
