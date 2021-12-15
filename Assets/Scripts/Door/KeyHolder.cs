@@ -43,7 +43,7 @@ public class KeyHolder : MonoBehaviour
     private void TryDoor() {
 
         if (keyDoor != null) {
-            if (ContainsKey(keyDoor.GetKeyType()) && Input.GetKeyDown(KeyCode.F) && Vector3.Distance(keyDoor.transform.position, transform.position) <= 5) {
+            if (ContainsKey(keyDoor.GetKeyType()) && Input.GetKeyDown(KeyCode.F) && Vector3.Distance(keyDoor.transform.position, transform.position) <= 10) {
                 //holding key to open door #Hodor
                 RemoveKey(keyDoor.GetKeyType());
                 keyDoor.OpenDoor();
