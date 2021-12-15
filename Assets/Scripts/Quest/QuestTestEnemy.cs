@@ -9,7 +9,6 @@ public enum TargetTrigger
     OnHealthZero
 }
 
-
 public class QuestTestEnemy : MonoBehaviour
 {
     public string questCode;

@@ -55,6 +55,10 @@ public class QuestManager : MonoBehaviour
                     {
                         ChangeQuestState(questCode, QuestState.CompletedWithAccept);
                     }
+                    else if (el.state == QuestState.NotAccepted)
+                    {
+                        ChangeQuestState(questCode, QuestState.CompletedWithoutAccept);
+                    }
                 }
             }
         }
