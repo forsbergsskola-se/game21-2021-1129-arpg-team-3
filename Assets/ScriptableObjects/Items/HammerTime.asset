@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91b6aac7735db24b871ecb7f71ade4f, type: 3}
   m_Name: HammerTime
   m_EditorClassIdentifier: 
-  iD: 0
+  ID: 2
   uiDisplay: {fileID: 21300000, guid: d22fb18d358d07d408e564e6870f9a44, type: 3}
   type: 1
   description: 'Stop.
