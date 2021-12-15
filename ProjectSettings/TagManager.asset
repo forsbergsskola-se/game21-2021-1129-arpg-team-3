@@ -26,6 +26,7 @@ TagManager:
   - PlayerWeapon
   - Fire
   - NPC
+  - MonsterCloset
   layers:
   - Default
   - TransparentFX

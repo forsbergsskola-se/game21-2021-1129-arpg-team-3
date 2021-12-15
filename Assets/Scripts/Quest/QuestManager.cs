@@ -44,10 +44,15 @@ public class QuestManager : MonoBehaviour
             if (el.questCode == questCode)
             {
                 el.numberTargetsGot++;
-
+                
                 if (el.numberTargetsGot >= el.numberTargets)
                 {
                     QuestComplete(el.questCode);
+
+                    if (el.state == QuestState.Accepted)
+                    {
+                        ChangeQuestState(questCode, QuestState.CompletedWithAccept);
+                    }
                 }
             }
         }
@@ -82,15 +87,16 @@ public class QuestManager : MonoBehaviour
     {
         ChangeQuestState(acceptedQuest.questCode, QuestState.Accepted);
         int numberQuests = CountActiveQuests();
+        int questIndex = questLogObject.quests.IndexOf(acceptedQuest);
 
-        acceptedQuest.numberTargetsGot = 0;
-        questLogObject.quests.Add(acceptedQuest);
-        SetupQuestButton(questLogObject.quests.Count - 1);
+    //    acceptedQuest.numberTargetsGot = 0;
+    //    questLogObject.quests.Add(acceptedQuest);
+        SetupQuestButton(questIndex, numberQuests);
     }
 
-    private void SetupQuestButton(int questIndex)
+    private void SetupQuestButton(int questIndex, int numberQuests)
     {
-        Vector3 addVector = new Vector3(0, questIndex * buttonIncrement);
+        Vector3 addVector = new Vector3(0, numberQuests * buttonIncrement);
         
         var panel = Instantiate(questLogPanel, keepQuest.transform);
         panel.GetComponent<RectTransform>().localPosition = buttonStartPos + addVector;

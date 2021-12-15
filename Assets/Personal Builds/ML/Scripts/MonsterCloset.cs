@@ -6,7 +6,8 @@ using UnityEngine;
 public enum SpawnTrigger
 {
     Proximity,
-    ManualActivation
+    ManualActivation,
+    ManualThenProximity
 }
 
 public enum QuestTargetType
@@ -29,6 +30,10 @@ public class MonsterCloset : MonoBehaviour
     private bool canSpawn;
     private int spawnedMonsters;
 
+    public delegate void ClosetEmptyDelegate(string questCode);
+    public static event ClosetEmptyDelegate OnClosetEmpty;
+    
+
     private void SpawnMonster()
     {
         var enemy = Instantiate(monsterType, transform);
@@ -39,10 +44,18 @@ public class MonsterCloset : MonoBehaviour
 
         if (spawnedMonsters == monstersToSpawn && questTargetType == QuestTargetType.EmptyCloset)
         {
-            
+            ClosetEmpty();
         }
     }
 
+    private void ClosetEmpty()
+    {
+        if (OnClosetEmpty != null)
+        {
+            OnClosetEmpty(questCode);
+        }
+    }
+    
     private IEnumerator DelaySpawn()
     {
         yield return new WaitForSeconds(spawnInterval);
@@ -60,6 +73,7 @@ public class MonsterCloset : MonoBehaviour
     void Start()
     {
         GetComponent<SphereCollider>().radius = triggerRadius;
+        gameObject.tag = "MonsterCloset";
     }
     
     void Update()

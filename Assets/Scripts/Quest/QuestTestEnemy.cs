@@ -3,6 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TargetTrigger
+{
+    OnDestroy
+}
+
+
 public class QuestTestEnemy : MonoBehaviour
 {
     public string questCode;
