@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class EnemyYY : MonoBehaviour
+public class EnemyYY 
 {
-    // Start is called before the first frame update
-    void Start()
+    public EnemyMovementYY Movement;
+    public NavMeshAgent Agent;
+    public EnemyScriptableObjectYY EnemyScriptableObject;
+    public int Health = 100;
+
+    public virtual void OnEnable()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    //public override void OnDisable()
+    //{
         
-    }
+    //}
 }
