@@ -8,7 +8,7 @@ public class PlayerOR : MonoBehaviour//, IDamageableOR
     [SerializeField] private AttackRadiusOR _attackRadius;
     [SerializeField] private Animator Animator;
     private Coroutine _lookCoroutine;
-    [SerializeField] private int health = 300;
+   // [SerializeField] private int health = 300;
     private const string AttackTriggerOR = "Attack";
 
     private void Awake()

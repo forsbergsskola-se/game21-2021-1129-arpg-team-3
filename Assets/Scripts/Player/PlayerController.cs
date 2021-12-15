@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
+	public MouseItem mouseItem = new MouseItem();
 	// [SerializeField] float playerMeleeRange;
 	// [SerializeField] private float playerAttackDamage;
 	private NavMeshAgent agent;

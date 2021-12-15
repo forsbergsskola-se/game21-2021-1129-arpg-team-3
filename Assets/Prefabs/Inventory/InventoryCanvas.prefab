@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7579658911574199337}
   - component: {fileID: 7579658911574199342}
   - component: {fileID: 7579658911574199343}
-  - component: {fileID: 7579658911574199336}
   m_Layer: 5
   m_Name: InventoryScreenOR
   m_TagString: Untagged
@@ -77,24 +76,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7579658911574199336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7579658911574199338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e876c7130ae3d1e418a8eb5be3b0ad36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 11400000, guid: a3231846bda4aec46a760722608bb482, type: 2}
-  X_START: -135
-  Y_START: 162
-  X_SPACE_BETWEEN_ITEM_OR: 45
-  NUMBER_OF_COLUMN_OR: 10
-  Y_SPACE_BETWEEN_ITEM_OR: 45
 --- !u!1 &7579658911755341813
 GameObject:
   m_ObjectHideFlags: 0

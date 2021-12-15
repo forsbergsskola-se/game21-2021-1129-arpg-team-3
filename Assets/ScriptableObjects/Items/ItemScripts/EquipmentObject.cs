@@ -9,6 +9,6 @@ public class EquipmentObject : ItemObject
     public string tierGrade;
     public void Awake()
     {
-        type = ItemTypeS.Equipment;
+        type = ItemTypeS.Chest;
     }
 }

@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4647729aae32434db344334458e0521, type: 3}
+  m_Name: Player Equipment
+  m_EditorClassIdentifier: 
+  savePath: /Inventory.Save
+  database: {fileID: 11400000, guid: 48ed96adb9a3f544fb77e0599367394c, type: 2}
+  Container:
+    Items:
+    - AllowedItems: 01000000
+      parent: {fileID: 0}
+      ID: 2
+      item:
+        Name: Kick Ass Helmet
+        Id: 2
+        buffs:
+        - attribute: 3
+          value: 5
+          min: 5
+          max: 9
+        - attribute: 2
+          value: 33
+          min: 25
+          max: 40
+        - attribute: 4
+          value: 499
+          min: 1
+          max: 500
+        - attribute: 5
+          value: 0
+          min: -1
+          max: 1
+      amount: 1
+    - AllowedItems: 02000000
+      parent: {fileID: 0}
+      ID: 3
+      item:
+        Name: Incredible ChestPlate
+        Id: 3
+        buffs:
+        - attribute: 5
+          value: -500
+          min: -500
+          max: -500
+      amount: 1
+    - AllowedItems: 03000000
+      parent: {fileID: 0}
+      ID: 4
+      item:
+        Name: HammerTime
+        Id: 4
+        buffs:
+        - attribute: 3
+          value: 109
+          min: 1
+          max: 999
+        - attribute: 1
+          value: 13
+          min: 11
+          max: 15
+        - attribute: 2
+          value: 759
+          min: 1
+          max: 999
+      amount: 1
+    - AllowedItems: 04000000
+      parent: {fileID: 0}
+      ID: 5
+      item:
+        Name: Leggy legs
+        Id: 5
+        buffs:
+        - attribute: 2
+          value: 30
+          min: 30
+          max: 45
+        - attribute: 3
+          value: 10
+          min: 5
+          max: 12
+      amount: 1
