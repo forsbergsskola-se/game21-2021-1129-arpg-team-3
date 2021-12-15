@@ -5,7 +5,10 @@ using UnityEngine;
 public enum ItemTypeS 
 {
     Consumable,
-    Equipment,
+    Helmet,
+    Chest,
+    Weapon,
+    Legs,
     KeyItem
 }
 

@@ -113,6 +113,8 @@ public class Inventory
 [System.Serializable]
 public class InventorySlotS
 {
+    public ItemTypeS[] AllowedItems = new ItemTypeS[0];
+    public UserInterface parent;
     public int ID = -1;
     public Item item;
     public int amount;
@@ -137,5 +139,18 @@ public class InventorySlotS
     public void AddAmount(int value)
     {
         amount += value;
+    }
+
+    public bool CanPlaceInSlot(ItemObject _item)
+    {
+        if (AllowedItems.Length <= 0)
+            return true;
+        for (int i = 0; i < AllowedItems.Length; i++)
+        {
+            if (_item.type == AllowedItems[i])
+                return true;
+        }
+
+        return false;
     }
 }
