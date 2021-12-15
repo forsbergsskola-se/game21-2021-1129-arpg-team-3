@@ -469,7 +469,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237642435263264896, guid: 4c5e328bd37d8d849914004632fe1634, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.6809444
+      value: 10.14
       objectReference: {fileID: 0}
     - target: {fileID: 5237642435263264896, guid: 4c5e328bd37d8d849914004632fe1634, type: 3}
       propertyPath: m_LocalPosition.y
@@ -505,6 +505,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237642435263264896, guid: 4c5e328bd37d8d849914004632fe1634, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6932518542485951456, guid: 4c5e328bd37d8d849914004632fe1634, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6932518542485951456, guid: 4c5e328bd37d8d849914004632fe1634, type: 3}
@@ -787,7 +791,7 @@ PrefabInstance:
     - target: {fileID: 3175794874007991840, guid: 4e43a6bcb9255d34bb9650abe2cc55b7, type: 3}
       propertyPath: questLogObject
       value: 
-      objectReference: {fileID: 11400000, guid: 4fcfca0f66cf5ed41b7a9d21ddef26e9, type: 2}
+      objectReference: {fileID: 11400000, guid: 75be33f26b09029428bcfb6518c697d5, type: 2}
     - target: {fileID: 3175794874007991841, guid: 4e43a6bcb9255d34bb9650abe2cc55b7, type: 3}
       propertyPath: m_Name
       value: QuestManager

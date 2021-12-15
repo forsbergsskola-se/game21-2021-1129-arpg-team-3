@@ -88,9 +88,8 @@ public class QuestManager : MonoBehaviour
         ChangeQuestState(acceptedQuest.questCode, QuestState.Accepted);
         int numberQuests = CountActiveQuests();
         int questIndex = questLogObject.quests.IndexOf(acceptedQuest);
-
-    //    acceptedQuest.numberTargetsGot = 0;
-    //    questLogObject.quests.Add(acceptedQuest);
+        Debug.Log(questIndex);
+        
         SetupQuestButton(questIndex, numberQuests);
     }
 
@@ -134,7 +133,6 @@ public class QuestManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         ResetLog();
-        questLogObject.quests.Clear();
     }
     
     
