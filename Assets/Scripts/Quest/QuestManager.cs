@@ -63,9 +63,26 @@ public class QuestManager : MonoBehaviour
             }
         }
     }
+
+    private int CountActiveQuests()
+    {
+        int outInt = 0;
+        for (int i = 0; i < questLogObject.quests.Count; i++)
+        {
+            if (questLogObject.quests[i].state != QuestState.NotAccepted)
+            {
+                outInt++;
+            }
+        }
+        return outInt;
+    }
+    
     
     private void AcceptQuest(QuestObject acceptedQuest)
     {
+        ChangeQuestState(acceptedQuest.questCode, QuestState.Accepted);
+        int numberQuests = CountActiveQuests();
+
         acceptedQuest.numberTargetsGot = 0;
         questLogObject.quests.Add(acceptedQuest);
         SetupQuestButton(questLogObject.quests.Count - 1);
@@ -94,7 +111,7 @@ public class QuestManager : MonoBehaviour
     {
         foreach (var el in questLogObject.quests)
         {
-            el.ResetTargets();
+            el.ResetQuest();
         }
     }
     
