@@ -44,11 +44,11 @@ public class MonsterCloset : MonoBehaviour
 
         if (spawnedMonsters == monstersToSpawn && questTargetType == QuestTargetType.EmptyCloset)
         {
-            ClosetEmpty();
+            TargetHit();
         }
     }
 
-    private void ClosetEmpty()
+    private void TargetHit()
     {
         if (OnClosetEmpty != null)
         {

@@ -12,6 +12,8 @@ public enum TargetTrigger
 public class QuestTestEnemy : MonoBehaviour
 {
     public string questCode;
+    public bool isFinalEnemy;
+    
     [SerializeField] TargetTrigger targetTrigger;
     public delegate void QuestTargetReachedDelegate(string theQuestCode);
     public static event QuestTargetReachedDelegate OnQuestTarget;
@@ -23,6 +25,15 @@ public class QuestTestEnemy : MonoBehaviour
             OnQuestTarget(questCode);
         }
     }
+
+    private void OnDestroy()
+    {
+        if (targetTrigger == TargetTrigger.OnDestroy)
+        {
+            Target();
+        }
+    }
+
     private void Update() 
     {
         if (targetTrigger == TargetTrigger.OnHealthZero)
