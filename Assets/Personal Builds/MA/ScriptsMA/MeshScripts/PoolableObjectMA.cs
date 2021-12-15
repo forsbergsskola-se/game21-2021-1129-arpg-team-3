@@ -6,16 +6,16 @@ using UnityEngine.AI;
 
 public class PoolableObjectMA :  MonoBehaviour , IDamageableMA
 {
-   public AttackRadius AttackRadius;
-   public EnemyControllerMA Movement;
-   public NavMeshAgent Agent;
+   public AttackRadius attackRadius;
+   public EnemyControllerMA movement;
+   public NavMeshAgent agent;
    public EnemyScriptableObjectMA enemyScriptableObject;
 
  private Coroutine lookCoroutine;
-   public int Health = 100;
+   public int health = 100;
    private void Awake()
    {
-      AttackRadius.OnAttack += OnAttack;
+   //   attackRadius.onAttack += OnAttack;
    }
 
    private void OnAttack(IDamageableMA Target)
@@ -52,35 +52,35 @@ public class PoolableObjectMA :  MonoBehaviour , IDamageableMA
    public void OnDisable()
    {
      // base.OnDisable();
-      Agent.enabled = false;
+      agent.enabled = false;
    }
 
    public virtual void SetupAgentFromConfiguration()
    {
-      //Agent.acceleration = enemyScriptableObject.Accelertation;
-       Agent.angularSpeed = enemyScriptableObject.AngularSpeed;
-     //Agent.areaMask = enemyScriptableObject.AreaMask;
-       Agent.avoidancePriority = enemyScriptableObject.AvoidancePriority;
-      Agent.baseOffset = enemyScriptableObject.BaseOffset;
-       //Agent.height = enemyScriptableObject.Height;
-      Agent.obstacleAvoidanceType = enemyScriptableObject.ObstacleAvoidanceType;
-       Agent.radius = enemyScriptableObject.Radius;
-      Agent.speed = enemyScriptableObject.Speed;
-      Agent.stoppingDistance = enemyScriptableObject.StoppingDistance;
+      agent.acceleration = enemyScriptableObject.acceleration;
+       agent.angularSpeed = enemyScriptableObject.angularSpeed;
+     agent.areaMask = enemyScriptableObject.areMask;
+       agent.avoidancePriority = enemyScriptableObject.avoidancePriority;
+      agent.baseOffset = enemyScriptableObject.baseOffset;
+       agent.height = enemyScriptableObject.height;
+      agent.obstacleAvoidanceType = enemyScriptableObject.ObstacleAvoidanceType;
+       agent.radius = enemyScriptableObject.radius;
+      agent.speed = enemyScriptableObject.speed;
+      agent.stoppingDistance = enemyScriptableObject.stoppingDistance;
 
-      //Movement.UpdateRate = enemyScriptableObject.AIUpdateInterval;
+     // movement.UpdateRate = enemyScriptableObject.aIupdateInterval;
 
-       Health = enemyScriptableObject.Health;
+       health = enemyScriptableObject.health;
 
-       //AttackRadius.Collider.radius = enemyScriptableObject.AttackRadius;
-       AttackRadius.AttackDelay = enemyScriptableObject.AttackDelay;
-       AttackRadius.Damage = enemyScriptableObject.Damage;
+      // attackRadius.Collider.radius = enemyScriptableObject.attackRadius;
+       attackRadius.attackDelay = enemyScriptableObject.attackDelay;
+       attackRadius.damage = enemyScriptableObject.damage;
    }
 
    public void TakeDamage(int Damage)
    {
-      Health -= Damage;
-      if (Health <= 0)
+      health -= Damage;
+      if (health <= 0)
       {
          gameObject.SetActive(false);
       }
