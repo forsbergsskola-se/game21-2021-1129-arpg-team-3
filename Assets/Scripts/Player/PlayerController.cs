@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 	public GameObject playerModel;
 	private KeyHolder keyHolder;
 	public GameObject playerWeapon;
-	private Item itemPickup;
+	private GroundItem itemPickup;
 	public InventoryObjects inventory;
 	private bool inDialogue;
 	private bool cannotAttack = true;
@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
 	}
 	private void OnApplicationQuit()
 	{
-		inventory.Container.Clear();
+		//inventory.Container.Clear();
 	}
 	private void MovePlayer(Vector3 point) {
 		if (!inDialogue) {
@@ -128,16 +128,16 @@ public class PlayerController : MonoBehaviour
 						}
 					}
 					else if (target.CompareTag("Item")) {
-						itemPickup = target.gameObject.GetComponent<Item>();
-						inventory.AddItem(itemPickup.item, 1);
+						itemPickup = target.gameObject.GetComponent<GroundItem>();
+						inventory.AddItem(new Item(itemPickup.item), 1);
 						Destroy(itemPickup.gameObject);
 						itemPickup = null;
 					}
 					else if (target.CompareTag("Key")) {
 						var holder = GetComponent<KeyHolder>();
 						holder.AddKey(key.GetKeyType());
-						itemPickup = target.gameObject.GetComponent<Item>();
-						inventory.AddItem(itemPickup.item, 1);
+						itemPickup = target.gameObject.GetComponent<GroundItem>();
+						inventory.AddItem(new Item(itemPickup.item), 1);
 						Destroy(itemPickup.gameObject);
 						holder.doorUnlocked = true;
 					}

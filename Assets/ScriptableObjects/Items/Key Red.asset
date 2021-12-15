@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc5961fa8b5e7b347b4c9db674cca7f4, type: 3}
   m_Name: Key Red
   m_EditorClassIdentifier: 
-  prefab: {fileID: 380289941601094963, guid: b96360b8b401f9e458cdadb7a55fc4aa, type: 3}
+  iD: 0
+  uiDisplay: {fileID: 21300000, guid: cdb27265386ad9e46b33fdb68464d97d, type: 3}
   type: 2
   description: "This  key. Not Keith, Key. Key not blue, key not green. Key definitely
     not yellow. NEVER YELLOW!!\nKey \nIs\nRed"
