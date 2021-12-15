@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e91b6aac7735db24b871ecb7f71ade4f, type: 3}
-  m_Name: Kick Ass Helmet
+  m_Name: HammerTime
   m_EditorClassIdentifier: 
   iD: 0
-  uiDisplay: {fileID: 21300000, guid: d1a2882f4440a4447aab94c0b86b271b, type: 3}
+  uiDisplay: {fileID: 21300000, guid: d22fb18d358d07d408e564e6870f9a44, type: 3}
   type: 1
-  description: This helmet is totally "kchk-kchk".
-  armourValue: 999
-  damageBonus: 10
-  tierGrade: S+
+  description: 'Stop.
+
+    Hammer Time!'
+  armourValue: 0
+  damageBonus: 9001
+  tierGrade: S+++
