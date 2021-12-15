@@ -121,6 +121,7 @@ public class Inventory
 [System.Serializable]
 public class InventorySlotS
 {
+    [System.NonSerialized]
     public ItemTypeS[] AllowedItems = new ItemTypeS[0];
     public UserInterface parent;
     public int ID = -1;
