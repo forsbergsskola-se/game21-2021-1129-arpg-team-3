@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class QuestTestEnemy : MonoBehaviour
 {
-    [SerializeField] private string questCode;
+    public string questCode;
 
     public delegate void QuestTargetReachedDelegate(string theQuestCode);
 

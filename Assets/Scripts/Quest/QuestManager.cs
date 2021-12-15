@@ -53,17 +53,15 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    private void RegisterAcceptQuest(string questCode)
+    private void ChangeQuestState(string questCode, QuestState newState)
     {
-         questLogObject.quests.Where(x =>
-         {
-             if (x.questCode == questCode)
-             {
-                 x.state = QuestState.Accepted;
-                 return true;
-             }
-             return false;
-        });
+        foreach (var el in questLogObject.quests)
+        {
+            if (el.questCode == questCode)
+            {
+                el.state = newState;
+            }
+        }
     }
     
     private void AcceptQuest(QuestObject acceptedQuest)
