@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91b6aac7735db24b871ecb7f71ade4f, type: 3}
   m_Name: Kick Ass Helmet
   m_EditorClassIdentifier: 
-  iD: 0
+  Id: 2
   uiDisplay: {fileID: 21300000, guid: d1a2882f4440a4447aab94c0b86b271b, type: 3}
   type: 1
   description: This helmet is totally "kchk-kchk".

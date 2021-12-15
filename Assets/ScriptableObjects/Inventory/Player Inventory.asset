@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Player Inventory
   m_EditorClassIdentifier: Assembly-CSharp::InventoryObjects
   savePath: /Inventory.Save
+  database: {fileID: 11400000, guid: 48ed96adb9a3f544fb77e0599367394c, type: 2}
   Container:
     Items: []

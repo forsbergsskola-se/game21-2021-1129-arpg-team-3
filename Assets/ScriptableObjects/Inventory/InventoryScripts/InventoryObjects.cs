@@ -18,13 +18,13 @@ public class InventoryObjects : ScriptableObject
     {
         for (int i = 0; i < Container.Items.Count; i++)
         {
-            if (Container.Items[i].item == _item)
+            if (Container.Items[i].item.Id == _item.Id)
             {
                 Container.Items[i].AddAmount(_amount);
                 return;
             }
         }
-        Container.Items.Add(new InventorySlotS(_item.iD, _item, _amount));
+        Container.Items.Add(new InventorySlotS(_item.Id, _item, _amount));
     }
     [ContextMenu("Save")]
     public void Save()
@@ -53,7 +53,7 @@ public class InventoryObjects : ScriptableObject
             IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath),
                 FileMode.Open, FileAccess.Read);
-            Container = (Inventory) formatter.Deserialize(stream);
+            Container = (Inventory)formatter.Deserialize(stream);
             stream.Close();
         }
     }
@@ -77,17 +77,16 @@ public class Inventory
 [System.Serializable]
 public class InventorySlotS
 {
-    public int iD;
+    public int ID;
     public Item item;
     public int amount;
 
-    public InventorySlotS(int _iD, Item _item, int _amount)
+    public InventorySlotS(int _id, Item _item, int _amount)
     {
-        iD = _iD;
+        ID = _id;
         item = _item;
         amount = _amount;
     }
-
     public void AddAmount(int value)
     {
         amount += value;
