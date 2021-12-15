@@ -189,7 +189,6 @@ public class DialogueReader : MonoBehaviour
 
     private void ShutDownDialogue()
     {
-    //    continueButton.onClick.RemoveListener(() =>ClickContinue(nextNodeGuid));
         Destroy(currentDialogue.gameObject);
         boxIsUp = false;
 
@@ -223,7 +222,7 @@ public class DialogueReader : MonoBehaviour
         if (clickCount < 1)
         {
             clickCount++;
-        //    string currentLine = GetDialogueFromNode(currentNodeGuid);
+
             string nextLine = GetDialogueFromNode(nextNodeGuid);
 
             if (selectedLine == "Trade")
