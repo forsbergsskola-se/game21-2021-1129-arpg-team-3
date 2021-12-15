@@ -89,9 +89,10 @@ public abstract class UserInterface : MonoBehaviour
         var mouseHoverSlot = itemOnMouse.hoverSlot;
         var mouseHoverObj = itemOnMouse.hoverObj;
         var GetItemObject = inventory.database.GetItem;
-        if (itemOnMouse.hoverObj)
+        if (mouseHoverObj)
         {
-            if (mouseHoverSlot.CanPlaceInSlot(GetItemObject[itemsDisplayed[obj].ID])) 
+            if (mouseHoverSlot.CanPlaceInSlot(GetItemObject[itemsDisplayed[obj].ID]) && (mouseHoverSlot.item.Id <= -1 || 
+                (mouseHoverSlot.item.Id >= 0 && itemsDisplayed[obj].CanPlaceInSlot(GetItemObject[mouseHoverSlot.item.Id])))) 
                 inventory.MoveItem(itemsDisplayed[obj], mouseHoverSlot.parent.itemsDisplayed[mouseHoverObj]);
         }
         else
