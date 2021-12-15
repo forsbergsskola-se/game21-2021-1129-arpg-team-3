@@ -52,11 +52,11 @@ public class NPCEyes : MonoBehaviour
     { 
        CheckVisibility();
        
-       if (Seeing == Seeing.Player)
-       {
-        //   GetComponentInChildren<NPCMovement>().relevantTransform = PlayerTarget;
-       //    GetComponent<NPCMovement>().SetADestination(playerDestination);
-       }
+       // if (Seeing == Seeing.Player)
+       // {
+       //  // GetComponentInChildren<NPCMovement>().relevantTransform = PlayerTarget;
+       //  // GetComponent<NPCMovement>().SetADestination(playerDestination);
+       // }
        
     }
     
@@ -128,10 +128,9 @@ public class NPCEyes : MonoBehaviour
 
              Debug.DrawLine(transform.position, hit.point);
          }
-         else
-         {
-             Debug.DrawRay(transform.position,
-                 directionToTarget.normalized * rayDistance);
+         else {
+             Seeing = Seeing.Nothing;
+             Debug.DrawRay(transform.position, directionToTarget.normalized * rayDistance);
          }
 
          return canSee;

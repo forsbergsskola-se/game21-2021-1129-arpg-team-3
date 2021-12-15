@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6863383688304505383}
-  - component: {fileID: -1744232910176934497}
+  - component: {fileID: 607712735}
   m_Layer: 0
   m_Name: WaypointManager
-  m_TagString: Untagged
+  m_TagString: wpManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-1744232910176934497
+--- !u!114 &607712735
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,8 +41,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7395676180997729498}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 484a26723b94db641bd0a6a6e9e10a01, type: 3}
+  m_Script: {fileID: 11500000, guid: be06c719e65036a4e9e4c283d46284f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints: []
-  links: []

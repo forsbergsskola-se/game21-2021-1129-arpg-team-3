@@ -6,8 +6,8 @@ using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 
-public  class State 
-{
+public  class State {
+   public bool patrol;
    public enum STATE
    {
       Idle, Patrol, Pursue, Attack, Rest, Wander
@@ -90,9 +90,9 @@ public class Idle : State
          Stage = EVENT.Exit;
       }
       
-      else if (Random.Range(0, 500) < 10)
+      else if (Seeing != Seeing.Player) 
       {
-         NextState = new Patrol(Npc, Agent, Anim, Player);
+         NextState = new Idle(Npc, Agent, Anim, Player);
          Stage = EVENT.Exit;
       }
    }
@@ -152,8 +152,8 @@ public class Patrol : State
 
 public class Wander : State
 {
-   private float WanderRadius = 10;
-   private float WanderDistance = 20;
+   private float WanderRadius = 2;
+   private float WanderDistance = 2;
    private float WanderJitter = 1;
    Vector3 WanderTarget = Vector3.zero;
    public Wander(GameObject npc, NavMeshAgent agent, Animator anim, Transform player)
