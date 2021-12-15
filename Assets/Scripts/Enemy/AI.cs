@@ -40,7 +40,9 @@ public class AI : MonoBehaviour
         {
             SetupAttack = false;
             attack.AttackAnimation = attackAnimation;
-            transform.LookAt(player);
+            var targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
+            // Smoothly rotate towards the target point.
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 90 * Time.deltaTime);            
             showHealthBar = true;
         }
         

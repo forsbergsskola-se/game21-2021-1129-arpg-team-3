@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 	public GameObject playerWeapon;
 	private Item itemPickup;
 	public InventoryObjects inventory;
-	private bool inDialogue = false;
+	private bool inDialogue;
 	private bool cannotAttack = true;
 	public Key key;
 
@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
 	private void MoveAttack() {
 		if (Vector3.Distance(this.transform.position, target.position) >= playerStats.MeleeRange) { //only when player is not in melee range of enemy
 			agent.SetDestination(target.position);
-			agent.stoppingDistance = playerStats.MeleeRange -1; //stops player before melee range
+			agent.stoppingDistance = playerStats.MeleeRange -0.5f; //stops player before melee range
 			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/SwordSwing");
 		}
 	}
