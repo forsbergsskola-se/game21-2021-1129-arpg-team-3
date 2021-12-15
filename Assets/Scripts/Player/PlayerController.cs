@@ -122,8 +122,8 @@ public class PlayerController : MonoBehaviour
 						if (Input.GetMouseButtonUp(0) && target.CompareTag("Enemy")) {
 							var targetRotation = Quaternion.LookRotation(target.transform.position - transform.position);
 							// Smoothly rotate towards the target point.
-							transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 60 * Time.deltaTime);
-
+							transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, playerStats.CombatRotationSpeed * Time.deltaTime);
+							
 							// transform.LookAt(target); //focus on target if facing the wrong direction
 						}
 					}

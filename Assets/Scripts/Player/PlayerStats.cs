@@ -23,6 +23,9 @@ public class PlayerStats : ScriptableObject
     [SerializeField] private float playerLevelMultiplier;
     [SerializeField] private float xPMultiplier;
     [SerializeField] private float attackDelay;
+    [SerializeField] private float combatRotationSpeed;
+
+    public float CombatRotationSpeed => combatRotationSpeed;
 
     public float AttackDelay => attackDelay;
     public float Health {
