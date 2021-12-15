@@ -18,6 +18,19 @@ MonoBehaviour:
   description: 'Stop.
 
     Hammer Time!'
+  buffs:
+  - attribute: 3
+    value: 0
+    min: 1
+    max: 999
+  - attribute: 1
+    value: 0
+    min: 11
+    max: 15
+  - attribute: 2
+    value: 0
+    min: 1
+    max: 999
   armourValue: 0
   damageBonus: 9001
   tierGrade: S+++
