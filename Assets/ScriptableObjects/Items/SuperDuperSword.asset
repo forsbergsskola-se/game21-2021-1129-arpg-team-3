@@ -10,18 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e91b6aac7735db24b871ecb7f71ade4f, type: 3}
-  m_Name: HammerTime
+  m_Name: SuperDuperSword
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: 21300000, guid: d22fb18d358d07d408e564e6870f9a44, type: 3}
+  uiDisplay: {fileID: 21300000, guid: eb3f24563586db4499636d5eea6f63fe, type: 3}
   stackable: 0
   type: 3
-  description: 'Stop.
-
-    Hammer Time!'
+  description: '"This is a good sword" - Aragorn II Elessar'
   data:
-    Name: MC Hammer
-    Id: 4
-    buffs: []
+    Name: '"Good" Sword'
+    Id: 6
+    buffs:
+    - attribute: 1
+      value: 0
+      min: 1
+      max: 0
+    - attribute: 4
+      value: 0
+      min: 0
+      max: 0
   armourValue: 0
-  damageBonus: 9001
-  tierGrade: S+++
+  damageBonus: 1
+  tierGrade: NotAGoodSword

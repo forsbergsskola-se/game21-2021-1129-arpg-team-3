@@ -12,17 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91b6aac7735db24b871ecb7f71ade4f, type: 3}
   m_Name: Incredible ChestPlate
   m_EditorClassIdentifier: 
-  ID: 2
   uiDisplay: {fileID: 21300000, guid: d5366f7a7b48eb14e88615c1017bb494, type: 3}
+  stackable: 0
   type: 2
   description: This chestplate is really quite incredible I tell you. It's yuge,
     the best. So good, nobody knew how good it was! Believe me, tremendous piece
     of armor like no one has ever seen. Some people say it's the greatest.
-  buffs:
-  - attribute: 5
-    value: 0
-    min: -500
-    max: -500
+  data:
+    Name: Tremendous Chestplate
+    Id: 3
+    buffs: []
   armourValue: 1
   damageBonus: 0
   tierGrade: Fcking awful

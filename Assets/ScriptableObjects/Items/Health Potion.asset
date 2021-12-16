@@ -15,10 +15,14 @@ MonoBehaviour:
   uiDisplay: {fileID: 21300000, guid: 7a0ae85d98e02f7458ddc9d27b1ab4da, type: 3}
   stackable: 1
   type: 0
-  description: It give life. Good shit, none of that stupid knock off potions either,
-    it'll heal you up real nice! Buy now, many, you live much.
+  description: 'It give life. Good shit, none of that stupid knock off potions either,
+    it''ll heal you up real nice! Buy now, many, you live much.
+
+
+    Otherwise known
+    as Mommys "Happy-Juice"....She''s mean drunk that ol'' lady.'
   data:
-    Name: 
-    Id: -1
+    Name: Mommys "Happy-Juice"
+    Id: 0
     buffs: []
   restoreHealthValue: 20

@@ -18,7 +18,7 @@ MonoBehaviour:
   description: I mean, what did you expect? They're leg equipment, the least exciting
     body armor part. *Sigh*, they get the job done though.
   data:
-    Name: 
+    Name: LameLegs
     Id: 5
     buffs: []
   armourValue: 50

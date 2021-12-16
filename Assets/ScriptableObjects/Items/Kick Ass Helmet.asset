@@ -15,9 +15,9 @@ MonoBehaviour:
   uiDisplay: {fileID: 21300000, guid: d1a2882f4440a4447aab94c0b86b271b, type: 3}
   stackable: 0
   type: 1
-  description: This helmet is totally "kchk-kchk".
+  description: This helmet is totally "Chck-chck".
   data:
-    Name: 
+    Name: Chck-chck Helmet
     Id: 2
     buffs: []
   armourValue: 999

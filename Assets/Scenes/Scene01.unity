@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.52586925, g: 0.58984923, b: 0.69241107, a: 1}
+  m_IndirectSpecularColor: {r: 0.5254071, g: 0.5254071, b: 0.6416234, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6088,7 +6088,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7a0ae85d98e02f7458ddc9d27b1ab4da, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eb3f24563586db4499636d5eea6f63fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6323,7 +6323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba322bd4c91c2d40b2344136c1b628f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 8185cf20da86be54ba147e832f4f85b1, type: 2}
+  item: {fileID: 11400000, guid: b24c422ded87d1d4cae2a00fe4c1899e, type: 2}
 --- !u!135 &676838057
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7059,7 +7059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba322bd4c91c2d40b2344136c1b628f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 8185cf20da86be54ba147e832f4f85b1, type: 2}
+  item: {fileID: 11400000, guid: b24c422ded87d1d4cae2a00fe4c1899e, type: 2}
 --- !u!135 &786597130
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14724,7 +14724,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7a0ae85d98e02f7458ddc9d27b1ab4da, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eb3f24563586db4499636d5eea6f63fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
