@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TestInventory : MonoBehaviour
 {
-    [SerializeField] InventoryObject inventory;
+    [SerializeField] InventoryObject_ML inventory;
     public static int amountCash = 60;
 
     public delegate void TryMakePurchaseDelegate(int amountMoney);
@@ -25,7 +25,7 @@ public class TestInventory : MonoBehaviour
         StoreList.OnMadeSale += IndexSale;
     }
 
-    private void IndexSale(InventoryItemObject obj, int cost)
+    private void IndexSale(InventoryItemObject_ML obj, int cost)
     {
         inventory.AddItem(obj, 1);
         amountCash -= cost;
