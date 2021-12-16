@@ -20493,6 +20493,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2017856130}
     - target: {fileID: 5757929034113006518, guid: d635506b3d185b849be5671a1e49df85, type: 3}
+      propertyPath: equipment
+      value: 
+      objectReference: {fileID: 11400000, guid: 979bf74ae15bce6438b73c8ce212a2aa, type: 2}
+    - target: {fileID: 5757929034113006518, guid: d635506b3d185b849be5671a1e49df85, type: 3}
       propertyPath: cursorManagement
       value: 
       objectReference: {fileID: 637998278}
