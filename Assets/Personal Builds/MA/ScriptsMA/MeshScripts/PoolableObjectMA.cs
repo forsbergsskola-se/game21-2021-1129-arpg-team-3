@@ -15,7 +15,7 @@ public class PoolableObjectMA :  MonoBehaviour , IDamageableMA
    public int health = 100;
    private void Awake()
    {
-   //   attackRadius.onAttack += OnAttack;
+     attackRadius.onAttack += OnAttack;
    }
 
    private void OnAttack(IDamageableMA Target)
@@ -51,7 +51,7 @@ public class PoolableObjectMA :  MonoBehaviour , IDamageableMA
 
    public void OnDisable()
    {
-     // base.OnDisable();
+      base.OnDisable();
       agent.enabled = false;
    }
 
@@ -68,11 +68,11 @@ public class PoolableObjectMA :  MonoBehaviour , IDamageableMA
       agent.speed = enemyScriptableObject.speed;
       agent.stoppingDistance = enemyScriptableObject.stoppingDistance;
 
-     // movement.UpdateRate = enemyScriptableObject.aIupdateInterval;
+      movement.UpdateRate = enemyScriptableObject.aIupdateInterval;
 
        health = enemyScriptableObject.health;
 
-      // attackRadius.Collider.radius = enemyScriptableObject.attackRadius;
+       attackRadius.Collider.radius = enemyScriptableObject.attackRadius;
        attackRadius.attackDelay = enemyScriptableObject.attackDelay;
        attackRadius.damage = enemyScriptableObject.damage;
    }

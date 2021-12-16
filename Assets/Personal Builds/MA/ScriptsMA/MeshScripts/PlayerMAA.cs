@@ -12,7 +12,7 @@ public class PlayerMAA : MonoBehaviour, IDamageableMA
 
     private void Awake()
     {
-        //attackRadius.onAttack += OnAttack;
+        attackRadius.onAttack += OnAttack;
     }
 
     private void OnAttack(IDamageableMA Target)
