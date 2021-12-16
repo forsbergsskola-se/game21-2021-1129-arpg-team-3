@@ -20,7 +20,7 @@ public class PlayerProximity : MonoBehaviour
 		float distance = Vector3.Distance(transform.position, threat.transform.position);
 		instance.setParameterByName("Hp", playerStats.Health);
 		instance.setParameterByName("How Far To Enemy", distance);
-		Debug.Log(playerStats.Health);
+		//Debug.Log(playerStats.Health);
 	}
 
 }
