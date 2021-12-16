@@ -9,7 +9,6 @@ using UnityEngine.UI;
 
 public abstract class UserInterface : MonoBehaviour
 {
-    public PlayerController player;
     public InventoryObjects inventory;
     public Dictionary<GameObject, InventorySlotS> slotsOnInterface = new Dictionary<GameObject, InventorySlotS>();
     void Start()
@@ -73,17 +72,23 @@ public abstract class UserInterface : MonoBehaviour
     }
     public void OnDragStart(GameObject obj)
     {
-        var mouseObject = new GameObject();
-        var rt = mouseObject.AddComponent<RectTransform>();
-        rt.sizeDelta = new Vector2(50, 50);
-        mouseObject.transform.SetParent(transform.parent);
+        MouseData.tempItemDragged = CreateTempItem(obj);
+    }
+
+    public GameObject CreateTempItem(GameObject obj)
+    {
+        GameObject tempItem = null;
         if (slotsOnInterface[obj].item.Id >= 0)
         {
-            var img = mouseObject.AddComponent<Image>();
+            tempItem = new GameObject();
+            var rt = tempItem.AddComponent<RectTransform>();
+            rt.sizeDelta = new Vector2(50, 50);
+            tempItem.transform.SetParent(transform.parent);
+            var img = tempItem.AddComponent<Image>();
             img.sprite = slotsOnInterface[obj].ItemObject.uiDisplay;
             img.raycastTarget = false;
         }
-        MouseData.tempItemDragged = mouseObject;
+        return tempItem;
     }
     public void OnDragEnd(GameObject obj)
     {
