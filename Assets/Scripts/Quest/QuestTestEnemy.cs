@@ -6,7 +6,8 @@ using UnityEngine;
 public enum TargetTrigger
 {
     OnDestroy,
-    OnHealthZero
+    OnHealthZero,
+    None
 }
 
 public class QuestTestEnemy : MonoBehaviour

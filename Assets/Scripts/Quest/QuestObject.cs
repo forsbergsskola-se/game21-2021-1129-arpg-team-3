@@ -46,22 +46,4 @@ public abstract class QuestObject : ScriptableObject
         numberTargetsGot = 0;
         state = QuestState.NotAccepted;
     }
-    
-    public void TargetGot()
-    {
-        numberTargetsGot++;
-        if (numberTargetsGot == numberTargets)
-        {
-            if (state == QuestState.Accepted)
-            {
-                state = QuestState.CompletedWithAccept;
-            }
-            else if (state == QuestState.NotAccepted)
-            {
-                state = QuestState.CompletedWithoutAccept;
-            }
-        }
-        
-    }
-    
 }
