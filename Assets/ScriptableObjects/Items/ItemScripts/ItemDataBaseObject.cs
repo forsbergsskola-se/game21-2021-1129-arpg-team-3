@@ -7,13 +7,11 @@ public class ItemDataBaseObject : ScriptableObject, ISerializationCallbackReceiv
 {
     public ItemObject[] Items;
     public Dictionary<int, ItemObject> GetItem = new Dictionary<int, ItemObject>();
-    
-    
     public void OnAfterDeserialize()
     {
         for (int i = 0; i < Items.Length; i++)
         {
-            Items[i].ID = i;
+            //Items[i].ID = i;
             GetItem.Add(i, Items[i]);
         }
     }

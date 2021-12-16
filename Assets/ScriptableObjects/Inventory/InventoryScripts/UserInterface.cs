@@ -26,14 +26,15 @@ public abstract class UserInterface : MonoBehaviour
     {
         UpdateSlots();
     }
+
+    public abstract void CreateSlots();
     public void UpdateSlots()
     {
         foreach (KeyValuePair<GameObject, InventorySlotS> _slot in slotsOnInterface)
         {
             if (_slot.Value.item.Id >= 0)
             {
-                _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite =
-                    inventory.database.GetItem[_slot.Value.item.Id].uiDisplay;
+                _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite = _slot.Value.ItemObject.uiDisplay;
                 _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1);
                 _slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = _slot.Value.amount == 1? "": 
                     _slot.Value.amount.ToString("n0");
@@ -47,8 +48,6 @@ public abstract class UserInterface : MonoBehaviour
             }
         }
     }
-
-    public abstract void CreateSlots();
     protected void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
     {
         EventTrigger trigger = obj.GetComponent<EventTrigger>();
@@ -83,7 +82,7 @@ public abstract class UserInterface : MonoBehaviour
         if (slotsOnInterface[obj].item.Id >= 0)
         {
             var img = mouseObject.AddComponent<Image>();
-            img.sprite = inventory.database.GetItem[slotsOnInterface[obj].item.Id].uiDisplay;
+            img.sprite = slotsOnInterface[obj].ItemObject.uiDisplay;
             img.raycastTarget = false;
         }
 
