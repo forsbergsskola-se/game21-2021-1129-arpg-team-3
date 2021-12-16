@@ -8,6 +8,6 @@ public class ConsumableObject : ItemObject
     public int restoreHealthValue;
     public void Awake()
     {
-        type = ItemTypeS.Consumable;
+       // type = ItemTypeS.Consumable;
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.52586925, g: 0.58984923, b: 0.69241107, a: 1}
+  m_IndirectSpecularColor: {r: 0.5254071, g: 0.5254071, b: 0.6416234, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2656,7 +2656,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af02edc88f0a3414d90d4256c2e396c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1834260074}
   inventory: {fileID: 11400000, guid: 5385c7530d40cf6488c20374f43d8c8e, type: 2}
   inventoryPrefab: {fileID: 1484754571522085433, guid: 61d702ce10004fc48beb73a686e7da34, type: 3}
   X_START: -100
@@ -11006,6 +11005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 5385c7530d40cf6488c20374f43d8c8e, type: 2}
+  equipment: {fileID: 0}
   pauseMenuUI: {fileID: 1865617407}
 --- !u!1001 &1077199819
 PrefabInstance:
@@ -11383,7 +11383,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e12b29aa2552b4438ec3d3f1d1ef2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1834260074}
   inventory: {fileID: 11400000, guid: 979bf74ae15bce6438b73c8ce212a2aa, type: 2}
   slots:
   - {fileID: 550360608}
@@ -20399,6 +20398,10 @@ PrefabInstance:
       propertyPath: key
       value: 
       objectReference: {fileID: 2017856130}
+    - target: {fileID: 5757929034113006518, guid: d635506b3d185b849be5671a1e49df85, type: 3}
+      propertyPath: equipment
+      value: 
+      objectReference: {fileID: 11400000, guid: 979bf74ae15bce6438b73c8ce212a2aa, type: 2}
     - target: {fileID: 5757929034113006518, guid: d635506b3d185b849be5671a1e49df85, type: 3}
       propertyPath: cursorManagement
       value: 

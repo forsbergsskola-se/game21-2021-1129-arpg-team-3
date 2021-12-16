@@ -22,7 +22,8 @@ public enum Attributes
     Intelligence,
     Stamina
 }
-public abstract class ItemObject : ScriptableObject
+[CreateAssetMenu(fileName = "New Item", menuName = "Inventory System/Items/Item")]
+public class ItemObject : ScriptableObject
 {
     
     public Sprite uiDisplay;
