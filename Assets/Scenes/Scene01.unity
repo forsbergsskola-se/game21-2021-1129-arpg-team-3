@@ -17248,6 +17248,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 705507994, guid: d635506b3d185b849be5671a1e49df85, type: 3}
+      propertyPath: m_Range
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 705507994, guid: d635506b3d185b849be5671a1e49df85, type: 3}
+      propertyPath: m_Intensity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 705507995, guid: d635506b3d185b849be5671a1e49df85, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.07
+      objectReference: {fileID: 0}
     - target: {fileID: 1834260064, guid: d635506b3d185b849be5671a1e49df85, type: 3}
       propertyPath: keyDoor
       value: 
