@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 	public GameObject playerWeapon;
 	private GroundItem itemPickup;
 	public InventoryObjects inventory;
+	public InventoryObjects equipment;
 	public bool inDialogue;
 	private bool cannotAttack = true;
 	public Key key;
