@@ -12,25 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91b6aac7735db24b871ecb7f71ade4f, type: 3}
   m_Name: HammerTime
   m_EditorClassIdentifier: 
-  ID: 2
   uiDisplay: {fileID: 21300000, guid: d22fb18d358d07d408e564e6870f9a44, type: 3}
+  stackable: 0
   type: 3
   description: 'Stop.
 
     Hammer Time!'
-  buffs:
-  - attribute: 3
-    value: 0
-    min: 1
-    max: 999
-  - attribute: 1
-    value: 0
-    min: 11
-    max: 15
-  - attribute: 2
-    value: 0
-    min: 1
-    max: 999
+  data:
+    Name: 
+    Id: 4
+    buffs: []
   armourValue: 0
   damageBonus: 9001
   tierGrade: S+++
