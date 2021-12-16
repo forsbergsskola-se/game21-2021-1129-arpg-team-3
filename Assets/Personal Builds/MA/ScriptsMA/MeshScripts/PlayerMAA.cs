@@ -15,7 +15,7 @@ public class PlayerMAA : MonoBehaviour, IDamageableMA
     private const string ATTACK_TRIGGER = "Attack";
     private void Awake()
     {
-       // attackRadius.onAttack += OnAttack;
+       //attackRadius.onAttack += OnAttack;
     }
 
     private void OnAttack(IDamageableMA Target)
@@ -45,9 +45,9 @@ public class PlayerMAA : MonoBehaviour, IDamageableMA
         transform.rotation = lookRotation;
     }
 
-    public void TakeDamage(int Damage)
+    public void TakeDamage(int damage)
     {
-        health -= Damage;
+        health -= damage;
         if (health <=0)
         {
             gameObject.SetActive(false);
