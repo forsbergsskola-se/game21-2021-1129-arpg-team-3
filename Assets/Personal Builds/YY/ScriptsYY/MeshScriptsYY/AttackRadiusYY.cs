@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,20 +7,20 @@ using UnityEngine;
 public class AttackRadiusYY : MonoBehaviour
 {
    private List<IDamageableYY> Damageables = new List<IDamageableYY>();
-   public int Damage = 10;
-   public float AttackDelay = 0.5f;
+   public int damage = 10;
+   public float attackDelay = 0.5f;
    public delegate void AttackEvent(IDamageableYY Target);
-   public AttackEvent OnAttack;
-   private Coroutine AttackCoroutine;
+   public AttackEvent onAttack;
+   private Coroutine attackCoroutine;
 
    private void OnTriggerEnter(Collider other)
    {
       IDamageableYY damageable = other.GetComponent<IDamageableYY>();
       if (damageable != null)
          Damageables.Add(damageable);
-      if (AttackCoroutine == null)
+      if (attackCoroutine == null)
       {
-         AttackCoroutine = StartCoroutine(Attack());
+         attackCoroutine = StartCoroutine(Attack());
       }
    }
 
@@ -33,15 +32,15 @@ public class AttackRadiusYY : MonoBehaviour
          Damageables.Remove(damageable);
          if (Damageables.Count == 0)
          {
-            StopCoroutine(AttackCoroutine);
-            AttackCoroutine = null;
+            StopCoroutine(attackCoroutine);
+            attackCoroutine = null;
          }
       }
    }
 
       private IEnumerator Attack()
       {
-         WaitForSeconds Wait = new WaitForSeconds(AttackDelay);
+         WaitForSeconds Wait = new WaitForSeconds(attackDelay);
          yield return Wait;
 
          IDamageableYY closestDamageable = null;
@@ -63,8 +62,8 @@ public class AttackRadiusYY : MonoBehaviour
 
             if (closestDamageable != null)
             {
-               OnAttack?.Invoke(closestDamageable);
-               closestDamageable.TakeDamage(Damage);
+               onAttack?.Invoke(closestDamageable);
+               closestDamageable.TakeDamage(damage);
                
             }
 
@@ -74,7 +73,7 @@ public class AttackRadiusYY : MonoBehaviour
             Damageables.RemoveAll(DisabledDamageables);
          }
 
-         AttackCoroutine = null;
+         attackCoroutine = null;
       }
 
       private bool DisabledDamageables(IDamageableYY Damageable)
