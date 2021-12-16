@@ -5,11 +5,11 @@ using System.ComponentModel;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Inventory",  menuName = "InventorySystem/Inventory")]
-public class InventoryObject : ScriptableObject
+public class InventoryObject_ML : ScriptableObject
 {
-    public List<InventorySlot> container = new();
+    public List<InventorySlot_ML> container = new();
 
-    public void AddItem(InventoryItemObject item, int amount)
+    public void AddItem(InventoryItemObject_ML item, int amount)
     {
         bool hasItem = false;
 
@@ -25,18 +25,18 @@ public class InventoryObject : ScriptableObject
         
         if (!hasItem)
         {
-            container.Add(new InventorySlot(item, amount));
+            container.Add(new InventorySlot_ML(item, amount));
         }
     }
 }
 
 [Serializable]
-public class InventorySlot
+public class InventorySlot_ML
 {
-    public InventoryItemObject item;
+    public InventoryItemObject_ML item;
     public int amount;
 
-    public InventorySlot(InventoryItemObject _item, int _amount)
+    public InventorySlot_ML(InventoryItemObject_ML _item, int _amount)
     {
         item = _item;
         amount = _amount;

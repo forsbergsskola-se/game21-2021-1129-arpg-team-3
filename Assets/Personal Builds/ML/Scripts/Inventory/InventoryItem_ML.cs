@@ -12,7 +12,7 @@ public enum ItemType
 }
 
 [Serializable]
-public class InventoryItem
+public class InventoryItem_ML
 {
     public ItemType itemType;
     public int Value;

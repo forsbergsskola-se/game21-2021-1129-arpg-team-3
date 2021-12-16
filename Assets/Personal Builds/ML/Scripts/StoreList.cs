@@ -10,13 +10,13 @@ public class StoreList : MonoBehaviour
 {
     [SerializeField] RectTransform itemContainer;
     [SerializeField] private GameObject testImage;
-    public InventoryObject inventory;
+    public InventoryObject_ML inventory;
 
-    public delegate void MadeSaleDelegate(InventoryItemObject obj, int cost);
+    public delegate void MadeSaleDelegate(InventoryItemObject_ML obj, int cost);
     public static event MadeSaleDelegate OnMadeSale;
 
 
-    private void MakeSale(InventoryItemObject obj, int cost)
+    private void MakeSale(InventoryItemObject_ML obj, int cost)
     {
         if (OnMadeSale != null)
         {
@@ -24,7 +24,7 @@ public class StoreList : MonoBehaviour
         }
     }
 
-    private void TryMakeSale(InventoryItemObject obj, int cost)
+    private void TryMakeSale(InventoryItemObject_ML obj, int cost)
     {
         if (cost <= TestInventory.amountCash)
         {
@@ -38,7 +38,7 @@ public class StoreList : MonoBehaviour
     
     private void SetupButton(int index, Button button)
     {
-        InventoryItemObject buyObj = inventory.container[index].item;
+        InventoryItemObject_ML buyObj = inventory.container[index].item;
         int itemCost = inventory.container[index].item.baseValue;
         button.onClick.AddListener(()=> TryMakeSale(buyObj, itemCost));
     }

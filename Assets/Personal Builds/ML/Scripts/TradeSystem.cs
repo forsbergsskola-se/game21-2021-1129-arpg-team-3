@@ -9,6 +9,7 @@ public class TradeSystem : MonoBehaviour
     private Canvas useTradeCanvas;
     [SerializeField] private Canvas itemCanvas;
     [SerializeField] private RawImage itemPanel;
+    [SerializeField] private List<InventoryItemObject_ML> merchantInventory;
     public delegate void EndTradeDelegate();
     public static event EndTradeDelegate OnEndTrade;
 
@@ -24,7 +25,7 @@ public class TradeSystem : MonoBehaviour
 
     private void CloseShop()
     {
-        useTradeCanvas.GetComponentInChildren<Button>().onClick.RemoveListener(CloseShop);
+        useTradeCanvas.GetComponentsInChildren<Button>()[0].onClick.RemoveListener(CloseShop);
         useTradeCanvas.gameObject.SetActive(false);
         if (OnEndTrade != null)
         {

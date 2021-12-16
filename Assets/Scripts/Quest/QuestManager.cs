@@ -49,8 +49,6 @@ public class QuestManager : MonoBehaviour
                 
                 if (el.numberTargetsGot >= el.numberTargets)
                 {
-                    QuestComplete(el.questCode);
-
                     if (el.state == QuestState.Accepted)
                     {
                         ChangeQuestState(questCode, QuestState.CompletedWithAccept);
@@ -59,6 +57,8 @@ public class QuestManager : MonoBehaviour
                     {
                         ChangeQuestState(questCode, QuestState.CompletedWithoutAccept);
                     }
+                    
+                    QuestComplete(el.questCode);
                 }
             }
         }

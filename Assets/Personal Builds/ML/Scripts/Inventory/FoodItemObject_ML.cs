@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName ="New Food object", menuName = "InventorySystem/Items/Food")]
-public class FoodItemObject : InventoryItemObject
+public class FoodItemObject_ML : InventoryItemObject_ML
 {
     public int restoreHealthValue;
     

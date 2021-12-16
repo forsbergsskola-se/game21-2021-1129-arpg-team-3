@@ -12,7 +12,7 @@ public enum StatToModify
 
 
 [CreateAssetMenu(fileName ="New Potion object", menuName = "InventorySystem/Items/Potion")]
-public class PotionItemObject : InventoryItemObject
+public class PotionItemObject_ML : InventoryItemObject_ML
 {
     public StatToModify modify;
     public int modifyAmount;

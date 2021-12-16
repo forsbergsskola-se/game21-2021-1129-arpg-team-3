@@ -11,7 +11,7 @@ public enum TypeOfItem
     Default
 }
 
-public abstract class InventoryItemObject : ScriptableObject
+public abstract class InventoryItemObject_ML : ScriptableObject
 {
     public Sprite displayImage;
     public GameObject prefab;
