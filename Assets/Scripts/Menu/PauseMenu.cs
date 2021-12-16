@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public InventoryObjects inventory;
+    public InventoryObjects equipment;
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
     void Update()
@@ -22,28 +23,32 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
-
+    private void OnApplicationQuit()
+    {
+        inventory.Container.Clear();
+        equipment.Container.Clear();
+    }
     void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
-
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
-
     public void SaveGame()
     {
         inventory.Save();
+        equipment.Save();
     }
     public void LoadGame()
     {
         inventory.Load();
+        equipment.Load();
     }
 
     public void LoadMenu()
@@ -52,7 +57,6 @@ public class PauseMenu : MonoBehaviour
         //Can load Main Menu scene on click when we add Menu scene
         SceneManager.LoadScene(0);
     }
-
     public void QuitGame()
     {
         Debug.Log("Quitting diz shiet");

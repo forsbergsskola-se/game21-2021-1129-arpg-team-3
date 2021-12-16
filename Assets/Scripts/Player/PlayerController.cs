@@ -26,13 +26,11 @@ public class PlayerController : MonoBehaviour
 		agent = GetComponent<NavMeshAgent>();
 		DialogueReader.OnStartEndDialogue += StartEndDialogue;
 	}
-	
 	private void Awake() {
 		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
 		playerStats.InitializePlayerStats();
 		keyHolder = GetComponent<KeyHolder>();
 	}
-
 	private void StartEndDialogue()
 	{
 		if (!inDialogue)
@@ -87,10 +85,6 @@ public class PlayerController : MonoBehaviour
 			Debug.LogWarning("Player RayCast Camera is NULL!");
 		}
 	}
-	private void OnApplicationQuit()
-	{
-		inventory.Container.Items = new InventorySlotS[28];
-	}
 	private void MovePlayer(Vector3 point) {
 		if (!inDialogue) {
 			StopAttacking();
@@ -130,9 +124,12 @@ public class PlayerController : MonoBehaviour
 					}
 					else if (target.CompareTag("Item")) {
 						itemPickup = target.gameObject.GetComponent<GroundItem>();
-						inventory.AddItem(new Item(itemPickup.item), 1);
-						Destroy(itemPickup.gameObject);
-						itemPickup = null;
+						Item _item = new Item(itemPickup.item);
+						if (inventory.AddItem(_item, 1))
+						{
+							Destroy(itemPickup.gameObject);
+							itemPickup = null;
+						}
 					}
 					else if (target.CompareTag("Key")) {
 						var holder = GetComponent<KeyHolder>();

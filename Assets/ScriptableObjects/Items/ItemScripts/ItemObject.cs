@@ -21,7 +21,6 @@ public enum Attributes
     AppearanceBonus,
     Intelligence,
     Stamina
-    
 }
 public abstract class ItemObject : ScriptableObject
 {
@@ -32,14 +31,12 @@ public abstract class ItemObject : ScriptableObject
     [TextArea(15,20)]
     public string description;
     public Item data = new Item();
-    
     public Item CreateItem()
     {
         Item newItem = new Item(this);
         return newItem;
     }
 }
-
 [System.Serializable]
 public class Item
 {
@@ -77,7 +74,6 @@ public class ItemBuff
         max = _max;
         GenerateValue();
     }
-
     public void GenerateValue()
     {
         value = UnityEngine.Random.Range(min, max);
