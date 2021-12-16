@@ -23,6 +23,7 @@ public class PlayerDamage : MonoBehaviour {
 	}
 	private void ShowPlayerDamage(float damageReceived) {
 		playerStats.TakeDamage(damageReceived, gameObject);
+		FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerHurt");
 		DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
 		indicator.SetDamageText(Convert.ToInt32(damageReceived));
 	}
@@ -32,7 +33,6 @@ public class PlayerDamage : MonoBehaviour {
         
 		if (other.gameObject.CompareTag("Fire") && _elapsedTime > timeToTakeDamage)
 		{
-			FMODUnity.RuntimeManager.PlayOneShot("event:/Enemy/Ehit");
 			playerStats.TakeDamage(1, gameObject);
 			_elapsedTime = 0;
 			ShowPlayerDamage(1);
