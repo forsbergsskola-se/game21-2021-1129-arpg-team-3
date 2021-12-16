@@ -31,7 +31,7 @@ public abstract class ItemObject : ScriptableObject
     [TextArea(15,20)]
     public string description;
     public ItemBuff[] buffs;
-
+    
     public Item CreateItem()
     {
         Item newItem = new Item(this);
@@ -45,7 +45,6 @@ public class Item
     public string Name;
     public int Id;
     public ItemBuff[] buffs;
-
     public Item()
     {
         Name = "";
