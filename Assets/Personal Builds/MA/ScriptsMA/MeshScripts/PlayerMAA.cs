@@ -8,16 +8,19 @@ public class PlayerMAA : MonoBehaviour, IDamageableMA
     [SerializeField] private AttackRadius attackRadius;
     private Coroutine lookCoroutine;
     [SerializeField] private int health = 300;
+    
+    private Animator animator;
+    
+    
     private const string ATTACK_TRIGGER = "Attack";
-
     private void Awake()
     {
-        attackRadius.onAttack += OnAttack;
+       // attackRadius.onAttack += OnAttack;
     }
 
     private void OnAttack(IDamageableMA Target)
     {
-        
+
         if (lookCoroutine != null)
         {
             StopCoroutine(lookCoroutine);
@@ -25,6 +28,7 @@ public class PlayerMAA : MonoBehaviour, IDamageableMA
 
         lookCoroutine = StartCoroutine(LookAt(Target.GetTransform()));
     }
+    
 
     private IEnumerator LookAt(Transform Target)
     {
