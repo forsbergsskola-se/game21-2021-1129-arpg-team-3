@@ -77,15 +77,7 @@ public class QuestManager : MonoBehaviour
 
     private int CountActiveQuests()
     {
-        int outInt = 0;
-        for (int i = 0; i < questLogObject.quests.Count; i++)
-        {
-            if (questLogObject.quests[i].state != QuestState.NotAccepted)
-            {
-                outInt++;
-            }
-        }
-        return outInt;
+       return questLogObject.quests.Where(x => x.state != QuestState.NotAccepted).ToList().Count;
     }
     
     
