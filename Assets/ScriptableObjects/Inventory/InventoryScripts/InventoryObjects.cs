@@ -40,7 +40,6 @@ public class InventoryObjects : ScriptableObject
             return counter;
         }
     }
-
     public InventorySlotS FindItemInInventory(Item _item)
     {
         for (int i = 0; i < Container.Items.Length; i++)
