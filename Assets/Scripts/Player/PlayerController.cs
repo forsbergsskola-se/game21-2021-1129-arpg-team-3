@@ -123,6 +123,7 @@ public class PlayerController : MonoBehaviour
 								targetRotation, playerStats.CombatRotationSpeed * Time.deltaTime);
 						}
 					}
+					//debug item pickup
 					else if (target.CompareTag("Item")) {
 						itemPickup = target.gameObject.GetComponent<GroundItem>();
 						Item _item = new Item(itemPickup.item);
