@@ -62,6 +62,8 @@ public class MonsterCloset : MonoBehaviour
         canSpawn = true;
     }
     
+    
+    
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player") && spawnTrigger == SpawnTrigger.Proximity)

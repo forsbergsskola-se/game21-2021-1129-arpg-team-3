@@ -29,7 +29,7 @@ public abstract class QuestObject : ScriptableObject
     
     public string questName;
     
-    public InventoryItemObject itemReward;
+    public InventoryItemObject_ML itemReward;
     public int cashReward;
     public int XPReward;
     
