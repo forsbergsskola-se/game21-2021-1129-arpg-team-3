@@ -14,36 +14,41 @@ public class InventoryObjects : ScriptableObject
     public ItemDataBaseObject database;
     public Inventory Container;
     
-    public void AddItem(Item _item, int _amount) 
+    public bool AddItem(Item _item, int _amount) 
     {
-        if (_item.buffs.Length > 0)
+        if (EmptySlotCount <= 0)
+        return false;
+        InventorySlotS slot = FindItemInInventory(_item);
+        if (!database.GetItem[_item.Id].stackable || slot == null)
         {
             SetEmptySlot(_item, _amount);
-            return;
+            return true;
         }
+        slot.AddAmount(_amount);
+        return true;
+    }
+    public int EmptySlotCount
+    {
+        get
+        {
+            int counter = 0;
+            for (int i = 0; i < Container.Items.Length; i++)
+            {
+                if (Container.Items[i].item.Id <= -1)
+                    counter++;
+            }
+            return counter;
+        }
+    }
+
+    public InventorySlotS FindItemInInventory(Item _item)
+    {
         for (int i = 0; i < Container.Items.Length; i++)
         {
             if (Container.Items[i].item.Id == _item.Id)
-            {
-                Container.Items[i].AddAmount(_amount);
-                return;
-            }
+                return Container.Items[i];
         }
-        SetEmptySlot(_item, _amount);
-    }
-    [ContextMenu("Save")]
-    public void Save()
-    {
-        // string saveData = JsonUtility.ToJson(this, true);
-        // BinaryFormatter bf = new BinaryFormatter();
-        // FileStream file = File.Create(string.Concat(Application.persistentDataPath, savePath));
-        // bf.Serialize(file, saveData);
-        // file.Close();
-        IFormatter formatter = new BinaryFormatter();
-        Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath),
-            FileMode.Create, FileAccess.Write);
-        formatter.Serialize(stream, Container);
-        stream.Close();
+        return null;
     }
     public InventorySlotS SetEmptySlot(Item _item, int _amount)
     {
@@ -76,6 +81,20 @@ public class InventoryObjects : ScriptableObject
                 Container.Items[i].UpdateSlots(null, 0);
             }
         }
+    }
+    [ContextMenu("Save")]
+    public void Save()
+    {
+        // string saveData = JsonUtility.ToJson(this, true);
+        // BinaryFormatter bf = new BinaryFormatter();
+        // FileStream file = File.Create(string.Concat(Application.persistentDataPath, savePath));
+        // bf.Serialize(file, saveData);
+        // file.Close();
+        IFormatter formatter = new BinaryFormatter();
+        Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath),
+            FileMode.Create, FileAccess.Write);
+        formatter.Serialize(stream, Container);
+        stream.Close();
     }
     [ContextMenu("Load")]
     public void Load()

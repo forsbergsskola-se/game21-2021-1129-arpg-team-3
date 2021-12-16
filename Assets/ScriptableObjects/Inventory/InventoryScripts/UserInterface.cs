@@ -26,7 +26,6 @@ public abstract class UserInterface : MonoBehaviour
     {
         UpdateSlots();
     }
-
     public abstract void CreateSlots();
     public void UpdateSlots()
     {
@@ -56,7 +55,6 @@ public abstract class UserInterface : MonoBehaviour
         eventTrigger.callback.AddListener(action);
         trigger.triggers.Add(eventTrigger);
     }
-
     public void OnEnter(GameObject obj)
     {
         MouseData.slotHovered = obj;
@@ -85,7 +83,6 @@ public abstract class UserInterface : MonoBehaviour
             img.sprite = slotsOnInterface[obj].ItemObject.uiDisplay;
             img.raycastTarget = false;
         }
-
         MouseData.tempItemDragged = mouseObject;
     }
     public void OnDragEnd(GameObject obj)
@@ -96,11 +93,10 @@ public abstract class UserInterface : MonoBehaviour
             slotsOnInterface[obj].RemoveItem();
             return;
         }
-
         if (MouseData.slotHovered)
         {
-            InventorySlotS mouseHoverSlotDate = MouseData.interfaceMouseOver.slotsOnInterface[MouseData.slotHovered];
-           // inventory.SwapItems();
+            InventorySlotS mouseHoverSlotData = MouseData.interfaceMouseOver.slotsOnInterface[MouseData.slotHovered];
+            inventory.SwapItems(slotsOnInterface[obj], mouseHoverSlotData);
         }
     } 
         public void OnDrag(GameObject obj)
@@ -111,7 +107,6 @@ public abstract class UserInterface : MonoBehaviour
         }
     }
 }
-
 public static class MouseData
 {
     public static UserInterface interfaceMouseOver;
