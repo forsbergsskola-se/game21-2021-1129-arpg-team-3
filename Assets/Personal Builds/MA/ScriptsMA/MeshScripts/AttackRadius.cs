@@ -7,7 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class AttackRadius : MonoBehaviour
 {
-   private List<IDamageableMA> damageables = new List<IDamageableMA>();
+   private List<IDamageableMA> Damageables = new List<IDamageableMA>();
    public int damage = 10;
    public float attackDelay = 0.5f;
    private delegate void AttackEvent(IDamageableMA Target);
@@ -18,7 +18,7 @@ public class AttackRadius : MonoBehaviour
    {
       IDamageableMA damageable = other.GetComponent<IDamageableMA>();
       if (damageable != null)
-         damageables.Add(damageable);
+         Damageables.Add(damageable);
       if (attackCoroutine == null)
       {
          attackCoroutine = StartCoroutine(Attack());
@@ -30,8 +30,8 @@ public class AttackRadius : MonoBehaviour
       IDamageableMA damageable = other.GetComponent<IDamageableMA>();
       if (damageable != null)
       {
-         damageables.Remove(damageable);
-         if (damageables.Count == 0)
+         Damageables.Remove(damageable);
+         if (Damageables.Count == 0)
          {
             StopCoroutine(attackCoroutine);
             attackCoroutine = null;
@@ -47,17 +47,17 @@ public class AttackRadius : MonoBehaviour
          IDamageableMA closestDamageable = null;
          float closestDistance = float.MaxValue;
 
-         while (damageables.Count > 0)
+         while (Damageables.Count > 0)
          {
-            for (int i = 0; i < damageables.Count; i++)
+            for (int i = 0; i < Damageables.Count; i++)
             {
-               Transform damageableTransform = damageables[i].GetTransform();
+               Transform damageableTransform = Damageables[i].GetTransform();
                float distance = Vector3.Distance(transform.position, damageableTransform.position);
 
                if (distance < closestDistance)
                {
                   closestDistance = distance;
-                  closestDamageable = damageables[i];
+                  closestDamageable = Damageables[i];
                }
             }
 
@@ -71,7 +71,7 @@ public class AttackRadius : MonoBehaviour
             closestDamageable = null;
             closestDistance = float.MaxValue;
             yield return Wait;
-            damageables.RemoveAll(DisabledDamageables);
+            Damageables.RemoveAll(DisabledDamageables);
          }
 
          attackCoroutine = null;
