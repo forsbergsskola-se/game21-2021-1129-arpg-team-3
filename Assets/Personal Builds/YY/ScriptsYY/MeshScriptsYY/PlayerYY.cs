@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class PlayerYY : MonoBehaviour, IDamageableYY
 {
-    [SerializeField] private AttackRadiusYY AttackRadius;
+    [SerializeField] private AttackRadiusYY attackRadius;
     private Coroutine lookCoroutine;
-    [SerializeField] private int Health = 300;
+    [SerializeField] private int health = 300;
     private const string ATTACK_TRIGGER = "Attack";
 
     private void Awake()
     {
-        AttackRadius.OnAttack += OnAttack;
+        attackRadius.onAttack += OnAttack;
     }
 
     private void OnAttack(IDamageableYY Target)
@@ -43,8 +43,8 @@ public class PlayerYY : MonoBehaviour, IDamageableYY
 
     public void TakeDamage(int Damage)
     {
-        Health -= Damage;
-        if (Health <=0)
+        health -= Damage;
+        if (health <=0)
         {
             gameObject.SetActive(false);
         }
