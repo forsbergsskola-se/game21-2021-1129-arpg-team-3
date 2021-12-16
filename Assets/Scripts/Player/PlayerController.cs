@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 	public GameObject playerWeapon;
 	private GroundItem itemPickup;
 	public InventoryObjects inventory;
-	private bool inDialogue;
+	public bool inDialogue;
 	private bool cannotAttack = true;
 	public Key key;
 
@@ -39,11 +39,13 @@ public class PlayerController : MonoBehaviour
 		{
 			inDialogue = true;
 			agent.isStopped = true;
+			Time.timeScale = 0f;
 		}
 		else
 		{
 			inDialogue = false;
 			agent.isStopped = false;
+			Time.timeScale = 1f;
 		}
 	}
 	void Update() {
