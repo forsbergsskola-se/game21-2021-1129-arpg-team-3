@@ -8,7 +8,7 @@ public class KeyItemObject : ItemObject {
 
     public void Awake()
     {
-        type = ItemTypeS.KeyItem;
+        //type = ItemTypeS.KeyItem;
     }
 
 }
