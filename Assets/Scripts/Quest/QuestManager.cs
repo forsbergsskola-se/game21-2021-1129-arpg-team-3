@@ -84,11 +84,7 @@ public class QuestManager : MonoBehaviour
     private void AcceptQuest(QuestObject acceptedQuest)
     {
         ChangeQuestState(acceptedQuest.questCode, QuestState.Accepted);
-        int numberQuests = CountActiveQuests();
-        int questIndex = questLogObject.quests.IndexOf(acceptedQuest);
-        Debug.Log(questIndex);
-        
-        SetupQuestButton(questIndex, numberQuests);
+        SetupQuestButton(questLogObject.quests.IndexOf(acceptedQuest), CountActiveQuests());
     }
 
     private void SetupQuestButton(int questIndex, int numberQuests)
