@@ -36,11 +36,20 @@ public class TradeSystem : MonoBehaviour
     private void StartToTrade()
     {
         useTradeCanvas.gameObject.SetActive(true);
-        useTradeCanvas.GetComponentInChildren<Button>().onClick.AddListener(CloseShop);
+        useTradeCanvas.GetComponentsInChildren<Button>()[0].onClick.AddListener(CloseShop);
         
-         AddItemToStore();
+        AddItemToStore();
     }
 
+    private void SetupAButton()
+    {
+        useTradeCanvas.GetComponentsInChildren<Button>()[1].onClick.AddListener(BuyButton);
+    }
+
+    private void BuyButton()
+    {
+        
+    }
 
     private void AddItemToStore()
     {
