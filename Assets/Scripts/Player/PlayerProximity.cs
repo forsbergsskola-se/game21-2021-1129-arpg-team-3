@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using FMOD.Studio;
 using UnityEngine;
 
 public class PlayerProximity : MonoBehaviour
@@ -17,10 +18,16 @@ public class PlayerProximity : MonoBehaviour
 		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
 	}
 	private void Update() {
-		float distance = Vector3.Distance(transform.position, threat.transform.position);
-		instance.setParameterByName("Hp", playerStats.Health);
-		instance.setParameterByName("How Far To Enemy", distance);
-		//Debug.Log(playerStats.Health);
+		if (!playerStats.PlayerDied) {
+			float distance = Vector3.Distance(transform.position, threat.transform.position);
+			float hp = playerStats.Health / playerStats.MaxHealth * 100;
+			instance.setParameterByName("Hp",hp);
+			instance.setParameterByName("How Far To Enemy", distance);
+			Debug.Log(hp);
+		}
+		else {
+			instance.stop(STOP_MODE.IMMEDIATE);
+		}
 	}
 
 }
