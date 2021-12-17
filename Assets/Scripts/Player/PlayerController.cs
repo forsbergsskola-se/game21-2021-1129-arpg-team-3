@@ -22,11 +22,7 @@ public class PlayerController : MonoBehaviour
 	public bool inDialogue;
 	private bool cannotAttack = true;
 	public Key key;
-<<<<<<< Updated upstream
 	public Attribute[] attributes;
-=======
-	
->>>>>>> Stashed changes
 
 	private void Start() {
 		agent = GetComponent<NavMeshAgent>();
