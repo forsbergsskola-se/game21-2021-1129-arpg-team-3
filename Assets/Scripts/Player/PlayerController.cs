@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 	public bool inDialogue;
 	private bool cannotAttack = true;
 	public Key key;
+	public Attribute[] attributes;
 
 	private void Start() {
 		agent = GetComponent<NavMeshAgent>();
@@ -199,5 +200,27 @@ public class PlayerController : MonoBehaviour
 		yield return new WaitForSeconds(playerStats.AttackDelay * Time.deltaTime);
 		cannotAttack = true;
 	}
+	public void AttributeModified(Attribute attribute)
+	{
+		Debug.Log(string.Concat(attribute.type, " updated. Value is now ", attribute.value.ModifiedValue));
+	}
 }
-	
+
+[System.Serializable]
+public class Attribute
+{
+	[System.NonSerialized] public PlayerController parent;
+	public Attributes type;
+	public ModifiableInt value;
+
+	public void SetParent(PlayerController _parent)
+	{
+		parent = _parent;
+		value = new ModifiableInt(AttributeModified);
+	}
+
+	public void AttributeModified()
+	{
+		parent.AttributeModified(this);
+	}
+}
