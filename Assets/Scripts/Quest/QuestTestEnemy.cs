@@ -12,11 +12,12 @@ public enum TargetTrigger
 
 public class QuestTestEnemy : MonoBehaviour
 {
-    public string questCode;
     public bool isFinalEnemy;
+
+    public QuestCode questCode;
     
     [SerializeField] TargetTrigger targetTrigger;
-    public delegate void QuestTargetReachedDelegate(string theQuestCode);
+    public delegate void QuestTargetReachedDelegate(QuestCode theQuestCode);
     public static event QuestTargetReachedDelegate OnQuestTarget;
     
     private void Target()

@@ -18,12 +18,12 @@ public class QuestManager : MonoBehaviour
     private readonly Vector3 buttonStartPos = new (-158, 168);
     private readonly float buttonIncrement = 7;
 
-    public delegate void QuestCompletedDelegate(string questCode);
+    public delegate void QuestCompletedDelegate(QuestCode questCode);
 
     public static event QuestCompletedDelegate OnQuestComplete;
 
 
-    private void QuestComplete(string questCode)
+    private void QuestComplete(QuestCode questCode)
     {
         if (OnQuestComplete != null)
         {
@@ -39,7 +39,7 @@ public class QuestManager : MonoBehaviour
         QuestTestEnemy.OnQuestTarget += HitTarget;
     }
 
-    private void HitTarget(string questCode)
+    private void HitTarget(QuestCode questCode)
     {
         foreach (var el in questLogObject.quests)
         {
@@ -64,7 +64,7 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    private void ChangeQuestState(string questCode, QuestState newState)
+    private void ChangeQuestState(QuestCode questCode, QuestState newState)
     {
         foreach (var el in questLogObject.quests)
         {

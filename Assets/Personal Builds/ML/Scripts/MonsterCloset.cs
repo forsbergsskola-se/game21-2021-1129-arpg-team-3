@@ -19,7 +19,7 @@ public enum QuestTargetType
 
 public class MonsterCloset : MonoBehaviour
 {
-    [SerializeField] private string questCode;
+    [SerializeField] private QuestCode questCode;
     [SerializeField] private int monstersToSpawn;
     [SerializeField] private float spawnInterval;
     [SerializeField] private GameObject monsterType;
@@ -30,7 +30,7 @@ public class MonsterCloset : MonoBehaviour
     private bool canSpawn;
     private int spawnedMonsters;
 
-    public delegate void ClosetEmptyDelegate(string questCode);
+    public delegate void ClosetEmptyDelegate(QuestCode questCode);
     public static event ClosetEmptyDelegate OnClosetEmpty;
     
 

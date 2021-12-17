@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
 			    target.CompareTag("NPC")) {
 				//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
 				if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange + 0.5) {
-					if (target.CompareTag("Enemy") || target.CompareTag("Door")) {
+					if (target.CompareTag("Enemy")) {
 						//Attack
 						StartAttacking();
 						// target = null; //Forces player to click again to attack

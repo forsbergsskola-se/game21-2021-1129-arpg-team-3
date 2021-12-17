@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum QuestCode
+{
+    KILL1,
+    COLLECT1,
+    BOSS1
+}
+
 public enum QuestType
 {
     Kill,
@@ -21,8 +28,9 @@ public abstract class QuestObject : ScriptableObject
 {
     public QuestType type;
     public QuestState state;
+    public QuestCode questCode;
     
-    public string questCode;
+//    public string questCode;
     
     public int numberTargets;
     public int numberTargetsGot;
@@ -36,7 +44,7 @@ public abstract class QuestObject : ScriptableObject
     [TextArea(15, 20)] 
     public string questDescription;
 
-    public bool HasQuestCode(string testCode)
+    public bool HasQuestCode(QuestCode testCode)
     {
         return questCode == testCode;
     }

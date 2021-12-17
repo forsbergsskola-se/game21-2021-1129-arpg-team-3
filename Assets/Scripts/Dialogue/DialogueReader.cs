@@ -75,7 +75,7 @@ public class DialogueReader : MonoBehaviour
             OnRewardGiven(attachedQuest);
         }
     }
-    private void CompletedQuest(string questCode)
+    private void CompletedQuest(QuestCode questCode)
     {
         if (questCode == attachedQuest.questCode)
         {
