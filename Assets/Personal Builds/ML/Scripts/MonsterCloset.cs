@@ -36,9 +36,9 @@ public class MonsterCloset : MonoBehaviour
 
     private void SpawnMonster()
     {
-        var enemy = Instantiate(monsterType, transform);
-        enemy.GetComponentInChildren<QuestTestEnemy>().questCode = questCode;
         canSpawn = false;
+        var enemy = Instantiate(monsterType, transform);
+        enemy.GetComponentInChildren<QuestTarget>().questCode = questCode;
         spawnedMonsters++;
         StartCoroutine(DelaySpawn());
 

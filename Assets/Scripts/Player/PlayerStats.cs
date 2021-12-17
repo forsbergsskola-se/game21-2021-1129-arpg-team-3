@@ -25,8 +25,11 @@ public class PlayerStats : ScriptableObject
     [SerializeField] private float attackDelay;
     [SerializeField] private float combatRotationSpeed;
     [SerializeField] private bool playerDied;
-
-    public bool PlayerDied => playerDied;
+    
+    public bool PlayerDied {
+        get => playerDied;
+        set => playerDied = value;
+    }
     public float CombatRotationSpeed => combatRotationSpeed;
 
     public float AttackDelay => attackDelay;
@@ -112,7 +115,7 @@ public class PlayerStats : ScriptableObject
     public void TakeDamage(float damage, GameObject player) {
         Health -= damage;
         if (Health <= 0) {
-            KillPlayer(player);
+            KillPlayer();
         }
     }
 
@@ -121,11 +124,11 @@ public class PlayerStats : ScriptableObject
         playerDied = false;
     }
 
-    public void KillPlayer(GameObject player) {
+    public void KillPlayer() {
         playerDied = true;
         Debug.Log("Player is Dead");
-        gold -= 50;
-        SceneManager.LoadScene(1);
+        // gold -= 50;
+        // SceneManager.LoadScene(1);
     }
 }
 

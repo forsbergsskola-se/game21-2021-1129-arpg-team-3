@@ -25,7 +25,6 @@ public class DialogueHolder
     public DialogueCriteria criteria;
 }
 
-
 public class DialogueReader : MonoBehaviour
 {
     [SerializeField] private Canvas dialoguePopup;
@@ -80,13 +79,13 @@ public class DialogueReader : MonoBehaviour
     {
         if (attachedQuest != null)
         {
-            if (questCode == attachedQuest.questCode)
+            if (questCode == attachedQuest.QuestCode)
             {
-                if (attachedQuest.state == QuestState.CompletedWithoutAccept)
+                if (attachedQuest.questState == QuestState.CompletedWithoutAccept)
                 {
                     currentCriteria = DialogueCriteria.CompletedWithoutAccept;
                 }
-                else if (attachedQuest.state == QuestState.CompletedWithAccept)
+                else if (attachedQuest.questState == QuestState.CompletedWithAccept)
                 {
                     currentCriteria = DialogueCriteria.CompletedQuest;
                 }

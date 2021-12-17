@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
 		for (int i = 0; i < _spawnPositions.Length; i++)
 		{
 			GameObject enemy = Instantiate(enemyToSpawn, _spawnPositions[i].position, enemyToSpawn.transform.rotation);
-			enemy.GetComponentInChildren<QuestTestEnemy>().questCode = QuestCode.Kill1;
+			enemy.GetComponentInChildren<QuestTarget>().questCode = QuestCode.Kill1;
 		}
 	}
 }

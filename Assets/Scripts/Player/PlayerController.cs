@@ -216,8 +216,8 @@ public class PlayerController : MonoBehaviour
 			Debug.LogWarning("Player RayCast Camera is NULL!");
 		}
 	}
-	
-	public IEnumerator DelayAttack() {
+
+	private IEnumerator DelayAttack() {
 		cannotAttack = false;
 		yield return new WaitForSeconds(playerStats.AttackDelay * Time.deltaTime);
 		cannotAttack = true;
