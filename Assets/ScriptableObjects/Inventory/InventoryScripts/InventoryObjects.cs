@@ -132,7 +132,7 @@ public class InventorySlotS
     public ItemTypeS[] AllowedItems = new ItemTypeS[0];
     [System.NonSerialized]
     public UserInterface parent;
-    [System.NonSerialized] public GameObject slot;
+    [System.NonSerialized] public GameObject slotDisplay;
     public Item item;
     public int amount;
 
