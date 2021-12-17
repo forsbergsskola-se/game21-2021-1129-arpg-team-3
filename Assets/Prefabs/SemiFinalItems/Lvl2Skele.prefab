@@ -930,7 +930,6 @@ GameObject:
   - component: {fileID: 8765071337147131466}
   - component: {fileID: 2332600623780634939}
   - component: {fileID: 544657319158219733}
-  - component: {fileID: 1719890335288201344}
   m_Layer: 0
   m_Name: Lvl2Skele
   m_TagString: Enemy
@@ -1181,21 +1180,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &1719890335288201344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6652567088470929335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2508644eb97cebf4ea297ac81e1e1cd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questCode: 
-  isFinalEnemy: 0
-  targetTrigger: 0
 --- !u!1 &6652567088485760994
 GameObject:
   m_ObjectHideFlags: 0
