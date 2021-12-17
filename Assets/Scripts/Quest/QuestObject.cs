@@ -26,32 +26,33 @@ public enum QuestState
 
 public abstract class QuestObject : ScriptableObject
 {
-    public QuestType type;
-    public QuestState state;
-    public QuestCode questCode;
-    
-//    public string questCode;
-    
-    public int numberTargets;
+    public QuestType questType;
+    public QuestState questState;
+    [SerializeField] QuestCode questCode;
+
+    [SerializeField] int numberTargets;
     public int numberTargetsGot;
     
-    public string questName;
+    [SerializeField] string displayName;
     
     public InventoryItemObject_ML itemReward;
-    public int cashReward;
-    public int XPReward;
+    [SerializeField] int cashReward;
+    [SerializeField] int experienceReward;
     
     [TextArea(15, 20)] 
-    public string questDescription;
-
-    public bool HasQuestCode(QuestCode testCode)
-    {
-        return questCode == testCode;
-    }
+    [SerializeField] string questDescription;
     
+    public QuestCode QuestCode => questCode;
+    public string DisplayName => displayName;
+    public string QuestDescription => questDescription;
+    public int CashReward => cashReward;
+    public int ExperienceReward => experienceReward;
+    public int NumberTargets => numberTargets;
+
+
     public void ResetQuest()
     {
         numberTargetsGot = 0;
-        state = QuestState.NotAccepted;
+        questState = QuestState.NotAccepted;
     }
 }

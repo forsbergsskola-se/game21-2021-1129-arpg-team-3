@@ -6,6 +6,6 @@ public class KillQuestObject : QuestObject
 {
     public KillQuestObject()
     {
-        type = QuestType.Kill;
+        questType = QuestType.Kill;
     }
 }

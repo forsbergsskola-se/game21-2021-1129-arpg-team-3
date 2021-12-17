@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8fd8a4f5460df544a9ac095e3915cc4, type: 3}
   m_Name: New Kill Quest
   m_EditorClassIdentifier: 
-  type: 0
-  questCode: KILL1
+  questType: 0
+  questState: 0
+  questCode: 0
   numberTargets: 1
   numberTargetsGot: 0
-  questName: Kill all the cubes.
+  displayName: Kill all cubes
   itemReward: {fileID: 0}
   cashReward: 200
-  XPReward: 500
+  experienceReward: 500
   questDescription: Kill all the cubes for a meagre award.

@@ -7,6 +7,6 @@ public class CollectQuestObject : QuestObject
 {
     public CollectQuestObject()
     {
-        type = QuestType.Collect;
+        questType = QuestType.Collect;
     }
 }
