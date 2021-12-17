@@ -4858,11 +4858,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -233905765
-      Data2: 1228540641
-      Data3: 1610352531
-      Data4: -380599867
-    Path: event:/Terrain/ClassicFireSound
+      Data1: 1267530687
+      Data2: 1182754109
+      Data3: -1822306420
+      Data4: 1609963289
+    Path: event:/Terrain/Fire
   Event: 
   PlayEvent: 1
   StopEvent: 0
@@ -4872,7 +4872,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 0
-  OverrideMaxDistance: 5.4
+  OverrideMaxDistance: 6.8
 --- !u!1 &8205408272723110936
 GameObject:
   m_ObjectHideFlags: 0
