@@ -9,13 +9,14 @@ public class PauseMenu : MonoBehaviour
 {
     public InventoryObjects inventory;
     public InventoryObjects equipment;
-    public static bool GameIsPaused = false;
+    private static bool gamePaused = false;
     public GameObject pauseMenuUI;
+    public PlayerController player;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameIsPaused)
+            if (gamePaused)
             {
                 Resume();
             }
@@ -34,13 +35,16 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
-        GameIsPaused = true;
+        gamePaused = true;
+        player.inDialogue = true;
+
     }
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
-        GameIsPaused = false;
+        gamePaused = false;
+        player.inDialogue = false;
     }
     public void SaveGame()
     {

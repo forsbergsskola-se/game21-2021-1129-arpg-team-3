@@ -11,12 +11,9 @@ public class SpawnControl : MonoBehaviour {
 		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
 		spawnPosition = transform.position;
 	}
-
-	private void Update() {
-		if (playerStats.PlayerDied) {
-			transform.position = spawnPosition;
-			playerStats.Health = playerStats.MaxHealth;
-			playerStats.PlayerDied = false;
-		}
+	
+	public void Respawn() {
+		transform.position = spawnPosition; 
+		playerStats.InitializePlayerStats();
 	}
 }
