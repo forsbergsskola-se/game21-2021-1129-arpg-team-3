@@ -17,5 +17,6 @@ public class FogSound : MonoBehaviour
         instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position));
         float distance = Vector3.Distance(transform.position, fog.transform.position);
         distance = 100 - distance/2;
+        instance.setParameterByName("FoogAmount", distance);
     }
 }

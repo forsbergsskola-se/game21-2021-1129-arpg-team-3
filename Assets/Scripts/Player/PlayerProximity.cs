@@ -23,7 +23,6 @@ public class PlayerProximity : MonoBehaviour
 			float hp = playerStats.Health / playerStats.MaxHealth * 100;
 			instance.setParameterByName("Hp",hp);
 			instance.setParameterByName("How Far To Enemy", distance);
-			Debug.Log(hp);
 		}
 		else {
 			instance.stop(STOP_MODE.IMMEDIATE);
