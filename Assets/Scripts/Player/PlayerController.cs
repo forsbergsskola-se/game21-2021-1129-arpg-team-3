@@ -24,9 +24,31 @@ public class PlayerController : MonoBehaviour
 	public Key key;
 	public Attribute[] attributes;
 
-	private void Start() {
+	private void Start() 
+	{
 		agent = GetComponent<NavMeshAgent>();
 		DialogueReader.OnStartEndDialogue += StartEndDialogue;
+		for (int i = 0; i < attributes.Length; i++)
+		{
+			attributes[i].SetParent(this);
+		}
+
+		for (int i = 0; i < equipment.GetSlots.Length; i++)
+		{
+			equipment.GetSlots[i].OnBeforeUpdate += OnBeforeSlotUpdate;
+			equipment.GetSlots[i].OnAfterUpdate += OnAfterSlotUpdate;
+		}
+	}
+
+	public void OnBeforeSlotUpdate(InventorySlotS _slot)
+	{
+		if (_slot.ItemObject == null)
+		return;
+	}
+
+	public void OnAfterSlotUpdate(InventorySlotS _slot)
+	{
+		
 	}
 	private void Awake() {
 		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
