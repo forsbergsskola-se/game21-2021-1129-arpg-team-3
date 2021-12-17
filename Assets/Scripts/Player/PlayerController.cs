@@ -138,7 +138,6 @@ public class PlayerController : MonoBehaviour
 						itemPickup = target.gameObject.GetComponent<GroundItem>();
 						inventory.AddItem(new Item(itemPickup.item), 1);
 						Destroy(itemPickup.gameObject);
-						holder.doorUnlocked = true;
 					}
 				}
 				if (target is not null && target.CompareTag("Enemy") && target.gameObject.GetComponent<Enemy>().Health <= 0) {
