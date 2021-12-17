@@ -770,7 +770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialoguePopup: {fileID: 8933333810018513405, guid: c44d766703db0e44c98837e713eea08e, type: 3}
-  attachedQuest: {fileID: 11400000, guid: 87e680ee7eb9e22418b2c7c4b09a1cc3, type: 2}
+  attachedQuest: {fileID: 0}
   multiDialogues:
   - dialogueObject: {fileID: 11400000, guid: 0c7343ec4f0100c4c80c5906fb071be2, type: 2}
     criteria: 0

@@ -90,7 +90,7 @@ public class QuestManager : MonoBehaviour
         var texts = keepQuest.GetComponentsInChildren<TextMeshProUGUI>();
         texts[0].text = questLogObject.quests[questIndex].questName;
         texts[1].text = questLogObject.quests[questIndex].questDescription;
-        texts[2].text = "You Will receive " + questLogObject.quests[questIndex].cashReward + " gold";
+        texts[2].text = $"You will receive {questLogObject.quests[questIndex].cashReward} gold";
         texts[3].text = questLogObject.quests[questIndex].numberTargetsGot +  "/" + questLogObject.quests[questIndex].numberTargets;
     }
 

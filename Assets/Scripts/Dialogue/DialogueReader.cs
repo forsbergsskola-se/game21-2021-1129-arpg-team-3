@@ -78,15 +78,18 @@ public class DialogueReader : MonoBehaviour
     }
     private void CompletedQuest(QuestCode questCode)
     {
-        if (questCode == attachedQuest.questCode)
+        if (attachedQuest != null)
         {
-            if (attachedQuest.state == QuestState.CompletedWithoutAccept)
+            if (questCode == attachedQuest.questCode)
             {
-                currentCriteria = DialogueCriteria.CompletedWithoutAccept;
-            }
-            else if (attachedQuest.state == QuestState.CompletedWithAccept)
-            {
-                currentCriteria = DialogueCriteria.CompletedQuest;
+                if (attachedQuest.state == QuestState.CompletedWithoutAccept)
+                {
+                    currentCriteria = DialogueCriteria.CompletedWithoutAccept;
+                }
+                else if (attachedQuest.state == QuestState.CompletedWithAccept)
+                {
+                    currentCriteria = DialogueCriteria.CompletedQuest;
+                }
             }
         }
     }
@@ -208,7 +211,7 @@ public class DialogueReader : MonoBehaviour
     
     private void ClickContinue(string nextNodeGuid, string selectedLine)
     {
-        if (clickCount < 1)
+        if (clickCount < 6)
         {
             clickCount++;
 
@@ -240,7 +243,7 @@ public class DialogueReader : MonoBehaviour
                 
                 if (selectedLine == "Leave")
                 {
-                    if (currentCriteria == DialogueCriteria.CompletedQuest)
+                    if (currentCriteria is DialogueCriteria.CompletedQuest or DialogueCriteria.CompletedWithoutAccept)
                     {
                         currentCriteria = DialogueCriteria.FinalDialogue;
                     }
