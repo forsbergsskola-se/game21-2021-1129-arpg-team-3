@@ -67,6 +67,8 @@ public class PlayerController : MonoBehaviour
 	}
 	public void OnAfterSlotUpdate(InventorySlotS _slot)
 	{
+		if (_slot.ItemObject == null)
+			return;
 		switch (_slot.parent.inventory.type)
 		{
 			case InterfaceType.Inventory:
