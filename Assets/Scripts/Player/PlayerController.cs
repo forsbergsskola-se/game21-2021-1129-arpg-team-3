@@ -22,7 +22,11 @@ public class PlayerController : MonoBehaviour
 	public bool inDialogue;
 	private bool cannotAttack = true;
 	public Key key;
+<<<<<<< Updated upstream
 	public Attribute[] attributes;
+=======
+	
+>>>>>>> Stashed changes
 
 	private void Start() {
 		agent = GetComponent<NavMeshAgent>();
@@ -194,8 +198,8 @@ public class PlayerController : MonoBehaviour
 			Debug.LogWarning("Player RayCast Camera is NULL!");
 		}
 	}
-	
-	public IEnumerator DelayAttack() {
+
+	private IEnumerator DelayAttack() {
 		cannotAttack = false;
 		yield return new WaitForSeconds(playerStats.AttackDelay * Time.deltaTime);
 		cannotAttack = true;
