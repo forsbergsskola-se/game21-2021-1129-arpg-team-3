@@ -24,7 +24,9 @@ public class PlayerStats : ScriptableObject
     [SerializeField] private float xPMultiplier;
     [SerializeField] private float attackDelay;
     [SerializeField] private float combatRotationSpeed;
+    [SerializeField] private bool playerDied;
 
+    public bool PlayerDied => playerDied;
     public float CombatRotationSpeed => combatRotationSpeed;
 
     public float AttackDelay => attackDelay;
@@ -116,9 +118,11 @@ public class PlayerStats : ScriptableObject
 
     public void InitializePlayerStats() {
         health = maxHealth;
+        playerDied = false;
     }
 
     public void KillPlayer(GameObject player) {
+        playerDied = true;
         Debug.Log("Player is Dead");
         gold -= 50;
         SceneManager.LoadScene(1);
