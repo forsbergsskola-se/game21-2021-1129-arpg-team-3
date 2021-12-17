@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c801af6d4af804041aa881ef66ce4dcb, type: 3}
+  m_Name: QuestGiverFinishedWithoutAccept
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: 67b90369-ec60-4b40-b333-ece469378cc0
+    PortName: NEXT
+    TargetNodeGUID: c16d7d4d-0306-4074-b6ab-e56d06a42953
+  - BaseNodeGUID: c16d7d4d-0306-4074-b6ab-e56d06a42953
+    PortName: I already have
+    TargetNodeGUID: 0454c959-ebd9-4f3a-b6b8-ca364fd17e28
+  - BaseNodeGUID: 0454c959-ebd9-4f3a-b6b8-ca364fd17e28
+    PortName: Accept Reward
+    TargetNodeGUID: c6905733-5e34-49ac-ac44-5beed010275e
+  - BaseNodeGUID: c6905733-5e34-49ac-ac44-5beed010275e
+    PortName: Leave
+    TargetNodeGUID: 4dac5084-2e2d-430d-a47c-f4747665e035
+  DialogueNodeData:
+  - NodeGUID: c16d7d4d-0306-4074-b6ab-e56d06a42953
+    DialogueText: I need you to kill some cubes for me.
+    Position: {x: 374.4, y: 180.8}
+  - NodeGUID: 0454c959-ebd9-4f3a-b6b8-ca364fd17e28
+    DialogueText: The I don't feel like giving you the whole reward. How about half?
+    Position: {x: 628.8, y: -44}
+  - NodeGUID: c6905733-5e34-49ac-ac44-5beed010275e
+    DialogueText: Good job anyway.
+    Position: {x: 1201.6, y: 65.600006}
+  - NodeGUID: 4dac5084-2e2d-430d-a47c-f4747665e035
+    DialogueText: LEAVE
+    Position: {x: 1407.2, y: 212}
+  ExposedProperties: []
+  CommentBlockData: []

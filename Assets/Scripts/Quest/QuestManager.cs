@@ -40,39 +40,27 @@ public class QuestManager : MonoBehaviour
     }
 
     private void HitTarget(QuestCode questCode)
-    {
-        foreach (var el in questLogObject.quests)
-        {
-            if (el.questCode == questCode)
-            {
-                el.numberTargetsGot++;
-                
-                if (el.numberTargetsGot >= el.numberTargets)
-                {
-                    if (el.state == QuestState.Accepted)
-                    {
-                        ChangeQuestState(questCode, QuestState.CompletedWithAccept);
-                    }
-                    else if (el.state == QuestState.NotAccepted)
-                    {
-                        ChangeQuestState(questCode, QuestState.CompletedWithoutAccept);
-                    }
-                    
-                    QuestComplete(el.questCode);
-                }
-            }
-        }
+    { 
+      var quest = questLogObject.quests.Single(x => x.questCode == questCode);
+      quest.numberTargetsGot++;
+
+      if (quest.numberTargetsGot >= quest.numberTargets)
+      {
+          if (quest.state == QuestState.Accepted)
+          {
+              ChangeQuestState(questCode, QuestState.CompletedWithAccept);
+          }
+          else if (quest.state == QuestState.NotAccepted)
+          {
+              ChangeQuestState(questCode, QuestState.CompletedWithoutAccept);
+          }
+          QuestComplete(quest.questCode);
+      }
     }
 
     private void ChangeQuestState(QuestCode questCode, QuestState newState)
     {
-        foreach (var el in questLogObject.quests)
-        {
-            if (el.questCode == questCode)
-            {
-                el.state = newState;
-            }
-        }
+        questLogObject.quests.Single(x => x.questCode == questCode).state = newState;
     }
 
     private int CountActiveQuests()

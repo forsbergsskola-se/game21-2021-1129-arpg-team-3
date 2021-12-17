@@ -207,6 +207,8 @@ MonoBehaviour:
   - dialogueObject: {fileID: 11400000, guid: f412872f47380384fa0cfc479b05ea82, type: 2}
     criteria: 2
   - dialogueObject: {fileID: 11400000, guid: 99b35f69052511044a471637af316b3e, type: 2}
+    criteria: 4
+  - dialogueObject: {fileID: 11400000, guid: 393b5616577b90b4382e05e2d03b803e, type: 2}
     criteria: 3
   NPCName: Peasant
 --- !u!1 &179915755 stripped
@@ -509,11 +511,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6932518542485951456, guid: 4c5e328bd37d8d849914004632fe1634, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6932518542485951456, guid: 4c5e328bd37d8d849914004632fe1634, type: 3}
       propertyPath: questCode
-      value: KILL1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8727810860352592830, guid: 4c5e328bd37d8d849914004632fe1634, type: 3}
       propertyPath: m_Name

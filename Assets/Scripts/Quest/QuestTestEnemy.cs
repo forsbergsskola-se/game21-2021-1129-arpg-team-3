@@ -28,6 +28,14 @@ public class QuestTestEnemy : MonoBehaviour
         }
     }
 
+    private void OnMouseDown()
+    {
+        if (targetTrigger == TargetTrigger.OnDestroy)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void OnDestroy()
     {
         if (targetTrigger == TargetTrigger.OnDestroy)

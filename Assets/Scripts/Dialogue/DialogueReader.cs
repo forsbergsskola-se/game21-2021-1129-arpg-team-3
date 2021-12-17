@@ -14,6 +14,7 @@ public enum DialogueCriteria
     First,
     AcceptedQuest,
     CompletedQuest,
+    CompletedWithoutAccept,
     FinalDialogue
 }
 
@@ -79,7 +80,14 @@ public class DialogueReader : MonoBehaviour
     {
         if (questCode == attachedQuest.questCode)
         {
-            currentCriteria = DialogueCriteria.CompletedQuest;
+            if (attachedQuest.state == QuestState.CompletedWithoutAccept)
+            {
+                currentCriteria = DialogueCriteria.CompletedWithoutAccept;
+            }
+            else if (attachedQuest.state == QuestState.CompletedWithAccept)
+            {
+                currentCriteria = DialogueCriteria.CompletedQuest;
+            }
         }
     }
     
@@ -179,7 +187,7 @@ public class DialogueReader : MonoBehaviour
         }
     }
 
-    private void PauseDialogue(string condition)
+    private void PauseDialogue()
     {
         currentDialogue.gameObject.SetActive(false);
         TradeSystem.OnEndTrade += ResumeDialogue;
@@ -209,7 +217,7 @@ public class DialogueReader : MonoBehaviour
             if (selectedLine == "Trade")
             {
                 currentNodeGuid = nextNodeGuid;
-                PauseDialogue(nextLine);
+                PauseDialogue();
             }
             
             else
