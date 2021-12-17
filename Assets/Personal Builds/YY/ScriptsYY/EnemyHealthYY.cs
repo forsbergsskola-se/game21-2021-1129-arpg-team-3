@@ -15,6 +15,4 @@ public class EnemyHealthYY : MonoBehaviour
     {
         healthPoints = startingHealth;
     }
-    
-    
 }
