@@ -36,42 +36,42 @@ public class QuestManager : MonoBehaviour
         keepQuest = Instantiate(questLogCanvas);
         keepQuest.gameObject.SetActive(false);
         DialogueReader.OnAcceptQuest += AcceptQuest;
-        QuestTestEnemy.OnQuestTarget += HitTarget;
+        QuestTarget.OnQuestTarget += HitTarget;
     }
 
     private void HitTarget(QuestCode questCode)
     { 
-      var quest = questLogObject.quests.Single(x => x.questCode == questCode);
+      var quest = questLogObject.quests.Single(x => x.QuestCode == questCode);
       quest.numberTargetsGot++;
 
-      if (quest.numberTargetsGot >= quest.numberTargets)
+      if (quest.numberTargetsGot >= quest.NumberTargets)
       {
-          if (quest.state == QuestState.Accepted)
+          if (quest.questState == QuestState.Accepted)
           {
               ChangeQuestState(questCode, QuestState.CompletedWithAccept);
           }
-          else if (quest.state == QuestState.NotAccepted)
+          else if (quest.questState == QuestState.NotAccepted)
           {
               ChangeQuestState(questCode, QuestState.CompletedWithoutAccept);
           }
-          QuestComplete(quest.questCode);
+          QuestComplete(quest.QuestCode);
       }
     }
 
     private void ChangeQuestState(QuestCode questCode, QuestState newState)
     {
-        questLogObject.quests.Single(x => x.questCode == questCode).state = newState;
+        questLogObject.quests.Single(x => x.QuestCode == questCode).questState = newState;
     }
 
     private int CountActiveQuests()
     {
-       return questLogObject.quests.Where(x => x.state != QuestState.NotAccepted).ToList().Count;
+       return questLogObject.quests.Where(x => x.questState != QuestState.NotAccepted).ToList().Count;
     }
     
     
     private void AcceptQuest(QuestObject acceptedQuest)
     {
-        ChangeQuestState(acceptedQuest.questCode, QuestState.Accepted);
+        ChangeQuestState(acceptedQuest.QuestCode, QuestState.Accepted);
         SetupQuestButton(questLogObject.quests.IndexOf(acceptedQuest), CountActiveQuests());
     }
 
@@ -81,17 +81,17 @@ public class QuestManager : MonoBehaviour
         
         var panel = Instantiate(questLogPanel, keepQuest.transform);
         panel.GetComponent<RectTransform>().localPosition = buttonStartPos + addVector;
-        panel.GetComponentInChildren<TextMeshProUGUI>().text = questLogObject.quests[questIndex].questName;
+        panel.GetComponentInChildren<TextMeshProUGUI>().text = questLogObject.quests[questIndex].DisplayName;
         panel.GetComponentInChildren<Button>().onClick.AddListener(()=> SelectQuestButton(questIndex));
     }
 
     private void SelectQuestButton(int questIndex)
     {
         var texts = keepQuest.GetComponentsInChildren<TextMeshProUGUI>();
-        texts[0].text = questLogObject.quests[questIndex].questName;
-        texts[1].text = questLogObject.quests[questIndex].questDescription;
-        texts[2].text = $"You will receive {questLogObject.quests[questIndex].cashReward} gold";
-        texts[3].text = questLogObject.quests[questIndex].numberTargetsGot +  "/" + questLogObject.quests[questIndex].numberTargets;
+        texts[0].text = questLogObject.quests[questIndex].DisplayName;
+        texts[1].text = questLogObject.quests[questIndex].QuestDescription;
+        texts[2].text = $"You will receive {questLogObject.quests[questIndex].CashReward} gold";
+        texts[3].text = questLogObject.quests[questIndex].numberTargetsGot +  "/" + questLogObject.quests[questIndex].NumberTargets;
     }
 
     private void ResetLog()

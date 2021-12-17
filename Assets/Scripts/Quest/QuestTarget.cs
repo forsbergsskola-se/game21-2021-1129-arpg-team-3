@@ -10,7 +10,7 @@ public enum TargetTrigger
     None
 }
 
-public class QuestTestEnemy : MonoBehaviour
+public class QuestTarget : MonoBehaviour
 {
     public bool isFinalEnemy;
 
