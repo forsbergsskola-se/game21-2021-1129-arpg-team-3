@@ -153,28 +153,30 @@ public class InventorySlotS
     }
     public InventorySlotS()
     {
-        item = new Item();
-        amount = 0;
+        UpdateSlots(new Item(), 0);
     }
     public InventorySlotS(Item _item, int _amount)
     {
-        item = _item;
-        amount = _amount;
+        UpdateSlots(_item, _amount);
     }
     public void UpdateSlots(Item _item, int _amount)
     {
+        if (OnBeforeUpdate != null)
+        OnBeforeUpdate.Invoke(this);
         item = _item;
         amount = _amount;
+        if (OnAfterUpdate != null)
+       OnAfterUpdate.Invoke(this);
     }
     public void AddAmount(int value)
     {
-        amount += value;
+        UpdateSlots(item, amount += value);
+        
     }
 
     public void RemoveItem()
     {
-        item = new Item();
-        amount = 0;
+        UpdateSlots(new Item(), 0);
     }
     public bool CanPlaceInSlot(ItemObject _itemObject)
     {
