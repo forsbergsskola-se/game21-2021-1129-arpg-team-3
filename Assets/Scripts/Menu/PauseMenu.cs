@@ -27,8 +27,8 @@ public class PauseMenu : MonoBehaviour
     }
     private void OnApplicationQuit()
     {
-        inventory.Container.Clear();
-        equipment.Container.Clear();
+        inventory.Clear();
+        equipment.Clear();
     }
     void Pause()
     {

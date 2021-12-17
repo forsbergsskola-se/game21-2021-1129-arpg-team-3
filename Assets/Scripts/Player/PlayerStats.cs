@@ -26,6 +26,8 @@ public class PlayerStats : ScriptableObject
     [SerializeField] private float combatRotationSpeed;
     [SerializeField] private bool playerDied;
 
+    public Attribute[] attributes;
+
     public bool PlayerDied => playerDied;
     public float CombatRotationSpeed => combatRotationSpeed;
 
@@ -126,5 +128,29 @@ public class PlayerStats : ScriptableObject
         Debug.Log("Player is Dead");
         gold -= 50;
         SceneManager.LoadScene(1);
+    }
+
+    public void AttributeModified(Attribute attribute)
+    {
+        Debug.Log(string.Concat(attribute.type, " updated. Value is now ", attribute.value.ModifiedValue));
+    }
+}
+
+[System.Serializable]
+public class Attribute
+{
+    [System.NonSerialized] public PlayerStats parent;
+    public Attribute type;
+    public ModifiableInt value;
+
+    public void SetParent(PlayerStats _parent)
+    {
+        parent = _parent;
+        value = new ModifiableInt(AttributeModified);
+    }
+
+    public void AttributeModified()
+    {
+        parent.AttributeModified(this);
     }
 }
