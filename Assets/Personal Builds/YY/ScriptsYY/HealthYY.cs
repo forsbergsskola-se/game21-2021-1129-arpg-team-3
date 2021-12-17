@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HealthYY : MonoBehaviour
 {
-    public float StartingHealth = 100f;
+    public float startingHealth = 100f;
     public GameObject damageText;
 
     public float HealthPoints
@@ -28,7 +28,7 @@ public class HealthYY : MonoBehaviour
 
     private void Start()
     {
-        HealthPoints = StartingHealth;
+        HealthPoints = startingHealth;
     }
 
     void Die()

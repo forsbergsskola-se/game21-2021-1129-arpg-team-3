@@ -99,29 +99,19 @@ public class DialogueReader : MonoBehaviour
             OnStartTrade();
         }
     }
+
+    private void ChangeDialogueContainer()
+    {
+        dialogueContainer = multiDialogues.Single(x => x.criteria == currentCriteria).dialogueObject;
+    }
     
     private string GetFirstLineOfDialogue()
     {
-        foreach (var el in multiDialogues)
-        {
-            if (currentCriteria == el.criteria)
-            {
-                dialogueContainer =  el.dialogueObject; 
-            }
-        }
+        ChangeDialogueContainer();
         
         currentNodeGuid = dialogueContainer.NodeLinks[0].TargetNodeGUID;
-        string text = " ";
 
-        foreach (var el in dialogueContainer.DialogueNodeData)
-        {
-            if (el.NodeGUID == currentNodeGuid)
-            {
-                text = el.DialogueText;
-            }
-        }
-
-        return text;
+        return dialogueContainer.DialogueNodeData.Single(x => x.NodeGUID == currentNodeGuid).DialogueText;
     }
 
     private void OnMouseDown()
@@ -170,16 +160,7 @@ public class DialogueReader : MonoBehaviour
 
     private string GetDialogueFromNode(string guid)
     {
-        string outDialogue = "";
-        for (int i = 0; i < dialogueContainer.DialogueNodeData.Count; i++)
-        {
-            if (dialogueContainer.DialogueNodeData[i].NodeGUID == guid)
-            {
-                outDialogue = dialogueContainer.DialogueNodeData[i].DialogueText;
-            }
-        }
-
-        return outDialogue;
+        return dialogueContainer.DialogueNodeData.Single(x => x.NodeGUID == guid).DialogueText;
     }
     
     private void GetOutputNodesFromNode()
