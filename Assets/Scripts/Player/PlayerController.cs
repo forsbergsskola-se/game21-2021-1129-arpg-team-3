@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
 	private bool cannotAttack = true;
 	public Key key;
 	public Attribute[] attributes;
+	public GameObject projectile;
 
 	private void Start() 
 	{
@@ -42,7 +44,7 @@ public class PlayerController : MonoBehaviour
 	public void OnBeforeSlotUpdate(InventorySlotS _slot)
 	{
 		if (_slot.ItemObject == null)
-		return;
+			return;
 		switch (_slot.parent.inventory.type)
 		{
 			case InterfaceType.Inventory:
@@ -114,11 +116,15 @@ public class PlayerController : MonoBehaviour
 	void Update() {
 		GetCursorPosition();
 		ChangeCursor();
-		if (Input.GetMouseButtonDown(0) & Camera.main is not null) {
+		if (Input.GetMouseButtonDown(0) && Camera.main is not null) {
 			cursorManagement.DeSpawnRallyPoint();
 			TargetCheck();
 		}
 		Interact();
+		if (Input.GetMouseButtonDown(1) && Camera.main is not null)  {
+			GameObject temp = Instantiate(projectile, transform.position, transform.rotation);
+			temp.transform.Translate(1, 1, 0);
+		}
 	}
 	
 	Ray GetCursorPosition() {

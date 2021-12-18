@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.7796942, y: -0.2788562, z: 0.18879986, w: 0.52789277}
-  m_LocalPosition: {x: 0.23, y: 2.58, z: -0.32}
+  m_LocalPosition: {x: 0.23, y: 5.07, z: -0.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,8 +44,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 3.36
-  m_Range: 25
+  m_Intensity: 2
+  m_Range: 70
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -197,10 +197,13 @@ GameObject:
   - component: {fileID: 7430547610418540585}
   - component: {fileID: 1834260074}
   - component: {fileID: 8552936643510911512}
-  - component: {fileID: 1834260075}
   - component: {fileID: 1834260086}
   - component: {fileID: 1834260087}
   - component: {fileID: 1834260098}
+  - component: {fileID: 1834260089}
+  - component: {fileID: 1834260090}
+  - component: {fileID: 1834260104}
+  - component: {fileID: 1834260118}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -343,7 +346,11 @@ MonoBehaviour:
   playerModel: {fileID: 1175506098081519692}
   playerWeapon: {fileID: 5588858278119813874}
   inventory: {fileID: 11400000, guid: 5385c7530d40cf6488c20374f43d8c8e, type: 2}
+  equipment: {fileID: 11400000, guid: 979bf74ae15bce6438b73c8ce212a2aa, type: 2}
+  inDialogue: 0
   key: {fileID: 0}
+  attributes: []
+  projectile: {fileID: 6235091603849702355, guid: c3df2b99b75bbb540a19e6efcba03dc6, type: 3}
 --- !u!114 &1834260070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,7 +429,7 @@ MonoBehaviour:
   Event: 
   PlayEvent: 0
   StopEvent: 0
-  AllowFadeout: 1
+  AllowFadeout: 0
   TriggerOnce: 0
   Preload: 0
   Params: []
@@ -452,37 +459,7 @@ MonoBehaviour:
   Event: 
   PlayEvent: 0
   StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!114 &1834260075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588858277689648231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 581547862
-      Data2: 1307790276
-      Data3: 965870252
-      Data4: -39093833
-    Path: event:/Enemy/EHit
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
+  AllowFadeout: 0
   TriggerOnce: 0
   Preload: 0
   Params: []
@@ -512,7 +489,7 @@ MonoBehaviour:
   Event: 
   PlayEvent: 0
   StopEvent: 0
-  AllowFadeout: 1
+  AllowFadeout: 0
   TriggerOnce: 0
   Preload: 0
   Params: []
@@ -542,7 +519,7 @@ MonoBehaviour:
   Event: 
   PlayEvent: 0
   StopEvent: 0
-  AllowFadeout: 1
+  AllowFadeout: 0
   TriggerOnce: 0
   Preload: 0
   Params: []
@@ -572,13 +549,96 @@ MonoBehaviour:
   Event: 
   PlayEvent: 0
   StopEvent: 0
-  AllowFadeout: 1
+  AllowFadeout: 0
   TriggerOnce: 0
   Preload: 0
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &1834260089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588858277689648231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 831795996
+      Data2: 1225905989
+      Data3: 947672194
+      Data4: -2015730291
+    Path: event:/Player/PlayerHurt
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 0
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1834260090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588858277689648231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72fd41f0422b68a4c8b5739330502c97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threat: {fileID: 0}
+  fmodEvent:
+    Guid:
+      Data1: 1299821850
+      Data2: 1171670256
+      Data3: 1266889148
+      Data4: -2053237546
+    Path: event:/Tonal/Music Test
+--- !u!114 &1834260104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588858277689648231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3cec53ca6f767344b8399ae984623bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fog: {fileID: 0}
+  fmodEvent:
+    Guid:
+      Data1: 1214329046
+      Data2: 1173352933
+      Data3: -694010744
+      Data4: -753925623
+    Path: event:/Terrain/Foog
+--- !u!114 &1834260118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588858277689648231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff72dac580c1bb249bb9861fa0d79071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &5588858278119813874
 GameObject:
   m_ObjectHideFlags: 0

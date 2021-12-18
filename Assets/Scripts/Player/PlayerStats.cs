@@ -25,7 +25,7 @@ public class PlayerStats : ScriptableObject
     [SerializeField] private float attackDelay;
     [SerializeField] private float combatRotationSpeed;
     [SerializeField] private bool playerDied;
-    
+
     public bool PlayerDied {
         get => playerDied;
         set => playerDied = value;
