@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 	public InventoryObjects equipment;
 	public bool inDialogue;
 	private bool cannotAttack = true;
-	public Key key;
+	// public Key key;
 	public Attribute[] attributes;
 	public GameObject projectile;
 
@@ -204,7 +204,7 @@ public class PlayerController : MonoBehaviour
 					}
 					else if (target.CompareTag("Key")) {
 						var holder = GetComponent<KeyHolder>();
-						holder.AddKey(key.GetKeyType());
+						holder.AddKey(target.GetComponent<Key>().GetKeyType());
 						itemPickup = target.gameObject.GetComponent<GroundItem>();
 						inventory.AddItem(new Item(itemPickup.item), 1);
 						Destroy(itemPickup.gameObject);

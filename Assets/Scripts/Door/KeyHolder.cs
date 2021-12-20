@@ -8,7 +8,10 @@ public class KeyHolder : MonoBehaviour
     public event EventHandler OnKeysChanged;
     private List<Key.KeyType> keyList;
     public bool doorUnlocked = false;
-    public KeyDoor keyDoor;
+    public KeyDoor keyDoorR;
+    public KeyDoor keyDoorB;
+    public KeyDoor keyDoorG;
+
     private void Awake()
     {
         keyList = new List<Key.KeyType>();
@@ -39,15 +42,25 @@ public class KeyHolder : MonoBehaviour
         TryDoor();
     }
     private void TryDoor() {
-        if (keyDoor != null) {
-            if (ContainsKey(keyDoor.GetKeyType())) {
-                doorUnlocked = true;
-                if (ContainsKey(keyDoor.GetKeyType()) && Input.GetKeyDown(KeyCode.F) && Vector3.Distance(keyDoor.transform.position, transform.position) <= 15) {
-                    //holding key to open door #Hodor
-                    // RemoveKey(keyDoor.GetKeyType());
-                    keyDoor.OpenDoor();
-                    //RemoveItem();
-                }
+        if (keyDoorR != null && ContainsKey(keyDoorR.GetKeyType())) {
+            doorUnlocked = true; 
+            if (ContainsKey(keyDoorR.GetKeyType()) && Input.GetKeyDown(KeyCode.F) && Vector3.Distance(keyDoorR.transform.position, transform.position) <= 15) { 
+                keyDoorR.OpenDoor();
+                doorUnlocked = false;
+            }
+        }
+        if (keyDoorB!= null && ContainsKey(keyDoorB.GetKeyType())) {
+            doorUnlocked = true; 
+            if (ContainsKey(keyDoorB.GetKeyType()) && Input.GetKeyDown(KeyCode.F) && Vector3.Distance(keyDoorB.transform.position, transform.position) <= 15) { 
+                keyDoorB.OpenDoor();
+                doorUnlocked = false;
+            }
+        }
+        if (keyDoorG!= null && ContainsKey(keyDoorG.GetKeyType())) {
+            doorUnlocked = true; 
+            if (ContainsKey(keyDoorG.GetKeyType()) && Input.GetKeyDown(KeyCode.F) && Vector3.Distance(keyDoorG.transform.position, transform.position) <= 15) { 
+                keyDoorG.OpenDoor();
+                doorUnlocked = false;
             }
         }
     }
