@@ -8,23 +8,27 @@ public class MiniMap : MonoBehaviour
 	public Transform miniMapCameraTransform;
 	public Transform playerTransform;
 	private Vector3 cameraFromPlayerOffset;
-	[SerializeField]float rotationSpeed = 120f;
-	[SerializeField]Transform player;
+	[SerializeField] float rotationSpeed = 120f;
+	[SerializeField] Transform player;
+	[SerializeField] private Camera cam;
 	
-	Vector3 offset;
 	private Vector3 previousPosition;
-	Vector3 _velocity = Vector3.zero;
 	
 	void Start()
 	{
 		cameraFromPlayerOffset = new Vector3(0, 11, 0);
-		offset = transform.position - player.position;
 	}
 	private void LateUpdate() {
 		miniMapCameraTransform.position = playerTransform.position + cameraFromPlayerOffset;
 		var position = player.position;
-		var targetPosition = position + offset;
-		transform.RotateAround(position, player.up, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed);
+		transform.RotateAround(position, player.up, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed); 
 		
+		if (Input.GetMouseButton(2)) {
+			Vector3 direction = previousPosition - cam.ScreenToViewportPoint(Input.mousePosition);
+			cam.transform.position = player.position;
+			cam.transform.Rotate(new Vector3(0,0.1f,0),-direction.x*90,Space.World);
+			cam.transform.Translate(new Vector3(0,0,0));
+			previousPosition = Camera.main.ScreenToViewportPoint(Input.mousePosition);        
 		}
 	}
+}
