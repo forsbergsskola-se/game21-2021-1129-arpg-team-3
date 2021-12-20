@@ -286,9 +286,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a59ece50879404b82894ecf6523f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingHealth: 1000
   damageText: {fileID: 0}
-  healthPoints: 100
+  healthPoints: 1000
 --- !u!195 &1145363132
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -816,6 +816,7 @@ GameObject:
   - component: {fileID: 1627258030}
   - component: {fileID: 1627258032}
   - component: {fileID: 1627258033}
+  - component: {fileID: 1627258034}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -959,7 +960,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627258022}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49f6111af60c6414ebe8b0cd5943f7dd, type: 3}
   m_Name: 
@@ -995,6 +996,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   attackDelay: 0.5
+--- !u!114 &1627258034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627258022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad4003e5d7acf124ba38a13c515e6827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthYY: {fileID: 1145363131}
+  damagePoints: 10
 --- !u!1 &1698822674
 GameObject:
   m_ObjectHideFlags: 0
