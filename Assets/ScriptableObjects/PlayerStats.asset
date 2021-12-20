@@ -29,4 +29,3 @@ MonoBehaviour:
   attackDelay: 2
   combatRotationSpeed: 270
   playerDied: 0
-  projectileSpeed: 1
