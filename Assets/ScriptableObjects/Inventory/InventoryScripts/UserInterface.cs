@@ -40,10 +40,6 @@ public abstract class UserInterface : MonoBehaviour
             _slot.slotDisplay.GetComponentInChildren<TextMeshProUGUI>().text = "";
         }
     }
-    // void Update()
-    // {
-    //     slotsOnInterface.UpdateSlotDisplay();
-    // }
     public abstract void CreateSlots();
     protected void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
     {
@@ -56,10 +52,12 @@ public abstract class UserInterface : MonoBehaviour
     public void OnEnter(GameObject obj)
     {
         MouseData.slotHovered = obj;
+        FindObjectOfType<ItemInfo>().UpdateUIInformation(slotsOnInterface[obj].ItemObject);
     }
     public void OnExit(GameObject obj)
     {
         MouseData.slotHovered = null;
+        FindObjectOfType<ItemInfo>().UpdateUIInformation(null);
     }
     public void OnEnterInterface(GameObject obj)
     {

@@ -20,8 +20,12 @@ MonoBehaviour:
     Hammer Time!'
   data:
     Name: MC Hammer
-    Id: 4
-    buffs: []
-  armourValue: 0
+    Id: 6
+    buffs:
+    - attribute: 0
+      value: 0
+      min: 0
+      max: 0
+  armourBonus: 0
   damageBonus: 9001
   tierGrade: S+++

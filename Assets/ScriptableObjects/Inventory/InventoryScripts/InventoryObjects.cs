@@ -28,6 +28,13 @@ public class InventoryObjects : ScriptableObject
         if (EmptySlotCount <= 0)
             return false;
         InventorySlotS slot = FindItemInInventory(_item);
+        // if (slot.slotDisplay)
+        // {
+        //     if (slot.ItemObject)
+        //     {
+        //         slot.slotDisplay.GetComponent<OnSlotFunction>().OnSetUp(slot.ItemObject);
+        //     }
+        // }
         if (!database.ItemObjects[_item.Id].stackable || slot == null)
         {
             SetEmptySlot(_item, _amount);
@@ -68,7 +75,6 @@ public class InventoryObjects : ScriptableObject
                 return GetSlots[i];
             }
         }
-        //set up function for when inventory is full
         return null;
     }
     public void SwapItems(InventorySlotS item1, InventorySlotS item2)
