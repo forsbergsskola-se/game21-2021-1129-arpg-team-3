@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class InventoryHider : MonoBehaviour {
 	private Canvas canvas;
@@ -12,9 +11,15 @@ public class InventoryHider : MonoBehaviour {
 		canvas.enabled = false;
 	}
 	private void Update() {
-		if (Input.GetKeyUp(KeyCode.I)) {
-			canvas.enabled = !canvas.enabled;
-			player.inDialogue = !player.inDialogue;
+		if (Input.GetKeyUp(KeyCode.I) && !player.inDialogue) {
+			canvas.enabled = true;
+			player.inDialogue = true;
+			Time.timeScale = 0f;
+		}
+		else if (Input.GetKeyUp(KeyCode.I) && player.inDialogue) {
+			canvas.enabled = false;
+			player.inDialogue = false;
+			Time.timeScale = 1f;
 		}
 	}
 }

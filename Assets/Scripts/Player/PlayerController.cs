@@ -25,6 +25,12 @@ public class PlayerController : MonoBehaviour
 	// public Key key;
 	public Attribute[] attributes;
 	public GameObject projectile;
+	
+	private void Awake() {
+		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
+		playerStats.InitializePlayerStats();
+		keyHolder = GetComponent<KeyHolder>();
+	}
 
 	private void Start() 
 	{
@@ -40,6 +46,25 @@ public class PlayerController : MonoBehaviour
 			equipment.GetSlots[i].OnBeforeUpdate += OnBeforeSlotUpdate;
 			equipment.GetSlots[i].OnAfterUpdate += OnAfterSlotUpdate;
 		}
+	}
+	
+	void Update() {
+		GetCursorPosition();
+		ChangeCursor();
+		if (Input.GetMouseButtonUp(0) && Camera.main is not null) {
+			cursorManagement.DeSpawnRallyPoint();
+			TargetCheck();
+		}
+		Interact();
+		if (Input.GetMouseButtonUp(1) && Camera.main is not null)  {
+			GameObject temp = Instantiate(projectile, transform.position, transform.rotation);
+			temp.transform.Translate(1, 1, 0);
+		}
+	}
+	
+	Ray GetCursorPosition() {
+		var ray = Camera.main.ScreenPointToRay(Input.mousePosition); //Fires ray
+		return ray;
 	}
 	public void OnBeforeSlotUpdate(InventorySlotS _slot)
 	{
@@ -93,11 +118,7 @@ public class PlayerController : MonoBehaviour
 				break;
 		}
 	}
-	private void Awake() {
-		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
-		playerStats.InitializePlayerStats();
-		keyHolder = GetComponent<KeyHolder>();
-	}
+
 	private void StartEndDialogue()
 	{
 		if (!inDialogue)
@@ -113,24 +134,7 @@ public class PlayerController : MonoBehaviour
 			Time.timeScale = 1f;
 		}
 	}
-	void Update() {
-		GetCursorPosition();
-		ChangeCursor();
-		if (Input.GetMouseButtonDown(0) && Camera.main is not null) {
-			cursorManagement.DeSpawnRallyPoint();
-			TargetCheck();
-		}
-		Interact();
-		if (Input.GetMouseButtonDown(1) && Camera.main is not null)  {
-			GameObject temp = Instantiate(projectile, transform.position, transform.rotation);
-			temp.transform.Translate(1, 1, 0);
-		}
-	}
-	
-	Ray GetCursorPosition() {
-		var ray = Camera.main.ScreenPointToRay(Input.mousePosition); //Fires ray
-		return ray;
-	}
+
 	
 	private void TargetCheck() {
 		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) {

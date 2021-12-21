@@ -9,19 +9,19 @@ public class PauseMenu : MonoBehaviour
 {
     public InventoryObjects inventory;
     public InventoryObjects equipment;
-    private static bool gamePaused = false;
     public GameObject pauseMenuUI;
     public PlayerController player;
+    public InventoryHider inventoryHider;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (gamePaused)
+            if (player.inDialogue)
             {
                 Resume();
             }
-            else
-            {
+            else 
+            { 
                 Pause();
             }
         }
@@ -35,7 +35,6 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
-        gamePaused = true;
         player.inDialogue = true;
 
     }
@@ -43,8 +42,8 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
-        gamePaused = false;
         player.inDialogue = false;
+        inventoryHider.GetComponent<Canvas>().enabled = false;
     }
     public void SaveGame()
     {
