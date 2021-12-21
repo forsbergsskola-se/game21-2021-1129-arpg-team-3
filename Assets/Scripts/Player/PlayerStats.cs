@@ -91,6 +91,7 @@ public class PlayerStats : ScriptableObject
             WeaponDamage += 3;
             MaxHealth += 3;
             Health = MaxHealth;
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Player Death");
         }
     }
     public float MaxExperience {
@@ -127,6 +128,7 @@ public class PlayerStats : ScriptableObject
     public void KillPlayer() {
         playerDied = true;
         Debug.Log("Player is Dead");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Player Death");
         // gold -= 50;
         // SceneManager.LoadScene(1);
     }

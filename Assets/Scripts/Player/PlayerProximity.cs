@@ -9,7 +9,7 @@ public class PlayerProximity : MonoBehaviour
 //Sound use only
 {
 	public GameObject threat;
-	private FMOD.Studio.EventInstance instance;
+	private EventInstance instance;
 	public FMODUnity.EventReference fmodEvent;
 	private PlayerStats playerStats;
 	private void Start() {
@@ -26,6 +26,7 @@ public class PlayerProximity : MonoBehaviour
 		}
 		else {
 			instance.stop(STOP_MODE.IMMEDIATE);
+			instance.start();
 		}
 	}
 
