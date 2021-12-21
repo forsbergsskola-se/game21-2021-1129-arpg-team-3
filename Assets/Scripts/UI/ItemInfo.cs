@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ItemInfo : MonoBehaviour
 {
+    public ItemObject itemObject;
     public Text nameText;
     public Text description;
     public Image artWorkImage;

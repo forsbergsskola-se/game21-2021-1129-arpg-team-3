@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class DynamicInterface : UserInterface
 {
     public GameObject inventoryPrefab;
+    public GameObject itemInfoDisplay;
     public int X_START;
     public int Y_START;
     public int X_SPACE_BETWEEN_ITEM;
