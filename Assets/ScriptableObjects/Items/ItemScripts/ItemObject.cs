@@ -12,13 +12,13 @@ public enum ItemTypeS
 
 public enum Attributes
 {
-    AttackSpeed,
-    DamageBonus,
-    HPBonus,
-    DefenseBonus,
-    AppearanceBonus,
-    Intelligence,
-    Stamina
+    AtkSpd,
+    Dmg,
+    HP,
+    Def,
+    Appearance,
+    Int,
+    Sta
 }
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory System/Items/Item")]
 public class ItemObject : ScriptableObject
