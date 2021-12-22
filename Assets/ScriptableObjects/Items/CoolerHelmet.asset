@@ -19,12 +19,12 @@ MonoBehaviour:
     and therefore clearly better" - Filthy casual who never checks gear stats'
   data:
     Name: Black Helmet
-    Id: 7
+    Id: 3
     buffs:
     - attribute: 3
       value: 0
       min: 1
       max: 1
-  armourValue: 1
+  armourBonus: 0
   damageBonus: 0
-  tierGrade: It technically provides armor so E I guess?
+  tierGrade: Technically provides armor

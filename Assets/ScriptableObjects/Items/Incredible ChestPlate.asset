@@ -15,13 +15,13 @@ MonoBehaviour:
   uiDisplay: {fileID: 21300000, guid: d5366f7a7b48eb14e88615c1017bb494, type: 3}
   stackable: 0
   type: 2
-  description: This chestplate is really quite incredible I tell you. It's yuge,
-    the best. So good, nobody knew how good it was! Believe me, tremendous piece
-    of armor like no one has ever seen. Some people say it's the greatest.
+  description: This chestplate is really quite incredible I tell you. Yuge armor,
+    the best. So good, nobody knew how good it was, believe me. It's a tremendous
+    armor like no one has ever seen. Some people, say it's the greatest.
   data:
     Name: Tremendous Chestplate
-    Id: 3
+    Id: 4
     buffs: []
-  armourValue: 1
+  armourBonus: 0
   damageBonus: 0
   tierGrade: Fcking awful
