@@ -1,9 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data.SqlTypes;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(menuName = "ScriptableObject/Player/Stats", fileName = "Stats")]
 public class PlayerStats : ScriptableObject
