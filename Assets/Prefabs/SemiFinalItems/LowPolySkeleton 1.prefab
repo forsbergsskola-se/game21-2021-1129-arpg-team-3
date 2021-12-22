@@ -927,8 +927,6 @@ GameObject:
   - component: {fileID: 41683994697857169}
   - component: {fileID: -8413486687517660858}
   - component: {fileID: 7141254435392659384}
-  - component: {fileID: 8765071337147131466}
-  - component: {fileID: 2332600623780634939}
   - component: {fileID: 544657319158219733}
   m_Layer: 0
   m_Name: LowPolySkeleton 1
@@ -1090,66 +1088,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDelay: 0
---- !u!114 &8765071337147131466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6652567088470929335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 581547862
-      Data2: 1307790276
-      Data3: 965870252
-      Data4: -39093833
-    Path: event:/Enemy/EHit
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!114 &2332600623780634939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6652567088470929335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1239537502
-      Data2: 1104579461
-      Data3: -1385784408
-      Data4: -1530136342
-    Path: event:/Player/SwordHit
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!114 &544657319158219733
 MonoBehaviour:
   m_ObjectHideFlags: 0

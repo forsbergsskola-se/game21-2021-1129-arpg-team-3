@@ -77,23 +77,9 @@ public class PlayerStats : ScriptableObject
 
     public float Experience {
         get => experience;
-        set {
-            experience = value;
-            PlayerLeveling();
-        }
+        set => experience = value;
     }
-    private void PlayerLeveling() {
 
-        if (experience >= MaxExperience) {
-            experience -= MaxExperience;
-            PlayerLevel++;
-            MaxExperience += PlayerLevelMultiplier;
-            WeaponDamage += 3;
-            MaxHealth += 3;
-            Health = MaxHealth;
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Player Death");
-        }
-    }
     public float MaxExperience {
         get => maxExperience;
         set => maxExperience = value;

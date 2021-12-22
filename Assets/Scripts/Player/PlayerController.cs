@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
@@ -25,6 +26,8 @@ public class PlayerController : MonoBehaviour
 	// public Key key;
 	public Attribute[] attributes;
 	public GameObject projectile;
+	private bool show;
+	public TextMeshProUGUI text;
 	
 	private void Awake() {
 		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
@@ -59,6 +62,16 @@ public class PlayerController : MonoBehaviour
 		if (Input.GetMouseButtonUp(1) && Camera.main is not null)  {
 			GameObject temp = Instantiate(projectile, transform.position, transform.rotation);
 			temp.transform.Translate(1, 1, 0);
+		}
+		if (playerStats.Experience >= playerStats.MaxExperience) {
+			playerStats.Experience -= playerStats.MaxExperience;
+			playerStats.PlayerLevel++;
+			playerStats.MaxExperience += playerStats.PlayerLevelMultiplier;
+			playerStats.WeaponDamage += 3;
+			playerStats.MaxHealth += 3;
+			playerStats.Health = playerStats.MaxHealth;
+			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerLevelUp");
+			StartCoroutine(LevelUpText());
 		}
 	}
 	
@@ -273,6 +286,14 @@ public class PlayerController : MonoBehaviour
 		yield return new WaitForSeconds(playerStats.AttackDelay * Time.deltaTime);
 		cannotAttack = true;
 	}
+	private IEnumerator LevelUpText() {
+		show = true;
+		text.text = "LEVEL UP!";
+		yield return new WaitForSeconds(5);
+		show = false;
+		text.text = "";
+	}
+	
 	public void AttributeModified(Attribute attribute)
 	{
 		Debug.Log(string.Concat(attribute.type, " updated. Value is now ", attribute.value.ModifiedValue));
