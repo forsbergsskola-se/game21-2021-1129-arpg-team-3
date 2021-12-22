@@ -195,12 +195,6 @@ GameObject:
   - component: {fileID: 1834260077}
   - component: {fileID: 1834260064}
   - component: {fileID: 7430547610418540585}
-  - component: {fileID: 1834260074}
-  - component: {fileID: 8552936643510911512}
-  - component: {fileID: 1834260086}
-  - component: {fileID: 1834260087}
-  - component: {fileID: 1834260098}
-  - component: {fileID: 1834260089}
   - component: {fileID: 1834260090}
   - component: {fileID: 1834260104}
   - component: {fileID: 1834260118}
@@ -348,9 +342,9 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: 5385c7530d40cf6488c20374f43d8c8e, type: 2}
   equipment: {fileID: 11400000, guid: 979bf74ae15bce6438b73c8ce212a2aa, type: 2}
   inDialogue: 0
-  key: {fileID: 0}
   attributes: []
   projectile: {fileID: 6235091603849702355, guid: c3df2b99b75bbb540a19e6efcba03dc6, type: 3}
+  text: {fileID: 0}
 --- !u!114 &1834260070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,7 +385,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorUnlocked: 0
-  keyDoor: {fileID: 0}
+  keyDoorR: {fileID: 0}
+  keyDoorB: {fileID: 0}
+  keyDoorG: {fileID: 0}
 --- !u!136 &7430547610418540585
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -406,186 +402,6 @@ CapsuleCollider:
   m_Height: 1.595479
   m_Direction: 1
   m_Center: {x: 0, y: 0.39111745, z: 0}
---- !u!114 &1834260074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588858277689648231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -695800353
-      Data2: 1163153459
-      Data3: -1858401145
-      Data4: -259345608
-    Path: event:/Clicks/MainClick
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 0
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!114 &8552936643510911512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588858277689648231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1239537502
-      Data2: 1104579461
-      Data3: -1385784408
-      Data4: -1530136342
-    Path: event:/Player/SwordHit
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 0
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!114 &1834260086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588858277689648231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1584462359
-      Data2: 1143586648
-      Data3: -3832670
-      Data4: -835985562
-    Path: event:/Impacts/Destroy Barrel
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 0
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!114 &1834260087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588858277689648231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1475011811
-      Data2: 1255518407
-      Data3: -581296236
-      Data4: -7297668
-    Path: event:/Item/KeyPickup
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 0
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 5
---- !u!114 &1834260098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588858277689648231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1859562766
-      Data2: 1126071464
-      Data3: 2072591773
-      Data4: -369161239
-    Path: event:/Player/SwordSwing
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 0
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!114 &1834260089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588858277689648231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 831795996
-      Data2: 1225905989
-      Data3: 947672194
-      Data4: -2015730291
-    Path: event:/Player/PlayerHurt
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 0
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!114 &1834260090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1260,14 +1076,14 @@ PrefabInstance:
       objectReference: {fileID: 10650, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 020b7f7421f8fe4428ccf3dadc118dfd, type: 3}
---- !u!1 &8746278072671701111 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 020b7f7421f8fe4428ccf3dadc118dfd, type: 3}
-  m_PrefabInstance: {fileID: 8475893524476179750}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8226622130114187981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 020b7f7421f8fe4428ccf3dadc118dfd, type: 3}
+  m_PrefabInstance: {fileID: 8475893524476179750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8746278072671701111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 020b7f7421f8fe4428ccf3dadc118dfd, type: 3}
   m_PrefabInstance: {fileID: 8475893524476179750}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &361754374957514409
