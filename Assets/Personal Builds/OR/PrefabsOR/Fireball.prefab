@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8349175130103292993}
   - component: {fileID: 7729884078177970513}
   - component: {fileID: 5239525778264021652}
+  - component: {fileID: 6578332882929246731}
   m_Layer: 0
   m_Name: Fireball
   m_TagString: PlayerRange
@@ -98,7 +99,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 20
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7729884078177970513
 Rigidbody:
@@ -108,7 +109,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2035259475522314025}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 1.5
   m_Drag: 0
   m_AngularDrag: 0.1
   m_UseGravity: 1
@@ -128,6 +129,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d022286155c48e4d841f7e426dc2656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6578332882929246731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035259475522314025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 25460447
+      Data2: 1286843307
+      Data3: 29532038
+      Data4: -1468695915
+    Path: event:/Player/FireBall
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &2981828023920734850
 GameObject:
   m_ObjectHideFlags: 0
