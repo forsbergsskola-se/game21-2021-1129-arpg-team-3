@@ -5,7 +5,6 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour {
 	private bool triggered;
 	public TextMeshProUGUI text;
-	private bool show;
 
 	private void Awake() {
 		triggered = false;
@@ -27,10 +26,8 @@ public class Checkpoint : MonoBehaviour {
 	}
 
 	private IEnumerator CheckpointText() {
-		show = true;
 		text.text = "CHECKPOINT";
 		yield return new WaitForSeconds(3);
-		show = false;
 		text.text = "";
 	}
 }

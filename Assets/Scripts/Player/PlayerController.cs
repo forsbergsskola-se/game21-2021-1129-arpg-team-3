@@ -19,11 +19,9 @@ public class PlayerController : MonoBehaviour
 	public InventoryObjects inventory;
 	public InventoryObjects equipment;
 	public bool inDialogue;
-	private bool cannotAttack = true;
+	private bool canAttack = true;
 	// public Key key;
 	public Attribute[] attributes;
-	public GameObject projectile;
-	private bool show;
 	public TextMeshProUGUI text;
 	
 	private void Awake() {
@@ -56,10 +54,6 @@ public class PlayerController : MonoBehaviour
 			TargetCheck();
 		}
 		Interact();
-		if (Input.GetMouseButtonUp(1) && Camera.main is not null)  {
-			GameObject temp = Instantiate(projectile, transform.position, transform.rotation);
-			temp.transform.Translate(1, 1, 0);
-		}
 		if (playerStats.Experience >= playerStats.MaxExperience) {
 			playerStats.Experience -= playerStats.MaxExperience;
 			playerStats.PlayerLevel++;
@@ -231,15 +225,15 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 	private void StartAttacking() {
-		if (cannotAttack) {
-			playerWeapon.GetComponent<Collider>().enabled = false;
-			StartCoroutine(DelayAttack());
-		}
-		else {
+		if (canAttack) {
 			attackAnimation.gameObject.SetActive(true);
 			playerModel.gameObject.SetActive(false);
 			playerWeapon.GetComponent<Collider>().enabled = true;
-			transform.Translate(new Vector3(0, 0, 0));		
+			transform.Translate(new Vector3(0, 0, 0));
+		}
+		else {
+			playerWeapon.GetComponent<Collider>().enabled = false;
+			StartCoroutine(DelayAttack());
 		}
 	}
 	private void StopAttacking() {
@@ -250,7 +244,7 @@ public class PlayerController : MonoBehaviour
 	private void ChangeCursor() {
 		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) {
 			var cursorHit = hitInfo.collider;
-			if (cursorHit.CompareTag("Ground") || cursorHit.CompareTag("Player") || cursorHit.CompareTag("Fire")) {
+			if (cursorHit.CompareTag("Ground") || cursorHit.CompareTag("Player") || cursorHit.CompareTag("Fire") || cursorHit.CompareTag("PlayerRange")) {
 				cursorManagement.CursorChange(1);
 			}
 			else if (cursorHit.CompareTag("Enemy")) {
@@ -279,15 +273,13 @@ public class PlayerController : MonoBehaviour
 	}
 
 	private IEnumerator DelayAttack() {
-		cannotAttack = false;
-		yield return new WaitForSeconds(playerStats.AttackDelay * Time.deltaTime);
-		cannotAttack = true;
+		canAttack = true;
+		yield return new WaitForSeconds(playerStats.AttackDelay);
+		canAttack = false;
 	}
 	private IEnumerator LevelUpText() {
-		show = true;
 		text.text = "LEVEL UP!";
 		yield return new WaitForSeconds(5);
-		show = false;
 		text.text = "";
 	}
 	
