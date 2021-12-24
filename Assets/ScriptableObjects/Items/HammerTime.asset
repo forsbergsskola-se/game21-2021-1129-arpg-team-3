@@ -26,6 +26,10 @@ MonoBehaviour:
       value: 0
       min: 0
       max: 0
+    - attribute: 6
+      value: 0
+      min: 0
+      max: 0
   armourBonus: 0
   damageBonus: 9001
   tierGrade: S+++
