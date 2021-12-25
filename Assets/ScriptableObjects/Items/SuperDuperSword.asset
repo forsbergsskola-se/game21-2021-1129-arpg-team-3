@@ -18,7 +18,7 @@ MonoBehaviour:
   description: '"This is a good sword" - Aragorn II Elessar'
   data:
     Name: '"Good" Sword'
-    Id: 5
+    Id: 7
     buffs:
     - attribute: 1
       value: 0
@@ -28,6 +28,6 @@ MonoBehaviour:
       value: 0
       min: 0
       max: 0
-  armourValue: 0
-  damageBonus: 1
+  armourBonus: 0
+  damageBonus: 2
   tierGrade: NotAGoodSword
