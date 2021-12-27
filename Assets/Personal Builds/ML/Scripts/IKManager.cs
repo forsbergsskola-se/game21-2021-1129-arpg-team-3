@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class IKManager : MonoBehaviour
@@ -8,7 +10,19 @@ public class IKManager : MonoBehaviour
     public float SamplingDistance;
     public float LearningRate;
     public float DistanceThreshold = 1;
-    
+    public Transform target;
+
+
+    private void Awake()
+    {
+        Joints = GetComponentsInChildren<Joint>().ToList();
+    }
+
+    private void OnAnimatorIK(int layerIndex)
+    {
+        
+    }
+
     public Vector3 ForwardKinematics (float [] angles)
     {
         Vector3 prevPoint = Joints[0].transform.position;
@@ -24,7 +38,12 @@ public class IKManager : MonoBehaviour
         return prevPoint;
     }
     
-    
+    private void LateUpdate()
+    {
+    //    List<float> angles = Joints.
+    //    InverseKinematics(target.position, );
+    }
+
     public float DistanceFromTarget(Vector3 target, float [] angles)
     {
         Vector3 point = ForwardKinematics (angles);

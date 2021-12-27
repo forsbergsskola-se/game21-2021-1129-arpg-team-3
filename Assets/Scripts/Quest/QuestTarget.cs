@@ -29,18 +29,11 @@ public class QuestTarget : MonoBehaviour
     {
         if (targetTrigger == TargetTrigger.OnDestroy)
         {
+            Target();
             Destroy(gameObject);
         }
     }
-
-    private void OnDestroy()
-    {
-        if (targetTrigger == TargetTrigger.OnDestroy)
-        {
-            Target();
-        }
-    }
-
+    
     private void Update() 
     {
         if (targetTrigger == TargetTrigger.OnHealthZero)

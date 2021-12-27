@@ -170,7 +170,7 @@ public class FastIKFabric : MonoBehaviour
                     SetRotationRootSpace(Bones[i], Quaternion.FromToRotation(StartDirectionSucc[i], Positions[i + 1] - Positions[i]) * Quaternion.Inverse(StartRotationBone[i]));
                 SetPositionRootSpace(Bones[i], Positions[i]);
             }
-        }
+    }
 
     private Vector3 GetPositionRootSpace(Transform current)
     {

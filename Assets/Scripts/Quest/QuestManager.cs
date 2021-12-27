@@ -10,7 +10,7 @@ public class QuestManager : MonoBehaviour
     [SerializeField] private RawImage questLogPanel;
     
     private Canvas keepQuest;
-    private KeyCode openLogKey = KeyCode.F3;
+    private readonly KeyCode openLogKey = KeyCode.F3;
 
     private readonly Vector3 buttonStartPos = new (-158, 168);
     private readonly float buttonIncrement = 7;
