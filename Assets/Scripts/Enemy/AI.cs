@@ -38,9 +38,9 @@ public class AI : MonoBehaviour
         {
             SetupAttack = false;
             attack.AttackAnimation = attackAnimation;
-            var targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
+            // var targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
             // Smoothly rotate towards the target point.
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 90 * Time.deltaTime);            
+            // transform.rotation = Quaternion.Slerp(transform.rotation.normalized, targetRotation.normalized, 180 * Time.deltaTime);            
             showHealthBar = true;
         }
         
