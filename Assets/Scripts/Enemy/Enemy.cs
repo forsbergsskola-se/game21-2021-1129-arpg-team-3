@@ -60,10 +60,11 @@ public class Enemy : MonoBehaviour {
 		Instantiate(smoke, transform.position, Quaternion.identity);
 		RandomDrop();
 		Debug.Log("Enemy is Dead");
+		Destroy(gameObject);
 	}
 
 	private void RandomDrop() {
-		var choice = Random.Range(0, 3);
+		var choice = Random.Range(2, 3);
 		switch (choice) {
 			case <= 1:
 				Instantiate(drop, transform.position, quaternion.identity);

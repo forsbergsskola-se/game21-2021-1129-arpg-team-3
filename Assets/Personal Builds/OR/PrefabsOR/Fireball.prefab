@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d022286155c48e4d841f7e426dc2656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 4
 --- !u!114 &6578332882929246731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,7 +334,7 @@ TrailRenderer:
   m_GameObject: {fileID: 2981828024513487888}
   m_Enabled: 1
   m_CastShadows: 0
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 0
@@ -365,7 +366,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 2
+  m_Time: 5
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -445,7 +446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_moveObject: {fileID: 2981828024513487902}
   m_shaderPropertyName: _MoveToMaterialUV
-  m_shaderPropertyID: 853
+  m_shaderPropertyID: 862
   m_materialData:
   - m_trailRenderer: {fileID: 2981828024513487903}
     m_uvTiling: {x: 1, y: 1}
@@ -501,7 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_moveObject: {fileID: 2981828024694101741}
   m_shaderPropertyName: _MoveToMaterialUV
-  m_shaderPropertyID: 853
+  m_shaderPropertyID: 862
   m_materialData:
   - m_trailRenderer: {fileID: 2981828024513487903}
     m_uvTiling: {x: 1, y: 1}
@@ -517,7 +518,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2981828024694101729}
   serializedVersion: 8
-  lengthInSec: 8
+  lengthInSec: 10
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -584,7 +585,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 2
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -1212,7 +1213,7 @@ ParticleSystem:
     m_SpriteRenderer: {fileID: 0}
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
-    alignToDirection: 0
+    alignToDirection: 1
     m_Texture: {fileID: 2800000, guid: 4f08dc526fc485a4c877d7a2a36a82a6, type: 3}
     m_TextureClipChannel: 0
     m_TextureClipThreshold: 0
@@ -1224,7 +1225,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.3
+      value: 1
       mode: 0
       spread: 0
       speed:
@@ -1343,7 +1344,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.43
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1396,7 +1397,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 12
+      scalar: 16.06
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5258,7 +5259,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 2
+  m_RenderMode: 3
   m_MeshDistribution: 1
   m_SortMode: 1
   m_MinParticleSize: 0

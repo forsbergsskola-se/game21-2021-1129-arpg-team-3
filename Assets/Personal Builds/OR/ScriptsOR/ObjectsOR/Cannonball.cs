@@ -1,11 +1,10 @@
 
 using UnityEngine;
 
-public class Cannonball : MonoBehaviour
-{
-    // Start is called before the first frame update
+public class Cannonball : MonoBehaviour {
+    public float lifeTime;
     void Start()
     {
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, lifeTime);
     }
 }

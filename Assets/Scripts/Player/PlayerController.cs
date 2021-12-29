@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 	public Animator attackAnimation;
 	public GameObject playerModel;
 	private KeyHolder keyHolder;
-	public GameObject playerWeapon;
+	// public GameObject playerWeapon;
 	private GroundItem itemPickup;
 	public InventoryObjects inventory;
 	public InventoryObjects equipment;
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 	// public Key key;
 	public Attribute[] attributes;
 	public TextMeshProUGUI text;
-	
+
 	private void Awake() {
 		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
 		playerStats.InitializePlayerStats();
@@ -192,6 +192,7 @@ public class PlayerController : MonoBehaviour
 				if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange + 0.5) {
 					if (target.CompareTag("Enemy")) {
 						//Attack
+						transform.Translate(new Vector3(0, 0, 0));
 						StartAttacking();
 						// target = null; //Forces player to click again to attack
 						if (Input.GetMouseButtonUp(0) && target.CompareTag("Enemy")) {
@@ -228,13 +229,13 @@ public class PlayerController : MonoBehaviour
 		if (canAttack) {
 			attackAnimation.gameObject.SetActive(true);
 			playerModel.gameObject.SetActive(false);
-			playerWeapon.GetComponent<Collider>().enabled = true;
+			// playerWeapon.GetComponent<Collider>().enabled = true;
 			transform.Translate(new Vector3(0, 0, 0));
+			// StartCoroutine(DelayAttack());
 		}
-		else {
-			playerWeapon.GetComponent<Collider>().enabled = false;
-			StartCoroutine(DelayAttack());
-		}
+		// else {
+		// 	playerWeapon.GetComponent<Collider>().enabled = false;
+		// }
 	}
 	private void StopAttacking() {
 		attackAnimation.gameObject.SetActive(false);
