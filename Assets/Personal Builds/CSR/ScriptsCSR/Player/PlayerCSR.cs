@@ -10,6 +10,9 @@ public class PlayerCSR : MonoBehaviour
 {
     private NavMeshAgent _agent;
     
+    public int health = 3;
+
+    
   
     private void Start ()
     {
@@ -18,6 +21,26 @@ public class PlayerCSR : MonoBehaviour
     }
 
 
+    void collidedWithEnemy(EnemyCSR enemy) {
+        enemy.Attack(this);
+        if(health <= 0) {
+            // Todo 
+        }
+    }
+
+    void OnCollisionEnter (Collision col) {
+        EnemyCSR enemy = col.collider.gameObject.GetComponent<EnemyCSR>();
+        if(enemy) {
+            collidedWithEnemy(enemy);
+        }
+
+    }
+
+    private void Move(Vector3 point)
+    {
+        _agent.SetDestination(point);
+    }
+    
     private void Update()
     {
         if(Input.GetMouseButtonDown(0))
@@ -35,8 +58,5 @@ public class PlayerCSR : MonoBehaviour
             
     }
 
-    private void Move(Vector3 point)
-    {
-        _agent.SetDestination(point);
-    }
+    
 }

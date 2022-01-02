@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class EnemyCSR : MonoBehaviour
 {
-    public int health = 3;
-
+    public float moveSpeed;
+    public int health;
+    public int damage;
+    public Transform targetTransform;
+    
     void collidWithEnemy(Enemy enemy)
     {
         if (health >= 0)
@@ -21,15 +24,23 @@ public class EnemyCSR : MonoBehaviour
         collidWithEnemy(enemy);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    
+    void FixedUpdate () {
+        if(targetTransform != null) {
+            this.transform.position = Vector3.MoveTowards(this.transform.position, targetTransform.transform.position, Time.deltaTime * moveSpeed);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void TakeDamage(int damage) {
+        health -= damage;
+        if(health <= 0) {
+            Destroy(this.gameObject);
+        }
     }
+
+    public void Attack(PlayerCSR player) {
+        player.health -= this.damage;
+        Destroy(this.gameObject);
+    }
+
 }
