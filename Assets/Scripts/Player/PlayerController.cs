@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour
 			}
 			else 
 			{
-				FMODUnity.RuntimeManager.PlayOneShot("event:/Impacts/Destroy Barrel");
+				FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerDeny");
 			}
 		}
 		else 
