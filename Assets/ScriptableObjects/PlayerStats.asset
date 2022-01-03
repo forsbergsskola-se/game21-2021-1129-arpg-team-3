@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   playerArmour: 10
+<<<<<<< Updated upstream
   gold: 100
+=======
+  gold: 0
+>>>>>>> Stashed changes
   score: 0
   mana: 0
   minHealth: 0
