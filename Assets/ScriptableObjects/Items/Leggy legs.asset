@@ -19,16 +19,8 @@ MonoBehaviour:
     body armor part. *Sigh*, they get the job done though.
   data:
     Name: LameLegs
-    Id: 8
-    buffs:
-    - attribute: 3
-      value: 0
-      min: 12
-      max: 15
-    - attribute: 2
-      value: 0
-      min: 10
-      max: 15
-  armourBonus: 0
+    Id: 6
+    buffs: []
+  armourValue: 50
   damageBonus: 0
   tierGrade: A

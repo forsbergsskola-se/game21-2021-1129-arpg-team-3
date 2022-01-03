@@ -19,19 +19,7 @@ MonoBehaviour:
   data:
     Name: Chck-chck Helmet
     Id: 2
-    buffs:
-    - attribute: 1
-      value: 0
-      min: 4
-      max: 5
-    - attribute: 3
-      value: 0
-      min: 17
-      max: 25
-    - attribute: 2
-      value: 0
-      min: 45
-      max: 60
-  armourBonus: 25
-  damageBonus: 5
+    buffs: []
+  armourValue: 999
+  damageBonus: 10
   tierGrade: S+

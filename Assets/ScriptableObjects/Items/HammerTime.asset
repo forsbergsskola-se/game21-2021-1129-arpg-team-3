@@ -24,8 +24,8 @@ MonoBehaviour:
     buffs:
     - attribute: 0
       value: 0
-      min: 2
-      max: 5
+      min: 0
+      max: 0
     - attribute: 6
       value: 0
       min: 0

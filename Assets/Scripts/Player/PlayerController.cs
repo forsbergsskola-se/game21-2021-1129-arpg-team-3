@@ -97,6 +97,8 @@ public class PlayerController : MonoBehaviour
 				break;
 			case InterfaceType.Chest:
 				break;
+			//default:
+				//break;
 		}
 	}
 	public void OnAfterSlotUpdate(InventorySlotS _slot)
