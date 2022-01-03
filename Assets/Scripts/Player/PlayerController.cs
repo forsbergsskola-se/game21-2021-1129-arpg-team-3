@@ -166,13 +166,10 @@ public class PlayerController : MonoBehaviour
 			}
 			else 
 			{
-<<<<<<< Updated upstream
-				FMODUnity.RuntimeManager.PlayOneShot("event:/Impacts/Destroy Barrel");
-=======
 				if (!hitInfo.collider.CompareTag("Player") || !hitInfo.collider.CompareTag("SSword")) {
 					FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerDeny");
+					//invalid object to create?
 				}
->>>>>>> Stashed changes
 			}
 		}
 		else 

@@ -34,9 +34,8 @@ public class PauseMenu : MonoBehaviour
         player.inDialogue = true;
 
     }
-    public void Resume()
-    {
-        
+    public void Resume() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Clicks/UiClick");
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         player.inDialogue = false;
@@ -53,13 +52,15 @@ public class PauseMenu : MonoBehaviour
         equipment.Load();
     }
 
-    public void LoadMenu()
+    public void LoadMainMenu()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Clicks/UiClick");
         Debug.Log("Load me the menu now!");
         SceneManager.LoadScene(0);
     }
     public void QuitGame()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Clicks/UiClick");
         Debug.Log("Quitting diz shiet");
         Application.Quit();
     }

@@ -14,11 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   playerArmour: 10
-<<<<<<< Updated upstream
-  gold: 100
-=======
-  gold: 0
->>>>>>> Stashed changes
+  gold: 500
   score: 0
   mana: 0
   minHealth: 0
@@ -33,3 +29,4 @@ MonoBehaviour:
   attackDelay: 0.5
   combatRotationSpeed: 270
   playerDied: 0
+  secondary: 0

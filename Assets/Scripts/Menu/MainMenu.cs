@@ -6,6 +6,7 @@ public class MainMenu : MonoBehaviour
 	public InventoryObjects inventory;
 	public void NewGame() 
 	{
+		FMODUnity.RuntimeManager.PlayOneShot("event:/Clicks/UiClick");
 		SceneManager.LoadScene(1);
 	}
 	public void LoadGame()
@@ -15,6 +16,7 @@ public class MainMenu : MonoBehaviour
 	}
 	public void ExitGame()
 	{
+		FMODUnity.RuntimeManager.PlayOneShot("event:/Clicks/UiClick");
 		Debug.Log("I'm out, beaches!");
 		Application.Quit();
 	}

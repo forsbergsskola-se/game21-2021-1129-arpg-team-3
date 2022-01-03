@@ -19,7 +19,8 @@ public class PlayerStats : ScriptableObject
     [SerializeField] private float xPMultiplier;
     [SerializeField] private float attackDelay;
     [SerializeField] private float combatRotationSpeed;
-    [SerializeField] private bool playerDied;
+    [SerializeField] private bool playerDied; 
+    public bool secondary;
 
     public bool PlayerDied 
     {
@@ -121,7 +122,7 @@ public class PlayerStats : ScriptableObject
     {
         playerDied = true;
         Debug.Log("Player is Dead");
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Player Death");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerDeath");
         // gold -= 50;
         // SceneManager.LoadScene(1);
     }
