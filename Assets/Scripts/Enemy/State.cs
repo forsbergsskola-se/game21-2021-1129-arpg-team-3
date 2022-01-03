@@ -3,7 +3,8 @@ using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 
-public  class State {
+public  class State 
+{
    public bool patrol;
    public enum STATE
    {
