@@ -18,20 +18,20 @@ MonoBehaviour:
   description: '"Bro, that''s a fucking sweet chestpiece!" - Keith, lvl 80 Bro'
   data:
     Name: Epic ChestPlate
-    Id: 9
+    Id: 5
     buffs:
     - attribute: 4
       value: 0
-      min: 800
-      max: 999
+      min: 80
+      max: 99
     - attribute: 2
       value: 0
       min: 80
       max: 90
-    - attribute: 5
+    - attribute: 3
       value: 0
-      min: -10
-      max: -9
-  armourValue: 15
+      min: 25
+      max: 30
+  armourBonus: 0
   damageBonus: 0
   tierGrade: C
