@@ -40,8 +40,8 @@ public class IKManager : MonoBehaviour
     
     private void LateUpdate()
     {
-    //    List<float> angles = Joints.
-    //    InverseKinematics(target.position, );
+        var angles = Joints.Select(x => x.transform.rotation).ToList();
+        //    InverseKinematics(target.position, );
     }
 
     public float DistanceFromTarget(Vector3 target, float [] angles)

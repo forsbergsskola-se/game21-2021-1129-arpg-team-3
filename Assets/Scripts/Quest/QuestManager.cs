@@ -101,7 +101,7 @@ public class QuestManager : MonoBehaviour
     
     private void ResetLogTexts()
     {
-        var texts = keepQuest.GetComponentsInChildren<TextMeshProUGUI>();
+        var texts = keepQuest.GetComponentsInChildren<TextMeshProUGUI>().ToList();
 
         for (int i = 0; i < 4; i++)
         {

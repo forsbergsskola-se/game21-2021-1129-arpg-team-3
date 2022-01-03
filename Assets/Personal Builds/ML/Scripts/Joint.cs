@@ -11,7 +11,7 @@ public class Joint : MonoBehaviour
     public float MaxAngle;
 
     void Awake ()
-    {
+    { 
         StartOffset = transform.localPosition;
     }
 }
