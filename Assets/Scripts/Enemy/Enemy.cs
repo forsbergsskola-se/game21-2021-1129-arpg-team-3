@@ -3,7 +3,8 @@ using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour 
+{
 	public float maxHealth;
 	public float health;
 	private float armor;
@@ -14,7 +15,8 @@ public class Enemy : MonoBehaviour {
 	public GameObject smoke;
 	public GameObject drop;
 	
-	public float Health {
+	public float Health 
+	{
 		get => health;
 		set {
 			health = value;
@@ -22,34 +24,41 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 	
-	private void Awake() {
+	private void Awake() 
+	{
 		maxHealth = enemySo.EnemyHealth;
 		Health = enemySo.EnemyHealth;
 	}
-	private void LateUpdate() {
+	private void LateUpdate() 
+	{
 		if (Health <= 0) {
 			KillEnemy();
 		}
 	}
 	
-	private void OnTriggerEnter(Collider other) {
-		if (other.gameObject.CompareTag("PlayerWeapon")) {
+	private void OnTriggerEnter(Collider other) 
+	{
+		if (other.gameObject.CompareTag("PlayerWeapon")) 
+		{
 			TakeDamage();
 			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/SwordHit");
 		}
-		else if (other.gameObject.CompareTag("PlayerRange")) {
+		else if (other.gameObject.CompareTag("PlayerRange")) 
+		{
 			TakeDamage();
 			FMODUnity.RuntimeManager.PlayOneShot("event:/Enemy/EHit");
 		}
 	}
 
-	public void TakeDamage() {
+	public void TakeDamage() 
+	{
 		float damageReceived = playerStats.WeaponDamage * Random.Range(0.9f, 1f) - enemySo.EnemyArmor;
 		Health -= damageReceived;
 
 		ShowEnemyDamage(damageReceived);
 	}
-	private void ShowEnemyDamage(float damageReceived) {
+	private void ShowEnemyDamage(float damageReceived) 
+	{
 		DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
 		indicator.SetDamageText(Convert.ToInt32(damageReceived));
 	}
@@ -63,7 +72,8 @@ public class Enemy : MonoBehaviour {
 		Destroy(gameObject);
 	}
 
-	private void RandomDrop() {
+	private void RandomDrop() 
+	{
 		var choice = Random.Range(2, 3);
 		switch (choice) {
 			case <= 1:

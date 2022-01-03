@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHealthBar : MonoBehaviour {
+public class EnemyHealthBar : MonoBehaviour 
+{
 	[SerializeField] Slider slider;
 	[SerializeField] Gradient gradient;
 	
@@ -9,18 +10,22 @@ public class EnemyHealthBar : MonoBehaviour {
 	private Enemy enemy;
 	private AI ai;
 
-	private void Awake() {
+	private void Awake() 
+	{
 		enemy = GetComponentInParent<Enemy>();
 		ai = GetComponentInParent<AI>();
 	}
-	private void Update() {
+	private void Update() 
+	{
 		transform.rotation = Camera.main.transform.rotation;
 	}
 
-	private void LateUpdate() {
+	private void LateUpdate() 
+	{
 		DisableHealthBar();
 		Physics.Raycast(GetCursorPosition(), out var hitInfo);
-		if (hitInfo.collider.CompareTag("Enemy") || ai.showHealthBar) {
+		if (hitInfo.collider.CompareTag("Enemy") || ai.showHealthBar) 
+		{
 			SetMaxHealth();
 			ChangeHealthBar();
 		}
@@ -30,16 +35,19 @@ public class EnemyHealthBar : MonoBehaviour {
 		}
 	}
 
-	private void SetMaxHealth() {
+	private void SetMaxHealth() 
+	{
 		slider.maxValue = enemy.maxHealth;
 		slider.value = enemy.Health;
 		fill.color = gradient.Evaluate(1f);
 	}
-	private void ChangeHealthBar() {
+	private void ChangeHealthBar() 
+	{
 		slider.value = enemy.Health;
 		fill.color = gradient.Evaluate(slider.normalizedValue);
 	}
-	private void DisableHealthBar() {
+	private void DisableHealthBar() 
+	{
 		slider.value = 0;
 		fill.color = Color.clear;
 	}

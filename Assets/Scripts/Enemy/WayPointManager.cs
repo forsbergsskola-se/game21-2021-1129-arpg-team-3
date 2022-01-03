@@ -7,8 +7,8 @@ public struct Link
 {
     public enum Direction
     {
-        UNI,
-        BI
+        //UNI,
+       // BI
     }
 
     public GameObject node1;
@@ -60,8 +60,8 @@ public class WayPointManager : MonoBehaviour
     }
     
     
-    void Update()
-    {
+   // void Update()
+    //{
     //    graph.debugDraw();
-    }
+   // }
 }

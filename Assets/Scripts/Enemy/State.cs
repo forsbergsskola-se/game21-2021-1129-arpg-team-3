@@ -75,10 +75,10 @@ public class Idle : State
       Name = STATE.Idle;
    }
 
-   public override void Enter()
-   {
-      base.Enter();
-   }
+  // public override void Enter()
+   //{
+     // base.Enter();
+   //}
    public override void Update()
    {
       if (Seeing == Seeing.Player)
@@ -93,10 +93,10 @@ public class Idle : State
          Stage = EVENT.Exit;
       }
    }
-   public override void Exit()
-   {
-      base.Exit();
-   }
+   //public override void Exit()
+   //{
+     // base.Exit();
+   //}
 }
 
 
@@ -141,10 +141,10 @@ public class Patrol : State
          Stage = EVENT.Exit;
       }
    }
-   public override void Exit()
-   {
-      base.Exit();
-   }
+   //public override void Exit()
+   //{
+     // base.Exit();
+   //}
 }
 
 public class Wander : State
@@ -177,11 +177,11 @@ public class Wander : State
       Agent.SetDestination(location);
    }
    
-   public override void Enter()
-   {
-      base.Enter();
+  // public override void Enter()
+   //{
+     // base.Enter();
       
-   }
+   //}
    public override void Update()
    {
         SetupWander();
@@ -198,10 +198,10 @@ public class Wander : State
            Stage = EVENT.Exit;
         }
    }
-   public override void Exit()
-   {
-      base.Exit();
-   }
+   //public override void Exit()
+   //{
+     // base.Exit();
+   //}
 }
 
 public class Pursue : State
@@ -237,10 +237,10 @@ public class Pursue : State
          Anim.SetFloat("Speed", 0);
       }
    }
-   public override void Exit()
-   {
-      base.Exit();
-   }
+  // public override void Exit()
+   //{
+     // base.Exit();
+   //}
 }
 
 public class Attack : State
@@ -254,11 +254,11 @@ public class Attack : State
    }
    
    
-   public override void Enter()
-   {
+  // public override void Enter()
+   //{
       
-      base.Enter();
-   }
+     // base.Enter();
+   //}
    public override void Update()
    {
       AttackAnimation.TryAttack(Anim);
@@ -272,8 +272,8 @@ public class Attack : State
    }
    
    
-   public override void Exit()
-   {
-      base.Exit();
-   }
+  // public override void Exit()
+   //{
+     // base.Exit();
+   //}
 }

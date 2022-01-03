@@ -21,14 +21,16 @@ public class PlayerStats : ScriptableObject
     [SerializeField] private float combatRotationSpeed;
     [SerializeField] private bool playerDied;
 
-    public bool PlayerDied {
+    public bool PlayerDied 
+    {
         get => playerDied;
         set => playerDied = value;
     }
     public float CombatRotationSpeed => combatRotationSpeed;
 
     public float AttackDelay => attackDelay;
-    public float Health {
+    public float Health 
+    {
         get => health;
         set {
             health = value;
@@ -36,17 +38,20 @@ public class PlayerStats : ScriptableObject
         }
     }
     
-    public float MaxHealth {
+    public float MaxHealth 
+    {
         get => maxHealth;
         set => maxHealth = value;
     }
     
-    public float PlayerArmour {
+    public float PlayerArmour 
+    {
         get => playerArmour;
         set => playerArmour = value;
     }
 
-    public float Gold {
+    public float Gold 
+    {
         get => gold;
         set => gold = value;
     }
@@ -69,7 +74,8 @@ public class PlayerStats : ScriptableObject
     
     public float MeleeRange => meeleeRange;
 
-    public float Experience {
+    public float Experience 
+    {
         get => experience;
         set => experience = value;
     }
@@ -97,19 +103,22 @@ public class PlayerStats : ScriptableObject
         set => playerLevel = value;
     }
 
-    public void TakeDamage(float damage, GameObject player) {
+    public void TakeDamage(float damage, GameObject player) 
+    {
         Health -= damage;
         if (Health <= 0) {
             KillPlayer();
         }
     }
 
-    public void InitializePlayerStats() {
+    public void InitializePlayerStats() 
+    {
         health = maxHealth;
         playerDied = false;
     }
 
-    public void KillPlayer() {
+    public void KillPlayer() 
+    {
         playerDied = true;
         Debug.Log("Player is Dead");
         FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Player Death");

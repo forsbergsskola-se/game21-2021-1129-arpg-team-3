@@ -8,19 +8,23 @@ public class PlayerProximity : MonoBehaviour
 	private EventInstance instance;
 	public FMODUnity.EventReference fmodEvent;
 	private PlayerStats playerStats;
-	private void Start() {
+	private void Start() 
+	{
 		instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
 		instance.start();
 		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
 	}
-	private void Update() {
-		if (!playerStats.PlayerDied) {
+	private void Update() 
+	{
+		if (!playerStats.PlayerDied) 
+		{
 			float distance = Vector3.Distance(transform.position, threat.transform.position);
 			float hp = playerStats.Health / playerStats.MaxHealth * 100;
 			instance.setParameterByName("Hp",hp);
 			instance.setParameterByName("How Far To Enemy", distance);
 		}
-		else {
+		else 
+		{
 			instance.stop(STOP_MODE.IMMEDIATE);
 			instance.start();
 		}

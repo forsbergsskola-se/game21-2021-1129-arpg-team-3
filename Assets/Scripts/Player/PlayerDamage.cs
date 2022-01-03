@@ -2,7 +2,8 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class PlayerDamage : MonoBehaviour {
+public class PlayerDamage : MonoBehaviour 
+{
 
 	private PlayerStats playerStats;
 	public GameObject damageText;

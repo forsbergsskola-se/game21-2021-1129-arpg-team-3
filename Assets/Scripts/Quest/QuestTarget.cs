@@ -4,7 +4,7 @@ public enum TargetTrigger
 {
     OnDestroy,
     OnHealthZero,
-    None
+   // None
 }
 
 public class QuestTarget : MonoBehaviour

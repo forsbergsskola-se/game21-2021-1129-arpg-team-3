@@ -24,7 +24,8 @@ public class PlayerController : MonoBehaviour
 	public Attribute[] attributes;
 	public TextMeshProUGUI text;
 
-	private void Awake() {
+	private void Awake() 
+	{
 		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
 		playerStats.InitializePlayerStats();
 		keyHolder = GetComponent<KeyHolder>();
@@ -46,15 +47,18 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 	
-	void Update() {
+	void Update() 
+	{
 		GetCursorPosition();
 		ChangeCursor();
-		if (Input.GetMouseButtonUp(0) && Camera.main is not null) {
+		if (Input.GetMouseButtonUp(0) && Camera.main is not null) 
+		{
 			cursorManagement.DeSpawnRallyPoint();
 			TargetCheck();
 		}
 		Interact();
-		if (playerStats.Experience >= playerStats.MaxExperience) {
+		if (playerStats.Experience >= playerStats.MaxExperience) 
+		{
 			playerStats.Experience -= playerStats.MaxExperience;
 			playerStats.PlayerLevel++;
 			playerStats.MaxExperience += playerStats.PlayerLevelMultiplier;
@@ -66,7 +70,8 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 	
-	Ray GetCursorPosition() {
+	Ray GetCursorPosition() 
+	{
 		var ray = Camera.main.ScreenPointToRay(Input.mousePosition); //Fires ray
 		return ray;
 	}
@@ -92,8 +97,8 @@ public class PlayerController : MonoBehaviour
 				break;
 			case InterfaceType.Chest:
 				break;
-			default:
-				break;
+			//default:
+				//break;
 		}
 	}
 	public void OnAfterSlotUpdate(InventorySlotS _slot)
@@ -118,8 +123,8 @@ public class PlayerController : MonoBehaviour
 				break;
 			case InterfaceType.Chest:
 				break;
-			default:
-				break;
+			//default:
+				//break;
 		}
 	}
 
@@ -140,8 +145,10 @@ public class PlayerController : MonoBehaviour
 	}
 
 	
-	private void TargetCheck() {
-		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) {
+	private void TargetCheck() 
+	{
+		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) 
+		{
 			target = hitInfo.collider.transform; //Sets target
 			if ((hitInfo.collider.CompareTag("Ground") || 
 			    hitInfo.collider.CompareTag("Key") || 
@@ -153,19 +160,24 @@ public class PlayerController : MonoBehaviour
 				cursorManagement.SpawnRallyPoint(hitInfo.point);
 				MovePlayer(hitInfo.point); //Moves player to point.
 			}
-			else if (hitInfo.collider.CompareTag("Enemy") || hitInfo.collider.CompareTag("Key")) {
+			else if (hitInfo.collider.CompareTag("Enemy") || hitInfo.collider.CompareTag("Key")) 
+			{
 				MoveAttack();
 			}
-			else {
+			else 
+			{
 				FMODUnity.RuntimeManager.PlayOneShot("event:/Impacts/Destroy Barrel");
 			}
 		}
-		else {
+		else 
+		{
 			Debug.LogWarning("Player RayCast Camera is NULL!");
 		}
 	}
-	private void MovePlayer(Vector3 point) {
-		if (!inDialogue) {
+	private void MovePlayer(Vector3 point) 
+	{
+		if (!inDialogue) 
+		{
 			StopAttacking();
 			agent.stoppingDistance = 0; //resets melee range setting
 			agent.SetDestination(point); //moves player to point
@@ -173,15 +185,18 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	private void MoveAttack() {
+	private void MoveAttack() 
+	{
 		if (Vector3.Distance(this.transform.position, target.position) >= playerStats.MeleeRange) { //only when player is not in melee range of enemy
 			agent.SetDestination(target.position);
 			agent.stoppingDistance = playerStats.MeleeRange -0.5f; //stops player before melee range
 			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/SwordSwing");
 		}
 	}
-	private void Interact() {
-		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) {
+	private void Interact() 
+	{
+		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) 
+		{
 			target = hitInfo.collider.transform; //reset target
 			if (target.CompareTag("Enemy") ||
 			    target.CompareTag("Key") ||
@@ -189,20 +204,24 @@ public class PlayerController : MonoBehaviour
 			    target.CompareTag("Item") ||
 			    target.CompareTag("NPC")) {
 				//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
-				if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange + 0.5) {
-					if (target.CompareTag("Enemy")) {
+				if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange + 0.5) 
+				{
+					if (target.CompareTag("Enemy")) 
+					{
 						//Attack
 						transform.Translate(new Vector3(0, 0, 0));
 						StartAttacking();
 						// target = null; //Forces player to click again to attack
-						if (Input.GetMouseButtonUp(0) && target.CompareTag("Enemy")) {
+						if (Input.GetMouseButtonUp(0) && target.CompareTag("Enemy")) 
+						{
 							var targetRotation = Quaternion.LookRotation(target.transform.position - transform.position);
 							// Smoothly rotate towards the target point.
 							transform.rotation = Quaternion.Slerp(transform.rotation,targetRotation, playerStats.CombatRotationSpeed * Time.deltaTime);
 						}
 					}
 					//debug item pickup
-					else if (target.CompareTag("Item")) {
+					else if (target.CompareTag("Item")) 
+					{
 						itemPickup = target.gameObject.GetComponent<GroundItem>();
 						Item _item = new Item(itemPickup.item);
 						if (inventory.AddItem(_item, 1))
@@ -211,7 +230,8 @@ public class PlayerController : MonoBehaviour
 							itemPickup = null;
 						}
 					}
-					else if (target.CompareTag("Key")) {
+					else if (target.CompareTag("Key")) 
+					{
 						var holder = GetComponent<KeyHolder>();
 						holder.AddKey(target.GetComponent<Key>().GetKeyType());
 						itemPickup = target.gameObject.GetComponent<GroundItem>();
@@ -219,14 +239,17 @@ public class PlayerController : MonoBehaviour
 						Destroy(itemPickup.gameObject);
 					}
 				}
-				if (target is not null && target.CompareTag("Enemy") && target.gameObject.GetComponent<Enemy>().Health <= 0) {
+				if (target is not null && target.CompareTag("Enemy") && target.gameObject.GetComponent<Enemy>().Health <= 0) 
+				{
 					StopAttacking();
 				}
 			}
 		}
 	}
-	private void StartAttacking() {
-		if (canAttack) {
+	private void StartAttacking() 
+	{
+		if (canAttack) 
+		{
 			attackAnimation.gameObject.SetActive(true);
 			playerModel.gameObject.SetActive(false);
 			// playerWeapon.GetComponent<Collider>().enabled = true;
@@ -237,48 +260,61 @@ public class PlayerController : MonoBehaviour
 		// 	playerWeapon.GetComponent<Collider>().enabled = false;
 		// }
 	}
-	private void StopAttacking() {
+	private void StopAttacking() 
+	{
 		attackAnimation.gameObject.SetActive(false);
 		playerModel.gameObject.SetActive(true);
 	}
 	
-	private void ChangeCursor() {
-		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) {
+	private void ChangeCursor() 
+	{
+		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) 
+		{
 			var cursorHit = hitInfo.collider;
-			if (cursorHit.CompareTag("Ground") || cursorHit.CompareTag("Player") || cursorHit.CompareTag("Fire") || cursorHit.CompareTag("PlayerRange")) {
+			if (cursorHit.CompareTag("Ground") || cursorHit.CompareTag("Player") || cursorHit.CompareTag("Fire") || cursorHit.CompareTag("PlayerRange")) 
+			{
 				cursorManagement.CursorChange(1);
 			}
-			else if (cursorHit.CompareTag("Enemy")) {
+			else if (cursorHit.CompareTag("Enemy")) 
+			{
 				cursorManagement.CursorChange(3);
 			}
-			else if (cursorHit.CompareTag("Key") || cursorHit.CompareTag("Item")) {
+			else if (cursorHit.CompareTag("Key") || cursorHit.CompareTag("Item")) 
+			{
 				cursorManagement.CursorChange(4);
 			}
-			else if (cursorHit.CompareTag("Door") && !keyHolder.doorUnlocked) {
+			else if (cursorHit.CompareTag("Door") && !keyHolder.doorUnlocked) 
+			{
 				FMODUnity.RuntimeManager.PlayOneShot("event:/Item/KeyPickup");
 				cursorManagement.CursorChange(6);
 			}
-			else if (cursorHit.CompareTag("Door") && keyHolder.doorUnlocked) {
+			else if (cursorHit.CompareTag("Door") && keyHolder.doorUnlocked) 
+			{
 				cursorManagement.CursorChange(5);
 			}
-			else if (cursorHit.CompareTag("NPC")) {
+			else if (cursorHit.CompareTag("NPC")) 
+			{
 				cursorManagement.CursorChange(7);
 			}
-			else {
+			else 
+			{
 				cursorManagement.CursorChange(8);
 			}
 		}
-		else {
+		else 
+		{
 			Debug.LogWarning("Player RayCast Camera is NULL!");
 		}
 	}
 
-	private IEnumerator DelayAttack() {
+	private IEnumerator DelayAttack() 
+	{
 		canAttack = true;
 		yield return new WaitForSeconds(playerStats.AttackDelay);
 		canAttack = false;
 	}
-	private IEnumerator LevelUpText() {
+	private IEnumerator LevelUpText() 
+	{
 		text.text = "LEVEL UP!";
 		yield return new WaitForSeconds(5);
 		text.text = "";
