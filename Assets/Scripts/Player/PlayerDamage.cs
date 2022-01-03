@@ -8,20 +8,24 @@ public class PlayerDamage : MonoBehaviour {
 	public GameObject damageText;
 	
 	[SerializeField] private float timeToTakeDamage;
-	private float _elapsedTime;
+	private float elapsedTime;
 
 
-	private void Awake() {
+	private void Awake()
+	{
 		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
 	}
-	private void OnCollisionEnter(Collision other) {
-		if (other.gameObject.CompareTag("SSword")) {
+	private void OnCollisionEnter(Collision other)
+	{
+		if (other.gameObject.CompareTag("SSword"))
+		{
 			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/SwordHit");
 			float damageReceived = other.gameObject.GetComponentInParent<Enemy>().enemySo.WeaponDamage * Random.Range(0.9f, 1f) - playerStats.PlayerArmour;
 			ShowPlayerDamage(damageReceived);
 		}
 	}
-	private void ShowPlayerDamage(float damageReceived) {
+	private void ShowPlayerDamage(float damageReceived)
+	{
 		playerStats.TakeDamage(damageReceived, gameObject);
 		FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerHurt");
 		DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
@@ -29,12 +33,12 @@ public class PlayerDamage : MonoBehaviour {
 	}
 	private void OnTriggerStay(Collider other)
 	{
-		_elapsedTime += Time.deltaTime;
+		elapsedTime += Time.deltaTime;
         
-		if (other.gameObject.CompareTag("Fire") && _elapsedTime > timeToTakeDamage)
+		if (other.gameObject.CompareTag("Fire") && elapsedTime > timeToTakeDamage)
 		{
 			playerStats.TakeDamage(1, gameObject);
-			_elapsedTime = 0;
+			elapsedTime = 0;
 			ShowPlayerDamage(1);
 		}
 	}

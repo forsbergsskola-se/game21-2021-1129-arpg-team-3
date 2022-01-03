@@ -51,45 +51,48 @@ public class PlayerStats : ScriptableObject
         set => gold = value;
     }
     
-    public float Mana {
-        get => mana;
-        set => mana = value;
-    }
-
-    public float Score {
-        get => score;
-        set => score = value;
-    }
+    // public float Mana {
+    //     get => mana;
+    //     set => mana = value;
+    // }
+    //
+    // public float Score {
+    //     get => score;
+    //     set => score = value;
+    // }
     
-    public float WeaponDamage {
+    public float WeaponDamage
+    {
         get => weaponDamage;
         set => weaponDamage = value;
     }
     
-    public float MeleeRange {
-        get => meeleeRange;
-    }
+    public float MeleeRange => meeleeRange;
 
     public float Experience {
         get => experience;
         set => experience = value;
     }
 
-    public float MaxExperience {
+    public float MaxExperience 
+    {
         get => maxExperience;
         set => maxExperience = value;
 
     }
-    public float PlayerLevelMultiplier {
+    public float PlayerLevelMultiplier 
+    {
         get => playerLevelMultiplier;
         set => playerLevelMultiplier = value;
     }
     
-    public float XPMultiplier {
+    public float XPMultiplier 
+    {
         get => xPMultiplier;
         set => xPMultiplier = value;
     }
-    public float PlayerLevel {
+    public float PlayerLevel 
+    {
         get => playerLevel;
         set => playerLevel = value;
     }
