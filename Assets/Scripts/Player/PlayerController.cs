@@ -243,7 +243,7 @@ public class PlayerController : MonoBehaviour
 					else if (Input.GetMouseButtonUp(0) && target.CompareTag("NPC")) {
 						messageBox.SetActive(true);
 						messageText.text = target.GetComponent<Message>().message;
-						Time.timeScale = 1f;
+						Time.timeScale = 0f;
 						inDialogue= true;
 					}
 				}
