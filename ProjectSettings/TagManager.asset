@@ -28,6 +28,7 @@ TagManager:
   - NPC
   - MonsterCloset
   - PlayerRange
+  - NPC1
   layers:
   - Default
   - TransparentFX

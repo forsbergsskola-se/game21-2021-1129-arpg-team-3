@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
 	// public Key key;
 	public Attribute[] attributes;
 	public TextMeshProUGUI text;
+	public GameObject messageBox;
+	public TextMeshProUGUI messageText;
 
 	private void Awake() 
 	{
@@ -237,6 +239,12 @@ public class PlayerController : MonoBehaviour
 						itemPickup = target.gameObject.GetComponent<GroundItem>();
 						inventory.AddItem(new Item(itemPickup.item), 1);
 						Destroy(itemPickup.gameObject);
+					}
+					else if (Input.GetMouseButtonUp(0) && target.CompareTag("NPC")) {
+						messageBox.SetActive(true);
+						messageText.text = target.GetComponent<Message>().message;
+						Time.timeScale = 1f;
+						inDialogue= true;
 					}
 				}
 				if (target is not null && target.CompareTag("Enemy") && target.gameObject.GetComponent<Enemy>().Health <= 0) 
