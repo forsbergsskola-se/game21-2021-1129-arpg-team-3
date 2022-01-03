@@ -165,11 +165,11 @@ public class InventorySlotS
     public void UpdateSlots(Item _item, int _amount)
     {
         if (OnBeforeUpdate != null)
-        OnBeforeUpdate.Invoke(this);
+            OnBeforeUpdate.Invoke(this);
         item = _item;
         amount = _amount;
         if (OnAfterUpdate != null)
-       OnAfterUpdate.Invoke(this);
+            OnAfterUpdate.Invoke(this);
     }
     public void AddAmount(int value)
     {
