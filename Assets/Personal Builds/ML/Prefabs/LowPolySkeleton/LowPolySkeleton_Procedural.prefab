@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 751895936103050778}
   - component: {fileID: 6326772792993973397}
+  - component: {fileID: 2334759809489483783}
   m_Layer: 0
   m_Name: Bone_L_Foot_1
   m_TagString: Untagged
@@ -49,6 +50,22 @@ MonoBehaviour:
   StartOffset: {x: 0, y: 0, z: 0}
   MinAngle: 0
   MaxAngle: 0
+--- !u!54 &2334759809489483783
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259103106415767071}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &804594461679160925
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,6 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1616036965718522078}
   - component: {fileID: 1607118715980784827}
+  - component: {fileID: 4708186625186298825}
   m_Layer: 0
   m_Name: Bone_L_Leg_3
   m_TagString: Untagged
@@ -129,6 +147,22 @@ MonoBehaviour:
   StartOffset: {x: 0, y: 0, z: 0}
   MinAngle: 0
   MaxAngle: 0
+--- !u!54 &4708186625186298825
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912900252442401472}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1070972219668015892
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8334463318742144190}
   - component: {fileID: 5645864186811847248}
+  - component: {fileID: 7844717006454011304}
   m_Layer: 0
   m_Name: BoneEnd_L_Foot_2
   m_TagString: Untagged
@@ -210,6 +245,22 @@ MonoBehaviour:
   StartOffset: {x: 0, y: 0, z: 0}
   MinAngle: 0
   MaxAngle: 0
+--- !u!54 &7844717006454011304
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196830630705663504}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1267849564602812866
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +274,7 @@ GameObject:
   - component: {fileID: 2415132947179345652}
   - component: {fileID: 3617189938125710349}
   m_Layer: 0
-  m_Name: Pole1
+  m_Name: Target1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,7 +288,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1267849564602812866}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.112, y: 0.303, z: -0.16}
+  m_LocalPosition: {x: -0.112, y: 0.018, z: 0.389}
   m_LocalScale: {x: 0.071922, y: 0.071922, z: 0.071922}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -350,6 +401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 235022456371114647}
   - component: {fileID: 219894989632511677}
+  - component: {fileID: 2760240114763352049}
   m_Layer: 0
   m_Name: BoneEnd_L_Leg_5
   m_TagString: Untagged
@@ -389,6 +441,22 @@ MonoBehaviour:
   StartOffset: {x: 0, y: 0, z: 0}
   MinAngle: 0
   MaxAngle: 0
+--- !u!54 &2760240114763352049
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145988321253237461}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2197084059413000113
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,6 +565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8498250883240713880}
   - component: {fileID: 7144416418850821384}
+  - component: {fileID: 8406923427689606053}
   m_Layer: 0
   m_Name: Bone_L_Leg_4
   m_TagString: Untagged
@@ -536,6 +605,22 @@ MonoBehaviour:
   StartOffset: {x: 0, y: 0, z: 0}
   MinAngle: 0
   MaxAngle: 0
+--- !u!54 &8406923427689606053
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2830414934971422597}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2944118991850687373
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,7 +805,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3528648802760895927}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd435e0ffbc395a42b5dfad7358b2b70, type: 3}
   m_Name: 
@@ -735,7 +820,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3528648802760895927}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2f9ce5a6d131fc4bbab4074d52ca659, type: 3}
   m_Name: 
@@ -1082,6 +1167,7 @@ MonoBehaviour:
   SamplingDistance: 0
   LearningRate: 0
   DistanceThreshold: 1
+  target: {fileID: 6813560046466709317}
 --- !u!1 &7058780199407565905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,9 +1707,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8539004176925774109}
-  m_LocalRotation: {x: -0.018611819, y: -0.019340819, z: 0.69724625, w: 0.716329}
-  m_LocalPosition: {x: -0.09122923, y: -0.010703811, z: -0.0030926513}
-  m_LocalScale: {x: 1, y: 1, z: 1.000001}
+  m_LocalRotation: {x: -0.018611813, y: -0.01934082, z: 0.6972462, w: 0.716329}
+  m_LocalPosition: {x: -0.09122921, y: -0.010703895, z: -0.0030929039}
+  m_LocalScale: {x: 1.0000006, y: 1.0000004, z: 0.9999999}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8811814461144340325}

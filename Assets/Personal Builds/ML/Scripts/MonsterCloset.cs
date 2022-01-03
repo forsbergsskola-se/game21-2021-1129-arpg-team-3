@@ -80,7 +80,7 @@ public class MonsterCloset : MonoBehaviour
     
     void Update()
     {
-        if (canSpawn && spawnedMonsters <= monstersToSpawn)
+        if (canSpawn && spawnedMonsters < monstersToSpawn)
         {
             SpawnMonster();
         }
