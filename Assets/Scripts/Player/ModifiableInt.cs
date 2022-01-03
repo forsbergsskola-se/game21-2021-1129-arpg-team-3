@@ -8,7 +8,7 @@ public class ModifiableInt
     [SerializeField] private int baseValue;
     public int BaseValue{ get{return baseValue;} set{baseValue = value; UpdateModifiedValue();}}
     [SerializeField] private int modifiedValue;
-    public int ModifiedValue{get{return ModifiedValue;}private set{ModifiedValue = value;}}
+    public int _modifiedValue{get{return _modifiedValue;}private set{_modifiedValue = value;}}
     public List<IModifiers> modifiers = new List<IModifiers>();
 
     public event ModifiedEvent ValueModified;
@@ -36,7 +36,7 @@ public class ModifiableInt
         {
             modifiers[i].AddValue(ref valueToAdd);
         }
-        ModifiedValue = baseValue + valueToAdd;
+        _modifiedValue = baseValue + valueToAdd;
         if(ValueModified != null)
             ValueModified.Invoke();
     }

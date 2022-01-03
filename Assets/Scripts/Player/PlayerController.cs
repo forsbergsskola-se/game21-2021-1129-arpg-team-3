@@ -121,8 +121,6 @@ public class PlayerController : MonoBehaviour
 				break;
 			case InterfaceType.Chest:
 				break;
-			//default:
-				//break;
 		}
 	}
 
@@ -324,7 +322,7 @@ public class PlayerController : MonoBehaviour
 	
 	public void AttributeModified(Attribute attribute)
 	{
-		Debug.Log(string.Concat(attribute.type, " updated. Value is now ", attribute.value.ModifiedValue));
+		Debug.Log(string.Concat(attribute.type, " updated. Value is now ", attribute.value._modifiedValue));
 	}
 }
 
