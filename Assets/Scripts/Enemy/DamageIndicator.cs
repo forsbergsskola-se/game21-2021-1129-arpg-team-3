@@ -15,7 +15,8 @@ public class DamageIndicator : MonoBehaviour
     private float timer;
     
     
-    void Awake() {
+    void Awake() 
+    {
         inipos = transform.position;
         float dist = Random.Range(minDist, maxDist);
         targetPos = inipos +  new Vector3(dist,dist,0);
