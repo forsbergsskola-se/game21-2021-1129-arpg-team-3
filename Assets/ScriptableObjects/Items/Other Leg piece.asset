@@ -18,16 +18,8 @@ MonoBehaviour:
   description: '*Sigh*, it''s a leg piece, but different from the other one I suppose...'
   data:
     Name: Scifi legs
-    Id: 9
-    buffs:
-    - attribute: 3
-      value: 0
-      min: 5
-      max: 9
-    - attribute: 2
-      value: 0
-      min: 10
-      max: 15
-  armourBonus: 0
+    Id: 8
+    buffs: []
+  armourValue: 14
   damageBonus: 0
   tierGrade: L

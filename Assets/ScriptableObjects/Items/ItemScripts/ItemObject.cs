@@ -13,10 +13,12 @@ public enum ItemTypeS
 public enum Attributes
 {
     AtkSpd,
-    Damage,
+    Dmg,
     HP,
-    Armor,
-    Appearance
+    Def,
+    Appearance,
+    Int,
+    Sta
 }
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory System/Items/Item")]
 public class ItemObject : ScriptableObject
@@ -77,6 +79,6 @@ public class ItemBuff: IModifiers
     }
     public void GenerateValue()
     {
-        value = Random.Range(min, max);
+        value = UnityEngine.Random.Range(min, max);
     }
 }

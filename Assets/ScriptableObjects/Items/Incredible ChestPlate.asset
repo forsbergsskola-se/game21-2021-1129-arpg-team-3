@@ -21,15 +21,7 @@ MonoBehaviour:
   data:
     Name: Tremendous Chestplate
     Id: 4
-    buffs:
-    - attribute: 3
-      value: 0
-      min: 5
-      max: 10
-    - attribute: 2
-      value: 0
-      min: 10
-      max: 12
+    buffs: []
   armourBonus: 1
   damageBonus: 0
-  tierGrade: No bueno
+  tierGrade: Fcking awful
