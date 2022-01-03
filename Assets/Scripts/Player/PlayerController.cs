@@ -166,7 +166,9 @@ public class PlayerController : MonoBehaviour
 			}
 			else 
 			{
-				FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerDeny");
+				if (!hitInfo.collider.CompareTag("Player")) {
+					FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerDeny");
+				}
 			}
 		}
 		else 
