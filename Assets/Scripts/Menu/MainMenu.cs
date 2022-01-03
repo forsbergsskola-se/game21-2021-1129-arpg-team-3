@@ -6,6 +6,7 @@ public class MainMenu : MonoBehaviour
 	public InventoryObjects inventory;
 	public void NewGame() 
 	{
+		Time.timeScale = 1f;
 		FMODUnity.RuntimeManager.PlayOneShot("event:/Clicks/UiClick");
 		SceneManager.LoadScene(1);
 	}
