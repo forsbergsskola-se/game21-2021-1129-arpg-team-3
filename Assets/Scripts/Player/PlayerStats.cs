@@ -121,7 +121,7 @@ public class PlayerStats : ScriptableObject
     {
         playerDied = true;
         Debug.Log("Player is Dead");
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerDeath");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Player Death");
         // gold -= 50;
         // SceneManager.LoadScene(1);
     }
