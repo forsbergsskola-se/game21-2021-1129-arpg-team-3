@@ -32,6 +32,7 @@ public class DeathMenu : MonoBehaviour
     }
     public void Resume()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Clicks/UiClick");
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gamePaused = false;
@@ -41,12 +42,14 @@ public class DeathMenu : MonoBehaviour
     
     public void LoadMenu()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Clicks/UiClick");
         Debug.Log("Load me the menu now!");
         //Can load Main Menu scene on click when we add Menu scene
         SceneManager.LoadScene(0);
     }
     public void QuitGame()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Clicks/UiClick");
         Debug.Log("Quitting diz shiet");
         Application.Quit();
     }

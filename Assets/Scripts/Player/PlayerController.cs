@@ -164,7 +164,10 @@ public class PlayerController : MonoBehaviour
 			}
 			else 
 			{
-				FMODUnity.RuntimeManager.PlayOneShot("event:/Impacts/Destroy Barrel");
+				if (!hitInfo.collider.CompareTag("Player") || !hitInfo.collider.CompareTag("SSword")) {
+					FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerDeny");
+					//invalid object to create?
+				}
 			}
 		}
 		else 
@@ -200,7 +203,8 @@ public class PlayerController : MonoBehaviour
 			    target.CompareTag("Key") ||
 			    target.CompareTag("Door") ||
 			    target.CompareTag("Item") ||
-			    target.CompareTag("NPC")) {
+			    target.CompareTag("NPC")) 
+			{
 				//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
 				if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange + 0.5) 
 				{
@@ -273,7 +277,7 @@ public class PlayerController : MonoBehaviour
 			{
 				cursorManagement.CursorChange(1);
 			}
-			else if (cursorHit.CompareTag("Enemy")) 
+			else if (cursorHit.CompareTag("Enemy") || cursorHit.CompareTag("SSword")) 
 			{
 				cursorManagement.CursorChange(3);
 			}

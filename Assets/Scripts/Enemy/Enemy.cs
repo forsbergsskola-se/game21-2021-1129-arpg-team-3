@@ -6,19 +6,19 @@ using Random = UnityEngine.Random;
 public class Enemy : MonoBehaviour 
 {
 	public float maxHealth;
-	public float health;
-	private float armor;
-	
 	public GameObject damageText;
 	public PlayerStats playerStats;
 	public EnemySO enemySo;
 	public GameObject smoke;
 	public GameObject drop;
 	
+	private float health;
+	private float armor;
+	
 	public float Health 
 	{
 		get => health;
-		set {
+		private set {
 			health = value;
 			health = Mathf.Clamp(health, 0, maxHealth);
 		}
