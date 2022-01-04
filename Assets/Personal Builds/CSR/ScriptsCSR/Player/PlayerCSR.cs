@@ -8,10 +8,16 @@ using UnityEngine.AI;
 
 public class PlayerCSR : MonoBehaviour
 {
+    
+    
     private NavMeshAgent _agent;
+
+    private bool jumpKeyWasPressed;
+    private float horizontalInput;
+    private Rigidbody rigitbodyComponenet;
+    private int superJumpsRemaining;
     
     public int health = 3;
-
     
   
     private void Start ()
@@ -56,6 +62,24 @@ public class PlayerCSR : MonoBehaviour
 
         }
             
+    }
+    
+    
+    private void FixedUpdate()
+    {
+       
+
+        if (jumpKeyWasPressed)
+        {
+            float jumpPower = 5f;
+            if (superJumpsRemaining > 0)
+            {
+                jumpPower *= 2;
+                superJumpsRemaining--;
+            }
+            rigitbodyComponenet.AddForce(Vector3.up * jumpPower, ForceMode.VelocityChange);
+            jumpKeyWasPressed = false;
+        }
     }
 
     
