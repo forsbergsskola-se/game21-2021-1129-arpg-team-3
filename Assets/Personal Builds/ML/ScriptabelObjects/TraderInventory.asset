@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TraderInventory
   m_EditorClassIdentifier: 
   savePath: 
-  database: {fileID: 0}
+  database: {fileID: 11400000, guid: 48ed96adb9a3f544fb77e0599367394c, type: 2}
   type: 0
   Container:
     Slots:
@@ -21,5 +21,9 @@ MonoBehaviour:
       item:
         Name: 
         Id: 0
-        buffs: []
+        buffs:
+        - attribute: 0
+          value: 0
+          min: 0
+          max: 0
       amount: 0
