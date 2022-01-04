@@ -1,9 +1,13 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
-{
+public class MainMenu : MonoBehaviour {
+	public Texture2D arrowCursor;
 	public InventoryObjects inventory;
+	private void Awake() {
+		Cursor.SetCursor(arrowCursor, Vector2.zero, CursorMode.Auto);
+	}
 	public void NewGame() 
 	{
 		Time.timeScale = 1f;
