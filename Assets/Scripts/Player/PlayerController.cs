@@ -189,7 +189,7 @@ public class PlayerController : MonoBehaviour
 
 	private void MoveAttack() 
 	{
-		if (Vector3.Distance(this.transform.position, target.position) >= playerStats.MeleeRange) { //only when player is not in melee range of enemy
+		if (Vector3.Distance(transform.position, target.position) >= playerStats.MeleeRange) { //only when player is not in melee range of enemy
 			agent.SetDestination(target.position);
 			agent.stoppingDistance = playerStats.MeleeRange; //stops player before melee range
 		}
@@ -206,7 +206,7 @@ public class PlayerController : MonoBehaviour
 			    target.CompareTag("NPC")) 
 			{
 				//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
-				if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange + 0.5) 
+				if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange + 1) 
 				{
 					if (target.CompareTag("Enemy")) 
 					{
