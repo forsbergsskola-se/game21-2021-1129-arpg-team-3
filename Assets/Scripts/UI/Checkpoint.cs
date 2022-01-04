@@ -5,7 +5,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour {
 	private bool triggered;
 	public TextMeshProUGUI text;
-	public GameObject effect;
+	// public GameObject effect;
 
 	private void Awake() {
 		triggered = false;
@@ -17,7 +17,7 @@ public class Checkpoint : MonoBehaviour {
 				Trigger();
 				other.gameObject.GetComponent<SpawnControl>().spawnPosition = transform.position;
 				FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerCheckpoint");
-				effect.GetComponent<ParticleSystem>().Play();
+				// effect.GetComponent<ParticleSystem>().Play();
 				StartCoroutine(CheckpointText());
 			}
 		}
