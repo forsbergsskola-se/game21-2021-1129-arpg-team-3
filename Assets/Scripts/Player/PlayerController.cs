@@ -152,13 +152,14 @@ public class PlayerController : MonoBehaviour
 			    hitInfo.collider.CompareTag("Key") || 
 			    hitInfo.collider.CompareTag("Door") ||
 			    hitInfo.collider.CompareTag("Fire") ||
-			    hitInfo.collider.CompareTag("Item")) &&
+			    hitInfo.collider.CompareTag("Item") ||
+			    !hitInfo.collider.CompareTag("NPC")) &&			    
 			    !inDialogue)
 			{ 
 				cursorManagement.SpawnRallyPoint(hitInfo.point);
 				MovePlayer(hitInfo.point); //Moves player to point.
 			}
-			else if (hitInfo.collider.CompareTag("Enemy") || hitInfo.collider.CompareTag("Key")) 
+			else if (hitInfo.collider.CompareTag("Enemy") || hitInfo.collider.CompareTag("Key") || hitInfo.collider.CompareTag("NPC")) 
 			{
 				MoveAttack();
 			}
@@ -190,8 +191,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if (Vector3.Distance(this.transform.position, target.position) >= playerStats.MeleeRange) { //only when player is not in melee range of enemy
 			agent.SetDestination(target.position);
-			agent.stoppingDistance = playerStats.MeleeRange -0.5f; //stops player before melee range
-			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/SwordSwing");
+			agent.stoppingDistance = playerStats.MeleeRange; //stops player before melee range
 		}
 	}
 	private void Interact() 
