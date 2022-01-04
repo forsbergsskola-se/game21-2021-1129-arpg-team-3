@@ -9,13 +9,12 @@ public class GainSecondary : MonoBehaviour
 	public TextMeshProUGUI text;
 	public GameObject effect;
 
-	private void OnTriggerEnter(Collider other)
-	{
-		if (other.gameObject.CompareTag("Player")) {
-			other.GetComponent<PlayerStatsLoader>().playerStats.secondary = true;
-			StartCoroutine(MessageText());
-			effect.GetComponent<ParticleSystem>().Play();
-		}
+	private void OnTriggerEnter(Collider other) {
+		if (!other.gameObject.CompareTag("Player"))
+			return;
+		other.GetComponent<PlayerStatsLoader>().playerStats.secondary = true;
+		StartCoroutine(MessageText());
+		effect.GetComponent<ParticleSystem>().Play();
 	}
 	private IEnumerator MessageText() {
 		text.text = "FIREBALL ENABLED! RIGHT CLICK TO FIRE!";

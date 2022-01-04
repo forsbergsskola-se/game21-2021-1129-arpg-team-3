@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
 		}
 	}
 
-	public void TakeDamage(float multiplier) 
+	private void TakeDamage(float multiplier) 
 	{
 		float damageReceived = playerStats.WeaponDamage * multiplier * Random.Range(0.9f, 1f) - enemySo.EnemyArmor;
 		Health -= damageReceived;

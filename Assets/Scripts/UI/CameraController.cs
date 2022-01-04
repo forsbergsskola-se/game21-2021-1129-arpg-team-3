@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour {
 	
 	Vector3 offset;
 	private Vector3 previousPosition;
-	Vector3 _velocity = Vector3.zero;
+	Vector3 velocity = Vector3.zero;
 
 	private void Start() {
 		offset = transform.position - player.position;
@@ -26,7 +26,7 @@ public class CameraController : MonoBehaviour {
 		//Smooth Chase Camera
 		var position = player.position;
 		var targetPosition = position + offset;
-		transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref _velocity, smoothTime);
+		transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
 		
 		//Camera rotates horizontally with A & D keys
 		transform.RotateAround(position, player.up, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed);
@@ -49,12 +49,12 @@ public class CameraController : MonoBehaviour {
 		if (Input.GetMouseButtonDown(2)) {
 			previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
 		}
-		if (Input.GetMouseButton(2)) {
-			Vector3 direction = previousPosition - cam.ScreenToViewportPoint(Input.mousePosition);
-			cam.transform.position = player.position + offset;
-			cam.transform.Rotate(new Vector3(0,0.1f,0),-direction.x*90,Space.World);
-			cam.transform.Translate(new Vector3(0,0,0));
-			previousPosition = Camera.main.ScreenToViewportPoint(Input.mousePosition);        
-		}
+		if (!Input.GetMouseButton(2))
+			return;
+		Vector3 direction = previousPosition - cam.ScreenToViewportPoint(Input.mousePosition);
+		cam.transform.position = player.position + offset;
+		cam.transform.Rotate(new Vector3(0,0.1f,0),-direction.x*90,Space.World);
+		cam.transform.Translate(new Vector3(0,0,0));
+		previousPosition = Camera.main.ScreenToViewportPoint(Input.mousePosition);
 	}
 }

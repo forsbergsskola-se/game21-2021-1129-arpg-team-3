@@ -14,6 +14,7 @@ public class SpawnControl : MonoBehaviour
 	public void Respawn() 
 	{
 		transform.position = spawnPosition; 
-		playerStats.InitializePlayerStats();
+		playerStats.Health = playerStats.MaxHealth;
+		playerStats.PlayerDied = false;
 	}
 }

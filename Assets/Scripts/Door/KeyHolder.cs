@@ -33,7 +33,7 @@ public class KeyHolder : MonoBehaviour
         OnKeysChanged?.Invoke(this, EventArgs.Empty);
     }
 
-    public bool ContainsKey(Key.KeyType keyType)
+    private bool ContainsKey(Key.KeyType keyType)
     {
         return keyList.Contains(keyType);
     }

@@ -12,15 +12,15 @@ public class Checkpoint : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter(Collider other) {
-		if (!triggered) {
-			if (other.gameObject.CompareTag("Player")) {
-				Trigger();
-				other.gameObject.GetComponent<SpawnControl>().spawnPosition = transform.position;
-				FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerCheckpoint");
-				// effect.GetComponent<ParticleSystem>().Play();
-				StartCoroutine(CheckpointText());
-			}
-		}
+		if (triggered)
+			return;
+		if (!other.gameObject.CompareTag("Player"))
+			return;
+		Trigger();
+		other.gameObject.GetComponent<SpawnControl>().spawnPosition = transform.position;
+		FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerCheckpoint");
+		// effect.GetComponent<ParticleSystem>().Play();
+		StartCoroutine(CheckpointText());
 	}
 
 	private void Trigger() {

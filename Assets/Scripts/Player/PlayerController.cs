@@ -37,9 +37,8 @@ public class PlayerController : MonoBehaviour
 	{
 		agent = GetComponent<NavMeshAgent>();
 		DialogueReader.OnStartEndDialogue += StartEndDialogue;
-		for (int i = 0; i < attributes.Length; i++)
-		{
-			attributes[i].SetParent(this);
+		foreach (var t in attributes) {
+			t.SetParent(this);
 		}
 
 		for (int i = 0; i < equipment.GetSlots.Length; i++)
@@ -59,25 +58,23 @@ public class PlayerController : MonoBehaviour
 	}
 	private void PlayerInput() {
 
-		if (Input.GetMouseButtonUp(0) && Camera.main is not null) {
-			cursorManagement.DeSpawnRallyPoint();
-			TargetCheck();
-		}
+		if (!Input.GetMouseButtonUp(0) || Camera.main is null)
+			return;
+		cursorManagement.DeSpawnRallyPoint();
+		TargetCheck();
 	}
-	private void LevellingCheck()
-	{
-		if (playerStats.Experience >= playerStats.MaxExperience)
-		{
-			playerStats.Experience -= playerStats.MaxExperience;
-			playerStats.PlayerLevel++;
-			playerStats.MaxExperience += playerStats.PlayerLevelMultiplier;
-			playerStats.WeaponDamage += 5;
-			playerStats.MaxHealth += 5;
-			playerStats.Health = playerStats.MaxHealth;
-			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerLevelUp");
-			effect.GetComponent<ParticleSystem>().Play();
-			StartCoroutine(LevelUpText());
-		}
+	private void LevellingCheck() {
+		if (playerStats.Experience <= playerStats.MaxExperience)
+			return;
+		playerStats.Experience -= playerStats.MaxExperience;
+		playerStats.PlayerLevel++;
+		playerStats.MaxExperience += playerStats.PlayerLevelMultiplier;
+		playerStats.WeaponDamage += 5;
+		playerStats.MaxHealth += 5;
+		playerStats.Health = playerStats.MaxHealth;
+		FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerLevelUp");
+		effect.GetComponent<ParticleSystem>().Play();
+		StartCoroutine(LevelUpText());
 	}
 
 	Ray GetCursorPosition() 
@@ -119,23 +116,20 @@ public class PlayerController : MonoBehaviour
 			Debug.LogWarning("Player RayCast Camera is NULL!");
 		}
 	}
-	private void MovePlayer(Vector3 point) 
-	{
-		if (!inDialogue) 
-		{
-			StopAttacking();
-			agent.stoppingDistance = 0; //resets melee range setting
-			agent.SetDestination(point); //moves player to point
-			FMODUnity.RuntimeManager.PlayOneShot("event:/Clicks/MainClick");
-		}
+	private void MovePlayer(Vector3 point) {
+		if (inDialogue)
+			return;
+		StopAttacking();
+		agent.stoppingDistance = 0; //resets melee range setting
+		agent.SetDestination(point); //moves player to point
+		FMODUnity.RuntimeManager.PlayOneShot("event:/Clicks/MainClick");
 	}
 
-	private void MoveAttack() 
-	{
-		if (Vector3.Distance(transform.position, target.position) >= playerStats.MeleeRange) { //only when player is not in melee range of enemy
-			agent.SetDestination(target.position);
-			agent.stoppingDistance = playerStats.MeleeRange - 0.5f; //stops player before melee range
-		}
+	private void MoveAttack() {
+		if (!(Vector3.Distance(transform.position, target.position) >= playerStats.MeleeRange))
+			return; //only when player is not in melee range of enemy
+		agent.SetDestination(target.position);
+		agent.stoppingDistance = playerStats.MeleeRange - 0.5f; //stops player before melee range
 	}
 	private void Interact() 
 	{

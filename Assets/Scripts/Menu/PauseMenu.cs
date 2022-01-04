@@ -8,18 +8,16 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public PlayerController player;
     public InventoryHider inventoryHider;
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
+    void Update() {
+        if (!Input.GetKeyDown(KeyCode.Escape))
+            return;
+        if (player.inDialogue)
         {
-            if (player.inDialogue)
-            {
-                Resume();
-            }
-            else 
-            { 
-                Pause();
-            }
+            Resume();
+        }
+        else 
+        { 
+            Pause();
         }
     }
     private void OnApplicationQuit()

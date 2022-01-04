@@ -16,18 +16,16 @@ public class PlayerDamage : MonoBehaviour
 	{
 		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
 	}
-	private void OnCollisionEnter(Collision other)
-	{
-		if (other.gameObject.CompareTag("SSword"))
-		{
-			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/SwordHit");
-			float damageReceived = other.gameObject.GetComponentInParent<Enemy>().enemySo.WeaponDamage * Random.Range(0.9f, 1f) - playerStats.PlayerArmour;
-			ShowPlayerDamage(damageReceived);
-		}
+	private void OnCollisionEnter(Collision other) {
+		if (!other.gameObject.CompareTag("SSword"))
+			return;
+		FMODUnity.RuntimeManager.PlayOneShot("event:/Player/SwordHit");
+		float damageReceived = other.gameObject.GetComponentInParent<Enemy>().enemySo.WeaponDamage * Random.Range(0.9f, 1f) - playerStats.PlayerArmour;
+		ShowPlayerDamage(damageReceived);
 	}
 	private void ShowPlayerDamage(float damageReceived)
 	{
-		playerStats.TakeDamage(damageReceived, gameObject);
+		playerStats.TakeDamage(damageReceived);
 		FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerHurt");
 		DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
 		indicator.SetDamageText(Convert.ToInt32(damageReceived));
@@ -35,12 +33,11 @@ public class PlayerDamage : MonoBehaviour
 	private void OnTriggerStay(Collider other)
 	{
 		elapsedTime += Time.deltaTime;
-        
-		if (other.gameObject.CompareTag("Fire") && elapsedTime > timeToTakeDamage)
-		{
-			playerStats.TakeDamage(1, gameObject);
-			elapsedTime = 0;
-			ShowPlayerDamage(1);
-		}
+
+		if (!other.gameObject.CompareTag("Fire") || !(elapsedTime > timeToTakeDamage))
+			return;
+		playerStats.TakeDamage(1);
+		elapsedTime = 0;
+		ShowPlayerDamage(1);
 	}
 }

@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "ScriptableObject/MessageSO", fileName = "MessageSO")]
 
-public class MessageSO : ScriptableObject {
+public class MessageSO : ScriptableObject 
+{
 	[SerializeField] private string mText;
 	public string MText => mText;
 }

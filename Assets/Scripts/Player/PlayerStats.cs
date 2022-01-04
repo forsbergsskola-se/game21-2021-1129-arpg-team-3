@@ -104,7 +104,7 @@ public class PlayerStats : ScriptableObject
         set => playerLevel = value;
     }
 
-    public void TakeDamage(float damage, GameObject player) 
+    public void TakeDamage(float damage) 
     {
         Health -= damage;
         if (Health <= 0) {
@@ -125,7 +125,7 @@ public class PlayerStats : ScriptableObject
         secondary = false;
     }
 
-    public void KillPlayer() 
+    private void KillPlayer() 
     {
         playerDied = true;
         Debug.Log("Player is Dead");

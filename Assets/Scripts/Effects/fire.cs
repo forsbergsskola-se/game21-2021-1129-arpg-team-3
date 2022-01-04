@@ -3,17 +3,17 @@ using UnityEngine;
 public class fire : MonoBehaviour
 {
     [SerializeField] private float lifeTime;
-    private float _elapsedTime;
+    private float elapsedTime;
 
     private void Start()
     {
-        _elapsedTime = 0;
+        elapsedTime = 0;
     }
 
     private void Update()
     {
-        _elapsedTime += Time.deltaTime;
+        elapsedTime += Time.deltaTime;
       
-        if(lifeTime < _elapsedTime) Destroy(gameObject);
+        if(lifeTime < elapsedTime) Destroy(gameObject);
     }
 }
