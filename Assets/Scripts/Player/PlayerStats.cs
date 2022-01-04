@@ -112,10 +112,17 @@ public class PlayerStats : ScriptableObject
         }
     }
 
-    public void InitializePlayerStats() 
+    public void InitializePlayerStats()
     {
+        maxHealth = 100;
         health = maxHealth;
         playerDied = false;
+        maxExperience = 50;
+        experience = 0;
+        gold = 0;
+        playerLevel = 0;
+        weaponDamage = 20;
+        secondary = false;
     }
 
     public void KillPlayer() 

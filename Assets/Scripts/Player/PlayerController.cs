@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
 	public InventoryObjects inventory;
 	public InventoryObjects equipment;
 	public bool inDialogue;
-	private bool canAttack = true;
 	// public Key key;
 	public Attribute[] attributes;
 	public TextMeshProUGUI text;
@@ -54,13 +53,16 @@ public class PlayerController : MonoBehaviour
 	{
 		GetCursorPosition();
 		ChangeCursor();
-		if (Input.GetMouseButtonUp(0) && Camera.main is not null) 
-		{
+		PlayerInput();
+		Interact();
+		LevellingCheck();
+	}
+	private void PlayerInput() {
+
+		if (Input.GetMouseButtonUp(0) && Camera.main is not null) {
 			cursorManagement.DeSpawnRallyPoint();
 			TargetCheck();
 		}
-		Interact();
-		LevellingCheck();
 	}
 	private void LevellingCheck()
 	{
@@ -83,71 +85,6 @@ public class PlayerController : MonoBehaviour
 		var ray = Camera.main.ScreenPointToRay(Input.mousePosition); //Fires ray
 		return ray;
 	}
-	public void OnBeforeSlotUpdate(InventorySlotS _slot)
-	{
-		if (_slot.ItemObject == null)
-			return;
-		switch (_slot.parent.inventory.type)
-		{
-			case InterfaceType.Inventory:
-				break;
-			case InterfaceType.Equipment:
-				print(string.Concat("Removed ", _slot.ItemObject, " on ", _slot.parent.inventory.type, 
-					", Allowed Items: ", string.Join(", ", _slot.AllowedItems)));
-				for (int i = 0; i < _slot.item.buffs.Length; i++)
-				{
-					for (int j = 0; j < attributes.Length; j++)
-					{
-						if (attributes[j].type == _slot.item.buffs[i].attribute)
-							attributes[j].value.RemoveModifier(_slot.item.buffs[i]);
-					}
-				}
-				break;
-			case InterfaceType.Chest:
-				break;
-		}
-	}
-	public void OnAfterSlotUpdate(InventorySlotS _slot)
-	{
-		if (_slot.ItemObject == null)
-			return;
-		switch (_slot.parent.inventory.type)
-		{
-			case InterfaceType.Inventory:
-				break;
-			case InterfaceType.Equipment:
-				print(string.Concat
-					("Placed ", _slot.ItemObject, " on ", _slot.parent.inventory.type, ", Allowed Items: ", string.Join(", ", _slot.AllowedItems)));
-				for (int i = 0; i < _slot.item.buffs.Length; i++)
-				{
-					for (int j = 0; j < attributes.Length; j++)
-					{
-						if (attributes[j].type == _slot.item.buffs[i].attribute)
-							attributes[j].value.AddModifier(_slot.item.buffs[i]);
-					}
-				}
-				break;
-			case InterfaceType.Chest:
-				break;
-		}
-	}
-
-	private void StartEndDialogue()
-	{
-		if (!inDialogue)
-		{
-			inDialogue = true;
-			agent.isStopped = true;
-			Time.timeScale = 0f;
-		}
-		else
-		{
-			inDialogue = false;
-			agent.isStopped = false;
-			Time.timeScale = 1f;
-		}
-	}
-
 	
 	private void TargetCheck() 
 	{
@@ -197,7 +134,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if (Vector3.Distance(transform.position, target.position) >= playerStats.MeleeRange) { //only when player is not in melee range of enemy
 			agent.SetDestination(target.position);
-			agent.stoppingDistance = playerStats.MeleeRange; //stops player before melee range
+			agent.stoppingDistance = playerStats.MeleeRange - 0.5f; //stops player before melee range
 		}
 	}
 	private void Interact() 
@@ -217,11 +154,10 @@ public class PlayerController : MonoBehaviour
 					if (target.CompareTag("Enemy")) 
 					{
 						//Attack
-						transform.Translate(new Vector3(0, 0, 0));
 						StartAttacking();
-						// target = null; //Forces player to click again to attack
 						if (Input.GetMouseButtonUp(0) && target.CompareTag("Enemy")) 
 						{
+							transform.Translate(new Vector3(0, 0, 0));
 							var targetRotation = Quaternion.LookRotation(target.transform.position - transform.position);
 							// Smoothly rotate towards the target point.
 							transform.rotation = Quaternion.Slerp(transform.rotation,targetRotation, playerStats.CombatRotationSpeed * Time.deltaTime);
@@ -231,8 +167,8 @@ public class PlayerController : MonoBehaviour
 					else if (target.CompareTag("Item")) 
 					{
 						itemPickup = target.gameObject.GetComponent<GroundItem>();
-						Item _item = new Item(itemPickup.item);
-						if (inventory.AddItem(_item, 1))
+						Item item = new Item(itemPickup.item);
+						if (inventory.AddItem(item, 1))
 						{
 							Destroy(itemPickup.gameObject);
 							itemPickup = null;
@@ -262,17 +198,10 @@ public class PlayerController : MonoBehaviour
 	}
 	private void StartAttacking() 
 	{
-		if (canAttack) 
-		{
-			attackAnimation.gameObject.SetActive(true);
-			playerModel.gameObject.SetActive(false);
-			// playerWeapon.GetComponent<Collider>().enabled = true;
-			transform.Translate(new Vector3(0, 0, 0));
-			// StartCoroutine(DelayAttack());
-		}
-		// else {
-		// 	playerWeapon.GetComponent<Collider>().enabled = false;
-		// }
+		attackAnimation.gameObject.SetActive(true);
+		playerModel.gameObject.SetActive(false);
+		transform.Translate(new Vector3(0, 0, 0));
+
 	}
 	private void StopAttacking() 
 	{
@@ -321,11 +250,69 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	private IEnumerator DelayAttack() 
+	private void OnBeforeSlotUpdate(InventorySlotS _slot)
 	{
-		canAttack = true;
-		yield return new WaitForSeconds(playerStats.AttackDelay);
-		canAttack = false;
+		if (_slot.ItemObject == null)
+			return;
+		switch (_slot.parent.inventory.type)
+		{
+			case InterfaceType.Inventory:
+				break;
+			case InterfaceType.Equipment:
+				print(string.Concat("Removed ", _slot.ItemObject, " on ", _slot.parent.inventory.type, 
+					", Allowed Items: ", string.Join(", ", _slot.AllowedItems)));
+				for (int i = 0; i < _slot.item.buffs.Length; i++)
+				{
+					for (int j = 0; j < attributes.Length; j++)
+					{
+						if (attributes[j].type == _slot.item.buffs[i].attribute)
+							attributes[j].value.RemoveModifier(_slot.item.buffs[i]);
+					}
+				}
+				break;
+			case InterfaceType.Chest:
+				break;
+		}
+	}
+	private void OnAfterSlotUpdate(InventorySlotS _slot)
+	{
+		if (_slot.ItemObject == null)
+			return;
+		switch (_slot.parent.inventory.type)
+		{
+			case InterfaceType.Inventory:
+				break;
+			case InterfaceType.Equipment:
+				print(string.Concat
+					("Placed ", _slot.ItemObject, " on ", _slot.parent.inventory.type, ", Allowed Items: ", string.Join(", ", _slot.AllowedItems)));
+				for (int i = 0; i < _slot.item.buffs.Length; i++)
+				{
+					for (int j = 0; j < attributes.Length; j++)
+					{
+						if (attributes[j].type == _slot.item.buffs[i].attribute)
+							attributes[j].value.AddModifier(_slot.item.buffs[i]);
+					}
+				}
+				break;
+			case InterfaceType.Chest:
+				break;
+		}
+	}
+
+	private void StartEndDialogue()
+	{
+		if (!inDialogue)
+		{
+			inDialogue = true;
+			agent.isStopped = true;
+			Time.timeScale = 0f;
+		}
+		else
+		{
+			inDialogue = false;
+			agent.isStopped = false;
+			Time.timeScale = 1f;
+		}
 	}
 	private IEnumerator LevelUpText() 
 	{

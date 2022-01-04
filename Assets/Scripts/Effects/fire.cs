@@ -14,6 +14,6 @@ public class fire : MonoBehaviour
     {
         _elapsedTime += Time.deltaTime;
       
-        if(lifeTime < _elapsedTime) gameObject.SetActive(false);
+        if(lifeTime < _elapsedTime) Destroy(gameObject);
     }
 }

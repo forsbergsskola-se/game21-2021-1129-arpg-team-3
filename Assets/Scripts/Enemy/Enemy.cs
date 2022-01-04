@@ -40,19 +40,19 @@ public class Enemy : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("PlayerWeapon")) 
 		{
-			TakeDamage();
+			TakeDamage(1);
 			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/SwordHit");
 		}
 		else if (other.gameObject.CompareTag("PlayerRange")) 
 		{
-			TakeDamage();
+			TakeDamage(2);
 			FMODUnity.RuntimeManager.PlayOneShot("event:/Enemy/EHit");
 		}
 	}
 
-	public void TakeDamage() 
+	public void TakeDamage(float multiplier) 
 	{
-		float damageReceived = playerStats.WeaponDamage * Random.Range(0.9f, 1f) - enemySo.EnemyArmor;
+		float damageReceived = playerStats.WeaponDamage * multiplier * Random.Range(0.9f, 1f) - enemySo.EnemyArmor;
 		Health -= damageReceived;
 
 		ShowEnemyDamage(damageReceived);
