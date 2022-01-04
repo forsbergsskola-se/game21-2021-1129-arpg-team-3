@@ -5,7 +5,6 @@ public class DeathMenu : MonoBehaviour
 {
     public InventoryObjects inventory;
     public InventoryObjects equipment;
-    private static bool gamePaused = false;
     public GameObject pauseMenuUI;
     public PlayerStats playerStats;
     public PlayerController player;
@@ -27,7 +26,6 @@ public class DeathMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
-        gamePaused = true;
         player.inDialogue = true;
     }
     public void Resume()
@@ -35,7 +33,6 @@ public class DeathMenu : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot("event:/Clicks/UiClick");
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
-        gamePaused = false;
         player.inDialogue = false;
         spawnControl.Respawn();
     }
