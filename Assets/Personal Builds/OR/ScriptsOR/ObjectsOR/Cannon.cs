@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Cannon : MonoBehaviour 
 {
-    public PlayerStats playerStats;
+    private PlayerStats playerStats;
     public GameObject cannonBall;
     public GameObject sword;
     public float shootForce;
@@ -37,7 +37,7 @@ public class Cannon : MonoBehaviour
     }
     private IEnumerator DelaySwing() {
         canSwing = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         canSwing = true;
     }
 }

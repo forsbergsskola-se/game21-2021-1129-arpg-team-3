@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
 	public TextMeshProUGUI text;
 	public GameObject messageBox;
 	public TextMeshProUGUI messageText;
+	public GameObject effect;
 
 	private void Awake() 
 	{
@@ -59,19 +60,24 @@ public class PlayerController : MonoBehaviour
 			TargetCheck();
 		}
 		Interact();
-		if (playerStats.Experience >= playerStats.MaxExperience) 
+		LevellingCheck();
+	}
+	private void LevellingCheck()
+	{
+		if (playerStats.Experience >= playerStats.MaxExperience)
 		{
 			playerStats.Experience -= playerStats.MaxExperience;
 			playerStats.PlayerLevel++;
 			playerStats.MaxExperience += playerStats.PlayerLevelMultiplier;
-			playerStats.WeaponDamage += 3;
-			playerStats.MaxHealth += 3;
+			playerStats.WeaponDamage += 5;
+			playerStats.MaxHealth += 5;
 			playerStats.Health = playerStats.MaxHealth;
 			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerLevelUp");
+			effect.GetComponent<ParticleSystem>().Play();
 			StartCoroutine(LevelUpText());
 		}
 	}
-	
+
 	Ray GetCursorPosition() 
 	{
 		var ray = Camera.main.ScreenPointToRay(Input.mousePosition); //Fires ray
