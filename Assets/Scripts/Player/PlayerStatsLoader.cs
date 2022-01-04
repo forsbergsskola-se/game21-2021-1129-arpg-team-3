@@ -11,5 +11,6 @@ public class PlayerStatsLoader : MonoBehaviour
 		playerStats.Experience = 0;
 		playerStats.Gold = 0;
 		playerStats.PlayerLevel = 0;
+		playerStats.WeaponDamage = 20;
 	}
 }
