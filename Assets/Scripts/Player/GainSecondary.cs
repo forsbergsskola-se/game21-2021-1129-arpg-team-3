@@ -12,7 +12,6 @@ public class GainSecondary : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.CompareTag("Player")) {
-			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/FireBall");
 			other.GetComponent<PlayerStatsLoader>().playerStats.secondary = true;
 			StartCoroutine(MessageText());
 			effect.GetComponent<ParticleSystem>().Play();
