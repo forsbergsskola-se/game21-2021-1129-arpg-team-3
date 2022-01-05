@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
 		TargetCheck();
 	}
 	private void LevellingCheck() {
-		if (playerStats.Experience <= playerStats.MaxExperience)
+		if (playerStats.Experience < playerStats.MaxExperience)
 			return;
 		playerStats.Experience -= playerStats.MaxExperience;
 		playerStats.PlayerLevel++;
@@ -89,17 +89,17 @@ public class PlayerController : MonoBehaviour
 		{
 			target = hitInfo.collider.transform; //Sets target
 			if ((hitInfo.collider.CompareTag("Ground") || 
-			    hitInfo.collider.CompareTag("Key") || 
-			    hitInfo.collider.CompareTag("Door") ||
-			    hitInfo.collider.CompareTag("Fire") ||
-			    hitInfo.collider.CompareTag("Item") ||
-			    !hitInfo.collider.CompareTag("NPC")) &&			    
+			     hitInfo.collider.CompareTag("Door") || 
+			     hitInfo.collider.CompareTag("Fire")) &&			    
 			    !inDialogue)
 			{ 
 				cursorManagement.SpawnRallyPoint(hitInfo.point);
 				MovePlayer(hitInfo.point); //Moves player to point.
 			}
-			else if (hitInfo.collider.CompareTag("Enemy") || hitInfo.collider.CompareTag("Key") || hitInfo.collider.CompareTag("NPC")) 
+			else if (hitInfo.collider.CompareTag("Enemy") || 
+			         hitInfo.collider.CompareTag("Key") || 
+			         hitInfo.collider.CompareTag("NPC") ||
+			         hitInfo.collider.CompareTag("Item")) 
 			{
 				MoveAttack();
 			}
@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
 		if (!(Vector3.Distance(transform.position, target.position) >= playerStats.MeleeRange))
 			return; //only when player is not in melee range of enemy
 		agent.SetDestination(target.position);
-		agent.stoppingDistance = playerStats.MeleeRange - 0.5f; //stops player before melee range
+		agent.stoppingDistance = playerStats.MeleeRange; //stops player before melee range
 	}
 	private void Interact() 
 	{
@@ -143,7 +143,7 @@ public class PlayerController : MonoBehaviour
 			    target.CompareTag("NPC")) 
 			{
 				//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
-				if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange + 1) 
+				if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange) 
 				{
 					if (target.CompareTag("Enemy")) 
 					{
@@ -157,7 +157,7 @@ public class PlayerController : MonoBehaviour
 							transform.rotation = Quaternion.Slerp(transform.rotation,targetRotation, playerStats.CombatRotationSpeed * Time.deltaTime);
 						}
 					}
-					//debug item pickup
+					//item pickup
 					else if (target.CompareTag("Item")) 
 					{
 						itemPickup = target.gameObject.GetComponent<GroundItem>();
