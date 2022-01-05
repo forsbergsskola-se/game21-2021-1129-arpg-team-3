@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class TradeInterface : UserInterface
 {
     [SerializeField] private int discountMarkup;
     public GameObject inventoryPrefab;
+    [SerializeField] Image buySellPanel;
     public List <ItemObject> itemToAdd;
     public List<ItemHolder> items;
     public GameObject itemInfoDisplay;
@@ -66,7 +68,11 @@ public class TradeInterface : UserInterface
 
     private void OnPointerClick(GameObject obj)
     {
-        obj.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(0, 1, 0, 1);
+        var test = inventory.GetSlots
+            .Where(x => x.slotDisplay.transform.position != obj.transform.position).ToList()
+            .Select(x => x.slotDisplay.transform.GetComponentsInChildren<Image>()[0].color = new Color(1, 1, 1, 1)).ToList();
+
+        obj.transform.GetComponentsInChildren<Image>()[0].color = new Color(0, 1, 0, 1);
         var buyButton = GameObject.FindWithTag("BuyButton").GetComponent<Button>();
         buyButton.interactable = true;
         buyButton.onClick.AddListener(() => BuyButtonClick(obj));
