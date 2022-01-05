@@ -17,7 +17,17 @@ MonoBehaviour:
   type: 0
   Container:
     Slots:
-    - AllowedItems: 00000000
+    - AllowedItems: 
+      item:
+        Name: 
+        Id: 0
+        buffs:
+        - attribute: 0
+          value: 0
+          min: 0
+          max: 0
+      amount: 0
+    - AllowedItems: 
       item:
         Name: 
         Id: 0
