@@ -8,9 +8,12 @@ public class Cannon : MonoBehaviour
     private PlayerStats playerStats;
     public GameObject cannonBall;
     public GameObject sword;
+    public GameObject fire1;
+    public GameObject fire2;
     public float shootForce;
     private bool canAttack = true;
     private bool canSwing = true;
+    private bool canImmolate = true;
 
     private void Start() {
         playerStats = GetComponentInParent<PlayerStatsLoader>().playerStats;
@@ -23,10 +26,18 @@ public class Cannon : MonoBehaviour
             projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * shootForce);
             StartCoroutine(DelayAttack());
         }
-        else if (Input.GetMouseButtonDown(0) && canSwing) {
+        else if (Input.GetMouseButtonDown(0) && canSwing)
+        {
             GameObject projectile = Instantiate(sword, transform.position, transform.rotation);
             projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * (shootForce - 500f));
             StartCoroutine(DelaySwing());
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) && canImmolate)
+        {
+            fire1.GetComponent<ParticleSystem>().Play();
+            fire2.GetComponent<ParticleSystem>().Play();
+            StartCoroutine(Immolate());
+            StartCoroutine(DelayImmolate());
         }
     }
     
@@ -39,5 +50,15 @@ public class Cannon : MonoBehaviour
         canSwing = false;
         yield return new WaitForSeconds(1f);
         canSwing = true;
+    }
+    private IEnumerator Immolate() {
+        fire1.GetComponent<Collider>().enabled = true;
+        yield return new WaitForSeconds(4f);
+        fire1.GetComponent<Collider>().enabled = false;
+    }
+    private IEnumerator DelayImmolate() {
+        canImmolate = false;
+        yield return new WaitForSeconds(10f);
+        canImmolate = true;
     }
 }
