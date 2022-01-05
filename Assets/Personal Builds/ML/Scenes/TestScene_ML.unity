@@ -971,6 +971,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6845602340905300761, guid: 93a67cf970756f547a332ea85abfb1f3, type: 3}
+      propertyPath: itemToAdd
+      value: 
+      objectReference: {fileID: 11400000, guid: 439450661dbb43044a854e3fe2e4e681, type: 2}
+    - target: {fileID: 6845602340905300761, guid: 93a67cf970756f547a332ea85abfb1f3, type: 3}
+      propertyPath: testItem.Id
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845602340905300761, guid: 93a67cf970756f547a332ea85abfb1f3, type: 3}
+      propertyPath: testItem.Name
+      value: Mommys "Happy-Juice"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845602340905300761, guid: 93a67cf970756f547a332ea85abfb1f3, type: 3}
+      propertyPath: items.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845602340905300761, guid: 93a67cf970756f547a332ea85abfb1f3, type: 3}
+      propertyPath: images.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845602340905300761, guid: 93a67cf970756f547a332ea85abfb1f3, type: 3}
+      propertyPath: images.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 55211be56168b804eb6f28452c72e631, type: 3}
+    - target: {fileID: 6845602340905300761, guid: 93a67cf970756f547a332ea85abfb1f3, type: 3}
+      propertyPath: itemToAdd.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845602340905300761, guid: 93a67cf970756f547a332ea85abfb1f3, type: 3}
+      propertyPath: itemToAdd.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 439450661dbb43044a854e3fe2e4e681, type: 2}
+    - target: {fileID: 6845602340905300761, guid: 93a67cf970756f547a332ea85abfb1f3, type: 3}
+      propertyPath: itemToAdd.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: a59f56e1521579c4c9ecfbbfe8103db8, type: 2}
+    - target: {fileID: 6845602340905300761, guid: 93a67cf970756f547a332ea85abfb1f3, type: 3}
+      propertyPath: items.Array.data[0].amount
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845602340905300761, guid: 93a67cf970756f547a332ea85abfb1f3, type: 3}
+      propertyPath: items.Array.data[0].displayImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 7a0ae85d98e02f7458ddc9d27b1ab4da, type: 3}
     - target: {fileID: 8542427446292338698, guid: 93a67cf970756f547a332ea85abfb1f3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
