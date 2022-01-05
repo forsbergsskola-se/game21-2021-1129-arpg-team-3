@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Message : MonoBehaviour 
 {
-	public MessageSO messageSO;
+	// public MessageSO messageSO;
 	public string message;
 	private void Awake() 
 	{
-		message = messageSO.MText;
+		// message = messageSO.MText;
 	}
 }
