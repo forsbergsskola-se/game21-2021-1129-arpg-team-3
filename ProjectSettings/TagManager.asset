@@ -30,6 +30,7 @@ TagManager:
   - PlayerRange
   - NPC1
   - BuyButton
+  - Fire2
   layers:
   - Default
   - TransparentFX
