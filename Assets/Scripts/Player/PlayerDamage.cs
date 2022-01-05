@@ -23,6 +23,10 @@ public class PlayerDamage : MonoBehaviour
 			ShowPlayerDamage(damageReceived);
 		}
 	}
+	private void OnParticleCollision(GameObject other) {
+		float damageReceived = 20 * Random.Range(0.9f, 1f) - playerStats.PlayerArmour;
+		ShowPlayerDamage(damageReceived);	
+	}
 	private void ShowPlayerDamage(float damageReceived)
 	{
 		playerStats.TakeDamage(damageReceived);
