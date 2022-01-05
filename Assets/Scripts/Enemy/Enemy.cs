@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
 	public EnemySO enemySo;
 	public GameObject smoke;
 	public GameObject drop;
+	private float elapsedTime;
 	
 	private float health;
 	private float armor;
@@ -47,6 +48,13 @@ public class Enemy : MonoBehaviour
 		{
 			TakeDamage(2);
 			FMODUnity.RuntimeManager.PlayOneShot("event:/Enemy/EHit");
+		}
+	}
+	private void OnTriggerStay(Collider other) {
+		elapsedTime += Time.deltaTime;
+		if (other.gameObject.CompareTag("Fire2")) {
+			TakeDamage(0.25f);
+			elapsedTime = 0;
 		}
 	}
 
