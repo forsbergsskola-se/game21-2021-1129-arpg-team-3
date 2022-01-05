@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cannon : MonoBehaviour 
+public class Weapon : MonoBehaviour 
 {
     private PlayerStats playerStats;
     public GameObject cannonBall;
@@ -34,6 +34,7 @@ public class Cannon : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Space) && canImmolate)
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerCheckpoint");
             fire1.GetComponent<ParticleSystem>().Play();
             fire2.GetComponent<ParticleSystem>().Play();
             StartCoroutine(Immolate());

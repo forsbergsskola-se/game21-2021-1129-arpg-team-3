@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
 			return;
 		playerStats.Experience -= playerStats.MaxExperience;
 		playerStats.PlayerLevel++;
-		playerStats.MaxExperience += playerStats.PlayerLevelMultiplier;
+		playerStats.MaxExperience *= playerStats.PlayerLevelMultiplier;
 		playerStats.WeaponDamage += 5;
 		playerStats.MaxHealth += 5;
 		playerStats.Health = playerStats.MaxHealth;
@@ -105,9 +105,8 @@ public class PlayerController : MonoBehaviour
 			}
 			else 
 			{
-				if (!hitInfo.collider.CompareTag("Player") || !hitInfo.collider.CompareTag("SSword")) {
+				if (hitInfo.collider.CompareTag("Invalid")) {
 					FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerDeny");
-					//invalid object to create?
 				}
 			}
 		}
@@ -232,6 +231,10 @@ public class PlayerController : MonoBehaviour
 			else if (cursorHit.CompareTag("NPC")) 
 			{
 				cursorManagement.CursorChange(7);
+			}
+			else if (cursorHit.CompareTag("Invalid")) 
+			{
+				cursorManagement.CursorChange(8);
 			}
 			else 
 			{

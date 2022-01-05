@@ -31,6 +31,7 @@ TagManager:
   - NPC1
   - BuyButton
   - Fire2
+  - Invalid
   layers:
   - Default
   - TransparentFX

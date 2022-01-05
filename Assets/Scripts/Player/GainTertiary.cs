@@ -12,6 +12,7 @@ public class GainTertiary : MonoBehaviour
         if (!other.gameObject.CompareTag("Player"))
             return;
         other.GetComponent<PlayerStatsLoader>().playerStats.tertiary = true;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerRespawn");
         StartCoroutine(MessageText());
         effect.GetComponent<ParticleSystem>().Play();
     }
