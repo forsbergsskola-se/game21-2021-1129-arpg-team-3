@@ -21,6 +21,7 @@ public class PlayerStats : ScriptableObject
     [SerializeField] private float combatRotationSpeed;
     [SerializeField] private bool playerDied; 
     public bool secondary;
+    public bool tertiary;
 
     public bool PlayerDied 
     {
@@ -123,6 +124,7 @@ public class PlayerStats : ScriptableObject
         playerLevel = 0;
         weaponDamage = 20;
         secondary = false;
+        tertiary = false;
     }
 
     private void KillPlayer() 
