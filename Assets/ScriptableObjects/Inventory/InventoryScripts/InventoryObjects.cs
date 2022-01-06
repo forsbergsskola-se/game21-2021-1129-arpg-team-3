@@ -142,6 +142,7 @@ public class InventorySlotS
     [System.NonSerialized] public SlotUpdated OnBeforeUpdate;
     public Item item;
     public int amount;
+    public int baseValue;
 
     public ItemObject ItemObject
     {

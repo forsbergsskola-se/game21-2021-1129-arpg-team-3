@@ -8,24 +8,27 @@ public class BossAttack : MonoBehaviour {
 	public GameObject fire;
 	public bool canAttack;
 
-	private void Update() {
+	private void Update()
+	{
 		if (canAttack) {
 			FireMeteor();
 		}
 	}
-
-	private void FireMeteor() {
+	private void FireMeteor() 
+	{
 		fire.SetActive(false);
 		meteor.SetActive(true);
 		StartCoroutine(DelayAttack());
 	}
-	private IEnumerator DelayAttack() {
+	private IEnumerator DelayAttack() 
+	{
 		yield return new WaitForSeconds(10f);
 		meteor.SetActive(false);
 		fire.SetActive(true);
 		StartCoroutine(WaitForNextAttack());
 	}
-	private IEnumerator WaitForNextAttack() {
+	private IEnumerator WaitForNextAttack() 
+	{
 		canAttack = false;
 		yield return new WaitForSeconds(10f);
 		canAttack = true;
