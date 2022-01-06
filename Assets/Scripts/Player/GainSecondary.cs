@@ -8,14 +8,16 @@ public class GainSecondary : MonoBehaviour
 {
 	public TextMeshProUGUI text;
 	public GameObject effect;
-
+	private bool triggered;
+	
 	private void OnTriggerEnter(Collider other) {
-		if (!other.gameObject.CompareTag("Player"))
-			return;
-		FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerRespawn");
-		other.GetComponent<PlayerStatsLoader>().playerStats.secondary = true;
-		StartCoroutine(MessageText());
-		effect.GetComponent<ParticleSystem>().Play();
+		if (other.gameObject.CompareTag("Player") && !triggered) {
+			other.GetComponent<PlayerStatsLoader>().playerStats.tertiary = true;
+			triggered = true;
+			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerRespawn");
+			StartCoroutine(MessageText());
+			effect.GetComponent<ParticleSystem>().Play();
+		}
 	}
 	private IEnumerator MessageText() {
 		text.text = "FIREBALL ENABLED! RIGHT CLICK TO FIRE!";

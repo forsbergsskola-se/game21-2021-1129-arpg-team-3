@@ -139,7 +139,8 @@ public class PlayerController : MonoBehaviour
 			    target.CompareTag("Key") ||
 			    target.CompareTag("Door") ||
 			    target.CompareTag("Item") ||
-			    target.CompareTag("NPC")) 
+			    target.CompareTag("NPC") ||
+			    target.CompareTag("NPC1"))
 			{
 				//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
 				if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange) 
@@ -228,7 +229,7 @@ public class PlayerController : MonoBehaviour
 			{
 				cursorManagement.CursorChange(5);
 			}
-			else if (cursorHit.CompareTag("NPC")) 
+			else if (cursorHit.CompareTag("NPC") || cursorHit.CompareTag("NPC1")) 
 			{
 				cursorManagement.CursorChange(7);
 			}

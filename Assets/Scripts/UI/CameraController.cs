@@ -29,7 +29,7 @@ public class CameraController : MonoBehaviour {
 		transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
 		
 		//Camera rotates horizontally with A & D keys
-		transform.RotateAround(position, player.up, -Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed);
+		transform.RotateAround(position, player.up, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed);
 		
 		//Camera zooms on scrollwheel
 		if (Camera.main is not null) {
