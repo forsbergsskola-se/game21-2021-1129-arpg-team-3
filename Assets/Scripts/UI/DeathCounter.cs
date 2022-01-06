@@ -14,10 +14,10 @@ public class DeathCounter : MonoBehaviour
     private void LateUpdate() {
         switch (playerStats.DeathCount) 
         {
-            case 1:
+            case 0:
                 comment = "Perfect Run! (so far)";
                 break;
-            case 2:
+            case 1:
                 comment = "First Blood!";
                 break;
         }
