@@ -17,7 +17,7 @@ MonoBehaviour:
   questCode: 0
   numberTargets: 1
   numberTargetsGot: 0
-  displayName: Kill all cubes
+  displayName: Kill All
   itemReward: {fileID: 0}
   cashReward: 200
   experienceReward: 500
