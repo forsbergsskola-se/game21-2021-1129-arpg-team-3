@@ -24,6 +24,7 @@ public class ItemObject : ScriptableObject
     
     public Sprite uiDisplay;
     public bool stackable;
+    public int baseValue;
     public ItemTypeS type;
     [TextArea(15,20)]
     public string description;

@@ -1,14 +1,27 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+[Serializable]
+public class ItemHolder
+{
+    public int amount = 7;
+    public Sprite displayImage;
+}
+
 public class TradeInterface : UserInterface
 {
+    [SerializeField] private int discountMarkup;
     public GameObject inventoryPrefab;
+    [SerializeField] Image buySellPanel;
+    public List <ItemObject> itemToAdd;
+    public List<ItemHolder> items;
     public GameObject itemInfoDisplay;
     private readonly int X_START = -100;
     private readonly int Y_START =  186;
@@ -19,7 +32,7 @@ public class TradeInterface : UserInterface
     public override void CreateSlots()
     {
         SetupButtons();
-        
+
         slotsOnInterface = new Dictionary<GameObject, InventorySlotS>();
         for (int i = 0; i < inventory.GetSlots.Length; i++)
         {
@@ -31,8 +44,23 @@ public class TradeInterface : UserInterface
             inventory.GetSlots[i].slotDisplay = obj;
             slotsOnInterface.Add(obj, inventory.GetSlots[i]);
         }
+
+        DoAThing(0);
     }
 
+    private void GetLowestIndex()
+    {
+        
+    }
+    
+    private void DoAThing(int index)
+    {
+        bool lowest = false;
+        inventory.GetSlots[index].slotDisplay.transform.GetChild(0).GetComponentInChildren<Image>().sprite = itemToAdd[index].uiDisplay;
+        inventory.GetSlots[index].slotDisplay.GetComponentInChildren<TextMeshProUGUI>().text = items[index].amount.ToString();
+        inventory.GetSlots[index].slotDisplay.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1);
+    }
+    
     private void SetupButtons()
     {
         GameObject.FindWithTag("BuyButton").GetComponent<Button>().interactable = false;
@@ -40,7 +68,24 @@ public class TradeInterface : UserInterface
 
     private void OnPointerClick(GameObject obj)
     {
-        GameObject.FindWithTag("BuyButton").GetComponent<Button>().interactable = true;
+        var test = inventory.GetSlots
+            .Where(x => x.slotDisplay.transform.position != obj.transform.position).ToList()
+            .Select(x => x.slotDisplay.transform.GetComponentsInChildren<Image>()[0].color = new Color(1, 1, 1, 1)).ToList();
+
+        obj.transform.GetComponentsInChildren<Image>()[0].color = new Color(0, 1, 0, 1);
+        var buyButton = GameObject.FindWithTag("BuyButton").GetComponent<Button>();
+        buyButton.interactable = true;
+        buyButton.onClick.AddListener(() => BuyButtonClick(obj));
+    }
+
+    private void BuyButtonClick(GameObject obj)
+    {
+        inventory.AddItem(itemToAdd[0].data, 1);
+
+        foreach (var el in inventory.GetSlots)
+        {
+            Debug.Log(el.amount);
+        }
     }
     
     private Vector3 GetPosition(int i)
