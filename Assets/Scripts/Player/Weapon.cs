@@ -34,7 +34,7 @@ public class Weapon : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Space) && canImmolate)
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerCheckpoint");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/FireCircle");
             fire1.GetComponent<ParticleSystem>().Play();
             fire2.GetComponent<ParticleSystem>().Play();
             StartCoroutine(Immolate());
