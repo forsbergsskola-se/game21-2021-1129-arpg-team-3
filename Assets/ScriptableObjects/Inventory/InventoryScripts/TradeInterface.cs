@@ -71,6 +71,14 @@ public class TradeInterface : UserInterface
         GameObject.FindWithTag("BuyButton").GetComponentInChildren<Button>().interactable = false;
     }
 
+    private void TryMakeSale(GameObject obj, int slotIndex)
+    {
+        if (OnMakeSale != null)
+        {
+            OnMakeSale(obj, slotIndex);
+        }
+    }
+    
     private void OnPointerClick(GameObject obj, int slotIndex)
     {
         inventory.GetSlots
@@ -84,6 +92,8 @@ public class TradeInterface : UserInterface
         buyButton.onClick.RemoveAllListeners();
         buyButton.interactable = true;
         buyButton.onClick.AddListener(() => BuyButtonClick(obj, slotIndex));
+        
+        TryMakeSale(obj, slotIndex);
     }
 
     private void BuyButtonClick(GameObject obj, int index)

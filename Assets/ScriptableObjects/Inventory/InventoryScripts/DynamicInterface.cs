@@ -26,7 +26,16 @@ public class DynamicInterface : UserInterface
             inventory.GetSlots[i].slotDisplay = obj;
             slotsOnInterface.Add(obj, inventory.GetSlots[i]);
         }
+
+        TradeInterface.OnMakeSale += MakePurchase;
     }
+
+
+    private void MakePurchase(GameObject obj, int slotIndex)
+    {
+        
+    }
+    
     private Vector3 GetPosition(int i)
     {
         return new Vector3(X_START + (X_SPACE_BETWEEN_ITEM *(i % NUMBER_OF_COLUMN)),
