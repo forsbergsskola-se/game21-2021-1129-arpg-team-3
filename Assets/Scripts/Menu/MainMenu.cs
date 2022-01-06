@@ -14,22 +14,27 @@ public class MainMenu : MonoBehaviour
 	{
 		Cursor.SetCursor(arrowCursor, Vector2.zero, CursorMode.Auto);
 	}
-	private void Update() {
+	private void Update()
+	{
 		if (canShow) {
-			Show();
+			StartCoroutine(Flash());
+			StartCoroutine(Wait());
 		}
 	}
-
-	private void Show() {
-		StartCoroutine(Flash());
-	} 
 	
 	private IEnumerator Flash()
-	{
-		image.SetActive(true);
-		yield return new WaitForSeconds(10f);
+	{ 
 		image.SetActive(false);
+		yield return new WaitForSeconds(0.5f);
+		image.SetActive(true);
 	}
+	private IEnumerator Wait()
+	{
+		canShow = false;
+		yield return new WaitForSeconds(10f);
+		canShow = true;
+	}
+	
 	
 	public void NewGame() 
 	{
