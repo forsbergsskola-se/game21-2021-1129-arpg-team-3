@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e91b6aac7735db24b871ecb7f71ade4f, type: 3}
-  m_Name: Incredible ChestPlate
+  m_Name: TremendousChest
   m_EditorClassIdentifier: 
   uiDisplay: {fileID: 21300000, guid: d5366f7a7b48eb14e88615c1017bb494, type: 3}
   stackable: 0

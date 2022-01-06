@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e91b6aac7735db24b871ecb7f71ade4f, type: 3}
-  m_Name: SuperDuperSword
+  m_Name: Scifilegs
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: 21300000, guid: eb3f24563586db4499636d5eea6f63fe, type: 3}
+  uiDisplay: {fileID: 21300000, guid: c9232130331aff544aea185282d4b50b, type: 3}
   stackable: 0
-  type: 3
-  description: '"This is a good sword" - Aragorn II Elessar'
+  type: 4
+  description: '*Sigh*, it''s a leg piece, but different from the other one I suppose...'
   data:
-    Name: '"Good" Sword'
-    Id: 7
+    Name: Scifi legs
+    Id: 9
     buffs:
-    - attribute: 1
+    - attribute: 3
       value: 0
-      min: 1
-      max: 3
-    - attribute: 4
+      min: 5
+      max: 9
+    - attribute: 2
       value: 0
-      min: 1
-      max: 2
+      min: 10
+      max: 15
   armourBonus: 0
-  damageBonus: 2
-  tierGrade: NotAGoodSword
+  damageBonus: 0
+  tierGrade: L

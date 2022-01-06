@@ -10,25 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e91b6aac7735db24b871ecb7f71ade4f, type: 3}
-  m_Name: Leggy legs
+  m_Name: CoolHelmet
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: 21300000, guid: 6f9dbbdcbd8347440aa55f549f5cef15, type: 3}
+  uiDisplay: {fileID: 21300000, guid: 9df6b446c66154c4b913c64a5c5408c9, type: 3}
   stackable: 0
-  type: 4
-  description: I mean, what did you expect? They're leg equipment, the least exciting
-    body armor part. *Sigh*, they get the job done though.
+  baseValue: 120
+  type: 1
+  description: '"This helmet is better because it is black. All black armor is cooler
+    and therefore clearly better" - Filthy casual who never checks gear stats'
   data:
-    Name: LameLegs
-    Id: 8
+    Name: Black Helmet
+    Id: 3
     buffs:
     - attribute: 3
       value: 0
-      min: 12
-      max: 15
-    - attribute: 2
-      value: 0
-      min: 10
-      max: 15
+      min: 2
+      max: 5
   armourBonus: 0
   damageBonus: 0
-  tierGrade: A
+  tierGrade: Technically provides armor
