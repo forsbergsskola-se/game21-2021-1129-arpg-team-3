@@ -127,6 +127,7 @@ public class PlayerStats : ScriptableObject
         weaponDamage = 20;
         secondary = false;
         tertiary = false;
+        deathCount = 0;
     }
 
     private void KillPlayer() 
