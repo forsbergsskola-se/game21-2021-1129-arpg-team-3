@@ -24,6 +24,7 @@ public class PlayerStats : ScriptableObject
     public bool secondary;
     public bool tertiary;
 
+    public int DeathCount => deathCount;
     public bool PlayerDied 
     {
         get => playerDied;
