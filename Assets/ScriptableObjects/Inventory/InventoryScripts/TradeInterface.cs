@@ -32,10 +32,16 @@ public class TradeInterface : UserInterface
     public delegate void MakeSaleDelegate(ItemObject obj);
 
     public static event MakeSaleDelegate OnMakeSale;
+
+    public delegate void OpenInventoryDelegate();
+
+    public static event OpenInventoryDelegate OnOpenInventory; 
     
     public override void CreateSlots()
     {
         SetupButtons();
+        
+    //    GameObject.FindWithTag("Player").GetComponent<PlayerStatsLoader>().playerStats.Gold += 1000;
 
         slotsOnInterface = new Dictionary<GameObject, InventorySlotS>();
         for (int i = 0; i < inventory.GetSlots.Length; i++)
@@ -49,10 +55,18 @@ public class TradeInterface : UserInterface
             inventory.GetSlots[i].slotDisplay = obj;
             slotsOnInterface.Add(obj, inventory.GetSlots[i]);
         }
-
         SetupSlots();
     }
 
+
+    private void OpenInventory()
+    {
+        if (OnOpenInventory != null)
+        {
+            OnOpenInventory();
+        }
+    }
+    
     private void SetupSlots()
     {
         for (int i = 0; i < inventory.GetSlots.Length; i++)
@@ -71,8 +85,9 @@ public class TradeInterface : UserInterface
         GameObject.FindWithTag("BuyButton").GetComponentInChildren<Button>().interactable = false;
     }
 
-    private void TryMakeSale(ItemObject obj)
+    private void MakeSale(ItemObject obj)
     {
+        GameObject.FindWithTag("Player").GetComponent<PlayerStatsLoader>().playerStats.Gold -= obj.baseValue + discountMarkup;
         if (OnMakeSale != null)
         {
             OnMakeSale(obj);
@@ -84,24 +99,25 @@ public class TradeInterface : UserInterface
         inventory.GetSlots
             .Where(x => x.slotDisplay.transform.position != obj.transform.position).ToList()
             .Select(x => x.slotDisplay.transform.GetComponentsInChildren<Image>()[0].color = new Color(1, 1, 1, 1)).ToList();
-
         obj.transform.GetComponentsInChildren<Image>()[0].color = new Color(0, 1, 0, 1);
-
-        GameObject.FindWithTag("BuyButton").GetComponentsInChildren<TextMeshProUGUI>()[1].text = "Cost: "  + itemToAdd[slotIndex].baseValue;
+        
+        int totalCost = itemToAdd[slotIndex].baseValue + discountMarkup;
+        GameObject.FindWithTag("BuyButton").GetComponentsInChildren<TextMeshProUGUI>()[1].text = "Cost: "  + totalCost;
         var buyButton = GameObject.FindWithTag("BuyButton").GetComponentInChildren<Button>();
         buyButton.onClick.RemoveAllListeners();
         buyButton.interactable = true;
         buyButton.onClick.AddListener(() => BuyButtonClick(obj, slotIndex));
-        
     }
 
     private void BuyButtonClick(GameObject obj, int index)
     {
-        if (items[index].amount > 0)
+        float gold = GameObject.FindWithTag("Player").GetComponent<PlayerStatsLoader>().playerStats.Gold;
+
+        if (items[index].amount > 0 && gold >= itemToAdd[index].baseValue + discountMarkup)
         {
             items[index].amount--;
             obj.transform.GetComponentInChildren<TextMeshProUGUI>().text = items[index].amount.ToString();
-            TryMakeSale(itemToAdd[index]);
+            MakeSale(itemToAdd[index]);
         }
     }
     

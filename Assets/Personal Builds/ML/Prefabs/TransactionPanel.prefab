@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 7037310434973462640}
   - component: {fileID: 8311026035368603220}
   m_Layer: 5
-  m_Name: BuySellPanel
+  m_Name: TransactionPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
