@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryObjects
   savePath: /Inventory.Save
   database: {fileID: 11400000, guid: 48ed96adb9a3f544fb77e0599367394c, type: 2}
+  type: 0
   Container:
     Slots:
     - AllowedItems: 
@@ -22,165 +23,193 @@ MonoBehaviour:
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0
     - AllowedItems: 
       item:
         Name: 
         Id: -1
         buffs: []
       amount: 0
+      baseValue: 0

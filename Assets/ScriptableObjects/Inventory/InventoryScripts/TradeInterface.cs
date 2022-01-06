@@ -29,7 +29,7 @@ public class TradeInterface : UserInterface
     private readonly int NUMBER_OF_COLUMN = 4;
     private readonly int Y_SPACE_BETWEEN_ITEM = 50;
 
-    public delegate void MakeSaleDelegate(GameObject obj, int slotIndex);
+    public delegate void MakeSaleDelegate(ItemObject obj);
 
     public static event MakeSaleDelegate OnMakeSale;
     
@@ -71,11 +71,11 @@ public class TradeInterface : UserInterface
         GameObject.FindWithTag("BuyButton").GetComponentInChildren<Button>().interactable = false;
     }
 
-    private void TryMakeSale(GameObject obj, int slotIndex)
+    private void TryMakeSale(ItemObject obj)
     {
         if (OnMakeSale != null)
         {
-            OnMakeSale(obj, slotIndex);
+            OnMakeSale(obj);
         }
     }
     
@@ -93,7 +93,6 @@ public class TradeInterface : UserInterface
         buyButton.interactable = true;
         buyButton.onClick.AddListener(() => BuyButtonClick(obj, slotIndex));
         
-        TryMakeSale(obj, slotIndex);
     }
 
     private void BuyButtonClick(GameObject obj, int index)
@@ -102,6 +101,7 @@ public class TradeInterface : UserInterface
         {
             items[index].amount--;
             obj.transform.GetComponentInChildren<TextMeshProUGUI>().text = items[index].amount.ToString();
+            TryMakeSale(itemToAdd[index]);
         }
     }
     
