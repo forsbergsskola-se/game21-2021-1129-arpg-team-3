@@ -27,16 +27,16 @@ MonoBehaviour:
     TargetNodeGUID: d8e089c3-7253-44fc-94e0-06640ede3b53
   DialogueNodeData:
   - NodeGUID: e11217ea-4d1b-47b3-b259-9de9713fce2c
-    DialogueText: Thank you! here is your reward.
+    DialogueText: ' Here is your reward.'
     Position: {x: 740.8, y: 34.4}
   - NodeGUID: ac6fc0f3-1154-46ea-9f7d-8dc28a1a30ee
-    DialogueText: So, Did you kill those cubes for me?
+    DialogueText: You did it! Thank you!
     Position: {x: 329.6, y: 97.600006}
   - NodeGUID: 5d5460dc-66f6-4a01-bffa-bb58f9bb29ec
-    DialogueText: Well done indeed.
+    DialogueText: Well done indeed!
     Position: {x: 1090.4, y: 145.59999}
   - NodeGUID: d8e089c3-7253-44fc-94e0-06640ede3b53
-    DialogueText: LEAVE
+    DialogueText: Leave
     Position: {x: 1280.8, y: 1.6000004}
   ExposedProperties: []
   CommentBlockData: []

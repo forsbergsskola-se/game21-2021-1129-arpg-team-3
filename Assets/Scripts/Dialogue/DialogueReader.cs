@@ -123,7 +123,7 @@ public class DialogueReader : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!boxIsUp && Vector3.Distance(transform.position, playerTrans.position) < 4)
+        if (!boxIsUp && Vector3.Distance(transform.position, playerTrans.position) < 5)
         {
             boxIsUp = true;
             currentDialogue = Instantiate(dialoguePopup);
