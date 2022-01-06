@@ -14678,7 +14678,7 @@ GameObject:
   - component: {fileID: 1117545903}
   - component: {fileID: 1117545902}
   m_Layer: 0
-  m_Name: Fire Ring (Experiment)
+  m_Name: Water Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14706,7 +14706,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 2100000, guid: 1eb253072d5fc8748b2795edd5d46d16, type: 2}
+  - {fileID: 2100000, guid: d92c33d98dd4cba4cb7fc2650709a465, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14950,7 +14950,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 0, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0, b: 0, a: 1}
+        key0: {r: 0, g: 0.47294587, b: 0.8018868, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -14979,7 +14979,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
       minGradient:
         serializedVersion: 2
-        key0: {r: 0.8301887, g: 0.50789315, b: 0, a: 1}
+        key0: {r: 0.21960786, g: 0.5882353, b: 0.8470589, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
