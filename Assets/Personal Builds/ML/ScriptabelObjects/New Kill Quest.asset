@@ -19,6 +19,6 @@ MonoBehaviour:
   numberTargetsGot: 0
   displayName: Kill All
   itemReward: {fileID: 0}
-  cashReward: 200
+  cashReward: 0
   experienceReward: 500
-  questDescription: Kill all the cubes for a meagre award.
+  questDescription: Destroy the giant barrel.
