@@ -21,10 +21,10 @@ public class DeathCounter : MonoBehaviour
                 comment = "Still Impressive";
                 break;
             case 5:
-                comment = "Ah, you're a casual..";
+                comment = "Hmm, maybe be a bit more careful";
                 break;
             case 10:
-                comment = "*Sigh*";
+                comment = "*Sigh* These filthy casuals..";
                 break;
             case 15:
                 comment = "No0b gettin pwned here!";
@@ -33,7 +33,7 @@ public class DeathCounter : MonoBehaviour
                 comment = "Grandpa Gaming inc";
                 break;
             case 25:
-                comment = "Sorry, we didn't have time to implement a baby-mode";
+                comment = "Sorry, we didn't make a baby-mode";
                 break;
         }
         if (playerStats.DeathCount <= 0) 
