@@ -292,7 +292,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 111.79999}
+  m_AnchoredPosition: {x: 0, y: 126.4}
   m_SizeDelta: {x: 234.07, y: 81.7838}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &412725410
@@ -1486,7 +1486,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a2470d9b367d5a04b929f32c0cab96f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e9df4d0d1ebdcc4cb2d5eb0aed4c262, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1640,7 +1640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 179.79999}
+  m_AnchoredPosition: {x: 0, y: 194.4}
   m_SizeDelta: {x: 237.7039, y: 83.05319}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1748335478
@@ -1906,8 +1906,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -246.5}
-  m_SizeDelta: {x: 548.7628, y: 42.9362}
+  m_AnchoredPosition: {x: 0, y: -239.3}
+  m_SizeDelta: {x: 548.7628, y: 61.828}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1972652589
 MonoBehaviour:
@@ -1931,13 +1931,13 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'CONTROLS:
 
-    Left Click: Move & Attack - Right Click: Secondary Attack
+    Left Click: Move & Attack - Right Click: Attack 1 - SPACE:
+    Attack 2
 
-    ESC:
-    Pause - I: Inventory - F: Open Doors
+    ESC: Pause - I: Inventory - F: Open Doors
 
-    Middle Mouse Button, A & D: Rotate
-    Camera - Scroll: Zoom'
+    Middle Mouse Button
+    or A & D: Rotate Camera - Scroll: Zoom'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1959,12 +1959,12 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 97690656
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
+  m_fontSize: 10.85
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1

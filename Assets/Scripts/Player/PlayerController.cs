@@ -238,7 +238,7 @@ public class PlayerController : MonoBehaviour
 			}
 			else 
 			{
-				cursorManagement.CursorChange(8);
+				// cursorManagement.CursorChange(8);
 			}
 		}
 		else 

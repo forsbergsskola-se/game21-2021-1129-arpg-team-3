@@ -19,4 +19,8 @@ public class SpawnControl : MonoBehaviour
 		playerStats.PlayerDied = false;
 		GetComponent<NavMeshAgent>().enabled = true;
 	}
+	public void ReplenishHealth()
+	{
+		playerStats.Health = playerStats.MaxHealth;
+	}
 }
