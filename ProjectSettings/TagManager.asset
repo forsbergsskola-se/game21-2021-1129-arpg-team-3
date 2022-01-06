@@ -32,6 +32,7 @@ TagManager:
   - BuyButton
   - Fire2
   - Invalid
+  - SellButton
   layers:
   - Default
   - TransparentFX
