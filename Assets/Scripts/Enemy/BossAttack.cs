@@ -23,8 +23,8 @@ public class BossAttack : MonoBehaviour {
 	private IEnumerator DelayAttack() 
 	{
 		yield return new WaitForSeconds(10f);
-		meteor.SetActive(false);
 		fire.SetActive(true);
+		meteor.SetActive(false);
 		StartCoroutine(WaitForNextAttack());
 	}
 	private IEnumerator WaitForNextAttack() 
