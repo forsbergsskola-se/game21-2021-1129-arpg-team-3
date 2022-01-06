@@ -23,7 +23,6 @@ public class BossAttack : MonoBehaviour {
 	private IEnumerator DelayAttack() 
 	{
 		yield return new WaitForSeconds(10f);
-		FMODUnity.RuntimeManager.PlayOneShot("event:/Player/FireCircle");
 		meteor.SetActive(false);
 		fire.SetActive(true);
 		StartCoroutine(WaitForNextAttack());
