@@ -32,7 +32,7 @@ public class Weapon : MonoBehaviour
             projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * (shootForce - 500f));
             StartCoroutine(DelaySwing());
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && canImmolate)
+        else if (Input.GetKeyDown(KeyCode.Space) && playerStats.tertiary && canImmolate)
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/Player/FireCircle");
             fire1.GetComponent<ParticleSystem>().Play();

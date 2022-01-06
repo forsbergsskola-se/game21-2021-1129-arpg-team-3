@@ -25,15 +25,15 @@ public class DynamicInterface : UserInterface
             AddEvent(obj, EventTriggerType.Drag,delegate{OnDrag(obj);});
             inventory.GetSlots[i].slotDisplay = obj;
             slotsOnInterface.Add(obj, inventory.GetSlots[i]);
-        }
-
+        } 
+        //    inventory.Container.Clear();
         TradeInterface.OnMakeSale += MakePurchase;
     }
 
 
-    private void MakePurchase(GameObject obj, int slotIndex)
+    private void MakePurchase(ItemObject obj)
     {
-        
+        inventory.AddItem(obj.data, 1);
     }
     
     private Vector3 GetPosition(int i)
