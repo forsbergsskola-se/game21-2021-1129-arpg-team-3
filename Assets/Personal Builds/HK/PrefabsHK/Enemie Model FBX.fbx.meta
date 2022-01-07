@@ -1,18 +1,9 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Prefabs/Crystal_smallfbx 1.fbx.meta
-guid: 813227c359f41dd44900e0290129fac4
-=======
-guid: 7631b79cf4cb8c04ea2035ca8b9fc405
->>>>>>> 5d880e64cedc16541c36fe8b09a20408f7e9fee6:Assets/Personal Builds/HK/PrefabsHK/Boss Model FBX.fbx.meta
+guid: 1a381a96c524ff5479706fa760e88c04
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Crystal
-    second: {fileID: 2100000, guid: f40c229011a5e3947bc19477328ff8b5, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -44,7 +35,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1.7
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -97,7 +88,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.017
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
