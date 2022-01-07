@@ -19,12 +19,12 @@ public class PlayerDamage : MonoBehaviour
 	private void OnCollisionEnter(Collision other) {
 		if (other.gameObject.CompareTag("SSword")) {
 			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/SwordHit");
-			float damageReceived = other.gameObject.GetComponentInParent<Enemy>().enemySo.WeaponDamage * Random.Range(0.9f, 1f) - playerStats.PlayerArmour;
+			float damageReceived = (other.gameObject.GetComponentInParent<Enemy>().enemySo.WeaponDamage + playerStats.PlayerLevel * 5 * 0.75f)  * Random.Range(0.9f, 1f) - playerStats.PlayerArmour;
 			ShowPlayerDamage(damageReceived);
 		}
 	}
 	private void OnParticleCollision(GameObject other) {
-		float damageReceived = 20 * Random.Range(0.9f, 1f) - playerStats.PlayerArmour;
+		float damageReceived = (5 + playerStats.PlayerLevel * 5 * 0.75f) * Random.Range(0.9f, 1f) - playerStats.PlayerArmour;
 		ShowPlayerDamage(damageReceived);	
 	}
 	private void ShowPlayerDamage(float damageReceived)

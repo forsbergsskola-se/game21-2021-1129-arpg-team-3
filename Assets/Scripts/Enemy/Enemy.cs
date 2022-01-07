@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
 	private void OnTriggerStay(Collider other) {
 		elapsedTime += Time.deltaTime;
 		if (other.gameObject.CompareTag("Fire2")) {
-			TakeDamage(0.125f);
+			TakeDamage(0.06f);
 			elapsedTime = 0;
 		}
 	}
@@ -72,7 +72,6 @@ public class Enemy : MonoBehaviour
 	private void KillEnemy()
 	{
 		playerStats.Experience += maxHealth * enemySo.WeaponDamage * playerStats.XPMultiplier;
-		
 		gameObject.SetActive(false);
 		Instantiate(smoke, transform.position, Quaternion.identity);
 		RandomDrop();
