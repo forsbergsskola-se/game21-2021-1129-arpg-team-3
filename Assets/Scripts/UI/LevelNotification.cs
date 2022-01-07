@@ -13,6 +13,7 @@ public class LevelNotification : MonoBehaviour
 		if (other.gameObject.CompareTag("Player") && !triggered) {
 			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerRespawn");
 			StartCoroutine(MessageText());
+			triggered = true;
 		}
 	}
 	private IEnumerator MessageText() {
