@@ -1,4 +1,5 @@
 using System.Collections;
+using FMOD.Studio;
 using TMPro;
 using UnityEditor.VersionControl;
 using UnityEngine;
@@ -25,12 +26,18 @@ public class PlayerController : MonoBehaviour
 	public TextMeshProUGUI messageText;
 	public GameObject effect;
 	public Animator animator;
+	private EventInstance instance;
+	public FMODUnity.EventReference fmodEvent;
 
 	private void Awake() 
 	{
 		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
 		playerStats.InitializePlayerStats();
 		keyHolder = GetComponent<KeyHolder>();
+		instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
+		instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject.transform));
+		instance.start();
+
 	}
 
 	private void Start() {
@@ -55,7 +62,8 @@ public class PlayerController : MonoBehaviour
 		Interact();
 		LevellingCheck();
 		animator.SetFloat("Speed", agent.velocity.sqrMagnitude);
-		Debug.Log(agent.velocity.sqrMagnitude);
+		instance.setParameterByName("velocity", agent.velocity.sqrMagnitude);
+		instance.setParameterByName("GroundTyp", 1);
 	}
 	private void PlayerInput() {
 

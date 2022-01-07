@@ -138,6 +138,10 @@ public class PlayerStats : ScriptableObject
         Debug.Log("Player is Dead");
         FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerDeath");
         deathCount++;
+        if (deathCount <= 25 && (deathCount == 1 || deathCount % 5 == 0)) 
+        {
+            FMODUnity.RuntimeManager.PlayOneShot($"event:/Vox/death counter/{deathCount}");
+        }
         // gold -= 50;
         // SceneManager.LoadScene(1);
     }
