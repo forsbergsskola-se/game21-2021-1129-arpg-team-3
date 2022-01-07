@@ -309,19 +309,17 @@ public class PlayerController : MonoBehaviour
 					if (!unequipped)
 					{
 						attributes[j].value.RemoveModifier(_slot.item.buffs[i]);
-						if (attributes[j].type == Attributes.HP)
+						if (attributes[j].type == Attributes.Armor)
 						{
-							PlayerStatsLoader statsLoader = FindObjectOfType<PlayerStatsLoader>();
-							statsLoader.playerStats.Health = statsLoader.playerStats.Health + attributes[j].value.BaseValue;
+							playerStats.PlayerArmour += attributes[j].value.BaseValue;
 						}
 					}
 					else
 					{
 						attributes[j].value.AddModifier(_slot.item.buffs[i]);
-						if (attributes[j].type == Attributes.HP)
+						if (attributes[j].type == Attributes.Armor)
 						{
-							PlayerStatsLoader statsLoader = FindObjectOfType<PlayerStatsLoader>();
-							statsLoader.playerStats.Health = statsLoader.playerStats.Health - attributes[j].value.BaseValue;
+							playerStats.PlayerArmour -= attributes[j].value.BaseValue;
 						}
 					}
 				}

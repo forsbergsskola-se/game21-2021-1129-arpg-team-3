@@ -163,6 +163,7 @@ public class PlayerStats : ScriptableObject
         maxHealth = 100;
         health = maxHealth;
         playerDied = false;
+        playerArmour = 10;
         maxExperience = 50;
         experience = 0;
         gold = 0;
