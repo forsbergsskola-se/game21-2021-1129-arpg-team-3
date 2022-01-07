@@ -10,7 +10,8 @@ public class MessageBox : MonoBehaviour
     public InventoryHider inventoryHider;
 
 
-    private void Update() {
+    private void Update() 
+    {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.I)) {
             note.SetActive(false);
         }
