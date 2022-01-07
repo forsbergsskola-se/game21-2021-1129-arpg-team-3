@@ -5,13 +5,17 @@ using FMOD.Studio;
 using UnityEngine;
 
 public class StartBoss : MonoBehaviour {
-	public BossAttack BossAttack;
+	public BossAttack bossAttack;
 	private GameObject player;
-	
+	public BossHealth bossHealth;
+	private bool triggered;
+
 	private void OnTriggerEnter(Collider other) {
-		if (other.gameObject.CompareTag("Player")) {
-			BossAttack.canAttack = true;
+		if (!triggered && other.gameObject.CompareTag("Player")) {
+			bossAttack.canAttack = true;
 			other.gameObject.GetComponent<PlayerProximity>().StopMusic();
+			bossHealth.PlayMusic();
+			triggered = true;
 		}
 	}
 }

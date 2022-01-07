@@ -14,7 +14,6 @@ public class BossHealth : MonoBehaviour {
 		bossHealth = bossMaxHealth;
 		instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
 		instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject.transform));
-		instance.start();
 	}
 
 	private void Update() {
@@ -25,5 +24,8 @@ public class BossHealth : MonoBehaviour {
 		else {
 			instance.stop(STOP_MODE.IMMEDIATE);
 		}
+	}
+	public void PlayMusic() {
+		instance.start();
 	}
 }
