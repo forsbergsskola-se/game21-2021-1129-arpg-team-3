@@ -54,6 +54,8 @@ public class PlayerController : MonoBehaviour
 		PlayerInput();
 		Interact();
 		LevellingCheck();
+		animator.SetFloat("Speed", agent.velocity.sqrMagnitude);
+		Debug.Log(agent.velocity.sqrMagnitude);
 	}
 	private void PlayerInput() {
 
@@ -118,8 +120,7 @@ public class PlayerController : MonoBehaviour
 		if (inDialogue)
 			return;
 		StopAttacking(); 
-		animator.SetFloat("Speed", agent.speed);
-		Debug.Log(agent.speed);
+
 		agent.stoppingDistance = 0; //resets melee range setting
 		agent.SetDestination(point); //moves player to point
 		
@@ -194,6 +195,7 @@ public class PlayerController : MonoBehaviour
 	}
 	private void StartAttacking() 
 	{
+		animator.SetBool("Attack",true);
 		// attackAnimation.gameObject.SetActive(true);
 		// playerModel.gameObject.SetActive(false);
 		transform.Translate(new Vector3(0, 0, 0));
@@ -201,6 +203,8 @@ public class PlayerController : MonoBehaviour
 	}
 	private void StopAttacking() 
 	{
+		animator.SetBool("Attack",false);
+
 		// attackAnimation.gameObject.SetActive(false);
 		// playerModel.gameObject.SetActive(true);
 	}
