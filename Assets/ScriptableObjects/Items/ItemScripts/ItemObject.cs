@@ -56,6 +56,7 @@ public class Item
             buffs[i] = new ItemBuff(item.data.buffs[i].min, item.data.buffs[i].max);
             buffs[i].attribute = item.data.buffs[i].attribute;
         }
+        item.data.buffs = buffs;
     }
 }
 [System.Serializable]
