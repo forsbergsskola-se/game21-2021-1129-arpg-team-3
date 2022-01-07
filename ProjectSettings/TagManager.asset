@@ -33,6 +33,7 @@ TagManager:
   - Fire2
   - Invalid
   - SellButton
+  - Boss
   layers:
   - Default
   - TransparentFX

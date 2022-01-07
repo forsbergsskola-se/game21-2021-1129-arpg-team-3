@@ -16,6 +16,7 @@ public class StartBoss : MonoBehaviour {
 			other.gameObject.GetComponent<PlayerProximity>().StopMusic();
 			bossHealth.PlayMusic();
 			triggered = true;
+			Destroy(gameObject);
 		}
 	}
 }
