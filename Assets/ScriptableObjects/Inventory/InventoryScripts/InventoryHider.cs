@@ -6,20 +6,9 @@ public class InventoryHider : MonoBehaviour {
 	private void Start() {
 		canvas = GetComponent<Canvas>();
 		canvas.enabled = false;
-		TradeInterface.OnOpenInventory += OpenCloseRemote;
 	}
 
-	private void OpenCloseRemote()
-	{
-		if (!canvas.enabled)
-		{
-			canvas.enabled = true;
-		}
-		else
-		{
-			canvas.enabled = false;
-		}
-	}
+
 	private void Update() {
 		if (Input.GetKeyUp(KeyCode.I) && !player.inDialogue) {
 			canvas.enabled = true;
