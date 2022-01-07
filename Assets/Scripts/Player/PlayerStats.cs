@@ -25,11 +25,11 @@ public class PlayerStats : ScriptableObject
     public int zone;
     public bool secondary;
     public bool tertiary;
-    public PlayerController _playerController;
+    public PlayerController playerController;
     
     public PlayerStats GetModifiedStats()
     {
-        PlayerStats tempStats = ScriptableObject.CreateInstance<PlayerStats>();
+        PlayerStats tempStats = CreateInstance<PlayerStats>();
         for (int i = 0; i < System.Enum.GetValues(typeof(Attributes)).Length; i++)
         {
             Attributes item = (Attributes) i;
@@ -63,7 +63,7 @@ public class PlayerStats : ScriptableObject
 
     private Attribute GetAttribute(Attributes target, out bool exist)
     {
-        Attribute[] attributes = _playerController.attributes;
+        Attribute[] attributes = playerController.attributes;
         foreach (Attribute item in attributes)
         {
             if (item.type == target)
