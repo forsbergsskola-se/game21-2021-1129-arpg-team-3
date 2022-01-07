@@ -28,16 +28,12 @@ public class PlayerController : MonoBehaviour
 	public Animator animator;
 	private EventInstance instance;
 	public FMODUnity.EventReference fmodEvent;
-
+	private bool waiting;
 	private void Awake() 
 	{
 		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
 		playerStats.InitializePlayerStats();
 		keyHolder = GetComponent<KeyHolder>();
-		instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
-		instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject.transform));
-		instance.start();
-
 	}
 
 	private void Start() {
@@ -62,8 +58,25 @@ public class PlayerController : MonoBehaviour
 		Interact();
 		LevellingCheck();
 		animator.SetFloat("Speed", agent.velocity.sqrMagnitude);
-		instance.setParameterByName("velocity", agent.velocity.sqrMagnitude);
-		instance.setParameterByName("GroundTyp", 1);
+		PlayWalkingSound();
+		PlayWalkingSound();
+	}
+	private void PlayWalkingSound() {
+		if (!waiting) {
+			instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
+			instance.setParameterByName("velocity", agent.velocity.sqrMagnitude);
+			instance.setParameterByName("GroundTyp", 0);
+			instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject.transform));
+			instance.start();
+			instance.release();
+			StartCoroutine(DelayWalk());
+		}
+	}
+
+	private IEnumerator DelayWalk() {
+		waiting = true;
+		yield return new WaitForSeconds(0.5f);
+		waiting = false;
 	}
 	private void PlayerInput() {
 
