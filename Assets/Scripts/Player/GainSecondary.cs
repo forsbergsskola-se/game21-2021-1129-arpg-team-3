@@ -12,7 +12,7 @@ public class GainSecondary : MonoBehaviour
 	
 	private void OnTriggerEnter(Collider other) {
 		if (other.gameObject.CompareTag("Player") && !triggered) {
-			other.GetComponent<PlayerStatsLoader>().playerStats.tertiary = true;
+			other.GetComponent<PlayerStatsLoader>().playerStats.secondary = true;
 			triggered = true;
 			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerRespawn");
 			StartCoroutine(MessageText());
