@@ -7,6 +7,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Material.007
+    second: {fileID: 2100000, guid: c2f7393065595ef4787acc1bbfcdd786, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WallMat
+    second: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Wood
     second: {fileID: 2100000, guid: 0ae1dae3f47b25b46af9b4198b399527, type: 2}
   materials:
