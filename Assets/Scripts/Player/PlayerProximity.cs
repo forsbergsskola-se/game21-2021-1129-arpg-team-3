@@ -10,6 +10,7 @@ public class PlayerProximity : MonoBehaviour
 	private PlayerStats playerStats;
 	private void Start() 
 	{
+		instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject.transform));
 		instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
 		instance.start();
 		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
@@ -29,5 +30,7 @@ public class PlayerProximity : MonoBehaviour
 			instance.start();
 		}
 	}
-
+	public void StopMusic() {
+		instance.stop(STOP_MODE.ALLOWFADEOUT);
+	}
 }
