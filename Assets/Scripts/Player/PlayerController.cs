@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
 	public Animator animator;
 	private EventInstance instance;
 	public FMODUnity.EventReference fmodEvent;
+	private bool waiting;
 
 	private void Awake() 
 	{
@@ -62,9 +63,29 @@ public class PlayerController : MonoBehaviour
 		Interact();
 		LevellingCheck();
 		animator.SetFloat("Speed", agent.velocity.sqrMagnitude);
-		instance.setParameterByName("velocity", agent.velocity.sqrMagnitude);
-		instance.setParameterByName("GroundTyp", 1);
+		PlayWalkingSound();
+		PlayWalkingSound();
 	}
+	private void PlayWalkingSound() 
+	{
+		if (!waiting) {
+			instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
+			instance.setParameterByName("velocity", agent.velocity.sqrMagnitude);
+			instance.setParameterByName("GroundTyp", playerStats.zone);
+			instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject.transform));
+			instance.start();
+			instance.release();
+			StartCoroutine(DelayWalk());
+		}
+	}
+
+	private IEnumerator DelayWalk() 
+	{
+		waiting = true;
+		yield return new WaitForSeconds(0.5f);
+		waiting = false;
+	}
+
 	private void PlayerInput() {
 
 		if (!Input.GetMouseButtonUp(0) || Camera.main is null)
@@ -72,7 +93,8 @@ public class PlayerController : MonoBehaviour
 		cursorManagement.DeSpawnRallyPoint();
 		TargetCheck();
 	}
-	private void LevellingCheck() {
+	private void LevellingCheck() 
+	{
 		if (playerStats.Experience < playerStats.MaxExperience)
 			return;
 		playerStats.Experience -= playerStats.MaxExperience;
@@ -271,19 +293,32 @@ public class PlayerController : MonoBehaviour
 			case InterfaceType.Inventory:
 				break;
 			case InterfaceType.Equipment:
-				print(string.Concat("Removed ", _slot.ItemObject, " on ", _slot.parent.inventory.type, 
-					", Allowed Items: ", string.Join(", ", _slot.AllowedItems)));
-				for (int i = 0; i < _slot.item.buffs.Length; i++)
-				{
-					for (int j = 0; j < attributes.Length; j++)
-					{
-						if (attributes[j].type == _slot.item.buffs[i].attribute)
-							attributes[j].value.RemoveModifier(_slot.item.buffs[i]);
-					}
-				}
+				CalculateEquipmentStats(_slot, false);
 				break;
 			case InterfaceType.Chest:
 				break;
+		}
+	}
+
+
+	private void CalculateEquipmentStats(InventorySlotS _slot, bool unequipped)
+	{
+		for (int i = 0; i < _slot.item.buffs.Length; i++)
+		{
+			for (int j = 0; j < attributes.Length; j++)
+			{
+				if (attributes[j].type == _slot.item.buffs[i].attribute)
+				{
+					if (unequipped)
+					{
+						attributes[j].value.RemoveModifier(_slot.item.buffs[i]);
+					}
+					else
+					{
+						attributes[j].value.AddModifier(_slot.item.buffs[i]);
+					}
+				}
+			}
 		}
 	}
 	private void OnAfterSlotUpdate(InventorySlotS _slot)
@@ -295,16 +330,7 @@ public class PlayerController : MonoBehaviour
 			case InterfaceType.Inventory:
 				break;
 			case InterfaceType.Equipment:
-				print(string.Concat
-					("Placed ", _slot.ItemObject, " on ", _slot.parent.inventory.type, ", Allowed Items: ", string.Join(", ", _slot.AllowedItems)));
-				for (int i = 0; i < _slot.item.buffs.Length; i++)
-				{
-					for (int j = 0; j < attributes.Length; j++)
-					{
-						if (attributes[j].type == _slot.item.buffs[i].attribute)
-							attributes[j].value.AddModifier(_slot.item.buffs[i]);
-					}
-				}
+				CalculateEquipmentStats(_slot, true);
 				break;
 			case InterfaceType.Chest:
 				break;

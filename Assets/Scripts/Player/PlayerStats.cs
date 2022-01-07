@@ -22,6 +22,7 @@ public class PlayerStats : ScriptableObject
     [SerializeField] private bool playerDied;
     [SerializeField] private int deathCount;
     [SerializeField] private float vulnerability = 0.5f;
+    public int zone;
     public bool secondary;
     public bool tertiary;
 
