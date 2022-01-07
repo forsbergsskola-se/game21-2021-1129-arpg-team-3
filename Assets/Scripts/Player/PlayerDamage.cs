@@ -7,7 +7,7 @@ public class PlayerDamage : MonoBehaviour
 
 	private PlayerStats playerStats;
 	public GameObject damageText;
-	
+
 	[SerializeField] private float timeToTakeDamage;
 	private float elapsedTime;
 
@@ -24,7 +24,7 @@ public class PlayerDamage : MonoBehaviour
 		}
 	}
 	private void OnParticleCollision(GameObject other) {
-		float damageReceived = (5 + playerStats.PlayerLevel * 5 * 0.75f) * Random.Range(0.9f, 1f) - playerStats.PlayerArmour;
+		float damageReceived = (5 + playerStats.PlayerLevel * 5 * playerStats.Vulnerability) * Random.Range(0.9f, 1f) - playerStats.PlayerArmour;
 		ShowPlayerDamage(damageReceived);	
 	}
 	private void ShowPlayerDamage(float damageReceived)

@@ -21,9 +21,11 @@ public class PlayerStats : ScriptableObject
     [SerializeField] private float combatRotationSpeed;
     [SerializeField] private bool playerDied;
     [SerializeField] private int deathCount;
+    [SerializeField] private float vulnerability = 0.5f;
     public bool secondary;
     public bool tertiary;
 
+    public float Vulnerability => vulnerability;
     public int DeathCount => deathCount;
     public bool PlayerDied 
     {
