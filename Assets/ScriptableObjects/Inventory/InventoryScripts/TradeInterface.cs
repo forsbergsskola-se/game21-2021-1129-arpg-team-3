@@ -30,18 +30,16 @@ public class TradeInterface : UserInterface
     private readonly int Y_SPACE_BETWEEN_ITEM = 50;
 
     public delegate void MakeSaleDelegate(ItemObject obj);
-
     public static event MakeSaleDelegate OnMakeSale;
 
     public delegate void OpenInventoryDelegate();
-
     public static event OpenInventoryDelegate OnOpenInventory; 
     
     public override void CreateSlots()
     {
         SetupButtons();
         
-    //    GameObject.FindWithTag("Player").GetComponent<PlayerStatsLoader>().playerStats.Gold += 1000;
+        GameObject.FindWithTag("Player").GetComponent<PlayerStatsLoader>().playerStats.Gold += 1000;
 
         slotsOnInterface = new Dictionary<GameObject, InventorySlotS>();
         for (int i = 0; i < inventory.GetSlots.Length; i++)
@@ -56,6 +54,7 @@ public class TradeInterface : UserInterface
             slotsOnInterface.Add(obj, inventory.GetSlots[i]);
         }
         SetupSlots();
+        OpenInventory();
     }
 
 

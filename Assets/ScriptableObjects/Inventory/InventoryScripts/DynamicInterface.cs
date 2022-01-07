@@ -26,7 +26,7 @@ public class DynamicInterface : UserInterface
             inventory.GetSlots[i].slotDisplay = obj;
             slotsOnInterface.Add(obj, inventory.GetSlots[i]);
         } 
-        //    inventory.Container.Clear();
+    //    inventory.Container.Clear();
         TradeInterface.OnMakeSale += MakePurchase;
     }
 
