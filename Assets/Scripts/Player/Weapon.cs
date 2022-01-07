@@ -26,12 +26,12 @@ public class Weapon : MonoBehaviour
             projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * shootForce);
             StartCoroutine(DelayAttack());
         }
-        else if (Input.GetMouseButtonDown(0) && canSwing)
-        {
-            GameObject projectile = Instantiate(sword, transform.position, transform.rotation);
-            projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * (shootForce - 500f));
-            StartCoroutine(DelaySwing());
-        }
+        // else if (Input.GetMouseButtonDown(0) && canSwing)
+        // {
+        //     GameObject projectile = Instantiate(sword, transform.position, transform.rotation);
+        //     projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * (shootForce - 500f));
+        //     StartCoroutine(DelaySwing());
+        // }
         else if (Input.GetKeyDown(KeyCode.Space) && playerStats.tertiary && canImmolate)
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/Player/FireCircle");

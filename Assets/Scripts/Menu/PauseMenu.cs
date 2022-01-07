@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
     public PlayerController player;
     public InventoryHider inventoryHider;
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.I)) {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
             {
                 if (player.inDialogue) {
                     Resume();
