@@ -36,10 +36,6 @@ public class DeathCounter : MonoBehaviour
                 comment = "Sorry, we didn't make a baby-mode";
                 break;
         }
-        if (playerStats.DeathCount <= 0) 
-        {
-            
-        }
         text.text = $"Deathcount: {playerStats.DeathCount} - {comment}";
     }
 }

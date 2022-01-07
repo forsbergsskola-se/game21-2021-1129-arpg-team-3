@@ -1,4 +1,5 @@
 using System.Collections;
+using FMOD.Studio;
 using TMPro;
 using UnityEditor.VersionControl;
 using UnityEngine;
@@ -25,7 +26,9 @@ public class PlayerController : MonoBehaviour
 	public TextMeshProUGUI messageText;
 	public GameObject effect;
 	public Animator animator;
-
+	private EventInstance instance;
+	public FMODUnity.EventReference fmodEvent;
+	private bool waiting;
 	private void Awake() 
 	{
 		playerStats = GetComponent<PlayerStatsLoader>().playerStats;
@@ -55,7 +58,25 @@ public class PlayerController : MonoBehaviour
 		Interact();
 		LevellingCheck();
 		animator.SetFloat("Speed", agent.velocity.sqrMagnitude);
-		//Debug.Log(agent.velocity.sqrMagnitude);
+		PlayWalkingSound();
+		PlayWalkingSound();
+	}
+	private void PlayWalkingSound() {
+		if (!waiting) {
+			instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
+			instance.setParameterByName("velocity", agent.velocity.sqrMagnitude);
+			instance.setParameterByName("GroundTyp", 0);
+			instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject.transform));
+			instance.start();
+			instance.release();
+			StartCoroutine(DelayWalk());
+		}
+	}
+
+	private IEnumerator DelayWalk() {
+		waiting = true;
+		yield return new WaitForSeconds(0.5f);
+		waiting = false;
 	}
 	private void PlayerInput() {
 
@@ -263,31 +284,19 @@ public class PlayerController : MonoBehaviour
 			case InterfaceType.Inventory:
 				break;
 			case InterfaceType.Equipment:
-				CalculateEquipmentStats(_slot, false);
+				print(string.Concat("Removed ", _slot.ItemObject, " on ", _slot.parent.inventory.type, 
+					", Allowed Items: ", string.Join(", ", _slot.AllowedItems)));
+				for (int i = 0; i < _slot.item.buffs.Length; i++)
+				{
+					for (int j = 0; j < attributes.Length; j++)
+					{
+						if (attributes[j].type == _slot.item.buffs[i].attribute)
+							attributes[j].value.RemoveModifier(_slot.item.buffs[i]);
+					}
+				}
 				break;
 			case InterfaceType.Chest:
 				break;
-		}
-	}
-
-	private void CalculateEquipmentStats(InventorySlotS _slot, bool unequipped)
-	{
-		for (int i = 0; i < _slot.item.buffs.Length; i++)
-		{
-			for (int j = 0; j < attributes.Length; j++)
-			{
-				if (attributes[j].type == _slot.item.buffs[i].attribute)
-				{
-					if (unequipped)
-					{
-						attributes[j].value.RemoveModifier(_slot.item.buffs[i]);
-					}
-					else
-					{
-						attributes[j].value.AddModifier(_slot.item.buffs[i]);
-					}
-				}
-			}
 		}
 	}
 	private void OnAfterSlotUpdate(InventorySlotS _slot)
@@ -299,7 +308,16 @@ public class PlayerController : MonoBehaviour
 			case InterfaceType.Inventory:
 				break;
 			case InterfaceType.Equipment:
-				CalculateEquipmentStats(_slot, true);
+				print(string.Concat
+					("Placed ", _slot.ItemObject, " on ", _slot.parent.inventory.type, ", Allowed Items: ", string.Join(", ", _slot.AllowedItems)));
+				for (int i = 0; i < _slot.item.buffs.Length; i++)
+				{
+					for (int j = 0; j < attributes.Length; j++)
+					{
+						if (attributes[j].type == _slot.item.buffs[i].attribute)
+							attributes[j].value.AddModifier(_slot.item.buffs[i]);
+					}
+				}
 				break;
 			case InterfaceType.Chest:
 				break;
