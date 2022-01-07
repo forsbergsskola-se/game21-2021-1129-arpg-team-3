@@ -10040,22 +10040,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7237374050900421037, guid: 4e7a106580f341d458c387165b864ce2, type: 3}
   m_PrefabInstance: {fileID: 1489671290057847860}
   m_PrefabAsset: {fileID: 0}
---- !u!208 &1489671290057847849
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8132429452571467161}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.36, y: 0.25, z: 0.76000005}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0.25, y: 0.25, z: -0.75000006}
-  m_TimeToStationary: 0.5
 --- !u!208 &1489671290057847854
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -10079,6 +10063,22 @@ NavMeshObstacle:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7597367510599623849}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.36, y: 0.25, z: 0.76000005}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.25, y: 0.25, z: -0.75000006}
+  m_TimeToStationary: 0.5
+--- !u!208 &1489671290057847849
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8132429452571467161}
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
@@ -17480,6 +17480,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3415183724397364965, guid: 3c36991487007e847a8900af363e2e01, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3457934553828770377, guid: 3c36991487007e847a8900af363e2e01, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3473579571077668014, guid: 3c36991487007e847a8900af363e2e01, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -17487,6 +17495,10 @@ PrefabInstance:
     - target: {fileID: 3530992359920133641, guid: 3c36991487007e847a8900af363e2e01, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3533828859993435334, guid: 3c36991487007e847a8900af363e2e01, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3987665009144080966, guid: 3c36991487007e847a8900af363e2e01, type: 3}
       propertyPath: m_Mesh
@@ -17796,6 +17808,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7082171580601587001, guid: 3c36991487007e847a8900af363e2e01, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120414352577532309, guid: 3c36991487007e847a8900af363e2e01, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7290591467605282646, guid: 3c36991487007e847a8900af363e2e01, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -17931,6 +17951,10 @@ PrefabInstance:
     - target: {fileID: 8825593150743574938, guid: 3c36991487007e847a8900af363e2e01, type: 3}
       propertyPath: m_Tangents.Array.data[15].z
       value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 8946234251860770586, guid: 3c36991487007e847a8900af363e2e01, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9116226253589186065, guid: 3c36991487007e847a8900af363e2e01, type: 3}
       propertyPath: m_Enabled
@@ -30936,6 +30960,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3409189102008684372, guid: 135fdeeb51ef190448b767404c3b8c1c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3456197986021399163, guid: 135fdeeb51ef190448b767404c3b8c1c, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -31036,6 +31064,14 @@ PrefabInstance:
       propertyPath: m_Tangents.Array.data[15].z
       value: NaN
       objectReference: {fileID: 0}
+    - target: {fileID: 3539928590698440055, guid: 135fdeeb51ef190448b767404c3b8c1c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3989314971525919348, guid: 135fdeeb51ef190448b767404c3b8c1c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4310732538511829754, guid: 135fdeeb51ef190448b767404c3b8c1c, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -31071,6 +31107,14 @@ PrefabInstance:
     - target: {fileID: 6684091980965149204, guid: 135fdeeb51ef190448b767404c3b8c1c, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7132083107460601892, guid: 135fdeeb51ef190448b767404c3b8c1c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243619249739501351, guid: 135fdeeb51ef190448b767404c3b8c1c, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7313008870233758567, guid: 135fdeeb51ef190448b767404c3b8c1c, type: 3}
       propertyPath: m_Mesh
@@ -31327,6 +31371,10 @@ PrefabInstance:
     - target: {fileID: 8813609177131397163, guid: 135fdeeb51ef190448b767404c3b8c1c, type: 3}
       propertyPath: m_Tangents.Array.data[15].z
       value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856615042681906436, guid: 135fdeeb51ef190448b767404c3b8c1c, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8933362060344883031, guid: 135fdeeb51ef190448b767404c3b8c1c, type: 3}
       propertyPath: m_Layer
