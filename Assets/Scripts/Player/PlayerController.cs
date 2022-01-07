@@ -12,8 +12,6 @@ public class PlayerController : MonoBehaviour
 	private Transform target;
 	public CursorManagement cursorManagement;
 	private PlayerStats playerStats;
-	public Animator attackAnimation;
-	public GameObject playerModel;
 	private KeyHolder keyHolder;
 	// public GameObject playerWeapon;
 	private GroundItem itemPickup;
@@ -26,6 +24,7 @@ public class PlayerController : MonoBehaviour
 	public GameObject messageBox;
 	public TextMeshProUGUI messageText;
 	public GameObject effect;
+	public Animator animator;
 
 	private void Awake() 
 	{
@@ -34,8 +33,7 @@ public class PlayerController : MonoBehaviour
 		keyHolder = GetComponent<KeyHolder>();
 	}
 
-	private void Start() 
-	{
+	private void Start() {
 		agent = GetComponent<NavMeshAgent>();
 		DialogueReader.OnStartEndDialogue += StartEndDialogue;
 		foreach (var t in attributes) {
@@ -119,9 +117,12 @@ public class PlayerController : MonoBehaviour
 	private void MovePlayer(Vector3 point) {
 		if (inDialogue)
 			return;
-		StopAttacking();
+		StopAttacking(); 
+		animator.SetFloat("Speed", agent.speed);
+		Debug.Log(agent.speed);
 		agent.stoppingDistance = 0; //resets melee range setting
 		agent.SetDestination(point); //moves player to point
+		
 		FMODUnity.RuntimeManager.PlayOneShot("event:/Clicks/MainClick");
 	}
 
@@ -193,15 +194,15 @@ public class PlayerController : MonoBehaviour
 	}
 	private void StartAttacking() 
 	{
-		attackAnimation.gameObject.SetActive(true);
-		playerModel.gameObject.SetActive(false);
+		// attackAnimation.gameObject.SetActive(true);
+		// playerModel.gameObject.SetActive(false);
 		transform.Translate(new Vector3(0, 0, 0));
 
 	}
 	private void StopAttacking() 
 	{
-		attackAnimation.gameObject.SetActive(false);
-		playerModel.gameObject.SetActive(true);
+		// attackAnimation.gameObject.SetActive(false);
+		// playerModel.gameObject.SetActive(true);
 	}
 	
 	private void ChangeCursor() 
