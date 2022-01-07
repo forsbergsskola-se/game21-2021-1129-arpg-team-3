@@ -29,13 +29,23 @@ public class TradeInterface : UserInterface
     private readonly int NUMBER_OF_COLUMN = 4;
     private readonly int Y_SPACE_BETWEEN_ITEM = 50;
 
+    private TextMeshProUGUI playerGoldDisplay;
+    
+ //   public delegate void EndTradeDelegate();
+ //   public static event EndTradeDelegate OnEndTrade;
+
     public delegate void MakeSaleDelegate(ItemObject obj);
 
     public static event MakeSaleDelegate OnMakeSale;
 
     public delegate void OpenInventoryDelegate();
 
-    public static event OpenInventoryDelegate OnOpenInventory; 
+    public static event OpenInventoryDelegate OnOpenInventory;
+
+    public delegate void UpdatePlayerGoldDelegate(int amountGold);
+
+    public static event UpdatePlayerGoldDelegate OnUpdateGold;
+
     
     public override void CreateSlots()
     {
@@ -56,15 +66,28 @@ public class TradeInterface : UserInterface
             slotsOnInterface.Add(obj, inventory.GetSlots[i]);
         }
         SetupSlots();
+
+        OpenInventory();
+        UpdatePlayerGoldDisplay((int)GameObject.FindWithTag("Player").GetComponent<PlayerStatsLoader>().playerStats.Gold);
     }
+    
 
-
+    private void UpdatePlayerGoldDisplay(int goldAmount)
+    {
+        if (OnUpdateGold != null)
+        {
+            OnUpdateGold(goldAmount);
+        }
+    }
+    
     private void OpenInventory()
     {
+        
         if (OnOpenInventory != null)
         {
             OnOpenInventory();
         }
+
     }
     
     private void SetupSlots()
@@ -88,6 +111,8 @@ public class TradeInterface : UserInterface
     private void MakeSale(ItemObject obj)
     {
         GameObject.FindWithTag("Player").GetComponent<PlayerStatsLoader>().playerStats.Gold -= obj.baseValue + discountMarkup;
+        UpdatePlayerGoldDisplay((int)GameObject.FindWithTag("Player").GetComponent<PlayerStatsLoader>().playerStats.Gold);
+        
         if (OnMakeSale != null)
         {
             OnMakeSale(obj);
@@ -98,8 +123,8 @@ public class TradeInterface : UserInterface
     {
         inventory.GetSlots
             .Where(x => x.slotDisplay.transform.position != obj.transform.position).ToList()
-            .Select(x => x.slotDisplay.transform.GetComponentsInChildren<Image>()[0].color = new Color(1, 1, 1, 1)).ToList();
-        obj.transform.GetComponentsInChildren<Image>()[0].color = new Color(0, 1, 0, 1);
+            .Select(x => x.slotDisplay.transform.GetComponentsInChildren<Image>()[0].color = new Color(0.5f, 0.5f, 0.5f, 1)).ToList();
+        obj.transform.GetComponentsInChildren<Image>()[0].color = new Color(1, 1, 1, 1);
         
         int totalCost = itemToAdd[slotIndex].baseValue + discountMarkup;
         GameObject.FindWithTag("BuyButton").GetComponentsInChildren<TextMeshProUGUI>()[1].text = "Cost: "  + totalCost;

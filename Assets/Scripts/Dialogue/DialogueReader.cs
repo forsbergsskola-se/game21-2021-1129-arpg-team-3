@@ -90,12 +90,12 @@ public class DialogueReader : MonoBehaviour
         }
     }
     
-    private void AcceptQuest(QuestObject theAttachedQuest)
+    private void AcceptQuest()
     {
         currentCriteria = DialogueCriteria.AcceptedQuest;
         if (OnAcceptQuest != null)
         {
-            OnAcceptQuest(theAttachedQuest);
+            OnAcceptQuest(attachedQuest);
         }
     }
 
@@ -229,7 +229,7 @@ public class DialogueReader : MonoBehaviour
 
                 if (selectedLine == "Accept Quest")
                 {
-                    AcceptQuest(attachedQuest);
+                    AcceptQuest();
                 }
 
                 if (selectedLine == "Accept Reward")
