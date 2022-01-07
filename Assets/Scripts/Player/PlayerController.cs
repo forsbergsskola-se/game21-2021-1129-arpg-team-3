@@ -312,7 +312,7 @@ public class PlayerController : MonoBehaviour
 						if (attributes[j].type == Attributes.HP)
 						{
 							PlayerStatsLoader statsLoader = FindObjectOfType<PlayerStatsLoader>();
-							statsLoader.playerStats.Health = statsLoader.playerStats.Health - attributes[j].value.BaseValue;
+							statsLoader.playerStats.Health = statsLoader.playerStats.Health + attributes[j].value.BaseValue;
 						}
 					}
 					else
@@ -321,7 +321,7 @@ public class PlayerController : MonoBehaviour
 						if (attributes[j].type == Attributes.HP)
 						{
 							PlayerStatsLoader statsLoader = FindObjectOfType<PlayerStatsLoader>();
-							statsLoader.playerStats.Health = statsLoader.playerStats.Health + attributes[j].value.BaseValue;
+							statsLoader.playerStats.Health = statsLoader.playerStats.Health - attributes[j].value.BaseValue;
 						}
 					}
 				}
