@@ -131,6 +131,7 @@ public class PlayerStats : ScriptableObject
         secondary = false;
         tertiary = false;
         deathCount = 0;
+        zone = 0;
     }
 
     private void KillPlayer() 

@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("PlayerWeapon")) 
 		{
-			TakeDamage(1);
+			TakeDamage(0.4f);
 			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/SwordHit");
 		}
 		else if (other.gameObject.CompareTag("PlayerRange")) 
@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
 	private void OnTriggerStay(Collider other) {
 		elapsedTime += Time.deltaTime;
 		if (other.gameObject.CompareTag("Fire2")) {
-			TakeDamage(0.06f);
+			TakeDamage(0.125f);
 			elapsedTime = 0;
 		}
 	}

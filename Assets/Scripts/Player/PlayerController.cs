@@ -64,7 +64,6 @@ public class PlayerController : MonoBehaviour
 		LevellingCheck();
 		animator.SetFloat("Speed", agent.velocity.sqrMagnitude);
 		PlayWalkingSound();
-		PlayWalkingSound();
 	}
 	private void PlayWalkingSound() 
 	{
