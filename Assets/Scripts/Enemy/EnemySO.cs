@@ -10,7 +10,11 @@ public class EnemySO : ScriptableObject
 	
 	public string EnemyName => enemyName;
 	public float WeaponDamage => weaponDamage;
-	public float EnemyHealth => enemyHealth;
+	public float EnemyHealth 
+	{
+		get => enemyHealth;
+		set => enemyHealth = value;
+	}
 	public float EnemyArmor => enemyArmor;
 
 

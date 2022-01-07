@@ -8,7 +8,13 @@ public class MessageBox : MonoBehaviour
     public GameObject note;
     public PlayerController player;
     public InventoryHider inventoryHider;
-    
+
+
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.I)) {
+            note.SetActive(false);
+        }
+    }
     public void Resume() 
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/Clicks/UiClick");

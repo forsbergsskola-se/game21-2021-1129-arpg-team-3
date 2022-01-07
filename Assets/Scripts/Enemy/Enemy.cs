@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
 			KillEnemy();
 		}
 	}
-	
+
 	private void OnTriggerEnter(Collider other) 
 	{
 		if (other.gameObject.CompareTag("PlayerWeapon")) 
@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
 	private void OnTriggerStay(Collider other) {
 		elapsedTime += Time.deltaTime;
 		if (other.gameObject.CompareTag("Fire2")) {
-			TakeDamage(0.25f);
+			TakeDamage(0.125f);
 			elapsedTime = 0;
 		}
 	}
@@ -62,7 +62,6 @@ public class Enemy : MonoBehaviour
 	{
 		float damageReceived = playerStats.WeaponDamage * multiplier * Random.Range(0.9f, 1f) - enemySo.EnemyArmor;
 		Health -= math.clamp(damageReceived, 0, damageReceived);
-
 		ShowEnemyDamage(damageReceived);
 	}
 	private void ShowEnemyDamage(float damageReceived) 
@@ -73,6 +72,7 @@ public class Enemy : MonoBehaviour
 	private void KillEnemy()
 	{
 		playerStats.Experience += maxHealth * enemySo.WeaponDamage * playerStats.XPMultiplier;
+		
 		gameObject.SetActive(false);
 		Instantiate(smoke, transform.position, Quaternion.identity);
 		RandomDrop();
