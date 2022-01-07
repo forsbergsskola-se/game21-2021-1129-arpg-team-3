@@ -30,7 +30,6 @@ public class DynamicInterface : UserInterface
         TradeInterface.OnMakeSale += MakePurchase;
     }
 
-
     private void MakePurchase(ItemObject obj)
     {
         inventory.AddItem(obj.data, 1);

@@ -6,6 +6,13 @@ public class GroundItem : MonoBehaviour, ISerializationCallbackReceiver
 {
     public ItemObject item;
 
+    public ItemObject pickupItem()
+    {
+        ItemObject newItem = ScriptableObject.CreateInstance<ItemObject>();
+        newItem.SetValuesFromTarget(item);
+        return newItem;
+    }
+    
     public void OnBeforeSerialize()
     {
 #if UNITY_EDITOR

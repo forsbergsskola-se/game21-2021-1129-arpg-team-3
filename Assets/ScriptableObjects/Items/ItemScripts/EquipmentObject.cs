@@ -9,4 +9,13 @@ public class EquipmentObject : ItemObject
     {
         //type = ItemTypeS.Chest;
     }
+
+    public override void SetValuesFromTarget(ItemObject target)
+    {
+        base.SetValuesFromTarget(target);
+        EquipmentObject targetEquip = (EquipmentObject) target;
+        armourBonus = targetEquip.armourBonus;
+        damageBonus = targetEquip.damageBonus;
+        tierGrade = targetEquip.tierGrade;
+    }
 }

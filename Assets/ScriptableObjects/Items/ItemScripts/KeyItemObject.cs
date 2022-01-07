@@ -8,4 +8,9 @@ public class KeyItemObject : ItemObject {
         //type = ItemTypeS.KeyItem;
     }
 
+    public override void SetValuesFromTarget(ItemObject target)
+    {
+        base.SetValuesFromTarget(target);
+       // KeyItemObject targetKey = (KeyItemObject) target;
+    }
 }

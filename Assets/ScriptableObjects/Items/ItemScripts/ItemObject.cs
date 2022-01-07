@@ -34,6 +34,16 @@ public class ItemObject : ScriptableObject
         Item newItem = new Item(this);
         return newItem;
     }
+
+    public virtual void SetValuesFromTarget(ItemObject target)
+    {
+        uiDisplay = target.uiDisplay;
+        stackable = target.stackable;
+        baseValue = target.baseValue;
+        type = target.type;
+        description = target.description;
+        data = target.data;
+    }
 }
 [System.Serializable]
 public class Item

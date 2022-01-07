@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
 		Interact();
 		LevellingCheck();
 		animator.SetFloat("Speed", agent.velocity.sqrMagnitude);
-		Debug.Log(agent.velocity.sqrMagnitude);
+		//Debug.Log(agent.velocity.sqrMagnitude);
 	}
 	private void PlayerInput() {
 
@@ -263,19 +263,31 @@ public class PlayerController : MonoBehaviour
 			case InterfaceType.Inventory:
 				break;
 			case InterfaceType.Equipment:
-				print(string.Concat("Removed ", _slot.ItemObject, " on ", _slot.parent.inventory.type, 
-					", Allowed Items: ", string.Join(", ", _slot.AllowedItems)));
-				for (int i = 0; i < _slot.item.buffs.Length; i++)
-				{
-					for (int j = 0; j < attributes.Length; j++)
-					{
-						if (attributes[j].type == _slot.item.buffs[i].attribute)
-							attributes[j].value.RemoveModifier(_slot.item.buffs[i]);
-					}
-				}
+				CalculateEquipmentStats(_slot, false);
 				break;
 			case InterfaceType.Chest:
 				break;
+		}
+	}
+
+	private void CalculateEquipmentStats(InventorySlotS _slot, bool unequipped)
+	{
+		for (int i = 0; i < _slot.item.buffs.Length; i++)
+		{
+			for (int j = 0; j < attributes.Length; j++)
+			{
+				if (attributes[j].type == _slot.item.buffs[i].attribute)
+				{
+					if (unequipped)
+					{
+						attributes[j].value.RemoveModifier(_slot.item.buffs[i]);
+					}
+					else
+					{
+						attributes[j].value.AddModifier(_slot.item.buffs[i]);
+					}
+				}
+			}
 		}
 	}
 	private void OnAfterSlotUpdate(InventorySlotS _slot)
@@ -287,16 +299,7 @@ public class PlayerController : MonoBehaviour
 			case InterfaceType.Inventory:
 				break;
 			case InterfaceType.Equipment:
-				print(string.Concat
-					("Placed ", _slot.ItemObject, " on ", _slot.parent.inventory.type, ", Allowed Items: ", string.Join(", ", _slot.AllowedItems)));
-				for (int i = 0; i < _slot.item.buffs.Length; i++)
-				{
-					for (int j = 0; j < attributes.Length; j++)
-					{
-						if (attributes[j].type == _slot.item.buffs[i].attribute)
-							attributes[j].value.AddModifier(_slot.item.buffs[i]);
-					}
-				}
+				CalculateEquipmentStats(_slot, true);
 				break;
 			case InterfaceType.Chest:
 				break;

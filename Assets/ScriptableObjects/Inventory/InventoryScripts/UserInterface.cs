@@ -50,7 +50,8 @@ public abstract class UserInterface : MonoBehaviour
     public void OnEnter(GameObject obj)
     {
         MouseData.slotHovered = obj;
-        FindObjectOfType<ItemInfo>().UpdateUIInformation(slotsOnInterface[obj].ItemObject);
+       //ItemObject itemObj = slotsOnInterface[obj].ItemObject;
+       FindObjectOfType<ItemInfo>().UpdateUIInformation(slotsOnInterface[obj].ItemObject);
     }
     public void OnExit(GameObject obj)
     {

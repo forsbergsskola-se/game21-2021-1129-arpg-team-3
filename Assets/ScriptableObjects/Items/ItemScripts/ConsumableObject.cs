@@ -7,4 +7,11 @@ public class ConsumableObject : ItemObject
     {
        // type = ItemTypeS.Consumable;
     }
+
+    public override void SetValuesFromTarget(ItemObject target)
+    {
+        base.SetValuesFromTarget(target);
+        ConsumableObject targetConsume = (ConsumableObject) target;
+        restoreHealthValue = targetConsume.restoreHealthValue;
+    }
 }
