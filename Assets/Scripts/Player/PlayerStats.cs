@@ -25,7 +25,57 @@ public class PlayerStats : ScriptableObject
     public int zone;
     public bool secondary;
     public bool tertiary;
+    public PlayerController _playerController;
+    
+    public PlayerStats GetModifiedStats()
+    {
+        PlayerStats tempStats = ScriptableObject.CreateInstance<PlayerStats>();
+        for (int i = 0; i < System.Enum.GetValues(typeof(Attributes)).Length; i++)
+        {
+            Attributes item = (Attributes) i;
+            Attribute attributeData = GetAttribute(item, out bool exist);
+            if (exist)
+            {
+                switch (item)
+                {
+                    case Attributes.AtkSpd:
+                        //something with attackdelay, perhaps?
+                        break;
+                    case Attributes.Damage:
+                        tempStats.weaponDamage = weaponDamage + attributeData.value._modifiedValue;
+                        break;
+                    case Attributes.HP:
+                        tempStats.maxHealth = maxHealth + attributeData.value._modifiedValue;
+                        //tempStats.health = health + attributeData.value._modifiedValue;
+                        break;
+                    case Attributes.Armor:
+                        tempStats.playerArmour = playerArmour + attributeData.value._modifiedValue;
+                        break;
+                    case Attributes.Appearance:
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        return tempStats;
+    }
 
+    private Attribute GetAttribute(Attributes target, out bool exist)
+    {
+        Attribute[] attributes = _playerController.attributes;
+        foreach (Attribute item in attributes)
+        {
+            if (item.type == target)
+            {
+                exist = true;
+                return item;
+            }
+        }
+
+        exist = false;
+        return new Attribute();
+    }
     public float Vulnerability => vulnerability;
     public int DeathCount => deathCount;
     public bool PlayerDied 
@@ -41,19 +91,19 @@ public class PlayerStats : ScriptableObject
         get => health;
         set {
             health = value;
-            health = Mathf.Clamp(health, minHealth, maxHealth);
+            health = Mathf.Clamp(health, minHealth, MaxHealth);
         }
     }
     
     public float MaxHealth 
     {
-        get => maxHealth;
+        get => GetModifiedStats().maxHealth;
         set => maxHealth = value;
     }
     
     public float PlayerArmour 
     {
-        get => playerArmour;
+        get => GetModifiedStats().playerArmour;
         set => playerArmour = value;
     }
 
@@ -62,16 +112,6 @@ public class PlayerStats : ScriptableObject
         get => gold;
         set => gold = value;
     }
-    
-    // public float Mana {
-    //     get => mana;
-    //     set => mana = value;
-    // }
-    //
-    // public float Score {
-    //     get => score;
-    //     set => score = value;
-    // }
     
     public float WeaponDamage
     {
@@ -146,5 +186,14 @@ public class PlayerStats : ScriptableObject
         // gold -= 50;
         // SceneManager.LoadScene(1);
     }
+    // public float Mana {
+    //     get => mana;
+    //     set => mana = value;
+    // }
+    //
+    // public float Score {
+    //     get => score;
+    //     set => score = value;
+    // }
 }
 

@@ -8,7 +8,8 @@ public class ModifiableInt
     [SerializeField] private int baseValue;
     public int BaseValue{ get{return baseValue;} set{baseValue = value; UpdateModifiedValue();}}
     [SerializeField] private int modifiedValue;
-    public int _modifiedValue{get{return _modifiedValue;}private set{_modifiedValue = value;}}
+    public int _modifiedValue;
+
     public List<IModifiers> modifiers = new List<IModifiers>();
 
     public event ModifiedEvent ValueModified;

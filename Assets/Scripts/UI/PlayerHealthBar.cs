@@ -10,7 +10,7 @@ public class PlayerHealthBar : MonoBehaviour {
 	
 	private void Awake()
 	{ 
-		_playerStats = GetComponentInParent<PlayerStatsLoader>().playerStats;
+		_playerStats = FindObjectOfType<PlayerStatsLoader>().playerStats;
 	}
 
 	private void LateUpdate() {

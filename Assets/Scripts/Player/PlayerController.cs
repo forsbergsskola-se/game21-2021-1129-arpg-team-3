@@ -299,8 +299,6 @@ public class PlayerController : MonoBehaviour
 				break;
 		}
 	}
-
-
 	private void CalculateEquipmentStats(InventorySlotS _slot, bool unequipped)
 	{
 		for (int i = 0; i < _slot.item.buffs.Length; i++)
@@ -309,13 +307,23 @@ public class PlayerController : MonoBehaviour
 			{
 				if (attributes[j].type == _slot.item.buffs[i].attribute)
 				{
-					if (unequipped)
+					if (!unequipped)
 					{
 						attributes[j].value.RemoveModifier(_slot.item.buffs[i]);
+						if (attributes[j].type == Attributes.HP)
+						{
+							PlayerStatsLoader statsLoader = FindObjectOfType<PlayerStatsLoader>();
+							statsLoader.playerStats.Health = statsLoader.playerStats.Health + attributes[j].value.BaseValue;
+						}
 					}
 					else
 					{
 						attributes[j].value.AddModifier(_slot.item.buffs[i]);
+						if (attributes[j].type == Attributes.HP)
+						{
+							PlayerStatsLoader statsLoader = FindObjectOfType<PlayerStatsLoader>();
+							statsLoader.playerStats.Health = statsLoader.playerStats.Health - attributes[j].value.BaseValue;
+						}
 					}
 				}
 			}
