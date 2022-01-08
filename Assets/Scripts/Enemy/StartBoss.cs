@@ -8,26 +8,17 @@ using UnityEngine;
 public class StartBoss : MonoBehaviour {
 	public BossAttack bossAttack;
 	private GameObject player;
-	public BossHealth bossHealth;
-	private bool triggered;
-	public GameObject messageBox;
-	public TextMeshProUGUI messageText;
-	public string message;
+	private BossHealth bossHealth;
 
+	private void Start() {
+		bossHealth = GetComponentInParent<BossHealth>();
+	}
 	private void OnTriggerEnter(Collider other) {
-		if (!triggered && other.gameObject.CompareTag("Player")) {
+		if (other.gameObject.CompareTag("Player")) {
 			other.gameObject.GetComponent<PlayerProximity>().StopMusic();
 			bossHealth.PlayMusic();
-			triggered = true;
-			DisplayMessage();
 			Destroy(gameObject);
+			bossAttack.canAttack = true;
 		}
-	}
-
-	private void DisplayMessage() {
-		messageBox.SetActive(true);
-		messageText.text = message;
-		Time.timeScale = 0f;
-		bossAttack.canAttack = true;
 	}
 }
