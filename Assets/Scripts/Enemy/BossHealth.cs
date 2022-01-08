@@ -9,6 +9,7 @@ public class BossHealth : MonoBehaviour {
 	public FMODUnity.EventReference fmodEvent;
 	private float bossHealth;
 	private float bossMaxHealth;
+	public GameObject theEnd;
 
 	private void Start() {
 		bossMaxHealth = GetComponent<Enemy>().maxHealth;
@@ -24,7 +25,9 @@ public class BossHealth : MonoBehaviour {
 			instance.setParameterByName("Boss HP", hp);
 		}
 		else {
+			theEnd.SetActive(true);
 			instance.stop(STOP_MODE.IMMEDIATE);
+			Time.timeScale = 0f;
 		}
 	}
 	public void PlayMusic() {

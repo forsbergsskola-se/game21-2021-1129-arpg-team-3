@@ -181,13 +181,13 @@ public class PlayerController : MonoBehaviour
 					{
 						//Attack
 						StartAttacking();
-						if (Input.GetMouseButtonUp(0) && target.CompareTag("Enemy")) 
-						{
-							transform.Translate(new Vector3(0, 0, 0));
-							var targetRotation = Quaternion.LookRotation(target.transform.position - transform.position);
-							// Smoothly rotate towards the target point.
-							transform.rotation = Quaternion.Slerp(transform.rotation,targetRotation, playerStats.CombatRotationSpeed * Time.deltaTime);
-						}
+						// if (Input.GetMouseButtonUp(0) && target.CompareTag("Enemy")) 
+						// {
+						// 	transform.Translate(new Vector3(0, 0, 0));
+						// 	var targetRotation = Quaternion.LookRotation(target.transform.position - transform.position);
+						// 	// Smoothly rotate towards the target point.
+						// 	transform.rotation = Quaternion.Slerp(transform.rotation,targetRotation, playerStats.CombatRotationSpeed * Time.deltaTime);
+						// }
 					}
 					//item pickup
 					else if (target.CompareTag("Item")) 

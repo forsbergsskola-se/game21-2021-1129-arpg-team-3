@@ -26,7 +26,7 @@ public class PlayerDamage : MonoBehaviour
 		}
 	}
 	private void OnParticleCollision(GameObject other) {
-		float damageReceived = (11 + playerStats.PlayerLevel * 5 * playerStats.Vulnerability) * Random.Range(0.9f, 1f) - playerStats.PlayerArmour;
+		float damageReceived = (20 + playerStats.PlayerLevel * 5 * playerStats.Vulnerability) * Random.Range(0.9f, 1f) - playerStats.PlayerArmour;
 		damageReceived = Mathf.Clamp(damageReceived, 0, 10000);
 		playerStats.TakeDamage(damageReceived);
 		ShowPlayerDamage(damageReceived);	
