@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c676125a9a11602448c8e714046a93f8, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
+
   health: 98.86119
-=======
   health: 100
->>>>>>> Stashed changes
   playerArmour: 10
   gold: 50
   score: 0
@@ -34,12 +32,9 @@ MonoBehaviour:
   combatRotationSpeed: 270
   playerDied: 0
   deathCount: 0
-<<<<<<< Updated upstream
   vulnerability: 0.2
   zone: 0
-=======
   vulnerability: 0.5
->>>>>>> Stashed changes
   secondary: 0
   tertiary: 0
   playerController: {fileID: 0}
