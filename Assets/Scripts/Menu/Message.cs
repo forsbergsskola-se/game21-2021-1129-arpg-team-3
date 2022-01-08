@@ -6,7 +6,7 @@ using UnityEngine;
 public class Message : MonoBehaviour 
 {
 	// public MessageSO messageSO;
-	[TextArea(15,20)]
+	[TextArea(10,10)]
 	public string message;
 	private void Awake() 
 	{
