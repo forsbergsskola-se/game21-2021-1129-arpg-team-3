@@ -25,13 +25,13 @@ public class MainMenu : MonoBehaviour
 	private IEnumerator Flash()
 	{ 
 		image.SetActive(false);
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(0.25f);
 		image.SetActive(true);
 	}
 	private IEnumerator Wait()
 	{
 		canShow = false;
-		yield return new WaitForSeconds(10f);
+		yield return new WaitForSeconds(20f);
 		canShow = true;
 	}
 	
