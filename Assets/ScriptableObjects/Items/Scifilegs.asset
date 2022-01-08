@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiDisplay: {fileID: 21300000, guid: c9232130331aff544aea185282d4b50b, type: 3}
   stackable: 0
+  baseValue: 0
   type: 4
   description: '*Sigh*, it''s a leg piece, but different from the other one I suppose...'
   data:
@@ -21,13 +22,7 @@ MonoBehaviour:
     Id: 9
     buffs:
     - attribute: 3
-      value: 0
+      value: 8
       min: 5
       max: 9
-    - attribute: 2
-      value: 0
-      min: 10
-      max: 15
-  armourBonus: 0
-  damageBonus: 0
   tierGrade: L
