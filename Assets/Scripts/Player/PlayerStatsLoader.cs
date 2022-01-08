@@ -7,6 +7,6 @@ public class PlayerStatsLoader : MonoBehaviour
 
 	private void Start()
 	{
-		playerStats._playerController = FindObjectOfType<PlayerController>();
+		playerStats.playerController = FindObjectOfType<PlayerController>();
 	}
 }

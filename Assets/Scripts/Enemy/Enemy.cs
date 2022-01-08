@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
 	private void OnTriggerStay(Collider other) {
 		elapsedTime += Time.deltaTime;
 		if (other.gameObject.CompareTag("Fire2")) {
-			TakeDamage(0.125f);
+			TakeDamage(0.2f);
 			elapsedTime = 0;
 		}
 	}
@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
 	private void TakeDamage(float multiplier) 
 	{
 		float damageReceived = playerStats.WeaponDamage * multiplier * Random.Range(0.9f, 1f) - enemySo.EnemyArmor;
-		Health -= math.clamp(damageReceived, 0, damageReceived);
+		Health -= Mathf.Clamp(damageReceived, 0, 10000);
 		ShowEnemyDamage(damageReceived);
 	}
 	private void ShowEnemyDamage(float damageReceived) 

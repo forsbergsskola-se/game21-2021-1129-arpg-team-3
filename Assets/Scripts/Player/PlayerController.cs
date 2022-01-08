@@ -181,13 +181,13 @@ public class PlayerController : MonoBehaviour
 					{
 						//Attack
 						StartAttacking();
-						if (Input.GetMouseButtonUp(0) && target.CompareTag("Enemy")) 
-						{
+						// if (Input.GetMouseButtonUp(0) && target.CompareTag("Enemy")) 
+						// {
 							transform.Translate(new Vector3(0, 0, 0));
-							var targetRotation = Quaternion.LookRotation(target.transform.position - transform.position);
-							// Smoothly rotate towards the target point.
+							var targetRotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+						// 	// Smoothly rotate towards the target point.
 							transform.rotation = Quaternion.Slerp(transform.rotation,targetRotation, playerStats.CombatRotationSpeed * Time.deltaTime);
-						}
+						// }
 					}
 					//item pickup
 					else if (target.CompareTag("Item")) 
@@ -309,19 +309,17 @@ public class PlayerController : MonoBehaviour
 					if (!unequipped)
 					{
 						attributes[j].value.RemoveModifier(_slot.item.buffs[i]);
-						if (attributes[j].type == Attributes.HP)
+						if (attributes[j].type == Attributes.Armor)
 						{
-							PlayerStatsLoader statsLoader = FindObjectOfType<PlayerStatsLoader>();
-							statsLoader.playerStats.Health = statsLoader.playerStats.Health + attributes[j].value.BaseValue;
+							playerStats.PlayerArmour += attributes[j].value.BaseValue;
 						}
 					}
 					else
 					{
 						attributes[j].value.AddModifier(_slot.item.buffs[i]);
-						if (attributes[j].type == Attributes.HP)
+						if (attributes[j].type == Attributes.Armor)
 						{
-							PlayerStatsLoader statsLoader = FindObjectOfType<PlayerStatsLoader>();
-							statsLoader.playerStats.Health = statsLoader.playerStats.Health - attributes[j].value.BaseValue;
+							playerStats.PlayerArmour -= attributes[j].value.BaseValue;
 						}
 					}
 				}
