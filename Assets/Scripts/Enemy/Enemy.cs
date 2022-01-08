@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
 	private void OnTriggerStay(Collider other) {
 		elapsedTime += Time.deltaTime;
 		if (other.gameObject.CompareTag("Fire2")) {
-			TakeDamage(0.125f);
+			TakeDamage(0.2f);
 			elapsedTime = 0;
 		}
 	}

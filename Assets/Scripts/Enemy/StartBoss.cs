@@ -16,7 +16,6 @@ public class StartBoss : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other) {
 		if (!triggered && other.gameObject.CompareTag("Player")) {
-			bossAttack.canAttack = true;
 			other.gameObject.GetComponent<PlayerProximity>().StopMusic();
 			bossHealth.PlayMusic();
 			triggered = true;
@@ -29,5 +28,6 @@ public class StartBoss : MonoBehaviour {
 		messageBox.SetActive(true);
 		messageText.text = message;
 		Time.timeScale = 0f;
+		bossAttack.canAttack = true;
 	}
 }

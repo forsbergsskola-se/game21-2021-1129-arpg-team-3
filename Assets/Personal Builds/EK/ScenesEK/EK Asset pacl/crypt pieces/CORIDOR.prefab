@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5088273156952563318}
   - component: {fileID: 2897959788928942585}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: walls
-  m_TagString: Untagged
+  m_TagString: Invalid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5088273156952563318
 Transform:
@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 7934680117606208652}
   m_Layer: 0
   m_Name: misc
-  m_TagString: Untagged
+  m_TagString: Invalid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,12 +117,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 502445170590302102}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CORIDOR
-  m_TagString: Untagged
+  m_TagString: Invalid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &502445170590302102
 Transform:
@@ -152,9 +152,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_VersionIndex
+      value: 1774
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Shape
+      value: 7997081392993796381
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: managedReferences[7997081392993796381]
+      value: Unity.ProBuilder UnityEngine.ProBuilder.Shapes.Cube
       objectReference: {fileID: 0}
     - target: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_RootOrder
@@ -208,6 +232,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9119120268680177738, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
 --- !u!1 &1364779922006196486 stripped
@@ -303,6 +331,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushroom (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 55de8b3efc81e2b4ea472cf8c3c9882b, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55de8b3efc81e2b4ea472cf8c3c9882b, type: 3}
 --- !u!4 &2195802475795105317 stripped
@@ -310,6 +342,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 55de8b3efc81e2b4ea472cf8c3c9882b, type: 3}
   m_PrefabInstance: {fileID: 1870040351588065742}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1527527432721046687 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 55de8b3efc81e2b4ea472cf8c3c9882b, type: 3}
+  m_PrefabInstance: {fileID: 1870040351588065742}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &2214916346838516151
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527527432721046687}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.178, y: 0.13900001, z: 0.177}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: 0.13900001, z: -0.002}
+  m_TimeToStationary: 0.5
 --- !u!1001 &4357558225994025914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -321,13 +374,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_VersionIndex
-      value: 1690
+      value: 1771
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Shape
+      value: 7997081392993796381
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: managedReferences[7997081392993796381]
+      value: Unity.ProBuilder UnityEngine.ProBuilder.Shapes.Cube
       objectReference: {fileID: 0}
     - target: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_RootOrder
@@ -381,6 +454,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9119120268680177738, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
 --- !u!1 &4515017676266155135 stripped
@@ -420,13 +497,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_VersionIndex
-      value: 1690
+      value: 1771
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Shape
+      value: 7997081392993796381
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: managedReferences[7997081392993796381]
+      value: Unity.ProBuilder UnityEngine.ProBuilder.Shapes.Cube
       objectReference: {fileID: 0}
     - target: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_RootOrder
@@ -480,16 +577,20 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9119120268680177738, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
---- !u!1 &4515017676271648234 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
-  m_PrefabInstance: {fileID: 4357558225999452719}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6936387207081200775 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+  m_PrefabInstance: {fileID: 4357558225999452719}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4515017676271648234 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
   m_PrefabInstance: {fileID: 4357558225999452719}
   m_PrefabAsset: {fileID: 0}
 --- !u!208 &3029958854996822819
@@ -519,9 +620,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_VersionIndex
+      value: 1768
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Shape
+      value: 7997081392993796381
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: managedReferences[7997081392993796381]
+      value: Unity.ProBuilder UnityEngine.ProBuilder.Shapes.Cube
       objectReference: {fileID: 0}
     - target: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_RootOrder
@@ -575,16 +700,20 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9119120268680177738, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
---- !u!1 &4515017676107789203 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
-  m_PrefabInstance: {fileID: 4357558226104030294}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6936387206859178750 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+  m_PrefabInstance: {fileID: 4357558226104030294}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4515017676107789203 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
   m_PrefabInstance: {fileID: 4357558226104030294}
   m_PrefabAsset: {fileID: 0}
 --- !u!208 &9187048445081036169
@@ -614,9 +743,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_VersionIndex
+      value: 1768
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Shape
+      value: 7997081392993796381
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: managedReferences[7997081392993796381]
+      value: Unity.ProBuilder UnityEngine.ProBuilder.Shapes.Cube
       objectReference: {fileID: 0}
     - target: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_RootOrder
@@ -670,6 +823,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9119120268680177738, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
 --- !u!1 &4515017676464374007 stripped
@@ -709,13 +866,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_VersionIndex
-      value: 1690
+      value: 1771
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Shape
+      value: 7997081392993796381
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: managedReferences[7997081392993796381]
+      value: Unity.ProBuilder UnityEngine.ProBuilder.Shapes.Cube
       objectReference: {fileID: 0}
     - target: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_RootOrder
@@ -769,6 +946,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9119120268680177738, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
 --- !u!4 &6936387207283677674 stripped
@@ -808,9 +989,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_VersionIndex
+      value: 1768
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Shape
+      value: 7997081392993796381
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: managedReferences[7997081392993796381]
+      value: Unity.ProBuilder UnityEngine.ProBuilder.Shapes.Cube
       objectReference: {fileID: 0}
     - target: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_RootOrder
@@ -864,6 +1069,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9119120268680177738, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
 --- !u!4 &6936387207141909178 stripped
@@ -903,9 +1112,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_VersionIndex
+      value: 1777
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Shape
+      value: 7997081392993796381
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: managedReferences[7997081392993796381]
+      value: Unity.ProBuilder UnityEngine.ProBuilder.Shapes.Cube
       objectReference: {fileID: 0}
     - target: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_RootOrder
@@ -959,6 +1192,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9119120268680177738, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
 --- !u!1 &4515017676398260147 stripped
@@ -998,9 +1235,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_VersionIndex
+      value: 1768
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Shape
+      value: 7997081392993796381
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: managedReferences[7997081392993796381]
+      value: Unity.ProBuilder UnityEngine.ProBuilder.Shapes.Cube
       objectReference: {fileID: 0}
     - target: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_RootOrder
@@ -1054,16 +1315,20 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9119120268680177738, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
---- !u!4 &6936387207405672732 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
-  m_PrefabInstance: {fileID: 4357558226651074484}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4515017675581089905 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+  m_PrefabInstance: {fileID: 4357558226651074484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6936387207405672732 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
   m_PrefabInstance: {fileID: 4357558226651074484}
   m_PrefabAsset: {fileID: 0}
 --- !u!208 &6308810099884278719
@@ -1093,9 +1358,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_VersionIndex
+      value: 1768
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Shape
+      value: 7997081392993796381
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: managedReferences[7997081392993796381]
+      value: Unity.ProBuilder UnityEngine.ProBuilder.Shapes.Cube
       objectReference: {fileID: 0}
     - target: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_RootOrder
@@ -1149,16 +1438,20 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9119120268680177738, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
---- !u!1 &4515017675637205714 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
-  m_PrefabInstance: {fileID: 4357558226707254551}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6936387207449238463 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+  m_PrefabInstance: {fileID: 4357558226707254551}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4515017675637205714 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
   m_PrefabInstance: {fileID: 4357558226707254551}
   m_PrefabAsset: {fileID: 0}
 --- !u!208 &538340758590800772
@@ -1188,13 +1481,41 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1167265093652229850, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167265093652229850, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167265093652229850, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1739149180310112012, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1739149180310112012, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_VersionIndex
+      value: 3529
+      objectReference: {fileID: 0}
     - target: {fileID: 2178355500619232133, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742873652108628728, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742873652108628728, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742873652108628728, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2829496357179718923, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
       propertyPath: m_Mesh
@@ -1204,13 +1525,37 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3973050907017070847, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2555
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083174603492127345, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     - target: {fileID: 4579212124684342641, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4579212124684342641, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2013
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586782959942954919, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     - target: {fileID: 5395598329785193268, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432305978499844001, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432305978499844001, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
       objectReference: {fileID: 0}
     - target: {fileID: 5769596177654594130, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
       propertyPath: m_RootOrder
@@ -1256,9 +1601,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 6007049317706042754, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2486
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518543779912843365, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     - target: {fileID: 7429427509403136119, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
       propertyPath: m_Name
       value: door  (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429427509403136119, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429427509403136119, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429427509403136119, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7726330052975611797, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
       propertyPath: m_Mesh
@@ -1278,14 +1643,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
---- !u!1 &6585257620025812917 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7429427509403136119, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
-  m_PrefabInstance: {fileID: 4357558226765453250}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7811653228090764688 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5769596177654594130, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+  m_PrefabInstance: {fileID: 4357558226765453250}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6585257620025812917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7429427509403136119, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
   m_PrefabInstance: {fileID: 4357558226765453250}
   m_PrefabAsset: {fileID: 0}
 --- !u!208 &7018553151146523129
@@ -1315,9 +1680,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_VersionIndex
+      value: 1771
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Shape
+      value: 7997081392993796381
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: managedReferences[7997081392993796381]
+      value: Unity.ProBuilder UnityEngine.ProBuilder.Shapes.Cube
       objectReference: {fileID: 0}
     - target: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_RootOrder
@@ -1371,16 +1760,20 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9119120268680177738, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
---- !u!1 &4515017675989927393 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
-  m_PrefabInstance: {fileID: 4357558226791555620}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6936387207801943180 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+  m_PrefabInstance: {fileID: 4357558226791555620}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4515017675989927393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
   m_PrefabInstance: {fileID: 4357558226791555620}
   m_PrefabAsset: {fileID: 0}
 --- !u!208 &3266293563498089031
@@ -1410,9 +1803,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_VersionIndex
+      value: 1768
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Shape
+      value: 7997081392993796381
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: managedReferences[7997081392993796381]
+      value: Unity.ProBuilder UnityEngine.ProBuilder.Shapes.Cube
       objectReference: {fileID: 0}
     - target: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_RootOrder
@@ -1466,16 +1883,20 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9119120268680177738, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
---- !u!4 &6936387207676848102 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
-  m_PrefabInstance: {fileID: 4357558226863042894}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4515017675792979595 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+  m_PrefabInstance: {fileID: 4357558226863042894}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6936387207676848102 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
   m_PrefabInstance: {fileID: 4357558226863042894}
   m_PrefabAsset: {fileID: 0}
 --- !u!208 &8400142451893541405
@@ -1505,9 +1926,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_VersionIndex
+      value: 1768
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Shape
+      value: 7997081392993796381
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: managedReferences[7997081392993796381]
+      value: Unity.ProBuilder UnityEngine.ProBuilder.Shapes.Cube
       objectReference: {fileID: 0}
     - target: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_RootOrder
@@ -1561,6 +2006,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9119120268680177738, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
 --- !u!4 &6936387207981825502 stripped
@@ -1600,13 +2049,41 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1167265093652229850, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167265093652229850, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167265093652229850, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1739149180310112012, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1739149180310112012, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_VersionIndex
+      value: 3532
+      objectReference: {fileID: 0}
     - target: {fileID: 2178355500619232133, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742873652108628728, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742873652108628728, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742873652108628728, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2829496357179718923, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
       propertyPath: m_Mesh
@@ -1616,13 +2093,37 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3973050907017070847, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2558
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083174603492127345, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     - target: {fileID: 4579212124684342641, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4579212124684342641, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2010
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586782959942954919, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     - target: {fileID: 5395598329785193268, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432305978499844001, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432305978499844001, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
       objectReference: {fileID: 0}
     - target: {fileID: 5769596177654594130, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
       propertyPath: m_RootOrder
@@ -1668,9 +2169,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6007049317706042754, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2486
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518543779912843365, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     - target: {fileID: 7429427509403136119, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
       propertyPath: m_Name
       value: door  (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429427509403136119, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429427509403136119, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429427509403136119, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7726330052975611797, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
       propertyPath: m_Mesh
@@ -1690,14 +2211,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
---- !u!1 &6585257619568533412 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7429427509403136119, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
-  m_PrefabInstance: {fileID: 4357558227239186387}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7811653229353211265 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5769596177654594130, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
+  m_PrefabInstance: {fileID: 4357558227239186387}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6585257619568533412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7429427509403136119, guid: 6a63518fac9d8974bb8c9f48250e7e65, type: 3}
   m_PrefabInstance: {fileID: 4357558227239186387}
   m_PrefabAsset: {fileID: 0}
 --- !u!208 &2201447166231730285
@@ -1727,9 +2248,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_VersionIndex
+      value: 1768
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Shape
+      value: 7997081392993796381
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: managedReferences[7997081392993796381]
+      value: Unity.ProBuilder UnityEngine.ProBuilder.Shapes.Cube
       objectReference: {fileID: 0}
     - target: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_RootOrder
@@ -1783,16 +2328,20 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9119120268680177738, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
---- !u!4 &6936387208361321555 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
-  m_PrefabInstance: {fileID: 4357558227271185147}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4515017677543363902 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+  m_PrefabInstance: {fileID: 4357558227271185147}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6936387208361321555 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
   m_PrefabInstance: {fileID: 4357558227271185147}
   m_PrefabAsset: {fileID: 0}
 --- !u!208 &5428926145316112727
@@ -1822,13 +2371,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_VersionIndex
-      value: 1690
+      value: 1771
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Shape
+      value: 7997081392993796381
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: managedReferences[7997081392993796381]
+      value: Unity.ProBuilder UnityEngine.ProBuilder.Shapes.Cube
       objectReference: {fileID: 0}
     - target: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_RootOrder
@@ -1882,6 +2451,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9119120268680177738, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
 --- !u!4 &6936387208408893555 stripped
@@ -1921,13 +2494,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_VersionIndex
-      value: 1693
+      value: 1774
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Shape
+      value: 7997081392993796381
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: managedReferences[7997081392993796381]
+      value: Unity.ProBuilder UnityEngine.ProBuilder.Shapes.Cube
       objectReference: {fileID: 0}
     - target: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_RootOrder
@@ -1981,6 +2574,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9119120268680177738, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
 --- !u!1 &4515017677437316212 stripped
@@ -2020,9 +2617,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_VersionIndex
+      value: 1774
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Shape
+      value: 7997081392993796381
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: managedReferences[7997081392993796381]
+      value: Unity.ProBuilder UnityEngine.ProBuilder.Shapes.Cube
       objectReference: {fileID: 0}
     - target: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_RootOrder
@@ -2076,6 +2697,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9119120268680177738, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
 --- !u!1 &4515017676795866092 stripped
@@ -2115,9 +2740,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_VersionIndex
+      value: 1771
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Shape
+      value: 7997081392993796381
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: managedReferences[7997081392993796381]
+      value: Unity.ProBuilder UnityEngine.ProBuilder.Shapes.Cube
       objectReference: {fileID: 0}
     - target: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_RootOrder
@@ -2171,6 +2820,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9119120268680177738, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
 --- !u!1 &4515017676800847897 stripped
@@ -2210,9 +2863,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_VersionIndex
+      value: 1774
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Shape
+      value: 7997081392993796381
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: managedReferences[7997081392993796381]
+      value: Unity.ProBuilder UnityEngine.ProBuilder.Shapes.Cube
       objectReference: {fileID: 0}
     - target: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_RootOrder
@@ -2266,16 +2943,20 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9119120268680177738, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
---- !u!1 &4515017676947769848 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
-  m_PrefabInstance: {fileID: 4357558228017770045}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6936387208839477397 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+  m_PrefabInstance: {fileID: 4357558228017770045}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4515017676947769848 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
   m_PrefabInstance: {fileID: 4357558228017770045}
   m_PrefabAsset: {fileID: 0}
 --- !u!208 &5585246670356143804
@@ -2361,6 +3042,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushroom (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 55de8b3efc81e2b4ea472cf8c3c9882b, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55de8b3efc81e2b4ea472cf8c3c9882b, type: 3}
 --- !u!4 &4957203608655938262 stripped
@@ -2368,6 +3053,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 55de8b3efc81e2b4ea472cf8c3c9882b, type: 3}
   m_PrefabInstance: {fileID: 4846224044519171389}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5728674136424224876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 55de8b3efc81e2b4ea472cf8c3c9882b, type: 3}
+  m_PrefabInstance: {fileID: 4846224044519171389}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &9067081773443994235
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5728674136424224876}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.178, y: 0.13900001, z: 0.177}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: 0.13900001, z: -0.002}
+  m_TimeToStationary: 0.5
 --- !u!1001 &5028127275032662387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2423,6 +3129,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_tiny (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c11bf010c788b02449e08088cef9065f, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c11bf010c788b02449e08088cef9065f, type: 3}
 --- !u!4 &4777692898273212056 stripped
@@ -2430,6 +3140,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c11bf010c788b02449e08088cef9065f, type: 3}
   m_PrefabInstance: {fileID: 5028127275032662387}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5261918280960666658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c11bf010c788b02449e08088cef9065f, type: 3}
+  m_PrefabInstance: {fileID: 5028127275032662387}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &4167349127068879160
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5261918280960666658}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.337, y: 0.252, z: 0.337}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.056, y: 0.044000003, z: -0.006}
+  m_TimeToStationary: 0.5
 --- !u!1001 &6292946610422152173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2485,6 +3216,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crystal
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ff1edb2d883fe8f4786ac1172aba7bb0, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff1edb2d883fe8f4786ac1172aba7bb0, type: 3}
 --- !u!4 &5827570939193760774 stripped
@@ -2492,6 +3227,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ff1edb2d883fe8f4786ac1172aba7bb0, type: 3}
   m_PrefabInstance: {fileID: 6292946610422152173}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6599005217108838076 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ff1edb2d883fe8f4786ac1172aba7bb0, type: 3}
+  m_PrefabInstance: {fileID: 6292946610422152173}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &7038618417522733453
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6599005217108838076}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.512, y: 0.66, z: 0.512}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.033, y: 0.66, z: 0.015000001}
+  m_TimeToStationary: 0.5
 --- !u!1001 &7306105795495370612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2547,13 +3303,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushroom
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 55de8b3efc81e2b4ea472cf8c3c9882b, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55de8b3efc81e2b4ea472cf8c3c9882b, type: 3}
+--- !u!1 &7612747288164803109 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 55de8b3efc81e2b4ea472cf8c3c9882b, type: 3}
+  m_PrefabInstance: {fileID: 7306105795495370612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7128699029857368223 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 55de8b3efc81e2b4ea472cf8c3c9882b, type: 3}
   m_PrefabInstance: {fileID: 7306105795495370612}
   m_PrefabAsset: {fileID: 0}
+--- !u!208 &6161643898817736224
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7612747288164803109}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.178, y: 0.13900001, z: 0.177}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: 0.13900001, z: -0.002}
+  m_TimeToStationary: 0.5
 --- !u!1001 &8640977787165495609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2609,13 +3390,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_small
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 077f46fde8143e24d9968e47820d326b, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 077f46fde8143e24d9968e47820d326b, type: 3}
+--- !u!1 &8875330779765763176 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 077f46fde8143e24d9968e47820d326b, type: 3}
+  m_PrefabInstance: {fileID: 8640977787165495609}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8097563383080367826 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 077f46fde8143e24d9968e47820d326b, type: 3}
   m_PrefabInstance: {fileID: 8640977787165495609}
   m_PrefabAsset: {fileID: 0}
+--- !u!208 &8394182920320629658
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8875330779765763176}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.47300002, y: 0.52400005, z: 0.41900003}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.003, y: -0.013, z: 0.023000002}
+  m_TimeToStationary: 0.5
 --- !u!1001 &8849977529227918967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2627,9 +3433,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
+    - target: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 432243503606272728, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_VersionIndex
+      value: 1771
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Shape
+      value: 7997081392993796381
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093657135168598693, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: managedReferences[7997081392993796381]
+      value: Unity.ProBuilder UnityEngine.ProBuilder.Shapes.Cube
       objectReference: {fileID: 0}
     - target: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
       propertyPath: m_RootOrder
@@ -2683,16 +3513,20 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9119120268680177738, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 993d8e993cf6e0844a1dff75b21ea085, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
---- !u!4 &2804256960033417439 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
-  m_PrefabInstance: {fileID: 8849977529227918967}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8647147771286067634 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 203146563587975109, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
+  m_PrefabInstance: {fileID: 8849977529227918967}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2804256960033417439 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6646142570653341352, guid: 70d70e5ca06aaf54a91288332721f91c, type: 3}
   m_PrefabInstance: {fileID: 8849977529227918967}
   m_PrefabAsset: {fileID: 0}
 --- !u!208 &8397886890810628902
@@ -2766,6 +3600,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_tiny
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c11bf010c788b02449e08088cef9065f, type: 3}
+      propertyPath: m_TagString
+      value: Invalid
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c11bf010c788b02449e08088cef9065f, type: 3}
 --- !u!4 &8887654446716687429 stripped
@@ -2773,3 +3611,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c11bf010c788b02449e08088cef9065f, type: 3}
   m_PrefabInstance: {fileID: 8997615757181678510}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8078501216453676799 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c11bf010c788b02449e08088cef9065f, type: 3}
+  m_PrefabInstance: {fileID: 8997615757181678510}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &3471217143291906962
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8078501216453676799}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.337, y: 0.252, z: 0.337}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.056, y: 0.044000003, z: -0.006}
+  m_TimeToStationary: 0.5
