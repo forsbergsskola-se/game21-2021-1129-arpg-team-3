@@ -14,18 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiDisplay: {fileID: 21300000, guid: 9df6b446c66154c4b913c64a5c5408c9, type: 3}
   stackable: 0
-  baseValue: 120
+  baseValue: 0
   type: 1
   description: '"This helmet is better because it is black. All black armor is cooler
-    and therefore clearly better" - Filthy casual who never checks gear stats'
+    and therefore clearly better" - Casual who never checks gear stats'
   data:
     Name: Black Helmet
     Id: 3
     buffs:
     - attribute: 3
-      value: 0
+      value: 4
       min: 2
       max: 5
-  armourBonus: 0
-  damageBonus: 0
   tierGrade: Technically provides armor

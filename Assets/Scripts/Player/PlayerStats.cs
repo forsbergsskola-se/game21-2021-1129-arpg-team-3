@@ -6,8 +6,8 @@ public class PlayerStats : ScriptableObject
     [SerializeField] private float health;
     [SerializeField] private float playerArmour;
     [SerializeField] private float gold;
-    [SerializeField] private float score;
-    [SerializeField] private float mana;
+   // [SerializeField] private float score;
+   // [SerializeField] private float mana;
     [SerializeField] private float minHealth;
     [SerializeField] private float maxHealth;
     [SerializeField] private float weaponDamage;
@@ -44,14 +44,12 @@ public class PlayerStats : ScriptableObject
                     case Attributes.Damage:
                         tempStats.weaponDamage = weaponDamage + attributeData.value._modifiedValue;
                         break;
-                    case Attributes.HP:
+                    case Attributes.Health:
                         tempStats.maxHealth = maxHealth + attributeData.value._modifiedValue;
                         //tempStats.health = health + attributeData.value._modifiedValue;
                         break;
                     case Attributes.Armor:
                         tempStats.playerArmour = playerArmour + attributeData.value._modifiedValue;
-                        break;
-                    case Attributes.Appearance:
                         break;
                     default:
                         break;

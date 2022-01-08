@@ -14,8 +14,8 @@ public class ItemInfo : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI description;
     public Image itemImage;
-    public TextMeshProUGUI armorValue;
-    public TextMeshProUGUI damageValue;
+    //public TextMeshProUGUI armorValue;
+   // public TextMeshProUGUI damageValue;
     public TextMeshProUGUI tierGrade;
     public TextMeshProUGUI buffs;
     public GameObject ItemInfoHolder;
@@ -31,22 +31,20 @@ public class ItemInfo : MonoBehaviour
                 case ItemObjectTypes.Equipment:
                 {
                     EquipmentObject equipment = itemObject as EquipmentObject;
-                    UpdateUIInfo(equipment.data.Name, equipment.description, equipment.uiDisplay, 
-                        equipment.armourBonus, equipment.damageBonus, equipment.tierGrade, equipment.data.buffs);
+                    UpdateUIInfo(equipment.data.Name, equipment.description, equipment.uiDisplay, equipment.tierGrade, equipment.data.buffs);
                 }
                     break;
                 case ItemObjectTypes.Consumable:
                 {
                     ConsumableObject consumable = itemObject as ConsumableObject;
-                    UpdateUIInfo(consumable.data.Name, consumable.description, consumable.uiDisplay,
-                        consumable.restoreHealthValue, 0, "", consumable.data.buffs);
+                    UpdateUIInfo(consumable.data.Name, consumable.description, consumable.uiDisplay, "", consumable.data.buffs);
                 }
                     break;
                 case ItemObjectTypes.KeyItem:
                 {
                     KeyItemObject keyItem = itemObject as KeyItemObject;
                     UpdateUIInfo(keyItem.data.Name, keyItem.description, keyItem.uiDisplay, 
-                        0, 0,"", keyItem.data.buffs);
+                        "", keyItem.data.buffs);
                 }
                     break;
                 case ItemObjectTypes.None:
@@ -78,14 +76,11 @@ public class ItemInfo : MonoBehaviour
 
         return ItemObjectTypes.None;
     }
-    private void UpdateUIInfo(string name, string descriptionText, Sprite itemImageDisplay,
-        int armorText, int damageText, string tierText, ItemBuff[] buffInfo)
+    private void UpdateUIInfo(string name, string descriptionText, Sprite itemImageDisplay, string tierText, ItemBuff[] buffInfo)
     {
         nameText.text = name;
         description.text = descriptionText;
         itemImage.sprite = itemImageDisplay;
-        armorValue.text = armorText.ToString();
-        damageValue.text = damageText.ToString();
         tierGrade.text = tierText;
         buffs.text = ConvertBuffInfoToString(buffInfo);
     }
