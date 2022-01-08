@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiDisplay: {fileID: 21300000, guid: 7a0ae85d98e02f7458ddc9d27b1ab4da, type: 3}
   stackable: 1
+  baseValue: 0
   type: 0
-  description: "It give life. Real good shit. None of that stupid knock off potions
-    either! It'll heal you up real nice! \nOtherwise known as Mommys \"Happy-Juice\"...She's
-    mean drunk that ol' lady."
+  description: "It'll heal you up real nice and make you feel good! \nOtherwise known
+    as Mommys \"Happy-Juice\"\n\"My ol' lady is a mean drunk.\" - Farakin"
   data:
     Name: Mommys "Happy-Juice"
     Id: 0

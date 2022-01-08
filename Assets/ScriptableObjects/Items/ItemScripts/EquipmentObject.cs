@@ -2,8 +2,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Equipment Object", menuName = "Inventory System/Items/Equipment")]
 public class EquipmentObject : ItemObject
 {
-    public int armourBonus;
-    public int damageBonus;
+   // public int armourBonus;
+  //  public int damageBonus;
     public string tierGrade;
     public void Awake()
     {
@@ -14,8 +14,6 @@ public class EquipmentObject : ItemObject
     {
         base.SetValuesFromTarget(target);
         EquipmentObject targetEquip = (EquipmentObject) target;
-        armourBonus = targetEquip.armourBonus;
-        damageBonus = targetEquip.damageBonus;
         tierGrade = targetEquip.tierGrade;
     }
 }

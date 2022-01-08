@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiDisplay: {fileID: 21300000, guid: eb3f24563586db4499636d5eea6f63fe, type: 3}
   stackable: 0
+  baseValue: 0
   type: 3
   description: '"This is a good sword" - Aragorn II Elessar'
   data:
@@ -24,10 +25,8 @@ MonoBehaviour:
       value: 0
       min: 1
       max: 3
-    - attribute: 4
+    - attribute: 0
       value: 0
       min: 1
       max: 2
-  armourBonus: 0
-  damageBonus: 2
   tierGrade: NotAGoodSword
