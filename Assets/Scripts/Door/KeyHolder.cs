@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class KeyHolder : MonoBehaviour
@@ -37,27 +38,28 @@ public class KeyHolder : MonoBehaviour
     {
         return keyList.Contains(keyType);
     }
+
     private void Update() {
         TryDoor();
     }
     private void TryDoor() {
         if (keyDoorR != null && ContainsKey(keyDoorR.GetKeyType())) {
             doorUnlocked = true; 
-            if (ContainsKey(keyDoorR.GetKeyType()) && Input.GetKeyDown(KeyCode.F) && Vector3.Distance(keyDoorR.transform.position, transform.position) <= 15) { 
+            if (ContainsKey(keyDoorR.GetKeyType()) && Input.GetMouseButtonUp(0) && Vector3.Distance(keyDoorR.transform.position, transform.position) <= 12) { 
                 keyDoorR.OpenDoor();
                 doorUnlocked = false;
             }
         }
         if (keyDoorB!= null && ContainsKey(keyDoorB.GetKeyType())) {
             doorUnlocked = true; 
-            if (ContainsKey(keyDoorB.GetKeyType()) && Input.GetKeyDown(KeyCode.F) && Vector3.Distance(keyDoorB.transform.position, transform.position) <= 15) { 
+            if (ContainsKey(keyDoorB.GetKeyType()) && Input.GetMouseButtonUp(0) && Vector3.Distance(keyDoorB.transform.position, transform.position) <= 12) { 
                 keyDoorB.OpenDoor();
                 doorUnlocked = false;
             }
         }
         if (keyDoorG!= null && ContainsKey(keyDoorG.GetKeyType())) {
             doorUnlocked = true; 
-            if (ContainsKey(keyDoorG.GetKeyType()) && Input.GetKeyDown(KeyCode.F) && Vector3.Distance(keyDoorG.transform.position, transform.position) <= 15) { 
+            if (ContainsKey(keyDoorG.GetKeyType()) && Input.GetMouseButtonUp(0) && Vector3.Distance(keyDoorG.transform.position, transform.position) <= 12) { 
                 keyDoorG.OpenDoor();
                 doorUnlocked = false;
             }
