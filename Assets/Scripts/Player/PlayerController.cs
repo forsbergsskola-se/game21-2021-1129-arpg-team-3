@@ -220,9 +220,15 @@ public class PlayerController : MonoBehaviour
 	}
 	private void SmoothRotate() {
 
-		transform.Translate(new Vector3(0, 0, 0));
-		var targetRotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+		// transform.Translate(new Vector3(0, 0, 0));
 		// Smoothly rotate towards the target point.
+
+		// Vector3 lookVector = transform.position + target.transform.position;
+		// lookVector.y = transform.position.y;
+		// Quaternion rotation = Quaternion.LookRotation(lookVector);
+		// transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1);
+		
+		var targetRotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
 		transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, playerStats.CombatRotationSpeed * Time.deltaTime);
 	}
 	private void StartAttacking() 

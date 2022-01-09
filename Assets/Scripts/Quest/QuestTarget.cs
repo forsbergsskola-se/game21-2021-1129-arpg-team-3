@@ -25,14 +25,14 @@ public class QuestTarget : MonoBehaviour
         }
     }
 
-    private void OnMouseDown()
-    {
-        if (targetTrigger == TargetTrigger.OnDestroy)
-        {
-            Target();
-            Destroy(gameObject);
-        }
-    }
+    // private void OnMouseDown()
+    // {
+    //     if (targetTrigger == TargetTrigger.OnDestroy)
+    //     {
+    //         Target();
+    //         Destroy(gameObject);
+    //     }
+    // }
     
     private void Update() 
     {
