@@ -24,7 +24,7 @@ public class QuestTarget : MonoBehaviour
             OnQuestTarget(questCode);
         }
     }
-
+    //
     // private void OnMouseDown()
     // {
     //     if (targetTrigger == TargetTrigger.OnDestroy)
@@ -36,7 +36,7 @@ public class QuestTarget : MonoBehaviour
     
     private void Update() 
     {
-        if (targetTrigger == TargetTrigger.OnHealthZero)
+        if (targetTrigger == TargetTrigger.OnDestroy)
         {
             if (GetComponent<Enemy>().Health <= 0)
             {

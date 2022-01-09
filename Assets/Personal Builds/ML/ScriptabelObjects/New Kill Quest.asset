@@ -20,5 +20,5 @@ MonoBehaviour:
   displayName: Kill All
   itemReward: {fileID: 0}
   cashReward: 0
-  experienceReward: 500
+  experienceReward: 0
   questDescription: Destroy the giant barrel.
