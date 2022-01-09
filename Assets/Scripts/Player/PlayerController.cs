@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
 		if (!(Vector3.Distance(transform.position, target.position) >= playerStats.MeleeRange))
 			return; //only when player is not in melee range of enemy
 		agent.SetDestination(target.position);
-		agent.stoppingDistance = playerStats.MeleeRange; //stops player before melee range
+		agent.stoppingDistance = playerStats.MeleeRange - 0.5f; //stops player before melee range
 	}
 	private void Interact() 
 	{
@@ -220,21 +220,20 @@ public class PlayerController : MonoBehaviour
 	}
 	private void SmoothRotate() {
 
-		// transform.Translate(new Vector3(0, 0, 0));
-		// Smoothly rotate towards the target point.
 
 		// Vector3 lookVector = transform.position + target.transform.position;
 		// lookVector.y = transform.position.y;
 		// Quaternion rotation = Quaternion.LookRotation(lookVector);
 		// transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1);
 		
-		var targetRotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+		// Smoothly rotate towards the target point.
+		var targetRotation = Quaternion.LookRotation(target.position);
 		transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, playerStats.CombatRotationSpeed * Time.deltaTime);
+		// transform.Translate(new Vector3(0, 0, 0));
 	}
 	private void StartAttacking() 
 	{
 		animator.SetBool("Attack",true);
-		transform.Translate(new Vector3(0, 0, 0));
 		SmoothRotate();
 	}
 	private void StopAttacking() 
