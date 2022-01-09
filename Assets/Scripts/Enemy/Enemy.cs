@@ -41,12 +41,12 @@ public class Enemy : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("PlayerWeapon")) 
 		{
-			TakeDamage(0.4f);
+			TakeDamage(1f);
 			FMODUnity.RuntimeManager.PlayOneShot("event:/Player/SwordHit");
 		}
 		else if (other.gameObject.CompareTag("PlayerRange")) 
 		{
-			TakeDamage(2);
+			TakeDamage(2f);
 			FMODUnity.RuntimeManager.PlayOneShot("event:/Enemy/EHit");
 		}
 	}
