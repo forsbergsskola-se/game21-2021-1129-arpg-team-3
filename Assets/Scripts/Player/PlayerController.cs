@@ -181,13 +181,9 @@ public class PlayerController : MonoBehaviour
 					{
 						//Attack
 						StartAttacking();
-						// if (Input.GetMouseButtonUp(0) && target.CompareTag("Enemy")) 
-						// {
-							transform.Translate(new Vector3(0, 0, 0));
-							var targetRotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
-						// 	// Smoothly rotate towards the target point.
-							transform.rotation = Quaternion.Slerp(transform.rotation,targetRotation, playerStats.CombatRotationSpeed * Time.deltaTime);
-						// }
+						if (Input.GetMouseButtonUp(0) && target.CompareTag("Enemy")) {
+							SmoothRotate();
+						}
 					}
 					//item pickup
 					else if (target.CompareTag("Item")) 
@@ -222,20 +218,22 @@ public class PlayerController : MonoBehaviour
 			}
 		}
 	}
+	private void SmoothRotate() {
+
+		transform.Translate(new Vector3(0, 0, 0));
+		var targetRotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+		// Smoothly rotate towards the target point.
+		transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, playerStats.CombatRotationSpeed * Time.deltaTime);
+	}
 	private void StartAttacking() 
 	{
 		animator.SetBool("Attack",true);
-		// attackAnimation.gameObject.SetActive(true);
-		// playerModel.gameObject.SetActive(false);
 		transform.Translate(new Vector3(0, 0, 0));
-
+		SmoothRotate();
 	}
 	private void StopAttacking() 
 	{
 		animator.SetBool("Attack",false);
-
-		// attackAnimation.gameObject.SetActive(false);
-		// playerModel.gameObject.SetActive(true);
 	}
 	
 	private void ChangeCursor() 
