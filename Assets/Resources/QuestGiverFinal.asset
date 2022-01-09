@@ -18,13 +18,13 @@ MonoBehaviour:
     TargetNodeGUID: ac6fc0f3-1154-46ea-9f7d-8dc28a1a30ee
   - BaseNodeGUID: ac6fc0f3-1154-46ea-9f7d-8dc28a1a30ee
     PortName: Leave
-    TargetNodeGUID: d8e089c3-7253-44fc-94e0-06640ede3b53
+    TargetNodeGUID: 610deebe-8217-42bf-b645-bc0cadf4ec25
   DialogueNodeData:
   - NodeGUID: ac6fc0f3-1154-46ea-9f7d-8dc28a1a30ee
     DialogueText: 'You did it! And you found the key. Now get out of here! '
-    Position: {x: 374.4, y: 104}
-  - NodeGUID: d8e089c3-7253-44fc-94e0-06640ede3b53
+    Position: {x: 374, y: 104}
+  - NodeGUID: 610deebe-8217-42bf-b645-bc0cadf4ec25
     DialogueText: Leave
-    Position: {x: 903.2, y: 104}
+    Position: {x: 914, y: 200}
   ExposedProperties: []
   CommentBlockData: []

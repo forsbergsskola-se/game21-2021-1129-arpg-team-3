@@ -136,7 +136,7 @@ public class DialogueReader : MonoBehaviour
             texts[1].text = NPCName;
         }
 
-        if (OnStartEndDialogue != null && Vector3.Distance(transform.position, playerTrans.position) < 4)
+        if (OnStartEndDialogue != null && Vector3.Distance(transform.position, playerTrans.position) < 5)
         {
             OnStartEndDialogue();
         }
@@ -160,7 +160,7 @@ public class DialogueReader : MonoBehaviour
             string targetGuid = currentOutputNodes[test].TargetNodeGUID;
             string chosenLine = currentOutputNodes[test].PortName;
             buttons[i].onClick.AddListener(() => ClickContinue(targetGuid, chosenLine));
-            buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = i + 1 + "." + currentOutputNodes[i].PortName;
+            buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = currentOutputNodes[i].PortName;
         }
 
     }
@@ -242,6 +242,7 @@ public class DialogueReader : MonoBehaviour
                     if (currentCriteria is DialogueCriteria.CompletedQuest or DialogueCriteria.CompletedWithoutAccept)
                     {
                         currentCriteria = DialogueCriteria.FinalDialogue;
+                        GetComponent<Collider>().enabled = false;
                     }
                     ShutDownDialogue();
                 }

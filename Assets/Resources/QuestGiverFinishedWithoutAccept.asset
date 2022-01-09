@@ -22,22 +22,16 @@ MonoBehaviour:
   - BaseNodeGUID: 0454c959-ebd9-4f3a-b6b8-ca364fd17e28
     PortName: Accept Reward
     TargetNodeGUID: c6905733-5e34-49ac-ac44-5beed010275e
-  - BaseNodeGUID: c6905733-5e34-49ac-ac44-5beed010275e
-    PortName: Leave
-    TargetNodeGUID: 4dac5084-2e2d-430d-a47c-f4747665e035
   DialogueNodeData:
   - NodeGUID: c16d7d4d-0306-4074-b6ab-e56d06a42953
     DialogueText: There's a giant barrel that needs to be destroyed. Can you help
       me?
-    Position: {x: 374.4, y: 180.8}
+    Position: {x: 374, y: 181}
   - NodeGUID: 0454c959-ebd9-4f3a-b6b8-ca364fd17e28
     DialogueText: Wait, you've already did it?
-    Position: {x: 628.8, y: -44}
+    Position: {x: 629, y: -44}
   - NodeGUID: c6905733-5e34-49ac-ac44-5beed010275e
     DialogueText: Good job anyway...
-    Position: {x: 1201.6, y: 65.600006}
-  - NodeGUID: 4dac5084-2e2d-430d-a47c-f4747665e035
-    DialogueText: Leave
-    Position: {x: 1407.2, y: 212}
+    Position: {x: 1202, y: 66}
   ExposedProperties: []
   CommentBlockData: []

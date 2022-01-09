@@ -17,20 +17,14 @@ MonoBehaviour:
     PortName: NEXT
     TargetNodeGUID: ac6fc0f3-1154-46ea-9f7d-8dc28a1a30ee
   - BaseNodeGUID: ac6fc0f3-1154-46ea-9f7d-8dc28a1a30ee
-    PortName: Yes
-    TargetNodeGUID: e11217ea-4d1b-47b3-b259-9de9713fce2c
-  - BaseNodeGUID: e11217ea-4d1b-47b3-b259-9de9713fce2c
-    PortName: Accept Reward
-    TargetNodeGUID: 5d5460dc-66f6-4a01-bffa-bb58f9bb29ec
-  - BaseNodeGUID: 5d5460dc-66f6-4a01-bffa-bb58f9bb29ec
     PortName: Leave
-    TargetNodeGUID: d8e089c3-7253-44fc-94e0-06640ede3b53
+    TargetNodeGUID: 954364e8-b9e0-4105-923e-586a98fc9ced
   DialogueNodeData:
-  - NodeGUID: e11217ea-4d1b-47b3-b259-9de9713fce2c
-    DialogueText: 'You did it! And you found the key. Now get out of here! '
-    Position: {x: 740.8, y: 34.4}
   - NodeGUID: ac6fc0f3-1154-46ea-9f7d-8dc28a1a30ee
     DialogueText: 'You did it! And you found the key. Now get out of here! '
-    Position: {x: 329.6, y: 97.600006}
+    Position: {x: 330, y: 98}
+  - NodeGUID: 954364e8-b9e0-4105-923e-586a98fc9ced
+    DialogueText: Leave
+    Position: {x: 902, y: 137}
   ExposedProperties: []
   CommentBlockData: []

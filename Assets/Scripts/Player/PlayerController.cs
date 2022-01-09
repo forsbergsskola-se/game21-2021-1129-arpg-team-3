@@ -260,7 +260,6 @@ public class PlayerController : MonoBehaviour
 			}
 			else if (cursorHit.CompareTag("Door") && !keyHolder.doorUnlocked) 
 			{
-				FMODUnity.RuntimeManager.PlayOneShot("event:/Item/KeyPickup");
 				cursorManagement.CursorChange(6);
 			}
 			else if (cursorHit.CompareTag("Door") && keyHolder.doorUnlocked) 
