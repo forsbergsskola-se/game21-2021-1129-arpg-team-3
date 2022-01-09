@@ -32,7 +32,7 @@ public class Checkpoint : MonoBehaviour
 
 	private IEnumerator CheckpointText() 
 	{
-		text.text = "CHECKPOINT! Health Replenished!";
+		text.text = "CHECKPOINT!\nHEALTH RESTORED!";
 		yield return new WaitForSeconds(3);
 		text.text = "";
 	}

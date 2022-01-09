@@ -20,7 +20,7 @@ public class GainSecondary : MonoBehaviour
 		}
 	}
 	private IEnumerator MessageText() {
-		text.text = "FIREBALL ENABLED! RIGHT CLICK TO FIRE!";
+		text.text = "FIREBALL ENABLED!\nRIGHT CLICK TO FIRE!";
 		yield return new WaitForSeconds(3);
 		text.text = "";
 	}

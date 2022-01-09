@@ -19,7 +19,7 @@ public class GainTertiary : MonoBehaviour
         }
     }
     private IEnumerator MessageText() {
-        text.text = "RING OF FIRE ENABLED! HIT SPACE TO FIRE!";
+        text.text = "RING OF FIRE ENABLED!\nHIT SPACE TO FIRE!";
         yield return new WaitForSeconds(3);
         text.text = "";
     }
