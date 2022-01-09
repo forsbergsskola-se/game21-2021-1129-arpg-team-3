@@ -299,5 +299,62 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &9191621572199619500
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 519000893181076973, guid: de15f6c38e1bfb947b31e9e5ad6c898d, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 519000893181076973, guid: de15f6c38e1bfb947b31e9e5ad6c898d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.076046
+      objectReference: {fileID: 0}
+    - target: {fileID: 519000893181076973, guid: de15f6c38e1bfb947b31e9e5ad6c898d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0090507
+      objectReference: {fileID: 0}
+    - target: {fileID: 519000893181076973, guid: de15f6c38e1bfb947b31e9e5ad6c898d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -29.072
+      objectReference: {fileID: 0}
+    - target: {fileID: 519000893181076973, guid: de15f6c38e1bfb947b31e9e5ad6c898d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 519000893181076973, guid: de15f6c38e1bfb947b31e9e5ad6c898d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 519000893181076973, guid: de15f6c38e1bfb947b31e9e5ad6c898d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 519000893181076973, guid: de15f6c38e1bfb947b31e9e5ad6c898d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 519000893181076973, guid: de15f6c38e1bfb947b31e9e5ad6c898d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 519000893181076973, guid: de15f6c38e1bfb947b31e9e5ad6c898d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 519000893181076973, guid: de15f6c38e1bfb947b31e9e5ad6c898d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 898481580158975831, guid: de15f6c38e1bfb947b31e9e5ad6c898d, type: 3}
+      propertyPath: m_Name
+      value: Enemie Model FBX
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: de15f6c38e1bfb947b31e9e5ad6c898d, type: 3}
