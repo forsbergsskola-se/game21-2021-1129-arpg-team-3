@@ -47,14 +47,14 @@ public class Enemy : MonoBehaviour
 		}
 		else if (other.gameObject.CompareTag("PlayerRange")) 
 		{
-			TakeDamage(2f);
+			TakeDamage(1.5f);
 			FMODUnity.RuntimeManager.PlayOneShot("event:/Enemy/EHit");
 		}
 	}
 	private void OnTriggerStay(Collider other) {
 		elapsedTime += Time.deltaTime;
 		if (other.gameObject.CompareTag("Fire2")) {
-			TakeDamage(0.2f);
+			TakeDamage(0.1f);
 			elapsedTime = 0;
 		}
 	}
