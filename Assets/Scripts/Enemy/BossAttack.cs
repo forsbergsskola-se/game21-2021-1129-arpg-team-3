@@ -7,11 +7,13 @@ public class BossAttack : MonoBehaviour {
 	public GameObject meteor;
 	public GameObject fire;
 	public bool canAttack;
+	public Animator animator;
 
 	private void Update()
 	{
 		if (canAttack) {
 			FireMeteor();
+			animator.SetBool("Attack", true);
 		}
 	}
 	private void FireMeteor() 
