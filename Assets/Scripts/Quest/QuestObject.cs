@@ -4,9 +4,9 @@ using UnityEngine;
 [Flags]
 public enum QuestCode
 {
-   // Kill1,
-   // Collect1,
-   // Boss1
+    Kill1,
+    Collect1,
+    Boss1
 }
 
 public enum QuestType
