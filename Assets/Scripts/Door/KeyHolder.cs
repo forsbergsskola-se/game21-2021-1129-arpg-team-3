@@ -11,7 +11,9 @@ public class KeyHolder : MonoBehaviour
     public KeyDoor keyDoorR;
     public KeyDoor keyDoorB;
     public KeyDoor keyDoorG;
-
+    private bool doorOpenA;
+    private bool doorOpenB;
+    private bool doorOpenC;
     private void Awake()
     {
         keyList = new List<Key.KeyType>();
@@ -45,23 +47,26 @@ public class KeyHolder : MonoBehaviour
     private void TryDoor() {
         if (keyDoorR != null && ContainsKey(keyDoorR.GetKeyType())) {
             doorUnlocked = true; 
-            if (ContainsKey(keyDoorR.GetKeyType()) && Input.GetMouseButtonUp(0) && Vector3.Distance(keyDoorR.transform.position, transform.position) <= 12) { 
+            if (!doorOpenA && ContainsKey(keyDoorR.GetKeyType()) && Input.GetMouseButtonUp(0) && Vector3.Distance(keyDoorR.transform.position, transform.position) <= 12) { 
                 keyDoorR.OpenDoor();
                 doorUnlocked = false;
+                doorOpenA = true;
             }
         }
         if (keyDoorB!= null && ContainsKey(keyDoorB.GetKeyType())) {
             doorUnlocked = true; 
-            if (ContainsKey(keyDoorB.GetKeyType()) && Input.GetMouseButtonUp(0) && Vector3.Distance(keyDoorB.transform.position, transform.position) <= 12) { 
+            if (!doorOpenB && ContainsKey(keyDoorB.GetKeyType()) && Input.GetMouseButtonUp(0) && Vector3.Distance(keyDoorB.transform.position, transform.position) <= 12) { 
                 keyDoorB.OpenDoor();
                 doorUnlocked = false;
+                doorOpenB = true;
             }
         }
         if (keyDoorG!= null && ContainsKey(keyDoorG.GetKeyType())) {
             doorUnlocked = true; 
-            if (ContainsKey(keyDoorG.GetKeyType()) && Input.GetMouseButtonUp(0) && Vector3.Distance(keyDoorG.transform.position, transform.position) <= 12) { 
+            if (!doorOpenC && ContainsKey(keyDoorG.GetKeyType()) && Input.GetMouseButtonUp(0) && Vector3.Distance(keyDoorG.transform.position, transform.position) <= 12) { 
                 keyDoorG.OpenDoor();
                 doorUnlocked = false;
+                doorOpenC = true;
             }
         }
     }
