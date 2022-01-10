@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
 	public GameObject image;
 	public GameObject controls;
 	public GameObject credits;
+	public GameObject splash;
 
 	private bool canShow = true;
 	private void Awake() 
@@ -74,5 +75,9 @@ public class MainMenu : MonoBehaviour
 	public void CreditsOff()
 	{
 		credits.SetActive(false);
+	}
+	public void Close()
+	{
+		splash.SetActive(false);
 	}
 }
