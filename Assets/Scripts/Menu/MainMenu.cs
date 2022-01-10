@@ -9,6 +9,9 @@ public class MainMenu : MonoBehaviour
 	public Texture2D arrowCursor;
 	public InventoryObjects inventory;
 	public GameObject image;
+	public GameObject controls;
+	public GameObject credits;
+
 	private bool canShow = true;
 	private void Awake() 
 	{
@@ -25,13 +28,13 @@ public class MainMenu : MonoBehaviour
 	private IEnumerator Flash()
 	{ 
 		image.SetActive(false);
-		yield return new WaitForSeconds(0.25f);
+		yield return new WaitForSeconds(0.3f);
 		image.SetActive(true);
 	}
 	private IEnumerator Wait()
 	{
 		canShow = false;
-		yield return new WaitForSeconds(20f);
+		yield return new WaitForSeconds(10f);
 		canShow = true;
 	}
 	
@@ -53,5 +56,23 @@ public class MainMenu : MonoBehaviour
 		Debug.Log("I'm out, beaches!");
 		Application.Quit();
 	}
+	public void ControlsOn()
+	{
+		controls.SetActive(true);
+	}
 
+	public void ControlsOff()
+	{
+		controls.SetActive(false);
+	}
+
+	public void CreditsOn()
+	{
+		credits.SetActive(true);
+	}
+
+	public void CreditsOff()
+	{
+		credits.SetActive(false);
+	}
 }
