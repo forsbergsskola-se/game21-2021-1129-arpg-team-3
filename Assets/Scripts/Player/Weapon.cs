@@ -7,12 +7,12 @@ public class Weapon : MonoBehaviour
 {
     private PlayerStats playerStats;
     public GameObject cannonBall;
-    public GameObject sword;
+    // public GameObject sword;
     public GameObject fire1;
     public GameObject fire2;
     public float shootForce;
     private bool canAttack = true;
-    private bool canSwing = true;
+    // private bool canSwing = true;
     private bool canImmolate = true;
 
     private void Start() {
@@ -47,11 +47,11 @@ public class Weapon : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         canAttack = true;
     }
-    private IEnumerator DelaySwing() {
-        canSwing = false;
-        yield return new WaitForSeconds(1f);
-        canSwing = true;
-    }
+    // private IEnumerator DelaySwing() {
+    //     canSwing = false;
+    //     yield return new WaitForSeconds(1f);
+    //     canSwing = true;
+    // }
     private IEnumerator Immolate() {
         fire1.GetComponent<Collider>().enabled = true;
         yield return new WaitForSeconds(4f);
