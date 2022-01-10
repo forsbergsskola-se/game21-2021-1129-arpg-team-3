@@ -1074,6 +1074,7 @@ MonoBehaviour:
   enemySo: {fileID: 11400000, guid: 108925674ee5ec24ca472e4ca0ca5dfd, type: 2}
   smoke: {fileID: 5573682537066934485, guid: bcebc379d8b72f049b14651b9e529225, type: 3}
   drop: {fileID: 3418357648049215993, guid: df9559a8d31543b428f4e110c78b4ca0, type: 3}
+  sparks: {fileID: 2737866823023914959, guid: 5b2d57ee478990f41b44d0b5ddc8c547, type: 3}
 --- !u!114 &7141254435392659384
 MonoBehaviour:
   m_ObjectHideFlags: 0

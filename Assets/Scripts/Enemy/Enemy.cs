@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
 	public GameObject smoke;
 	public GameObject drop;
 	private float elapsedTime;
+	public GameObject sparks;
 	
 	private float health;
 	private float armor;
@@ -57,7 +58,7 @@ public class Enemy : MonoBehaviour
 			elapsedTime = 0;
 		}
 	}
-
+	
 	private void TakeDamage(float multiplier) 
 	{
 		float damageReceived = playerStats.WeaponDamage * multiplier * Random.Range(0.9f, 1f) - enemySo.EnemyArmor;
@@ -66,6 +67,7 @@ public class Enemy : MonoBehaviour
 	}
 	private void ShowEnemyDamage(float damageReceived) 
 	{
+		Instantiate(sparks, transform.position, Quaternion.identity);
 		DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
 		indicator.SetDamageText(Convert.ToInt32(damageReceived));
 	}
