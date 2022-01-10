@@ -36,7 +36,7 @@ public class QuestTarget : MonoBehaviour
     
     private void Update() 
     {
-        if (targetTrigger == TargetTrigger.OnDestroy)
+        if (targetTrigger == TargetTrigger.OnHealthZero)
         {
             if (GetComponent<Enemy>().Health <= 0)
             {

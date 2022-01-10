@@ -17,21 +17,27 @@ MonoBehaviour:
     PortName: NEXT
     TargetNodeGUID: c16d7d4d-0306-4074-b6ab-e56d06a42953
   - BaseNodeGUID: c16d7d4d-0306-4074-b6ab-e56d06a42953
-    PortName: I already have
+    PortName: It's already done!
     TargetNodeGUID: 0454c959-ebd9-4f3a-b6b8-ca364fd17e28
   - BaseNodeGUID: 0454c959-ebd9-4f3a-b6b8-ca364fd17e28
-    PortName: Accept Reward
+    PortName: Yeah...
     TargetNodeGUID: c6905733-5e34-49ac-ac44-5beed010275e
+  - BaseNodeGUID: c6905733-5e34-49ac-ac44-5beed010275e
+    PortName: Leave
+    TargetNodeGUID: 63440d61-241c-4a84-8469-0e7c2c53dde2
   DialogueNodeData:
   - NodeGUID: c16d7d4d-0306-4074-b6ab-e56d06a42953
     DialogueText: There's a giant barrel that needs to be destroyed. Can you help
       me?
-    Position: {x: 374, y: 181}
+    Position: {x: 249, y: 70}
   - NodeGUID: 0454c959-ebd9-4f3a-b6b8-ca364fd17e28
     DialogueText: Wait, you've already did it?
-    Position: {x: 629, y: -44}
+    Position: {x: 819, y: 66}
   - NodeGUID: c6905733-5e34-49ac-ac44-5beed010275e
-    DialogueText: Good job anyway...
-    Position: {x: 1202, y: 66}
+    DialogueText: Oh...
+    Position: {x: 1164, y: 70}
+  - NodeGUID: 63440d61-241c-4a84-8469-0e7c2c53dde2
+    DialogueText: Leave
+    Position: {x: 1403, y: 70}
   ExposedProperties: []
   CommentBlockData: []
