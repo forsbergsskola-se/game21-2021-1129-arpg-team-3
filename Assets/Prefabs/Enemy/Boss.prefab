@@ -19596,7 +19596,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013378751632963272}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -20.05, y: 1.54, z: -933.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -24700,6 +24700,7 @@ MonoBehaviour:
   meteor: {fileID: 2013378751729148736}
   fire: {fileID: 2013378752332666798}
   canAttack: 0
+  animator: {fileID: 3061054288522836684}
 --- !u!1 &2013378752332666798
 GameObject:
   m_ObjectHideFlags: 0
@@ -54209,6 +54210,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bossmodel textured
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 91f82b1cb4718ac44a9a8eacdb6b3c3c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91f82b1cb4718ac44a9a8eacdb6b3c3c, type: 3}
 --- !u!4 &644854688758381955 stripped
@@ -54253,19 +54258,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5ccb6825920a4fe4a85a2c2d07c25c88, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9848078
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5ccb6825920a4fe4a85a2c2d07c25c88, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5ccb6825920a4fe4a85a2c2d07c25c88, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.17364816
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5ccb6825920a4fe4a85a2c2d07c25c88, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5ccb6825920a4fe4a85a2c2d07c25c88, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -54273,7 +54278,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5ccb6825920a4fe4a85a2c2d07c25c88, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5ccb6825920a4fe4a85a2c2d07c25c88, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -54291,8 +54296,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bossss
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 5ccb6825920a4fe4a85a2c2d07c25c88, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 233e7ca1679d5f9458a7b549d867c684, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ccb6825920a4fe4a85a2c2d07c25c88, type: 3}
+--- !u!95 &3061054288522836684 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 5ccb6825920a4fe4a85a2c2d07c25c88, type: 3}
+  m_PrefabInstance: {fileID: 8868037373969450845}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8978806002344992950 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5ccb6825920a4fe4a85a2c2d07c25c88, type: 3}
