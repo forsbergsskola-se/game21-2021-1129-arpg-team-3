@@ -16653,7 +16653,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1725968328}
   serializedVersion: 8
   lengthInSec: 5
-  simulationSpeed: 1
+  simulationSpeed: 2
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -17212,7 +17212,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 2
+    maxNumParticles: 3
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 1
     rotation3D: 1
@@ -26834,3 +26834,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60621e4a15d22444db9048f10e260fb9, type: 3}
+--- !u!1001 &6654571296227179662
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1071137515626679401, guid: 4a61c9ac6cc0f9b47883ca00a1a19327, type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071137515626679401, guid: 4a61c9ac6cc0f9b47883ca00a1a19327, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071137515626679401, guid: 4a61c9ac6cc0f9b47883ca00a1a19327, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071137515626679401, guid: 4a61c9ac6cc0f9b47883ca00a1a19327, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071137515626679401, guid: 4a61c9ac6cc0f9b47883ca00a1a19327, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.4905238
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071137515626679401, guid: 4a61c9ac6cc0f9b47883ca00a1a19327, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.4905238
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071137515626679401, guid: 4a61c9ac6cc0f9b47883ca00a1a19327, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5092999
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071137515626679401, guid: 4a61c9ac6cc0f9b47883ca00a1a19327, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5093
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071137515626679401, guid: 4a61c9ac6cc0f9b47883ca00a1a19327, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 2.152
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071137515626679401, guid: 4a61c9ac6cc0f9b47883ca00a1a19327, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071137515626679401, guid: 4a61c9ac6cc0f9b47883ca00a1a19327, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737866823023914959, guid: 4a61c9ac6cc0f9b47883ca00a1a19327, type: 3}
+      propertyPath: m_Name
+      value: Sparks
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4a61c9ac6cc0f9b47883ca00a1a19327, type: 3}
