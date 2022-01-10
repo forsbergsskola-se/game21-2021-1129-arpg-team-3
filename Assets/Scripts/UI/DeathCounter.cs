@@ -1,14 +1,15 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DeathCounter : MonoBehaviour
 {
     private PlayerStats playerStats;
-    private Text text;
+    private TextMeshProUGUI text;
     private string comment;
     
     private void Awake() {
-        text = GetComponent<Text>();
+        text = GetComponent<TextMeshProUGUI>();
         playerStats = GetComponentInParent<PlayerStatsLoader>().playerStats;
     }
     private void LateUpdate() {
@@ -27,7 +28,7 @@ public class DeathCounter : MonoBehaviour
                 comment = "*Sigh* These filthy casuals..";
                 break;
             case 15:
-                comment = "No0b gettin pwned here!";
+                comment = "No0b gettin' pwned here!";
                 break;
             case 20:
                 comment = "Grandpa Gaming inc";
