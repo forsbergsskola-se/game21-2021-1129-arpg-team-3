@@ -1815,9 +1815,30 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "CONTROLS\n\nMiddle Mouse, A & D: Rotate Camera\n\nScroll: Zoom\n\nLeft
-    Click: Move & Attack\n\nRight Click: Attack 1\n\nSPACE: Attack 2\n\nESC: Pause\n\n
-    I: Inventory"
+  m_Text: 'CONTROLS
+
+
+    Middle Mouse, A & D: Rotate Camera
+
+
+    Scroll: Zoom
+
+
+    Left
+    Click: Move & Attack
+
+
+    Right Click: Attack 1
+
+
+    SPACE: Attack 2
+
+
+    ESC:
+    Pause
+
+
+    I: Inventory'
 --- !u!222 &1016509541
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2674,11 +2695,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Game Designers\r\nErik Mattsson\r\nPetter S\xF6derberg (Project Co-Manager)\r\n\nGame
-    Programmers\r\r\nBenjamin Ting - (Project Co- Manager, Lead Programmer)\r\nMattias
+  m_Text: "Game Design\nErik Mattsson\r\nPetter S\xF6derberg (Project Co-Manager)\r\n\nGame
+    Programming\nBenjamin Ting - (Project Co- Manager, Lead Programmer)\r\nMattias
     L\xF6nnqvist\r\nMuhammed Al Idani\r\nOlle Reberg (Project Co-Manager, Game Design
-    Assistant)\r\nYasin Cakiroglu\r\n\nGame Artists\r\r\nHanna Kjellman (Lead Artist)\r\nJonathan
-    Tesfamichale\r\nRasmus M\xE5rtenson\r\n\nSound Designers\r\r\nRobert Larsson\nTroy
+    Assistant)\r\nYasin Cakiroglu\r\n\nGame Art\nHanna Kjellman (Lead Artist)\r\nJonathan
+    Tesfamichale\r\nRasmus M\xE5rtenson\r\n\nSound Design & Music\nRobert Larsson\nTroy
     Davis\r"
 --- !u!222 &1419056969
 CanvasRenderer:
@@ -3058,7 +3079,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1808436817
 RectTransform:
   m_ObjectHideFlags: 0
