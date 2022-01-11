@@ -17,13 +17,13 @@ MonoBehaviour:
   baseValue: 0
   type: 4
   description: I mean, what did you expect? They're leg equipment, the least exciting
-    body armor part. *Sigh*, they get the job done though.
+    body armor part. They get the job done though.
   data:
-    Name: LameLegs
+    Name: Pants Or Something
     Id: 8
     buffs:
     - attribute: 3
-      value: 12
+      value: 13
       min: 12
       max: 15
-  tierGrade: A
+  tierGrade: 'Tier: A'

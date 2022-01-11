@@ -16,7 +16,7 @@ MonoBehaviour:
   stackable: 0
   baseValue: 0
   type: 4
-  description: '*Sigh*, it''s a leg piece, but different from the other one I suppose...'
+  description: '*Sigh*, it''s a leg piece...'
   data:
     Name: Scifi legs
     Id: 9
@@ -25,4 +25,4 @@ MonoBehaviour:
       value: 8
       min: 5
       max: 9
-  tierGrade: L
+  tierGrade: 'Tier: L'

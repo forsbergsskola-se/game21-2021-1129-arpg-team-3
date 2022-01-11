@@ -16,14 +16,14 @@ MonoBehaviour:
   stackable: 0
   baseValue: 0
   type: 1
-  description: '"This helmet is better because it is black. All black armor is cooler
-    and therefore clearly better" - Casual who never checks gear stats'
+  description: "\"Black gear is cooler and therefore clearly better\" \n\n- Casual
+    who never checks gear stats"
   data:
-    Name: Black Helmet
+    Name: '"Cool" Helmet'
     Id: 3
     buffs:
     - attribute: 3
       value: 4
       min: 2
       max: 5
-  tierGrade: Technically provides armor
+  tierGrade: 'Tier: Bad'

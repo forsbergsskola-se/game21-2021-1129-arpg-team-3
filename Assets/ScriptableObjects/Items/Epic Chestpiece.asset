@@ -16,13 +16,17 @@ MonoBehaviour:
   stackable: 0
   baseValue: 0
   type: 2
-  description: '"Bro, that''s a fucking sweet chestpiece!" - Keith, lvl 80 Bro'
+  description: '
+
+
+    "Bro, that''s a totally epic chestplate!" - Keith, lvl 80
+    Bro'
   data:
-    Name: Epic ChestPlate
+    Name: Epic Chestplate
     Id: 5
     buffs:
     - attribute: 3
       value: 12
       min: 12
       max: 15
-  tierGrade: B
+  tierGrade: 'Tier: B'

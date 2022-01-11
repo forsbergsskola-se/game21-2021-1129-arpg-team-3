@@ -16,14 +16,14 @@ MonoBehaviour:
   stackable: 0
   baseValue: 0
   type: 2
-  description: Yuge armor, the best. So good, nobody knew how good it was, believe
-    me. Tremendous armor like no one ever saw. Some people, say it's the greatest.
+  description: Yuge armor, the best. Nobody knew how good it was, believe me. Really
+    tremendous armor I tell you! Some people say, it's the greatest.
   data:
     Name: Tremendous Chestplate
     Id: 4
     buffs:
     - attribute: 3
-      value: 7
-      min: 5
-      max: 8
-  tierGrade: No bueno
+      value: 3
+      min: 2
+      max: 5
+  tierGrade: 'Tier: No bueno'

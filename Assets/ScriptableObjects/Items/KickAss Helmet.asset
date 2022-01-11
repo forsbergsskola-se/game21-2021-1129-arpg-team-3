@@ -16,7 +16,9 @@ MonoBehaviour:
   stackable: 0
   baseValue: 0
   type: 1
-  description: This helmet is totally "Chck-chck".
+  description: '
+
+    This helmet is totally "Chck-chck".'
   data:
     Name: Chck-chck Helmet
     Id: 2
@@ -29,4 +31,4 @@ MonoBehaviour:
       value: 22
       min: 17
       max: 25
-  tierGrade: S+
+  tierGrade: 'Tier: S+'

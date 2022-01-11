@@ -16,10 +16,11 @@ MonoBehaviour:
   stackable: 1
   baseValue: 0
   type: 0
-  description: "It'll heal you up real nice and make you feel good! \nOtherwise known
-    as Mommys \"Happy-Juice\"\n\"My ol' lady is a mean drunk.\" - Farakin"
+  description: "Will heal you and make you feel good...\n\n\"My ol' lady is a mean
+    drunk.\" \n- Farakin"
   data:
     Name: Mommys "Happy-Juice"
     Id: 0
     buffs: []
+  playerStats: {fileID: 0}
   restoreHealthValue: 20

@@ -24,11 +24,11 @@ MonoBehaviour:
     Id: 6
     buffs:
     - attribute: 0
-      value: 4
+      value: 2
       min: 2
       max: 5
     - attribute: 1
-      value: 0
+      value: 27
       min: 20
       max: 35
-  tierGrade: S++
+  tierGrade: 'Tier: S+'
