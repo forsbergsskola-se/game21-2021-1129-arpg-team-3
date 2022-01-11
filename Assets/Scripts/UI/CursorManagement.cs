@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class CursorManagement : MonoBehaviour {
+public class CursorManagement : MonoBehaviour 
+{
 	[SerializeField] private GameObject rallypoint;
 	private GameObject rally;
 	public Texture2D invalid, attack, arrowCursor, crosshairs, handOpen, talk, doorUnlocked, doorLocked;

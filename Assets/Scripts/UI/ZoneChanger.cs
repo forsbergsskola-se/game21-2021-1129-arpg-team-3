@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZoneChanger : MonoBehaviour {
+public class ZoneChanger : MonoBehaviour 
+{
 	public int zone;
 	private void OnTriggerEnter(Collider other) 
 	{

@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class CameraController : MonoBehaviour {
+public class CameraController : MonoBehaviour 
+{
 	[SerializeField]Transform player;
 	[SerializeField]float smoothTime = 0.3f;
 	[SerializeField]float rotationSpeed = 120f;

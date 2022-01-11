@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ExperienceBar : MonoBehaviour {
+public class ExperienceBar : MonoBehaviour 
+{
 	public Slider slider;
 	public Gradient gradient;
 	public Image _fill;
