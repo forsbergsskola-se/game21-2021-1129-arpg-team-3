@@ -23,12 +23,15 @@ public class EnemyHealthBar : MonoBehaviour
 	private void LateUpdate() 
 	{
 		DisableHealthBar();
-		Ray GetCursorPosition() {
+		Ray GetCursorPosition() 
+		{
 			var ray = Camera.main.ScreenPointToRay(Input.mousePosition); //Fires ray
 			return ray;
 		}
-		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) {
-			if (hitInfo.collider.CompareTag("Enemy") || ai.showHealthBar) {
+		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) 
+		{
+			if (hitInfo.collider.CompareTag("Enemy") || ai.showHealthBar) 
+			{
 				SetMaxHealth();
 				ChangeHealthBar();
 			}
