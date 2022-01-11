@@ -15,7 +15,8 @@ public class Weapon : MonoBehaviour
     // private bool canSwing = true;
     private bool canImmolate = true;
 
-    private void Start() {
+    private void Start() 
+    {
         playerStats = GetComponentInParent<PlayerStatsLoader>().playerStats;
     }
     private void Update()
@@ -42,7 +43,8 @@ public class Weapon : MonoBehaviour
         }
     }
     
-    private IEnumerator DelayAttack() {
+    private IEnumerator DelayAttack() 
+    {
         canAttack = false;
         yield return new WaitForSeconds(2.5f);
         canAttack = true;
@@ -52,12 +54,14 @@ public class Weapon : MonoBehaviour
     //     yield return new WaitForSeconds(1f);
     //     canSwing = true;
     // }
-    private IEnumerator Immolate() {
+    private IEnumerator Immolate() 
+    {
         fire1.GetComponent<Collider>().enabled = true;
         yield return new WaitForSeconds(4f);
         fire1.GetComponent<Collider>().enabled = false;
     }
-    private IEnumerator DelayImmolate() {
+    private IEnumerator DelayImmolate() 
+    {
         canImmolate = false;
         yield return new WaitForSeconds(10f);
         canImmolate = true;
