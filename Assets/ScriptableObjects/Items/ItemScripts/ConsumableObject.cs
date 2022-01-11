@@ -8,10 +8,17 @@ public class ConsumableObject : ItemObject
     {
        // type = ItemTypeS.Consumable;
     }
-    public void ConsumePotion()
+    public void ConsumePotion(UserInterface userInterface, GameObject obj)
     {
-       playerStats.Health =+ restoreHealthValue;
-       Destroy(this);
+        if (!playerStats)
+        {
+            playerStats = FindObjectOfType<PlayerStatsLoader>().playerStats;
+        }
+
+        if (playerStats.Health == playerStats.GetModifiedStats().MaxHealth)
+        return;
+       playerStats.Health += restoreHealthValue;
+       userInterface.slotsOnInterface[obj].RemoveItem();
     }
     public override void SetValuesFromTarget(ItemObject target)
     {

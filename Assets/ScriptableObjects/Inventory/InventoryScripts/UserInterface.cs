@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
@@ -11,7 +12,6 @@ public abstract class UserInterface : MonoBehaviour
 {
     public InventoryObjects inventory;
     public Dictionary<GameObject, InventorySlotS> slotsOnInterface = new Dictionary<GameObject, InventorySlotS>();
-    
     void Start()
     {
         for (int i = 0; i < inventory.GetSlots.Length; i++)
@@ -23,12 +23,7 @@ public abstract class UserInterface : MonoBehaviour
         AddEvent(gameObject, EventTriggerType.PointerEnter,delegate{OnEnterInterface(gameObject);});
         AddEvent(gameObject, EventTriggerType.PointerExit,delegate{OnExitInterface(gameObject);});
     }
-
-    // private void Update()
-    // {
-    //     //OnClick();
-    // }
-
+    
     private void OnSlotUpdate(InventorySlotS _slot)
     {
         if (_slot.item.Id >= 0)
@@ -115,20 +110,18 @@ public abstract class UserInterface : MonoBehaviour
             MouseData.tempItemDragged.GetComponent<RectTransform>().position = Input.mousePosition;
         }
     }
-//         public void OnClick(GameObject obj)
-//         {
-//             if (Input.GetMouseButtonDown(0))
-//             {
-//                 if (MouseData.slotClicked = )
-//                 {
-//                     
-//                 }
-//             }
-//             if (MouseData.slotClicked == (obj))
-//             {
-//                 consumeable.ConsumePotion();
-//             }
-//         }
+         public void OnClick(GameObject obj)
+         {
+             if (!slotsOnInterface.ContainsKey(obj) && slotsOnInterface[obj].item != null)
+                 return;
+             Debug.Log("Hey, Listen!");
+             ConsumableObject consume = slotsOnInterface[obj].ItemObject as ConsumableObject;
+             if (consume.GetType() == typeof(ConsumableObject))
+             {
+                 consume.ConsumePotion(this, obj);
+                 print("potion consumed");
+             }
+         }
  }
 public static class MouseData
 {
