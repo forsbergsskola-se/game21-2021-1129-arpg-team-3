@@ -16,7 +16,4 @@ public class EnemySO : ScriptableObject
 		set => enemyHealth = value;
 	}
 	public float EnemyArmor => enemyArmor;
-
-
-
 }
