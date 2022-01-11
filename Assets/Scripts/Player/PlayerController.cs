@@ -278,10 +278,6 @@ public class PlayerController : MonoBehaviour
 			{
 				cursorManagement.CursorChange(8);
 			}
-			else 
-			{
-				// cursorManagement.CursorChange(8);
-			}
 		}
 		else 
 		{

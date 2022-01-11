@@ -9,7 +9,6 @@ public enum ItemTypeS
     Legs,
     KeyItem
 }
-
 public enum Attributes
 {
     AtkSpd,
