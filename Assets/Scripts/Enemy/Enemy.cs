@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
 		elapsedTime += Time.deltaTime;
 		if (other.gameObject.CompareTag("Fire2")) 
 		{
-			TakeDamage(0.15f);
+			TakeDamage(0.3f);
 			elapsedTime = 0;
 		}
 	}

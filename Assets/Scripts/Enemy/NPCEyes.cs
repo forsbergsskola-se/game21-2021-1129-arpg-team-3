@@ -17,10 +17,10 @@ public class NPCEyes : MonoBehaviour
     public Seeing Seeing { get; private set; }
     public Transform PlayerTarget = null;
     
-    public float maxDistance = 10f;
+    public float maxDistance = 20f;
     private Vector3 playerDestination;
     [Range(0f, 360f)]
-    public float angle = 45f;
+    public float angle = 360f;
     
     // [SerializeField] bool visualize = true;
     
