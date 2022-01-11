@@ -10,7 +10,8 @@ public class GainSecondary : MonoBehaviour
 	public GameObject effect;
 	private bool triggered;
 	
-	private void OnTriggerEnter(Collider other) {
+	private void OnTriggerEnter(Collider other) 
+	{
 		if (other.gameObject.CompareTag("Player") && !triggered) {
 			other.GetComponent<PlayerStatsLoader>().playerStats.secondary = true;
 			triggered = true;
@@ -19,7 +20,8 @@ public class GainSecondary : MonoBehaviour
 			effect.GetComponent<ParticleSystem>().Play();
 		}
 	}
-	private IEnumerator MessageText() {
+	private IEnumerator MessageText() 
+	{
 		text.text = "FIREBALL ENABLED!\nRIGHT CLICK TO FIRE!";
 		yield return new WaitForSeconds(3);
 		text.text = "";
