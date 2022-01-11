@@ -8,11 +8,13 @@ public class DeathCounter : MonoBehaviour
     private TextMeshProUGUI text;
     private string comment;
     
-    private void Awake() {
+    private void Awake() 
+    {
         text = GetComponent<TextMeshProUGUI>();
         playerStats = GetComponentInParent<PlayerStatsLoader>().playerStats;
     }
-    private void LateUpdate() {
+    private void LateUpdate() 
+    {
         switch (playerStats.DeathCount) 
         {
             case 0:
@@ -28,7 +30,7 @@ public class DeathCounter : MonoBehaviour
                 comment = "*Sigh* These filthy casuals..";
                 break;
             case 15:
-                comment = "Noob gettin' pwned here!";
+                comment = "No0b gettin' pwned here!";
                 break;
             case 20:
                 comment = "Grandpa Gaming inc";
