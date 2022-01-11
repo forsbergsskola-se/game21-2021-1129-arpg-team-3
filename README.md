@@ -13,7 +13,7 @@ The only dwarf left to save the world of Ythramar seems to be you … Dorouka!
 ## Team 3
 
 ### Game Design
-- Erik Mattsson
+- Erik Mattsson - [Linkedin](https://www.linkedin.com/in/erik-mattsson-b74761162)
 - Petter Söderberg - Co-Manager
 
 ### Game Programming
