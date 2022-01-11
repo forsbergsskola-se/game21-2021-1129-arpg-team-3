@@ -13,10 +13,12 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape)) 
         {
             {
-                if (player.inDialogue) {
+                if (player.inDialogue) 
+                {
                     Resume();
                 }
-                else {
+                else 
+                {
                     Pause();
                 }
             }
@@ -34,7 +36,8 @@ public class PauseMenu : MonoBehaviour
         player.inDialogue = true;
 
     }
-    public void Resume() {
+    public void Resume() 
+    {
         FMODUnity.RuntimeManager.PlayOneShot("event:/Clicks/UiClick");
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;

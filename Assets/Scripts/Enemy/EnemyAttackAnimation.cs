@@ -29,7 +29,6 @@ public class EnemyAttackAnimation : MonoBehaviour
                 anim.SetTrigger("AttackThree");
                 break;
         }
-
         StartCoroutine(DelayAttack());
     }
 

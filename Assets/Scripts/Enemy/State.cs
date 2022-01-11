@@ -271,9 +271,7 @@ public class Attack : State
          Stage = EVENT.Exit;
       }
    }
-   
-   
-  // public override void Exit()
+   // public override void Exit()
    //{
      // base.Exit();
    //}

@@ -55,10 +55,10 @@ public class NPCEyes : MonoBehaviour
        //  // GetComponentInChildren<NPCMovement>().relevantTransform = PlayerTarget;
        //  // GetComponent<NPCMovement>().SetADestination(playerDestination);
        // }
-       
     }
     
-    public bool CheckVisibilityToPoint(Vector3 worldPoint) {
+    public bool CheckVisibilityToPoint(Vector3 worldPoint) 
+    {
         
         var directionToTarget = worldPoint - transform.position;
         
@@ -73,11 +73,8 @@ public class NPCEyes : MonoBehaviour
         }
         
         var distanceToTarget = directionToTarget.magnitude;
-        
         var rayDistance = Mathf.Min(maxDistance, distanceToTarget);
-
         var ray = new Ray(transform.position, directionToTarget);
-        
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, rayDistance)) 
@@ -106,13 +103,9 @@ public class NPCEyes : MonoBehaviour
          }
 
          var distanceToTarget = directionToTarget.magnitude;
-
          var rayDistance = Mathf.Min(maxDistance, distanceToTarget);
-
          var ray = new Ray(transform.position, directionToTarget);
-
          RaycastHit hit;
-         
          var canSee = false;
          
          if (Physics.Raycast(ray, out hit, rayDistance))
@@ -126,11 +119,11 @@ public class NPCEyes : MonoBehaviour
 
              Debug.DrawLine(transform.position, hit.point);
          }
-         else {
+         else 
+         {
              Seeing = Seeing.Nothing;
              Debug.DrawRay(transform.position, directionToTarget.normalized * rayDistance);
          }
-
          return canSee;
      }
      

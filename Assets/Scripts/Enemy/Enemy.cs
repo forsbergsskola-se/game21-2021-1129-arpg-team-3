@@ -20,7 +20,8 @@ public class Enemy : MonoBehaviour
 	public float Health 
 	{
 		get => health;
-		private set {
+		private set 
+		{
 			health = value;
 			health = Mathf.Clamp(health, 0, maxHealth);
 		}
@@ -33,7 +34,8 @@ public class Enemy : MonoBehaviour
 	}
 	private void LateUpdate() 
 	{
-		if (Health <= 0) {
+		if (Health <= 0) 
+		{
 			KillEnemy();
 		}
 	}
@@ -51,9 +53,11 @@ public class Enemy : MonoBehaviour
 			FMODUnity.RuntimeManager.PlayOneShot("event:/Enemy/EHit");
 		}
 	}
-	private void OnTriggerStay(Collider other) {
+	private void OnTriggerStay(Collider other) 
+	{
 		elapsedTime += Time.deltaTime;
-		if (other.gameObject.CompareTag("Fire2")) {
+		if (other.gameObject.CompareTag("Fire2")) 
+		{
 			TakeDamage(0.15f);
 			elapsedTime = 0;
 		}

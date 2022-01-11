@@ -8,11 +8,9 @@ public class PlayerDamage : MonoBehaviour
 	private PlayerStats playerStats;
 	public GameObject damageText;
 	public GameObject sparks;
-
 	[SerializeField] private float timeToTakeDamage;
 	private float elapsedTime;
-
-
+	
 	private void Awake()
 	{
 		playerStats = GetComponent<PlayerStatsLoader>().playerStats;

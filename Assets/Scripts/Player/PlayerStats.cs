@@ -87,7 +87,8 @@ public class PlayerStats : ScriptableObject
     public float Health 
     {
         get => health;
-        set {
+        set 
+        {
             health = value;
             health = Mathf.Clamp(health, minHealth, MaxHealth);
         }
@@ -151,7 +152,8 @@ public class PlayerStats : ScriptableObject
     public void TakeDamage(float damage) 
     {
         Health -= damage;
-        if (Health <= 0) {
+        if (Health <= 0) 
+        {
             KillPlayer();
         }
     }

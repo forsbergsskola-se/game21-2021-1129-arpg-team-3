@@ -20,7 +20,8 @@ public class MainMenu : MonoBehaviour
 	}
 	private void Update()
 	{
-		if (canShow) {
+		if (canShow) 
+		{
 			StartCoroutine(Flash());
 			StartCoroutine(Wait());
 		}
