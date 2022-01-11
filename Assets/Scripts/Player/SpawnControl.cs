@@ -12,7 +12,8 @@ public class SpawnControl : MonoBehaviour
 		spawnPosition = transform.position;
 	}
 	
-	public void Respawn() {
+	public void Respawn() 
+	{
 		GetComponent<NavMeshAgent>().enabled = false;
 		transform.position = spawnPosition; 
 		playerStats.Health = playerStats.MaxHealth;
