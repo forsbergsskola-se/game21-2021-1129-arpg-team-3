@@ -10,11 +10,14 @@ public class StartBoss : MonoBehaviour {
 	private GameObject player;
 	private BossHealth bossHealth;
 
-	private void Start() {
+	private void Start() 
+	{
 		bossHealth = GetComponentInParent<BossHealth>();
 	}
-	private void OnTriggerEnter(Collider other) {
-		if (other.gameObject.CompareTag("Player")) {
+	private void OnTriggerEnter(Collider other) 
+	{
+		if (other.gameObject.CompareTag("Player")) 
+		{
 			other.gameObject.GetComponent<PlayerProximity>().StopMusic();
 			bossHealth.PlayMusic();
 			Destroy(gameObject);
