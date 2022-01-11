@@ -13,8 +13,8 @@ The only dwarf left to save the world of Ythramar seems to be you … Dorouka!
 ## Team 3
 
 ### Game Design
-- Petter Söderberg - Co-Manager
 - Erik Mattsson
+- Petter Söderberg - Co-Manager
 
 ### Game Programming
 - Benjamin Ting - Co-Manager, Lead Programmer - http://benjaminting.com
@@ -26,8 +26,8 @@ The only dwarf left to save the world of Ythramar seems to be you … Dorouka!
 
 ### Game Art
 - Hanna Kjellman - Lead Artist
-- Rasmus Mårtenson
 - Jonathan Tesfamichale
+- Rasmus Mårtenson
 
 ### Sound Design & Music
 - Troy Davis 
