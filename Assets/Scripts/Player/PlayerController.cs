@@ -196,6 +196,7 @@ public class PlayerController : MonoBehaviour
 						Item item = new Item(itemPickup.item);
 						if (inventory.AddItem(item, 1))
 						{
+							FMODUnity.RuntimeManager.PlayOneShot("event:/Item/PotionPickup");
 							Destroy(itemPickup.gameObject);
 							itemPickup = null;
 						}
@@ -206,6 +207,7 @@ public class PlayerController : MonoBehaviour
 						holder.AddKey(target.GetComponent<Key>().GetKeyType());
 						itemPickup = target.gameObject.GetComponent<GroundItem>();
 						inventory.AddItem(new Item(itemPickup.item), 1);
+						FMODUnity.RuntimeManager.PlayOneShot("event:/Item/KeyPickup");
 						Destroy(itemPickup.gameObject);
 					}
 					else if (Input.GetMouseButtonUp(0) && target.CompareTag("NPC")) 
