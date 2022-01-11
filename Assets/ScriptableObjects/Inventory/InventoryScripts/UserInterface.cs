@@ -1,14 +1,17 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public abstract class UserInterface : MonoBehaviour
 {
     public InventoryObjects inventory;
     public Dictionary<GameObject, InventorySlotS> slotsOnInterface = new Dictionary<GameObject, InventorySlotS>();
+    
     void Start()
     {
         for (int i = 0; i < inventory.GetSlots.Length; i++)
@@ -20,6 +23,11 @@ public abstract class UserInterface : MonoBehaviour
         AddEvent(gameObject, EventTriggerType.PointerEnter,delegate{OnEnterInterface(gameObject);});
         AddEvent(gameObject, EventTriggerType.PointerExit,delegate{OnExitInterface(gameObject);});
     }
+
+    // private void Update()
+    // {
+    //     //OnClick();
+    // }
 
     private void OnSlotUpdate(InventorySlotS _slot)
     {
@@ -107,12 +115,27 @@ public abstract class UserInterface : MonoBehaviour
             MouseData.tempItemDragged.GetComponent<RectTransform>().position = Input.mousePosition;
         }
     }
-}
+//         public void OnClick(GameObject obj)
+//         {
+//             if (Input.GetMouseButtonDown(0))
+//             {
+//                 if (MouseData.slotClicked = )
+//                 {
+//                     
+//                 }
+//             }
+//             if (MouseData.slotClicked == (obj))
+//             {
+//                 consumeable.ConsumePotion();
+//             }
+//         }
+ }
 public static class MouseData
 {
     public static UserInterface interfaceMouseOver;
     public static GameObject tempItemDragged;
     public static GameObject slotHovered;
+    public static GameObject slotClicked;
 }
 
 public static class ExtensionMethods
