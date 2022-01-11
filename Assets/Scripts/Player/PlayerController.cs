@@ -40,10 +40,12 @@ public class PlayerController : MonoBehaviour
 
 	}
 
-	private void Start() {
+	private void Start() 
+	{
 		agent = GetComponent<NavMeshAgent>();
 		DialogueReader.OnStartEndDialogue += StartEndDialogue;
-		foreach (var t in attributes) {
+		foreach (var t in attributes) 
+		{
 			t.SetParent(this);
 		}
 
@@ -84,8 +86,8 @@ public class PlayerController : MonoBehaviour
 		waiting = false;
 	}
 
-	private void PlayerInput() {
-
+	private void PlayerInput() 
+	{
 		if (!Input.GetMouseButtonUp(0) || Camera.main is null)
 			return;
 		cursorManagement.DeSpawnRallyPoint();
@@ -144,7 +146,8 @@ public class PlayerController : MonoBehaviour
 			Debug.LogWarning("Player RayCast Camera is NULL!");
 		}
 	}
-	private void MovePlayer(Vector3 point) {
+	private void MovePlayer(Vector3 point) 
+	{
 		if (inDialogue)
 			return;
 		StopAttacking(); 
@@ -155,7 +158,8 @@ public class PlayerController : MonoBehaviour
 		FMODUnity.RuntimeManager.PlayOneShot("event:/Clicks/MainClick");
 	}
 
-	private void MoveAttack() {
+	private void MoveAttack() 
+	{
 		if (!(Vector3.Distance(transform.position, target.position) >= playerStats.MeleeRange))
 			return; //only when player is not in melee range of enemy
 		agent.SetDestination(target.position);
@@ -180,7 +184,8 @@ public class PlayerController : MonoBehaviour
 					{
 						//Attack
 						StartAttacking();
-						if (Input.GetMouseButtonUp(0) && target.CompareTag("Enemy")) {
+						if (Input.GetMouseButtonUp(0) && target.CompareTag("Enemy")) 
+						{
 							SmoothRotate();
 						}
 					}
@@ -203,7 +208,8 @@ public class PlayerController : MonoBehaviour
 						inventory.AddItem(new Item(itemPickup.item), 1);
 						Destroy(itemPickup.gameObject);
 					}
-					else if (Input.GetMouseButtonUp(0) && target.CompareTag("NPC")) {
+					else if (Input.GetMouseButtonUp(0) && target.CompareTag("NPC")) 
+					{
 						messageBox.SetActive(true);
 						messageText.text = target.GetComponent<Message>().message;
 						Time.timeScale = 0f;
@@ -217,9 +223,8 @@ public class PlayerController : MonoBehaviour
 			}
 		}
 	}
-	private void SmoothRotate() {
-
-
+	private void SmoothRotate() 
+	{
 		// Vector3 lookVector = transform.position + target.transform.position;
 		// lookVector.y = transform.position.y;
 		// Quaternion rotation = Quaternion.LookRotation(lookVector);

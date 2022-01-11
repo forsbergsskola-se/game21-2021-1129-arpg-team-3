@@ -13,20 +13,22 @@ public class PlayerHealthBar : MonoBehaviour {
 		_playerStats = FindObjectOfType<PlayerStatsLoader>().playerStats;
 	}
 
-	private void LateUpdate() {
+	private void LateUpdate() 
+	{
 		SetMaxHealth();
 		ChangeHealthBar();
 	}
 
-	private void SetMaxHealth() {
+	private void SetMaxHealth() 
+	{
 		slider.maxValue = _playerStats.MaxHealth;
 		slider.value = _playerStats.Health;
 		_fill.color = gradient.Evaluate(1f);
 	}
 
-	private void ChangeHealthBar() {
+	private void ChangeHealthBar() 
+	{
 		slider.value = _playerStats.Health;
 		_fill.color = gradient.Evaluate(slider.normalizedValue);
 	}
-
 }

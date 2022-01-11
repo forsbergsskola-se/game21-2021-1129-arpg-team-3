@@ -25,6 +25,7 @@ public class ModifiableInt
     {
         ValueModified += method;
     }
+    
     public void UnRegisterModEvent(ModifiedEvent method)
     {
         ValueModified -= method;
