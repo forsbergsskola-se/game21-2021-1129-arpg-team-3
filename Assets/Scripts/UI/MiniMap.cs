@@ -8,7 +8,6 @@ public class MiniMap : MonoBehaviour
 	[SerializeField] float rotationSpeed = 120f;
 	[SerializeField] Transform player;
 	[SerializeField] private Camera cam;
-	
 	private Vector3 previousPosition;
 	
 	void Start()
