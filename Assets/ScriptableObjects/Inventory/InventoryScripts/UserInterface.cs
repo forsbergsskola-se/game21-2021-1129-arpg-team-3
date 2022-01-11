@@ -114,12 +114,10 @@ public abstract class UserInterface : MonoBehaviour
          {
              if (!slotsOnInterface.ContainsKey(obj) && slotsOnInterface[obj].item != null)
                  return;
-             Debug.Log("Hey, Listen!");
              ConsumableObject consume = slotsOnInterface[obj].ItemObject as ConsumableObject;
              if (consume.GetType() == typeof(ConsumableObject))
              {
                  consume.ConsumePotion(this, obj);
-                 print("potion consumed");
              }
          }
  }
