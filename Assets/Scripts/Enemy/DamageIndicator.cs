@@ -8,12 +8,10 @@ public class DamageIndicator : MonoBehaviour
     public float lifetime = 2f;
     public float minDist = 0f;
     public float maxDist = 0f;
-
-
+    
     private Vector3 inipos;
     private Vector3 targetPos;
     private float timer;
-    
     
     void Awake() 
     {
