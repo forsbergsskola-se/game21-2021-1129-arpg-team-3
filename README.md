@@ -1,12 +1,7 @@
 # The Tallest Dwarf In The World
 
-<object width="425" height="350">
-  <param name="movie" value="https://youtu.be/4oJm8t8t2qc"/>
-  <param name="wmode" value="transparent" />
-  <embed src="https://youtu.be/4oJm8t8t2qc"
-         type="application/x-shockwave-flash"
-         wmode="transparent" width="425" height="350" />
-</object>
+[![IMAGE ALT TEXT HERE](https://youtu.be/4oJm8t8t2qc/0.jpg)](https://youtu.be/4oJm8t8t2qc)
+
 
 {description}
 
