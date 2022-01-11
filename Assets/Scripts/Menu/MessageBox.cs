@@ -12,7 +12,8 @@ public class MessageBox : MonoBehaviour
 
     private void Update() 
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.I)) {
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.I)) 
+        {
             note.SetActive(false);
         }
     }
