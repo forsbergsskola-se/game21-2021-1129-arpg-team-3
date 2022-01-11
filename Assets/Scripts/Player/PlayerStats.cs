@@ -61,6 +61,10 @@ public class PlayerStats : ScriptableObject
 
     private Attribute GetAttribute(Attributes target, out bool exist)
     {
+        if (!playerController)
+        {
+            playerController = FindObjectOfType<PlayerController>();
+        }
         Attribute[] attributes = playerController.attributes;
         foreach (Attribute item in attributes)
         {
