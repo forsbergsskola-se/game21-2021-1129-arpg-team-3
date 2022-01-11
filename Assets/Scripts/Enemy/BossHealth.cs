@@ -11,26 +11,31 @@ public class BossHealth : MonoBehaviour {
 	private float bossMaxHealth;
 	public GameObject theEnd;
 
-	private void Start() {
+	private void Start() 
+	{
 		bossMaxHealth = GetComponent<Enemy>().maxHealth;
 		bossHealth = bossMaxHealth;
 		instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
 		instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject.transform));
 	}
 
-	private void Update() {
+	private void Update() 
+	{
 		bossHealth = GetComponent<Enemy>().Health;
-		if (bossHealth > 0) {
+		if (bossHealth > 0) 
+		{
 			float hp = bossHealth / bossMaxHealth * 100;
 			instance.setParameterByName("Boss HP", hp);
 		}
-		else {
+		else 
+		{
 			theEnd.SetActive(true);
 			instance.stop(STOP_MODE.IMMEDIATE);
 			Time.timeScale = 0f;
 		}
 	}
-	public void PlayMusic() {
+	public void PlayMusic() 
+	{
 		instance.start();
 	}
 }
