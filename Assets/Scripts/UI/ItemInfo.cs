@@ -102,5 +102,4 @@ public class ItemInfo : MonoBehaviour
         }
         return cleanupName;
     }
-   
 }
