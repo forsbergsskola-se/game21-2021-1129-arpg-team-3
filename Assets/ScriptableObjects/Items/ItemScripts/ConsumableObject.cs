@@ -16,9 +16,10 @@ public class ConsumableObject : ItemObject
         }
 
         if (playerStats.Health == playerStats.GetModifiedStats().MaxHealth)
-        return;
-       playerStats.Health += restoreHealthValue;
-       userInterface.slotsOnInterface[obj].RemoveItem();
+            return;
+        playerStats.Health += restoreHealthValue;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Item/PotionUse");
+        userInterface.slotsOnInterface[obj].RemoveItem();
     }
     public override void SetValuesFromTarget(ItemObject target)
     {
