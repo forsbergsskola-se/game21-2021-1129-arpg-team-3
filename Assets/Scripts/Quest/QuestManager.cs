@@ -75,7 +75,6 @@ public class QuestManager : MonoBehaviour
     private void SetupQuestButton(int questIndex, int numberQuests)
     {
         Vector3 addVector = new Vector3(0, numberQuests * buttonIncrement);
-        
         var panel = Instantiate(questLogPanel, keepQuest.transform);
         panel.GetComponent<RectTransform>().localPosition = buttonStartPos + addVector;
         panel.GetComponentInChildren<TextMeshProUGUI>().text = questLogObject.quests[questIndex].DisplayName;
