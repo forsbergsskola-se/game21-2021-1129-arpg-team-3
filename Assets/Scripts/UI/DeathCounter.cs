@@ -28,7 +28,7 @@ public class DeathCounter : MonoBehaviour
                 comment = "*Sigh* These filthy casuals..";
                 break;
             case 15:
-                comment = "No0b gettin' pwned here!";
+                comment = "Noob gettin' pwned here!";
                 break;
             case 20:
                 comment = "Grandpa Gaming inc";
