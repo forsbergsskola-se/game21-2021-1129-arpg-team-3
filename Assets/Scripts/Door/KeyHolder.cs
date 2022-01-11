@@ -41,29 +41,37 @@ public class KeyHolder : MonoBehaviour
         return keyList.Contains(keyType);
     }
 
-    private void Update() {
+    private void Update() 
+    {
         TryDoor();
     }
-    private void TryDoor() {
-        if (keyDoorR != null && ContainsKey(keyDoorR.GetKeyType())) {
+    private void TryDoor() 
+    {
+        if (keyDoorR != null && ContainsKey(keyDoorR.GetKeyType())) 
+        {
             doorUnlocked = true; 
-            if (!doorOpenA && ContainsKey(keyDoorR.GetKeyType()) && Input.GetMouseButtonUp(0) && Vector3.Distance(keyDoorR.transform.position, transform.position) <= 12) { 
+            if (!doorOpenA && ContainsKey(keyDoorR.GetKeyType()) && Input.GetMouseButtonUp(0) && Vector3.Distance(keyDoorR.transform.position, transform.position) <= 12) 
+            { 
                 keyDoorR.OpenDoor();
                 doorUnlocked = false;
                 doorOpenA = true;
             }
         }
-        if (keyDoorB!= null && ContainsKey(keyDoorB.GetKeyType())) {
+        if (keyDoorB!= null && ContainsKey(keyDoorB.GetKeyType())) 
+        {
             doorUnlocked = true; 
-            if (!doorOpenB && ContainsKey(keyDoorB.GetKeyType()) && Input.GetMouseButtonUp(0) && Vector3.Distance(keyDoorB.transform.position, transform.position) <= 12) { 
+            if (!doorOpenB && ContainsKey(keyDoorB.GetKeyType()) && Input.GetMouseButtonUp(0) && Vector3.Distance(keyDoorB.transform.position, transform.position) <= 12) 
+            { 
                 keyDoorB.OpenDoor();
                 doorUnlocked = false;
                 doorOpenB = true;
             }
         }
-        if (keyDoorG!= null && ContainsKey(keyDoorG.GetKeyType())) {
+        if (keyDoorG!= null && ContainsKey(keyDoorG.GetKeyType())) 
+        {
             doorUnlocked = true; 
-            if (!doorOpenC && ContainsKey(keyDoorG.GetKeyType()) && Input.GetMouseButtonUp(0) && Vector3.Distance(keyDoorG.transform.position, transform.position) <= 12) { 
+            if (!doorOpenC && ContainsKey(keyDoorG.GetKeyType()) && Input.GetMouseButtonUp(0) && Vector3.Distance(keyDoorG.transform.position, transform.position) <= 12)
+            { 
                 keyDoorG.OpenDoor();
                 doorUnlocked = false;
                 doorOpenC = true;
