@@ -3,7 +3,6 @@ public class EnemySpawner : MonoBehaviour
 {
 	[SerializeField] private GameObject enemyToSpawn;
 	[SerializeField] private GameObject spawnPositions;
-
 	private Transform[] _spawnPositions;
 
 	private void Awake()
