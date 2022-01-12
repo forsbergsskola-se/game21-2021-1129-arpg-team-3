@@ -17,7 +17,7 @@ The only dwarf left to save the world of Ythramar seems to be you … Dorouka!
 - Petter Söderberg - Co-Manager
 
 ### Game Programming
-- Benjamin Ting - Co-Manager, Lead Programmer - http://benjaminting.com
+- Benjamin Ting - Co-Manager, Lead Programmer - [BenjaminTing.com](http://benjaminting.com)
 
 - Mattias Lönnqvist
 - Muhammed Al Idani
