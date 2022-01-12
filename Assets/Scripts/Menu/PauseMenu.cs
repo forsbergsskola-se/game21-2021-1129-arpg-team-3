@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    
+    // Triggered when pause button is triggered. Note: Hacky code due to pausing interfering with inventory and talking.
+
     public InventoryObjects inventory;
     public InventoryObjects equipment;
     public GameObject pauseMenuUI;

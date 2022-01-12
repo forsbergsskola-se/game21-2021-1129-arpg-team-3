@@ -6,6 +6,8 @@ using UnityEngine;
 public class WayPointDebug : MonoBehaviour
 {
     
+    // Unused waypoint patrol system
+    
     [System.Serializable]
     public class StoreItem : System.Object
     {

@@ -5,7 +5,10 @@ using FMOD.Studio;
 using TMPro;
 using UnityEngine;
 
-public class StartBoss : MonoBehaviour {
+public class StartBoss : MonoBehaviour 
+{
+	// Ground trigger to start the boss attack sequence and change music.
+	
 	public BossAttack bossAttack;
 	private GameObject player;
 	private BossHealth bossHealth;

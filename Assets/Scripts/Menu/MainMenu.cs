@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour 
 {
+	// Controls the main menu at the start of the game
+
 	public Texture2D arrowCursor;
 	public InventoryObjects inventory;
 	public GameObject image;
 	public GameObject controls;
 	public GameObject credits;
 	public GameObject splash;
-
 	private bool canShow = true;
 	private void Awake() 
 	{
@@ -20,13 +21,13 @@ public class MainMenu : MonoBehaviour
 	}
 	private void Update()
 	{
+		// Shows and hides graffiti
 		if (canShow) 
 		{
 			StartCoroutine(Flash());
 			StartCoroutine(Wait());
 		}
 	}
-	
 	private IEnumerator Flash()
 	{ 
 		image.SetActive(false);
@@ -39,14 +40,14 @@ public class MainMenu : MonoBehaviour
 		yield return new WaitForSeconds(10f);
 		canShow = true;
 	}
-	
-	
 	public void NewGame() 
 	{
+		// Unpauses game. Important!
 		Time.timeScale = 1f;
 		FMODUnity.RuntimeManager.PlayOneShot("event:/Clicks/UiClick");
 		SceneManager.LoadScene(1);
 	}
+	// Unused.
 	public void LoadGame()
 	{
 		SceneManager.LoadScene(1);
@@ -58,25 +59,24 @@ public class MainMenu : MonoBehaviour
 		Debug.Log("I'm out, beaches!");
 		Application.Quit();
 	}
+	// Shows Controls and Credits screens
 	public void ControlsOn()
 	{
 		controls.SetActive(true);
 	}
-
 	public void ControlsOff()
 	{
 		controls.SetActive(false);
 	}
-
 	public void CreditsOn()
 	{
 		credits.SetActive(true);
 	}
-
 	public void CreditsOff()
 	{
 		credits.SetActive(false);
 	}
+	// Closes logo splash screen
 	public void Close()
 	{
 		splash.SetActive(false);

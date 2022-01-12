@@ -14,6 +14,10 @@ public enum Seeing
 
 public class NPCEyes : MonoBehaviour
 {
+    
+    // Detects the player in a set range and angle. Current range is set to 20f and angle 360degrees.
+    // IMPORTANT: ONLY ONE PLAYER TAG IS ALLOWED IN THE WHOLE GAME FOR THIS TO WORK. FAILING WHICH, THIS SCRIPT WILL NOT WORK WHEN BUILT.
+    
     public Seeing Seeing { get; private set; }
     public Transform PlayerTarget = null;
     
@@ -127,7 +131,7 @@ public class NPCEyes : MonoBehaviour
          return canSee;
      }
      
-     
+     // Visualizes the range and viewing distance in editor.
 #if UNITY_EDITOR
 [CustomEditor(typeof(NPCEyes))]
 public class EnemyVisibilityEditor : Editor 

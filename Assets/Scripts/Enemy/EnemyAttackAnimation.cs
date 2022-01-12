@@ -4,6 +4,8 @@ using Random = UnityEngine.Random;
 
 public class EnemyAttackAnimation : MonoBehaviour
 {
+    // Toggles the type of enemy attacks animations to display. 
+    
     private bool CanAttack = true;
     public float AttackDelay = 0;
     
@@ -14,7 +16,7 @@ public class EnemyAttackAnimation : MonoBehaviour
             AttackOnce(anim);
         }
     }
-    
+    // Unused. For consistency purposes was set to always attack in the same way.
     public void AttackOnce(Animator anim)
     {
         switch (Random.Range(0, 0))

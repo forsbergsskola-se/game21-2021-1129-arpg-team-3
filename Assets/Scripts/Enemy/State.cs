@@ -5,6 +5,9 @@ using Random = UnityEngine.Random;
 
 public  class State 
 {
+   
+   // State Machine for enemy. Multiple unused states. Only Idle, Pursue and Attack are used.
+   
    public bool patrol;
    public enum STATE
    {
@@ -82,12 +85,13 @@ public class Idle : State
    //}
    public override void Update()
    {
+      // Switches from Idle to Pursue if player in sight. 
       if (Seeing == Seeing.Player)
       {
          NextState = new Pursue(Npc, Agent, Anim, Player);
          Stage = EVENT.Exit;
       }
-      
+      // Switches from Pursue to Idle if player out of sight.
       else if (Seeing != Seeing.Player) 
       {
          NextState = new Idle(Npc, Agent, Anim, Player);
@@ -229,7 +233,7 @@ public class Pursue : State
          NextState = new Idle(Npc, Agent, Anim, Player);
          Stage = EVENT.Exit;
       }
-
+      // Changes state to attack when within attack range. State is buggy and inconsistent.
       if (Agent.remainingDistance < 1.2f)
       {
          Agent.isStopped = true;
@@ -263,7 +267,7 @@ public class Attack : State
    public override void Update()
    {
       AttackAnimation.TryAttack(Anim);
-      
+      // Returns state to Pursue if player is beyond attack range.
       if (Vector3.Distance(Player.position, Npc.transform.position) > 2)
       {
          NextState = new Pursue(Npc, Agent, Anim, Player);

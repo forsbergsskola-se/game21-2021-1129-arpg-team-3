@@ -3,9 +3,10 @@ using UnityEngine.UI;
 
 public class EnemyHealthBar : MonoBehaviour 
 {
+	// Shows the health bar of the enemy
+	
 	[SerializeField] Slider slider;
 	[SerializeField] Gradient gradient;
-	
 	[SerializeField] Image fill;
 	private Enemy enemy;
 	private AI ai;
@@ -19,13 +20,13 @@ public class EnemyHealthBar : MonoBehaviour
 	{
 		transform.rotation = Camera.main.transform.rotation;
 	}
-
+	// Sets health bar off by default. Turns it on only if the player mouse over the enemy or if the enemy sees the player.
 	private void LateUpdate() 
 	{
 		DisableHealthBar();
 		Ray GetCursorPosition() 
 		{
-			var ray = Camera.main.ScreenPointToRay(Input.mousePosition); //Fires ray
+			var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			return ray;
 		}
 		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) 

@@ -5,6 +5,9 @@ using System.Linq;
 [System.Serializable]
 public struct Link
 {
+    
+    // Unused waypoint patrol system
+    
     public enum Direction
     {
         //UNI,

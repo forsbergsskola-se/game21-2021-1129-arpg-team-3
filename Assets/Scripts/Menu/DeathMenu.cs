@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class DeathMenu : MonoBehaviour
 {
+    // Triggered when player dies
+    
     public InventoryObjects inventory;
     public InventoryObjects equipment;
     public GameObject pauseMenuUI;

@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class EndMenu : MonoBehaviour
 {
+    // Triggered when game is over
+    
     public InventoryObjects inventory;
     public InventoryObjects equipment;
     

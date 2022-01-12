@@ -6,7 +6,7 @@ using UnityEngine;
 public class BossAttack : MonoBehaviour 
 {
 	
-	// Placed on ground trigger to start the Boss attack sequence.
+	// Controls the attack pattern of the Boss.
 	
 	public GameObject meteor;
 	public GameObject fire;
