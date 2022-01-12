@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class GainSecondary : MonoBehaviour 
 {
+	
+	// Ground trigger to gain new ability.
+	
 	public TextMeshProUGUI text;
 	public GameObject effect;
 	private bool triggered;

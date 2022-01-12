@@ -6,19 +6,17 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
-	// [SerializeField] float playerMeleeRange;
-	// [SerializeField] private float playerAttackDamage;
+	// Controls player movement and interactions. WARNING: VERY HACKY CODE AHEAD!
+	
 	private NavMeshAgent agent;
 	private Transform target;
 	public CursorManagement cursorManagement;
 	private PlayerStats playerStats;
 	private KeyHolder keyHolder;
-	// public GameObject playerWeapon;
 	private GroundItem itemPickup;
 	public InventoryObjects inventory;
 	public InventoryObjects equipment;
 	public bool inDialogue;
-	// public Key key;
 	public Attribute[] attributes;
 	public TextMeshProUGUI text;
 	public GameObject messageBox;
@@ -55,7 +53,7 @@ public class PlayerController : MonoBehaviour
 			equipment.GetSlots[i].OnAfterUpdate += OnAfterSlotUpdate;
 		}
 	}
-	
+	// Update loop checks this in order.
 	void Update() 
 	{
 		GetCursorPosition();
@@ -66,6 +64,7 @@ public class PlayerController : MonoBehaviour
 		animator.SetFloat("Speed", agent.velocity.sqrMagnitude);
 		PlayWalkingSound();
 	}
+	// Changes the sound of player's footsteps depending on terrain and velocity of player.
 	private void PlayWalkingSound() 
 	{
 		if (!waiting) {
@@ -75,17 +74,17 @@ public class PlayerController : MonoBehaviour
 			instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject.transform));
 			instance.start();
 			instance.release();
+			// Hacky method to time the sound to the pace of the character.
 			StartCoroutine(DelayWalk());
 		}
 	}
-
 	private IEnumerator DelayWalk() 
 	{
 		waiting = true;
 		yield return new WaitForSeconds(0.5f);
 		waiting = false;
 	}
-
+	// Despawns rally point and starts target checking sequence on left click.
 	private void PlayerInput() 
 	{
 		if (!Input.GetMouseButtonUp(0) || Camera.main is null)
@@ -93,6 +92,7 @@ public class PlayerController : MonoBehaviour
 		cursorManagement.DeSpawnRallyPoint();
 		TargetCheck();
 	}
+	// Check for leveling up. Could move method to playerstats.
 	private void LevellingCheck() 
 	{
 		if (playerStats.Experience < playerStats.MaxExperience)
@@ -107,35 +107,40 @@ public class PlayerController : MonoBehaviour
 		effect.GetComponent<ParticleSystem>().Play();
 		StartCoroutine(LevelUpText());
 	}
-
+	
+	// Fires raycast to detect cursor position.
 	Ray GetCursorPosition() 
 	{
-		var ray = Camera.main.ScreenPointToRay(Input.mousePosition); //Fires ray
+		var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		return ray;
 	}
-	
+	// Checks tag of selected gameobject.
 	private void TargetCheck() 
 	{
 		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) 
 		{
-			target = hitInfo.collider.transform; //Sets target
+			// Sets clicked gameobject as target.
+			target = hitInfo.collider.transform;
 			if ((hitInfo.collider.CompareTag("Ground") || 
 			     hitInfo.collider.CompareTag("Door") || 
 			     hitInfo.collider.CompareTag("Fire")) &&			    
 			    !inDialogue)
 			{ 
+				// Player is moved to the exact spot of Ground, Door and Fire tagged gameobjects.
 				cursorManagement.SpawnRallyPoint(hitInfo.point);
-				MovePlayer(hitInfo.point); //Moves player to point.
+				MovePlayer(hitInfo.point);
 			}
 			else if (hitInfo.collider.CompareTag("Enemy") || 
 			         hitInfo.collider.CompareTag("Key") || 
 			         hitInfo.collider.CompareTag("NPC") ||
 			         hitInfo.collider.CompareTag("Item")) 
 			{
+				// Player moves in a different configuration.
 				MoveAttack();
 			}
 			else 
 			{
+				// Plays an invalid sound when an invalid location is selected. Does not move or change current movement.
 				if (hitInfo.collider.CompareTag("Invalid")) {
 					FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerDeny");
 				}
@@ -143,33 +148,36 @@ public class PlayerController : MonoBehaviour
 		}
 		else 
 		{
+			// Warning for null checks.
 			Debug.LogWarning("Player RayCast Camera is NULL!");
 		}
 	}
+	// Player stops attacking and moves to exact location with 0 stopping distance and sound feedback.
 	private void MovePlayer(Vector3 point) 
 	{
 		if (inDialogue)
 			return;
-		StopAttacking(); 
-
-		agent.stoppingDistance = 0; //resets melee range setting
-		agent.SetDestination(point); //moves player to point
-		
+		StopAttacking();
+		agent.stoppingDistance = 0;
+		agent.SetDestination(point);
 		FMODUnity.RuntimeManager.PlayOneShot("event:/Clicks/MainClick");
 	}
-
+	// Player stops a distance away from the enemy or interactable object. Consider renaming
 	private void MoveAttack() 
 	{
+		// Will only move if the player is beyond melee range.
 		if (!(Vector3.Distance(transform.position, target.position) >= playerStats.MeleeRange))
-			return; //only when player is not in melee range of enemy
+			return;
 		agent.SetDestination(target.position);
-		agent.stoppingDistance = playerStats.MeleeRange - 0.5f; //stops player before melee range
+		// Stops player before melee range with account for jitter.
+		agent.stoppingDistance = playerStats.MeleeRange - 0.5f;
 	}
+	// Allows player to interact or attack. Consider splitting this method
 	private void Interact() 
 	{
 		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) 
 		{
-			target = hitInfo.collider.transform; //reset target
+			target = hitInfo.collider.transform;
 			if (target.CompareTag("Enemy") ||
 			    target.CompareTag("Key") ||
 			    target.CompareTag("Door") ||
@@ -177,19 +185,19 @@ public class PlayerController : MonoBehaviour
 			    target.CompareTag("NPC") ||
 			    target.CompareTag("NPC1"))
 			{
-				//Attack WHEN player is in Melee range AND target is set to Enemy OR Destroyable.
+				// AUTO attack when player is in melee range and target is set to Enemy.
 				if (Vector3.Distance(transform.position, target.position) <= playerStats.MeleeRange) 
 				{
 					if (target.CompareTag("Enemy")) 
 					{
-						//Attack
 						StartAttacking();
 						if (Input.GetMouseButtonUp(0) && target.CompareTag("Enemy")) 
 						{
+							// Allows the rotational adjustment of the player during combat when the enemy is clicked.
 							SmoothRotate();
 						}
 					}
-					//item pickup
+					// Facilitates item pickup with sound.
 					else if (target.CompareTag("Item")) 
 					{
 						itemPickup = target.gameObject.GetComponent<GroundItem>();
@@ -201,6 +209,7 @@ public class PlayerController : MonoBehaviour
 							itemPickup = null;
 						}
 					}
+					// Facilitates key pickup with sound
 					else if (target.CompareTag("Key")) 
 					{
 						var holder = GetComponent<KeyHolder>();
@@ -210,6 +219,7 @@ public class PlayerController : MonoBehaviour
 						FMODUnity.RuntimeManager.PlayOneShot("event:/Item/KeyPickup");
 						Destroy(itemPickup.gameObject);
 					}
+					// Reads messages by getting the text from the gameobject and displaying it on the message UI.
 					else if (Input.GetMouseButtonUp(0) && target.CompareTag("NPC")) 
 					{
 						messageBox.SetActive(true);
@@ -218,6 +228,7 @@ public class PlayerController : MonoBehaviour
 						inDialogue= true;
 					}
 				}
+				// To prevent a player from attacking a corpse
 				if (target is not null && target.CompareTag("Enemy") && target.gameObject.GetComponent<Enemy>().Health <= 0) 
 				{
 					StopAttacking();
@@ -225,18 +236,18 @@ public class PlayerController : MonoBehaviour
 			}
 		}
 	}
+	// Allows the rotational adjustment of the player during combat when the enemy is clicked. Needs a better method.
 	private void SmoothRotate() 
 	{
 		// Vector3 lookVector = transform.position + target.transform.position;
 		// lookVector.y = transform.position.y;
 		// Quaternion rotation = Quaternion.LookRotation(lookVector);
 		// transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1);
-		
-		// Smoothly rotate towards the target point.
 		var targetRotation = Quaternion.LookRotation(target.position);
 		transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, playerStats.CombatRotationSpeed * Time.deltaTime);
 		// transform.Translate(new Vector3(0, 0, 0));
 	}
+	// Controls attack animation.
 	private void StartAttacking() 
 	{
 		animator.SetBool("Attack",true);
@@ -246,7 +257,7 @@ public class PlayerController : MonoBehaviour
 	{
 		animator.SetBool("Attack",false);
 	}
-	
+	// Suggest to move to cursor management script.
 	private void ChangeCursor() 
 	{
 		if (Physics.Raycast(GetCursorPosition(), out var hitInfo)) 
@@ -286,7 +297,7 @@ public class PlayerController : MonoBehaviour
 			Debug.LogWarning("Player RayCast Camera is NULL!");
 		}
 	}
-
+	// Suggestion to move inventory scripts out.
 	private void OnBeforeSlotUpdate(InventorySlotS _slot)
 	{
 		if (_slot.ItemObject == null)
@@ -345,7 +356,7 @@ public class PlayerController : MonoBehaviour
 				break;
 		}
 	}
-
+	// Pauses game when player is in a dialogue.
 	private void StartEndDialogue()
 	{
 		if (!inDialogue)
@@ -361,6 +372,7 @@ public class PlayerController : MonoBehaviour
 			Time.timeScale = 1f;
 		}
 	}
+	// Shows announcement when level up.
 	private IEnumerator LevelUpText() 
 	{
 		text.text = "LEVEL UP!";
@@ -373,7 +385,7 @@ public class PlayerController : MonoBehaviour
 		Debug.Log(string.Concat(attribute.type, " updated. Value is now ", attribute.value._modifiedValue));
 	}
 }
-
+// Suggestion to move inventory scripts out.
 [System.Serializable]
 public class Attribute
 {

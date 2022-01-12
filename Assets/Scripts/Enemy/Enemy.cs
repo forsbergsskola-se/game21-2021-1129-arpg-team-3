@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
 			KillEnemy();
 		}
 	}
-	// Should move dependency of damage to that of the player.
+	// Enemy takes different amounts damage from certain weapons and has different reaction sounds. Should move dependency of damage to that of the player.
 	private void OnTriggerEnter(Collider other) 
 	{
 		if (other.gameObject.CompareTag("PlayerWeapon")) 
@@ -60,14 +60,15 @@ public class Enemy : MonoBehaviour
 			TakeDamage(0.3f);
 		}
 	}
-	// Limits damage to >0. Failure to do so may result in health gain for enemies with too high armor.
 	private void TakeDamage(float multiplier) 
 	{
+		// Enemy is damaged by a random factor of 90-100% of player weapon damage after deducting armor.
 		float damageReceived = playerStats.WeaponDamage * multiplier * Random.Range(0.9f, 1f) - enemySo.EnemyArmor;
+		// Limits damage to >0. Failure to do so may result in health gain for enemies with too high armor.
 		Health -= Mathf.Clamp(damageReceived, 0, 10000);
 		ShowEnemyDamage(damageReceived);
 	}
-	// Spawns Damage Indicator
+	// Spawns Damage indicator and visual feedback
 	private void ShowEnemyDamage(float damageReceived) 
 	{
 		Instantiate(sparks, transform.position, Quaternion.identity);
@@ -77,6 +78,7 @@ public class Enemy : MonoBehaviour
 	// Should move dependency of gaining experience to the player
 	private void KillEnemy()
 	{
+		// Player gains experience on the death of an enemy by this calculation. Suggestion to move this to player and trigger with events.
 		playerStats.Experience += maxHealth * enemySo.WeaponDamage * playerStats.XPMultiplier;
 		gameObject.SetActive(false);
 		Instantiate(smoke, transform.position, Quaternion.identity);

@@ -10,9 +10,7 @@ public enum TargetTrigger
 public class QuestTarget : MonoBehaviour
 {
     public bool isFinalEnemy;
-
     public QuestCode questCode;
-    
     [SerializeField] TargetTrigger targetTrigger;
     public delegate void QuestTargetReachedDelegate(QuestCode theQuestCode);
     public static event QuestTargetReachedDelegate OnQuestTarget;

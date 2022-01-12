@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour 
 {
+    // Manages player weapons and abilities. Previously used to handle player melee attack prior to animation.
+    
     private PlayerStats playerStats;
     public GameObject cannonBall;
     // public GameObject sword;
@@ -21,6 +23,7 @@ public class Weapon : MonoBehaviour
     }
     private void Update()
     {
+        // Fireball attack.
         if (Input.GetMouseButtonDown(1) && playerStats.secondary && canAttack)
         {
             GameObject projectile = Instantiate(cannonBall, transform.position, transform.rotation);
@@ -33,6 +36,7 @@ public class Weapon : MonoBehaviour
         //     projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * (shootForce - 500f));
         //     StartCoroutine(DelaySwing());
         // }
+        // Ring of Kristal attack.
         else if (Input.GetKeyDown(KeyCode.Space) && playerStats.tertiary && canImmolate)
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/Player/FireCircle");
@@ -46,6 +50,7 @@ public class Weapon : MonoBehaviour
     private IEnumerator DelayAttack() 
     {
         canAttack = false;
+        // Time before next attack
         yield return new WaitForSeconds(2.5f);
         canAttack = true;
     }
@@ -63,6 +68,7 @@ public class Weapon : MonoBehaviour
     private IEnumerator DelayImmolate() 
     {
         canImmolate = false;
+        // Time before next attack
         yield return new WaitForSeconds(10f);
         canImmolate = true;
     }

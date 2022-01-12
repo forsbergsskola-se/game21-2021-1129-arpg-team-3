@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Teleport : MonoBehaviour
 {
+	// Immediately sends the player to the referenced location by respawning.
+	
 	public GameObject destination;
 
 	private void OnTriggerEnter(Collider other) 

@@ -3,6 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObject/Player/Stats", fileName = "Stats")]
 public class PlayerStats : ScriptableObject
 {
+    // Giant data holder for all stats needed
+    
     [SerializeField] private float health;
     [SerializeField] private float playerArmour;
     [SerializeField] private float gold;
@@ -27,6 +29,7 @@ public class PlayerStats : ScriptableObject
     public bool tertiary;
     public PlayerController playerController;
     
+    // Let's inventory items modify the stats of the player.
     public PlayerStats GetModifiedStats()
     {
         PlayerStats tempStats = CreateInstance<PlayerStats>();
@@ -38,15 +41,14 @@ public class PlayerStats : ScriptableObject
             {
                 switch (item)
                 {
+                    // Unused
                     case Attributes.AtkSpd:
-                        //something with attackdelay, perhaps?
                         break;
                     case Attributes.Damage:
                         tempStats.weaponDamage = weaponDamage + attributeData.value._modifiedValue;
                         break;
                     case Attributes.Health:
                         tempStats.maxHealth = maxHealth + attributeData.value._modifiedValue;
-                        //tempStats.health = health + attributeData.value._modifiedValue;
                         break;
                     case Attributes.Armor:
                         tempStats.playerArmour = playerArmour + attributeData.value._modifiedValue;
@@ -97,39 +99,32 @@ public class PlayerStats : ScriptableObject
             health = Mathf.Clamp(health, minHealth, MaxHealth);
         }
     }
-    
     public float MaxHealth 
     {
         get => GetModifiedStats().maxHealth;
         set => maxHealth = value;
     }
-    
     public float PlayerArmour 
     {
         get => GetModifiedStats().playerArmour;
         set => playerArmour = value;
     }
-
     public float Gold 
     {
         get => gold;
         set => gold = value;
     }
-    
     public float WeaponDamage
     {
         get => weaponDamage;
         set => weaponDamage = value;
     }
-    
     public float MeleeRange => meeleeRange;
-
     public float Experience 
     {
         get => experience;
         set => experience = value;
     }
-
     public float MaxExperience 
     {
         get => maxExperience;
@@ -141,7 +136,6 @@ public class PlayerStats : ScriptableObject
         get => playerLevelMultiplier;
         set => playerLevelMultiplier = value;
     }
-    
     public float XPMultiplier 
     {
         get => xPMultiplier;
@@ -152,7 +146,6 @@ public class PlayerStats : ScriptableObject
         get => playerLevel;
         set => playerLevel = value;
     }
-
     public void TakeDamage(float damage) 
     {
         Health -= damage;
@@ -161,7 +154,7 @@ public class PlayerStats : ScriptableObject
             KillPlayer();
         }
     }
-
+    // Resets the stats when a new game is started
     public void InitializePlayerStats()
     {
         maxHealth = 100;
@@ -178,13 +171,14 @@ public class PlayerStats : ScriptableObject
         deathCount = 0;
         zone = 0;
     }
-
+    // Handles the way the player dies.
     private void KillPlayer() 
     {
         playerDied = true;
         Debug.Log("Player is Dead");
         FMODUnity.RuntimeManager.PlayOneShot("event:/Player/PlayerDeath");
         deathCount++;
+        // Plays the specific death count sound on 1, 5, 10, 15, 20 and 25 deaths.
         if (deathCount <= 25 && (deathCount == 1 || deathCount % 5 == 0)) 
         {
             FMODUnity.RuntimeManager.PlayOneShot($"event:/Vox/death counter/{deathCount}");

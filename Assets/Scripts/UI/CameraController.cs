@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour 
 {
+	
+	// Controls the way the camera behaves in relation to the player and user inputs.
+	
 	[SerializeField]Transform player;
 	[SerializeField]float smoothTime = 0.3f;
 	[SerializeField]float rotationSpeed = 120f;
@@ -10,12 +13,12 @@ public class CameraController : MonoBehaviour
 	[SerializeField]float MinZoom = 2f;
 	[SerializeField]float DefaultZoom = 5f;
 	[SerializeField] private Camera cam;
-	
 	Vector3 offset;
 	private Vector3 previousPosition;
 	Vector3 velocity = Vector3.zero;
 
 	private void Start() {
+		// Keeps the camera a fixed distance from the player.
 		offset = transform.position - player.position;
 		if (Camera.main is not null)
 			Camera.main.orthographicSize = DefaultZoom;
@@ -24,30 +27,31 @@ public class CameraController : MonoBehaviour
 		}
 	}
 	private void LateUpdate() {
-		//Smooth Chase Camera
+		// Camera chases the player smoothly
 		var position = player.position;
 		var targetPosition = position + offset;
 		transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
-		
 		//Camera rotates horizontally with A & D keys
 		transform.RotateAround(position, player.up, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed);
-		
 		//Camera zooms on scrollwheel
 		if (Camera.main is not null) {
 			Camera.main.orthographicSize -= Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * ZoomSpeed;
-
-			if (Camera.main.orthographicSize > MaxZoom) {
+			if (Camera.main.orthographicSize > MaxZoom) 
+			{
 				Camera.main.orthographicSize = MaxZoom;
 			}
-			if (Camera.main.orthographicSize < MinZoom) {
+			if (Camera.main.orthographicSize < MinZoom) 
+			{
 				Camera.main.orthographicSize = MinZoom;
 			}
 		}
-		else {
+		else 
+		{
 			Debug.LogWarning("Main Camera is NULL!");
 		}
-		// Camera to rotate on click and drag
-		if (Input.GetMouseButtonDown(2)) {
+		// Camera rotates on middle mouse click and drag
+		if (Input.GetMouseButtonDown(2))
+		{
 			previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
 		}
 		if (!Input.GetMouseButton(2))

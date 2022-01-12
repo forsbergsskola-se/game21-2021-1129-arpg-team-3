@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class QuestManager : MonoBehaviour
 {
+    
+    // Handles quests.
+    
     [SerializeField] private Canvas questLogCanvas;
     [SerializeField] private QuestLog questLogObject;
     [SerializeField] private RawImage questLogPanel;
-    
     private Canvas keepQuest;
     private readonly KeyCode openLogKey = KeyCode.F3;
-
     private readonly Vector3 buttonStartPos = new (-158, 168);
     private readonly float buttonIncrement = 7;
 
@@ -35,7 +36,8 @@ public class QuestManager : MonoBehaviour
         DialogueReader.OnAcceptQuest += AcceptQuest;
         QuestTarget.OnQuestTarget += HitTarget;
     }
-
+    
+    // Controls the state of quests and appropriate responses.
     private void HitTarget(QuestCode questCode)
     { 
       var quest = questLogObject.quests.Single(x => x.QuestCode == questCode);
@@ -54,24 +56,19 @@ public class QuestManager : MonoBehaviour
           QuestComplete(quest.QuestCode);
       }
     }
-
     private void ChangeQuestState(QuestCode questCode, QuestState newState)
     {
         questLogObject.quests.Single(x => x.QuestCode == questCode).questState = newState;
     }
-
     private int CountActiveQuests()
     {
        return questLogObject.quests.Where(x => x.questState != QuestState.NotAccepted).ToList().Count;
     }
-    
-    
     private void AcceptQuest(QuestObject acceptedQuest)
     {
         ChangeQuestState(acceptedQuest.QuestCode, QuestState.Accepted);
         SetupQuestButton(questLogObject.quests.IndexOf(acceptedQuest), CountActiveQuests());
     }
-
     private void SetupQuestButton(int questIndex, int numberQuests)
     {
         Vector3 addVector = new Vector3(0, numberQuests * buttonIncrement);
@@ -80,7 +77,6 @@ public class QuestManager : MonoBehaviour
         panel.GetComponentInChildren<TextMeshProUGUI>().text = questLogObject.quests[questIndex].DisplayName;
         panel.GetComponentInChildren<Button>().onClick.AddListener(()=> SelectQuestButton(questIndex));
     }
-
     private void SelectQuestButton(int questIndex)
     {
         var texts = keepQuest.GetComponentsInChildren<TextMeshProUGUI>();
@@ -89,7 +85,6 @@ public class QuestManager : MonoBehaviour
         texts[2].text = $"You will receive {questLogObject.quests[questIndex].CashReward} gold";
         texts[3].text = questLogObject.quests[questIndex].numberTargetsGot +  "/" + questLogObject.quests[questIndex].NumberTargets;
     }
-
     private void ResetLog()
     {
         foreach (var el in questLogObject.quests)
@@ -97,7 +92,6 @@ public class QuestManager : MonoBehaviour
             el.ResetQuest();
         }
     }
-    
     private void ResetLogTexts()
     {
         var texts = keepQuest.GetComponentsInChildren<TextMeshProUGUI>().ToList();
@@ -107,13 +101,10 @@ public class QuestManager : MonoBehaviour
             texts[i].text = " ";
         }
     }
-    
     private void OnApplicationQuit()
     {
         ResetLog();
     }
-    
-    
     private void ActivateQuestLog()
     {
         if (!keepQuest.isActiveAndEnabled)
@@ -126,7 +117,6 @@ public class QuestManager : MonoBehaviour
             keepQuest.gameObject.SetActive(false);
         }
     }
-    
     void Update()
     {
         if (Input.GetKeyDown(openLogKey))

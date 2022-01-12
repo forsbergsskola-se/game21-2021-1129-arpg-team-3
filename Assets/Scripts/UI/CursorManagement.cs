@@ -2,13 +2,11 @@ using UnityEngine;
 
 public class CursorManagement : MonoBehaviour 
 {
+	// Changes the cursor in game depending on condition. Spawns and despawns rallypoint.
+	
 	[SerializeField] private GameObject rallypoint;
 	private GameObject rally;
 	public Texture2D invalid, attack, arrowCursor, crosshairs, handOpen, talk, doorUnlocked, doorLocked;
-
-	// public Texture2D cursorIdle;
-	// public Texture2D cursorEnemy;
-	// public Texture2D cursorNegative;
 	
 	public void CursorChange(int tag) {
 		switch (tag) {
