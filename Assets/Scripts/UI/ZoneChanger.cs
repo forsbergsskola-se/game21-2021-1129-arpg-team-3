@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class ZoneChanger : MonoBehaviour 
 {
+	
+	// Ground triggers placed at the threshold of zones to change the sound of the player's footsteps.
+	
 	public int zone;
 	private void OnTriggerEnter(Collider other) 
 	{

@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class DeathCounter : MonoBehaviour
 {
+    
+    // Death counter numbers and statements to show on UI.
+    
     private PlayerStats playerStats;
     private TextMeshProUGUI text;
     private string comment;

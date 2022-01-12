@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class LevelNotification : MonoBehaviour
 {
+	
+	// Gives a notification when a Chapter is completed.
+	
 	public TextMeshProUGUI text;
 	private bool triggered;
 	public int chapter;

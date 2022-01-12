@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class EXPDisplay : MonoBehaviour
 {
+    
+    // Shows player XP in text.
+    
     private PlayerStats playerStats;
     private TextMeshProUGUI text;
     

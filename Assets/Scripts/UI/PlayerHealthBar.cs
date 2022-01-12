@@ -3,9 +3,11 @@ using UnityEngine.UI;
 
 public class PlayerHealthBar : MonoBehaviour 
 {
+	
+	// Shows large health bar for the player on the UI. (unlike enemies which are in world space)
+	
 	public Slider slider;
 	public Gradient gradient;
-	
 	public Image _fill;
 	private PlayerStats _playerStats;
 	

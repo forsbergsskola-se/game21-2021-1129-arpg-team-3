@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 public class ExperienceBar : MonoBehaviour 
 {
+	
+	// Shows player XP as a bar.
+	
 	public Slider slider;
 	public Gradient gradient;
 	public Image _fill;

@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class MiniMap : MonoBehaviour
 {
+	// Unused after parenting the minimap camera to the main camera.
+	
 	public Transform miniMapCameraTransform;
 	public Transform playerTransform;
 	private Vector3 cameraFromPlayerOffset;
