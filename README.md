@@ -30,7 +30,7 @@ The only dwarf left to save the world of Ythramar seems to be you … Dorouka!
 - Rasmus Mårtenson
 
 ### Sound Design & Music
-- Troy Davis 
+- Troy Davis - [Linkedin](https://www.linkedin.com/in/troy-davis-1a220a222/)
 - Robert Larsson - [Linkedin](https://www.linkedin.com/in/robert-larsson-36029a51/) - [SoundCloud](https://soundcloud.com/dj-printa)
 
 ## Design Documents
