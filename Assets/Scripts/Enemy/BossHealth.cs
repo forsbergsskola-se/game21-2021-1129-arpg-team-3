@@ -4,7 +4,11 @@ using System.Collections.Generic;
 using FMOD.Studio;
 using UnityEngine;
 
-public class BossHealth : MonoBehaviour {
+public class BossHealth : MonoBehaviour
+{
+	
+// Holds the value of health for the boss. Changes the music for the boss and triggers the victory screen when boss is defeated.
+	
 	private EventInstance instance;
 	public FMODUnity.EventReference fmodEvent;
 	private float bossHealth;

@@ -5,15 +5,15 @@ using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour 
 {
+	// Enemy Controller
+	
 	public float maxHealth;
 	public GameObject damageText;
 	public PlayerStats playerStats;
 	public EnemySO enemySo;
 	public GameObject smoke;
 	public GameObject drop;
-	private float elapsedTime;
 	public GameObject sparks;
-	
 	private float health;
 	private float armor;
 	
@@ -26,7 +26,6 @@ public class Enemy : MonoBehaviour
 			health = Mathf.Clamp(health, 0, maxHealth);
 		}
 	}
-	
 	private void Awake() 
 	{
 		maxHealth = enemySo.EnemyHealth;
@@ -39,7 +38,7 @@ public class Enemy : MonoBehaviour
 			KillEnemy();
 		}
 	}
-
+	// Should move dependency of damage to that of the player.
 	private void OnTriggerEnter(Collider other) 
 	{
 		if (other.gameObject.CompareTag("PlayerWeapon")) 
@@ -53,28 +52,29 @@ public class Enemy : MonoBehaviour
 			FMODUnity.RuntimeManager.PlayOneShot("event:/Enemy/EHit");
 		}
 	}
+	// Should set an elapsed time limiter to reduce damage rate.
 	private void OnTriggerStay(Collider other) 
 	{
-		elapsedTime += Time.deltaTime;
 		if (other.gameObject.CompareTag("Fire2")) 
 		{
 			TakeDamage(0.3f);
-			elapsedTime = 0;
 		}
 	}
-	
+	// Limits damage to >0. Failure to do so may result in health gain for enemies with too high armor.
 	private void TakeDamage(float multiplier) 
 	{
 		float damageReceived = playerStats.WeaponDamage * multiplier * Random.Range(0.9f, 1f) - enemySo.EnemyArmor;
 		Health -= Mathf.Clamp(damageReceived, 0, 10000);
 		ShowEnemyDamage(damageReceived);
 	}
+	// Spawns Damage Indicator
 	private void ShowEnemyDamage(float damageReceived) 
 	{
 		Instantiate(sparks, transform.position, Quaternion.identity);
 		DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
 		indicator.SetDamageText(Convert.ToInt32(damageReceived));
 	}
+	// Should move dependency of gaining experience to the player
 	private void KillEnemy()
 	{
 		playerStats.Experience += maxHealth * enemySo.WeaponDamage * playerStats.XPMultiplier;
@@ -84,7 +84,7 @@ public class Enemy : MonoBehaviour
 		Debug.Log("Enemy is Dead");
 		Destroy(gameObject);
 	}
-
+	// Unused. Supposed to alternate between Potions, Items and Gold.
 	private void RandomDrop() 
 	{
 		var choice = Random.Range(2, 3);

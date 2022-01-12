@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class DamageIndicator : MonoBehaviour
 {
 
+    // Shows the amount of damage inflicted on the enemy.
+    
     public Text text;
     public float lifetime = 2f;
     public float minDist = 0f;
@@ -24,6 +26,7 @@ public class DamageIndicator : MonoBehaviour
 
     void LateUpdate()
     {
+        // Billboarding & despawning
         transform.rotation = Camera.main.transform.rotation;
         timer += Time.deltaTime;
         float fraction = lifetime / 2f;
@@ -32,6 +35,7 @@ public class DamageIndicator : MonoBehaviour
         else if (timer > fraction)
             text.color = Color.Lerp(text.color, Color.clear, (timer - fraction) / (lifetime - fraction));
 
+        // Transforms the damage numbers upwards.
         {
             transform.position = Vector3.Lerp(inipos, targetPos, timer / lifetime);
             transform.localScale = Vector3.Lerp(Vector3.zero, new Vector3(0.05f, 0.05f, 0), (timer / lifetime));

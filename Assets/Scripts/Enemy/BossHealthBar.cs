@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class BossHealthBar : MonoBehaviour
 {
+    
+    // Displays health bar for the Boss.
+    
     [SerializeField] Slider slider;
     [SerializeField] Gradient gradient;
-	
     [SerializeField] Image fill;
     private Enemy enemy;
 

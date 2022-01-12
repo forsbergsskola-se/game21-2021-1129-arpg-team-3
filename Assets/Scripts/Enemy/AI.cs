@@ -4,6 +4,8 @@ using UnityEngine.AI;
 
 public class AI : MonoBehaviour
 {
+    // Information from NPCEyes is used to change the enemy state and start attack animation sequence
+    
     private NavMeshAgent Agent;
     private Animator anim = new Animator();
     public Transform player;
@@ -21,7 +23,6 @@ public class AI : MonoBehaviour
         attackAnimation = GetComponent<EnemyAttackAnimation>();
         currentState = new Idle(gameObject, Agent, anim, player);
     }
-    
     void Update()
     {
         showHealthBar = false;

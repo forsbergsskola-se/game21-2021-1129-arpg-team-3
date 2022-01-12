@@ -2,7 +2,8 @@ using FMOD.Studio;
 using UnityEngine;
 
 public class PlayerProximity : MonoBehaviour
-//Sound use only
+// To rename to BackgroundMusic
+// Sound use only 
 {
 	public GameObject threat;
 	private EventInstance instance;

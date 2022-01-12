@@ -1,7 +1,10 @@
 using UnityEngine;
 
 public class FogSound : MonoBehaviour
-//Sound use only
+
+// Should rename to SoundEffect
+// Sound use only
+
 {
     public GameObject fog;
     private FMOD.Studio.EventInstance instance;

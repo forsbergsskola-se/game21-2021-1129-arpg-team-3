@@ -3,7 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossAttack : MonoBehaviour {
+public class BossAttack : MonoBehaviour 
+{
+	
+	// Placed on ground trigger to start the Boss attack sequence.
+	
 	public GameObject meteor;
 	public GameObject fire;
 	public bool canAttack;
@@ -16,6 +20,9 @@ public class BossAttack : MonoBehaviour {
 			animator.SetBool("Attack", true);
 		}
 	}
+	
+	// 10s of falling particles, 10s of fire ring.
+	
 	private void FireMeteor() 
 	{
 		fire.SetActive(false);
