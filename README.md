@@ -40,3 +40,5 @@ Game Design Documet: https://docs.google.com/document/d/1ltnwY-f6N8RBAnCVlFrfMMU
 Technical Design Document: https://docs.google.com/document/d/15HOrZYwyj1ZgkvtBfFUyiCbtOI1DevXFRHmynJwu7us/edit?usp=sharing
 
 Art Bible: https://docs.google.com/document/d/15YIff7-u_5PNkVbKRXS0z6QET_Vb17WEf3-rySYbvNw/edit?usp=sharing
+
+Sound Bible: https://docs.google.com/document/d/14qXbWFAWH8iH2ewrNVHAirn6d2KBEFjbASet3fFDIlQ/edit?usp=sharing
