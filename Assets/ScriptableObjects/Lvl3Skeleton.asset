@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: 
   weaponDamage: 50
-  enemyHealth: 300
+  enemyHealth: 400
   enemyArmor: 15

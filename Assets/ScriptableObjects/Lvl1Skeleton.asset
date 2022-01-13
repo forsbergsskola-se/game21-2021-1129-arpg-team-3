@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Skeleton
   weaponDamage: 20
-  enemyHealth: 100
+  enemyHealth: 150
   enemyArmor: 5

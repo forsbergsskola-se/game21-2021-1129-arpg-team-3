@@ -29,7 +29,7 @@ public class DamageEmitterUI_ML : MonoBehaviour
     public List<DamageStruct> damageList = new List<DamageStruct>();
     private TextMeshPro mesh;
     private Color32 redColor = new Color32(255, 0,0, 255);
-    private bool moveText = false;
+    // private bool moveText = false;
     
     
     public void DoDamage(int damageAmount, Vector3 position)
