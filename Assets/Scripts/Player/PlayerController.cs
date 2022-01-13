@@ -246,7 +246,9 @@ public class PlayerController : MonoBehaviour
 		// transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1);
 		
 		// Deducted transform.position from target.position
-		var targetRotation = Quaternion.LookRotation(target.position - transform.position);
+		var playerPosition = transform.position;
+		var targetRotation = Quaternion.LookRotation(target.position - playerPosition);
+		playerPosition.y = targetRotation.y;
 		transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, playerStats.CombatRotationSpeed * Time.deltaTime);
 		// transform.Translate(new Vector3(0, 0, 0));
 	}

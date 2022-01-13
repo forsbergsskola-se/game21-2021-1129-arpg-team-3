@@ -165,7 +165,7 @@ public class PlayerStats : ScriptableObject
         experience = 0;
         gold = 0;
         playerLevel = 0;
-        weaponDamage = 40;
+        weaponDamage = 25;
         secondary = false;
         tertiary = false;
         deathCount = 0;
