@@ -239,11 +239,14 @@ public class PlayerController : MonoBehaviour
 	// Allows the rotational adjustment of the player during combat when the enemy is clicked. Needs a better method.
 	private void SmoothRotate() 
 	{
+		// Adding does not make sense
 		// Vector3 lookVector = transform.position + target.transform.position;
 		// lookVector.y = transform.position.y;
 		// Quaternion rotation = Quaternion.LookRotation(lookVector);
 		// transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1);
-		var targetRotation = Quaternion.LookRotation(target.position);
+		
+		// Deducted transform.position from target.position
+		var targetRotation = Quaternion.LookRotation(target.position - transform.position);
 		transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, playerStats.CombatRotationSpeed * Time.deltaTime);
 		// transform.Translate(new Vector3(0, 0, 0));
 	}

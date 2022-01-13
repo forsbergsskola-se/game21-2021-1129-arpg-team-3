@@ -4,6 +4,7 @@ public class OnSlotFunction : MonoBehaviour
 {
    private ItemObject _itemObject;
    private ItemInfo _itemInfo;
+   
    public void OnSetUp(ItemObject parent)
    {
       _itemObject = parent;

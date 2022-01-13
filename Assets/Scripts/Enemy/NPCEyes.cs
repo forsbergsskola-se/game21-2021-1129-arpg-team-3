@@ -132,6 +132,7 @@ public class NPCEyes : MonoBehaviour
      }
      
      // Visualizes the range and viewing distance in editor.
+     
 #if UNITY_EDITOR
 [CustomEditor(typeof(NPCEyes))]
 public class EnemyVisibilityEditor : Editor 
@@ -162,7 +163,7 @@ public class EnemyVisibilityEditor : Editor
         Vector3 handlePosition =
             visibility.transform.position +
                   visibility.transform.forward * visibility.maxDistance;
-        
+        // To move out of editor
         visibility.maxDistance = Handles.ScaleValueHandle(
             visibility.maxDistance,
             handlePosition,                
