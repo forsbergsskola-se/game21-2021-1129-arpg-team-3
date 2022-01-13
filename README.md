@@ -3,6 +3,8 @@
 ![Game Logo](https://github.com/forsbergsskola-se/game21-2021-1129-arpg-team-3/blob/main/Assets/Prefabs/Game_Tittle_2.png)
 
 [Watch The Gameplay Trailer Here!](https://youtu.be/4oJm8t8t2qc)
+[Downloadable Early-Access PC Build](https://drive.google.com/drive/folders/1MFt5WtSkX7ms9kaoVCY_jwEhYx-Bxicq?usp=sharing)
+
 
 
 In the land of Ythramar, in the dwarf town of Furukheim, an experiment with the intention of making dwarf people taller has gone terribly wrong. Furukheim is being swarmed with skinless Enemies, killing every dwarf in their path. Most of our kind has already been slain. The ones of us who survived has long ago fled up in Ikueruk Mountains.
