@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 2013378751056131363}
   - component: {fileID: 2013378751056131360}
   m_Layer: 0
-  m_Name: BossAttack (2)
+  m_Name: BlueMeteor3
   m_TagString: SSword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -241,7 +241,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2013378751729148739}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -105.1, z: 0}
 --- !u!198 &2013378751056131363
 ParticleSystem:
@@ -318,7 +318,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 2
+  scalingMode: 1
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -433,7 +433,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 0.74105555, g: 0.8584906, b: 0.85031104, a: 1}
-      maxColor: {r: 0.05438407, g: 0, b: 0.46226418, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0, g: 0.8151045, b: 1, a: 1}
@@ -495,8 +495,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -548,8 +548,8 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -601,8 +601,8 @@ ParticleSystem:
     startSizeZ:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -954,7 +954,7 @@ ParticleSystem:
     m_TextureColorAffectsParticles: 0
     m_TextureAlphaAffectsParticles: 1
     m_TextureBilinearFiltering: 0
-    randomDirectionAmount: 0
+    randomDirectionAmount: 1
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
@@ -1016,8 +1016,8 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 360
-      mode: 2
-      spread: 0
+      mode: 3
+      spread: 1
       speed:
         serializedVersion: 2
         minMaxState: 0
@@ -1482,8 +1482,8 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.7853982
-      minScalar: -0.7853981
+      scalar: 3.1415925
+      minScalar: 3.1415925
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4998,7 +4998,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 307c422d78a5f7945ae2711c2cadce3e, type: 2}
+  - {fileID: 2100000, guid: 86d6242f109a2b64e932b9101a97af30, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5019,11 +5019,11 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 4
   m_MeshDistribution: 0
   m_SortMode: 0
-  m_MinParticleSize: 0.09
-  m_MaxParticleSize: 2.07
+  m_MinParticleSize: 0.04
+  m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -5032,7 +5032,7 @@ ParticleSystemRenderer:
   m_ShadowBias: 0
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
-  m_Flip: {x: 0, y: 0, z: 0}
+  m_Flip: {x: 1, y: 0, z: 1}
   m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
@@ -5040,7 +5040,7 @@ ParticleSystemRenderer:
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -5061,7 +5061,7 @@ GameObject:
   - component: {fileID: 2013378751147287690}
   - component: {fileID: 2013378751147287691}
   m_Layer: 0
-  m_Name: BossAttack 2
+  m_Name: RedMeteor1
   m_TagString: SSword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5080,7 +5080,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2013378751729148739}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -175.2, z: 0}
 --- !u!198 &2013378751147287690
 ParticleSystem:
@@ -5334,8 +5334,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5387,8 +5387,8 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5440,8 +5440,8 @@ ParticleSystem:
     startSizeZ:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5793,7 +5793,7 @@ ParticleSystem:
     m_TextureColorAffectsParticles: 0
     m_TextureAlphaAffectsParticles: 1
     m_TextureBilinearFiltering: 0
-    randomDirectionAmount: 0
+    randomDirectionAmount: 1
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
@@ -5855,8 +5855,8 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 360
-      mode: 2
-      spread: 0
+      mode: 3
+      spread: 1
       speed:
         serializedVersion: 2
         minMaxState: 0
@@ -9837,7 +9837,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 307c422d78a5f7945ae2711c2cadce3e, type: 2}
+  - {fileID: 2100000, guid: 370f07d06752cfe4d8ba1cc7aa767b06, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9861,8 +9861,8 @@ ParticleSystemRenderer:
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
-  m_MinParticleSize: 0.09
-  m_MaxParticleSize: 2.07
+  m_MinParticleSize: 0.03
+  m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -9900,7 +9900,7 @@ GameObject:
   - component: {fileID: 2013378751328088926}
   - component: {fileID: 2013378751328088927}
   m_Layer: 0
-  m_Name: BossAttack (1)
+  m_Name: BlueMeteor2
   m_TagString: SSword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9919,7 +9919,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2013378751729148739}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -287, z: 0}
 --- !u!198 &2013378751328088926
 ParticleSystem:
@@ -10111,7 +10111,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 0.74105555, g: 0.8584906, b: 0.85031104, a: 1}
-      maxColor: {r: 0.05438407, g: 0, b: 0.46226418, a: 1}
+      maxColor: {r: 0.5415094, g: 0.9915318, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0, g: 0.8151045, b: 1, a: 1}
@@ -10173,8 +10173,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10226,8 +10226,8 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10279,8 +10279,8 @@ ParticleSystem:
     startSizeZ:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10625,14 +10625,14 @@ ParticleSystem:
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
-    m_Texture: {fileID: 0}
+    m_Texture: {fileID: 2800000, guid: b130b38dec1c53e4a9761a7c8b946a4c, type: 3}
     m_TextureClipChannel: 3
     m_TextureClipThreshold: 0
     m_TextureUVChannel: 0
     m_TextureColorAffectsParticles: 0
     m_TextureAlphaAffectsParticles: 1
     m_TextureBilinearFiltering: 0
-    randomDirectionAmount: 0
+    randomDirectionAmount: 1
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
@@ -10694,8 +10694,8 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 360
-      mode: 2
-      spread: 0
+      mode: 3
+      spread: 1
       speed:
         serializedVersion: 2
         minMaxState: 0
@@ -11160,8 +11160,8 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.7853982
-      minScalar: -0.7853981
+      scalar: 2.0943952
+      minScalar: 2.0943952
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -14676,7 +14676,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 307c422d78a5f7945ae2711c2cadce3e, type: 2}
+  - {fileID: 2100000, guid: d3d3a59715f2c1145b4a88c7ee5bf1fc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14697,11 +14697,11 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 4
   m_MeshDistribution: 0
   m_SortMode: 0
-  m_MinParticleSize: 0.09
-  m_MaxParticleSize: 2.07
+  m_MinParticleSize: 0.05
+  m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -14710,7 +14710,7 @@ ParticleSystemRenderer:
   m_ShadowBias: 0
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
-  m_Flip: {x: 0, y: 0, z: 0}
+  m_Flip: {x: 1, y: 0, z: 0}
   m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
@@ -14718,7 +14718,7 @@ ParticleSystemRenderer:
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -14739,7 +14739,7 @@ GameObject:
   - component: {fileID: 2013378751406167182}
   - component: {fileID: 2013378751406167183}
   m_Layer: 0
-  m_Name: BossAttack (3)
+  m_Name: PurpleMeteor1
   m_TagString: SSword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14896,7 +14896,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -14950,7 +14950,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 0.74105555, g: 0.8584906, b: 0.85031104, a: 1}
-      maxColor: {r: 0.05438407, g: 0, b: 0.46226418, a: 1}
+      maxColor: {r: 0.90152925, g: 0.72156864, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0, g: 0.8151045, b: 1, a: 1}
@@ -15012,8 +15012,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -15065,8 +15065,8 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -15118,8 +15118,8 @@ ParticleSystem:
     startSizeZ:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -15171,8 +15171,8 @@ ParticleSystem:
     startRotationX:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.017453292
-      minScalar: 0.017453292
+      scalar: 0.43633232
+      minScalar: 0.7853981
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -15224,8 +15224,8 @@ ParticleSystem:
     startRotationY:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.017453292
-      minScalar: 0.017453292
+      scalar: 0.43633232
+      minScalar: 0.7853981
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -15277,8 +15277,8 @@ ParticleSystem:
     startRotation:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.017453292
-      minScalar: 0.017453292
+      scalar: 0.43633232
+      minScalar: 0.7853981
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -15395,7 +15395,7 @@ ParticleSystem:
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 0, z: 0}
+    m_Rotation: {x: 2, y: 2, z: 2}
     m_Scale: {x: 10, y: 1, z: 10}
     placementMode: 0
     m_MeshMaterialIndex: 0
@@ -15471,11 +15471,11 @@ ParticleSystem:
     m_TextureColorAffectsParticles: 0
     m_TextureAlphaAffectsParticles: 1
     m_TextureBilinearFiltering: 0
-    randomDirectionAmount: 0
+    randomDirectionAmount: 1
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.5
       mode: 0
       spread: 0
       speed:
@@ -15533,8 +15533,8 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 360
-      mode: 2
-      spread: 0
+      mode: 3
+      spread: 1
       speed:
         serializedVersion: 2
         minMaxState: 0
@@ -15999,8 +15999,8 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.7853982
-      minScalar: -0.7853981
+      scalar: 2.0943952
+      minScalar: 2.0943952
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19515,7 +19515,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 307c422d78a5f7945ae2711c2cadce3e, type: 2}
+  - {fileID: 2100000, guid: 5e1aa0d8ff7ebf64d872e69cc14eea47, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19536,11 +19536,11 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 4
   m_MeshDistribution: 0
   m_SortMode: 0
-  m_MinParticleSize: 0.09
-  m_MaxParticleSize: 2.07
+  m_MinParticleSize: 0.03
+  m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -19549,7 +19549,7 @@ ParticleSystemRenderer:
   m_ShadowBias: 0
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
-  m_Flip: {x: 0, y: 0, z: 0}
+  m_Flip: {x: 1, y: 0, z: 0}
   m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
@@ -19557,7 +19557,7 @@ ParticleSystemRenderer:
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -19684,7 +19684,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 0.47, y: 1, z: 0.47}
+  m_Extents: {x: 0.51, y: 1, z: 0.51}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
@@ -19775,7 +19775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2013378751729148739
 Transform:
   m_ObjectHideFlags: 0
@@ -19789,10 +19789,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2013378752562986780}
-  - {fileID: 2013378751147287688}
   - {fileID: 2013378751328088924}
-  - {fileID: 2013378752495939918}
   - {fileID: 2013378751056131361}
+  - {fileID: 2013378751147287688}
+  - {fileID: 2013378752495939918}
   - {fileID: 2013378753071469083}
   - {fileID: 2013378751406167180}
   - {fileID: 2013378752752303865}
@@ -24676,7 +24676,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013378752175752696}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.59, y: 14.530002, z: 1.63}
+  m_LocalPosition: {x: -3.59, y: 15.670369, z: 1.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24778,7 +24778,7 @@ GameObject:
   - component: {fileID: 2013378752495939912}
   - component: {fileID: 2013378752495939913}
   m_Layer: 0
-  m_Name: BossAttack 2 (1)
+  m_Name: RedMeteor2
   m_TagString: SSword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24797,7 +24797,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2013378751729148739}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -375.8, z: 0}
 --- !u!198 &2013378752495939912
 ParticleSystem:
@@ -24989,7 +24989,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 0.74105555, g: 0.8584906, b: 0.85031104, a: 1}
-      maxColor: {r: 1, g: 0.94763035, b: 0, a: 1}
+      maxColor: {r: 0.0085905185, g: 0, b: 0.254717, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0, g: 0.8151045, b: 1, a: 1}
@@ -25051,8 +25051,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -25104,8 +25104,8 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -25157,8 +25157,8 @@ ParticleSystem:
     startSizeZ:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -25510,7 +25510,7 @@ ParticleSystem:
     m_TextureColorAffectsParticles: 0
     m_TextureAlphaAffectsParticles: 1
     m_TextureBilinearFiltering: 0
-    randomDirectionAmount: 0
+    randomDirectionAmount: 1
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
@@ -25572,8 +25572,8 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 360
-      mode: 2
-      spread: 0
+      mode: 3
+      spread: 1
       speed:
         serializedVersion: 2
         minMaxState: 0
@@ -29554,7 +29554,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 307c422d78a5f7945ae2711c2cadce3e, type: 2}
+  - {fileID: 2100000, guid: fcfc17882418ed14f9258536de487159, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29578,8 +29578,8 @@ ParticleSystemRenderer:
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
-  m_MinParticleSize: 0.09
-  m_MaxParticleSize: 2.07
+  m_MinParticleSize: 0.025
+  m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -29617,7 +29617,7 @@ GameObject:
   - component: {fileID: 2013378752562986782}
   - component: {fileID: 2013378752562986783}
   m_Layer: 0
-  m_Name: BossAttack
+  m_Name: BlueMeteor1
   m_TagString: SSword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29652,7 +29652,7 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  emitterVelocityMode: 1
+  emitterVelocityMode: 0
   looping: 1
   prewarm: 0
   playOnAwake: 1
@@ -29828,7 +29828,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 0.74105555, g: 0.8584906, b: 0.85031104, a: 1}
-      maxColor: {r: 0.05438407, g: 0, b: 0.46226418, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0, g: 0.8151045, b: 1, a: 1}
@@ -29890,8 +29890,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -29943,8 +29943,8 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -29996,8 +29996,8 @@ ParticleSystem:
     startSizeZ:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -30349,7 +30349,7 @@ ParticleSystem:
     m_TextureColorAffectsParticles: 0
     m_TextureAlphaAffectsParticles: 1
     m_TextureBilinearFiltering: 0
-    randomDirectionAmount: 0
+    randomDirectionAmount: 1
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
@@ -30411,8 +30411,8 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 360
-      mode: 2
-      spread: 0
+      mode: 3
+      spread: 1
       speed:
         serializedVersion: 2
         minMaxState: 0
@@ -34386,7 +34386,7 @@ ParticleSystemRenderer:
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
-  m_LightProbeUsage: 0
+  m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
@@ -34417,8 +34417,8 @@ ParticleSystemRenderer:
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
-  m_MinParticleSize: 0.09
-  m_MaxParticleSize: 2.07
+  m_MinParticleSize: 0.04
+  m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -34435,7 +34435,7 @@ ParticleSystemRenderer:
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -39278,7 +39278,7 @@ GameObject:
   - component: {fileID: 2013378752752303867}
   - component: {fileID: 2013378752752303864}
   m_Layer: 0
-  m_Name: BossAttack 2 (3)
+  m_Name: PurpleMeteor2
   m_TagString: SSword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39374,7 +39374,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 2
+  scalingMode: 1
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -39489,7 +39489,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 0.74105555, g: 0.8584906, b: 0.85031104, a: 1}
-      maxColor: {r: 1, g: 0.94763035, b: 0, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0, g: 0.8151045, b: 1, a: 1}
@@ -39551,8 +39551,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -39604,8 +39604,8 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -39657,8 +39657,8 @@ ParticleSystem:
     startSizeZ:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -40010,11 +40010,11 @@ ParticleSystem:
     m_TextureColorAffectsParticles: 0
     m_TextureAlphaAffectsParticles: 1
     m_TextureBilinearFiltering: 0
-    randomDirectionAmount: 0
+    randomDirectionAmount: 1
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.5
       mode: 0
       spread: 0
       speed:
@@ -40072,8 +40072,8 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 360
-      mode: 2
-      spread: 0
+      mode: 3
+      spread: 1
       speed:
         serializedVersion: 2
         minMaxState: 0
@@ -40538,8 +40538,8 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.7853982
-      minScalar: -0.7853981
+      scalar: 2.0943952
+      minScalar: 2.0943952
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -44054,7 +44054,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 307c422d78a5f7945ae2711c2cadce3e, type: 2}
+  - {fileID: 2100000, guid: 37b68574a6aa52b44a3acb6c7a690d43, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -44075,11 +44075,11 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 4
   m_MeshDistribution: 0
   m_SortMode: 0
-  m_MinParticleSize: 0.09
-  m_MaxParticleSize: 2.07
+  m_MinParticleSize: 0.04
+  m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -44088,7 +44088,7 @@ ParticleSystemRenderer:
   m_ShadowBias: 0
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
-  m_Flip: {x: 0, y: 0, z: 0}
+  m_Flip: {x: 1, y: 0, z: 0}
   m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
@@ -44096,7 +44096,7 @@ ParticleSystemRenderer:
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -48939,7 +48939,7 @@ GameObject:
   - component: {fileID: 2013378753071469077}
   - component: {fileID: 2013378753071469082}
   m_Layer: 0
-  m_Name: BossAttack 2 (2)
+  m_Name: RedMeteor3
   m_TagString: SSword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49150,7 +49150,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 0.74105555, g: 0.8584906, b: 0.85031104, a: 1}
-      maxColor: {r: 1, g: 0.94763035, b: 0, a: 1}
+      maxColor: {r: 0.14275646, g: 0, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0, g: 0.8151045, b: 1, a: 1}
@@ -49212,8 +49212,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -49265,8 +49265,8 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -49318,8 +49318,8 @@ ParticleSystem:
     startSizeZ:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 2
+      scalar: 1
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -49588,7 +49588,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 0
+    type: 2
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -49671,7 +49671,7 @@ ParticleSystem:
     m_TextureColorAffectsParticles: 0
     m_TextureAlphaAffectsParticles: 1
     m_TextureBilinearFiltering: 0
-    randomDirectionAmount: 0
+    randomDirectionAmount: 1
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
@@ -49733,8 +49733,8 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 360
-      mode: 2
-      spread: 0
+      mode: 3
+      spread: 1
       speed:
         serializedVersion: 2
         minMaxState: 0
@@ -50199,8 +50199,8 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.7853982
-      minScalar: -0.7853981
+      scalar: 2.0943952
+      minScalar: 2.0943952
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -53715,7 +53715,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 307c422d78a5f7945ae2711c2cadce3e, type: 2}
+  - {fileID: 2100000, guid: fcfc17882418ed14f9258536de487159, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -53739,8 +53739,8 @@ ParticleSystemRenderer:
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
-  m_MinParticleSize: 0.09
-  m_MaxParticleSize: 2.07
+  m_MinParticleSize: 0.03
+  m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -53791,7 +53791,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2147147708820469865}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.07, y: -1.5599174, z: -0.49}
+  m_LocalPosition: {x: 0.07, y: -0.41954964, z: -0.49}
   m_LocalScale: {x: 2.5, y: 2.4999998, z: 2.4999998}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -53878,7 +53878,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2464715835016354579}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.02043438, y: -1.68, z: -0.3623047}
+  m_LocalPosition: {x: 0.02043438, y: -0.53963214, z: -0.3623047}
   m_LocalScale: {x: 0.68, y: 0.068, z: 0.68}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -53999,7 +53999,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.069999695, y: 3.03}
+  m_AnchoredPosition: {x: 0.069999695, y: 4.1703677}
   m_SizeDelta: {x: 1782.552, y: 525}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5841301753846233896
@@ -54168,7 +54168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 91f82b1cb4718ac44a9a8eacdb6b3c3c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.578
+      value: -0.9946321
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 91f82b1cb4718ac44a9a8eacdb6b3c3c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -54250,7 +54250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5ccb6825920a4fe4a85a2c2d07c25c88, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5633678
+      value: -0.423
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5ccb6825920a4fe4a85a2c2d07c25c88, type: 3}
       propertyPath: m_LocalPosition.z
