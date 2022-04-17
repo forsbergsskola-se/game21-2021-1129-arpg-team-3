@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e91b6aac7735db24b871ecb7f71ade4f, type: 3}
+  m_Name: PlateLegs
+  m_EditorClassIdentifier: 
+  uiDisplay: {fileID: 21300000, guid: 6f9dbbdcbd8347440aa55f549f5cef15, type: 3}
+  stackable: 0
+  baseValue: 0
+  type: 4
+  description: I mean, what did you expect? They're leg equipment, the least exciting
+    body armor part. They get the job done though.
+  data:
+    Name: Pants Or Something
+    Id: 8
+    buffs:
+    - attribute: 3
+      value: 13
+      min: 12
+      max: 15
+  tierGrade: 'Tier: A'

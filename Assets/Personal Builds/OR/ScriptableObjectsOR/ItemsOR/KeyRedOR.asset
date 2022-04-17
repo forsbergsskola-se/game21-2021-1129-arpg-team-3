@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d7853e21cd6b14f9969c8c9c67d706, type: 3}
+  m_Name: KeyRedOR
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 380289941601094963, guid: 72cbe14c87b063544a9b8ba01e054afc, type: 3}
+  type: 2
+  description: "Diz b  key. Not Keith, Key. Key is not blue, nor is it green. Definitely
+    not yellow. NEVER YELLOW!!\nIt \nIs\nRed"

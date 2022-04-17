@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c801af6d4af804041aa881ef66ce4dcb, type: 3}
+  m_Name: QuestGiverStarted
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: ee43589f-612e-447e-8012-3333beb4354f
+    PortName: NEXT
+    TargetNodeGUID: ac6fc0f3-1154-46ea-9f7d-8dc28a1a30ee
+  - BaseNodeGUID: ac6fc0f3-1154-46ea-9f7d-8dc28a1a30ee
+    PortName: Uhhh... Nope...
+    TargetNodeGUID: e11217ea-4d1b-47b3-b259-9de9713fce2c
+  - BaseNodeGUID: e11217ea-4d1b-47b3-b259-9de9713fce2c
+    PortName: Leave
+    TargetNodeGUID: 00062ef1-bf26-4a2a-a77d-f64c73566e31
+  DialogueNodeData:
+  - NodeGUID: ac6fc0f3-1154-46ea-9f7d-8dc28a1a30ee
+    DialogueText: Have you taken care of the barrels yet?
+    Position: {x: 338, y: 157}
+  - NodeGUID: e11217ea-4d1b-47b3-b259-9de9713fce2c
+    DialogueText: Just follow the lights behind me to find the waste barrels. Go
+      through the houses and up the mountain path. While you are up there, look out
+      for an object that could come in handy for you.
+    Position: {x: 663, y: 277}
+  - NodeGUID: 00062ef1-bf26-4a2a-a77d-f64c73566e31
+    DialogueText: Leave
+    Position: {x: 1941, y: 358}
+  ExposedProperties: []
+  CommentBlockData: []

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c801af6d4af804041aa881ef66ce4dcb, type: 3}
+  m_Name: QuestGiverFinished
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: ee43589f-612e-447e-8012-3333beb4354f
+    PortName: NEXT
+    TargetNodeGUID: ac6fc0f3-1154-46ea-9f7d-8dc28a1a30ee
+  - BaseNodeGUID: ac6fc0f3-1154-46ea-9f7d-8dc28a1a30ee
+    PortName: Leave
+    TargetNodeGUID: 954364e8-b9e0-4105-923e-586a98fc9ced
+  DialogueNodeData:
+  - NodeGUID: ac6fc0f3-1154-46ea-9f7d-8dc28a1a30ee
+    DialogueText: 'You did it! And you found the key. Now get out of here! '
+    Position: {x: 330, y: 98}
+  - NodeGUID: 954364e8-b9e0-4105-923e-586a98fc9ced
+    DialogueText: Leave
+    Position: {x: 902, y: 137}
+  ExposedProperties: []
+  CommentBlockData: []

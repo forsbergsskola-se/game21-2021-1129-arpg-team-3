@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ae0ccd93ca7c0459d373e7ec716911, type: 3}
+  m_Name: SkellyColorOR
+  m_EditorClassIdentifier: 
+  colorValue: {r: 0.3424714, g: 0.9339623, b: 0.13568883, a: 0}

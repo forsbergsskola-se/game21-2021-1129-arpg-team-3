@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c801af6d4af804041aa881ef66ce4dcb, type: 3}
+  m_Name: QuestGiverFinishedWithoutAccept
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: 67b90369-ec60-4b40-b333-ece469378cc0
+    PortName: NEXT
+    TargetNodeGUID: c16d7d4d-0306-4074-b6ab-e56d06a42953
+  - BaseNodeGUID: c16d7d4d-0306-4074-b6ab-e56d06a42953
+    PortName: It's already done!
+    TargetNodeGUID: 0454c959-ebd9-4f3a-b6b8-ca364fd17e28
+  - BaseNodeGUID: 0454c959-ebd9-4f3a-b6b8-ca364fd17e28
+    PortName: Yeah...
+    TargetNodeGUID: c6905733-5e34-49ac-ac44-5beed010275e
+  - BaseNodeGUID: c6905733-5e34-49ac-ac44-5beed010275e
+    PortName: Leave
+    TargetNodeGUID: 63440d61-241c-4a84-8469-0e7c2c53dde2
+  DialogueNodeData:
+  - NodeGUID: c16d7d4d-0306-4074-b6ab-e56d06a42953
+    DialogueText: There's a giant barrel that needs to be destroyed. Can you help
+      me?
+    Position: {x: 249, y: 70}
+  - NodeGUID: 0454c959-ebd9-4f3a-b6b8-ca364fd17e28
+    DialogueText: Wait, you've already did it?
+    Position: {x: 819, y: 66}
+  - NodeGUID: c6905733-5e34-49ac-ac44-5beed010275e
+    DialogueText: Oh...
+    Position: {x: 1164, y: 70}
+  - NodeGUID: 63440d61-241c-4a84-8469-0e7c2c53dde2
+    DialogueText: Leave
+    Position: {x: 1403, y: 70}
+  ExposedProperties: []
+  CommentBlockData: []

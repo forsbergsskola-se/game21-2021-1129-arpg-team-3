@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c801af6d4af804041aa881ef66ce4dcb, type: 3}
+  m_Name: MerchantDialogue
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: 0a106759-ab80-4808-bff9-90bf9a53ebe9
+    PortName: NEXT
+    TargetNodeGUID: a72e0a37-a8fa-4793-a0bd-495fac1640e0
+  - BaseNodeGUID: a72e0a37-a8fa-4793-a0bd-495fac1640e0
+    PortName: Trade
+    TargetNodeGUID: b61671ba-491b-4845-ae88-7b388b88a09a
+  - BaseNodeGUID: b61671ba-491b-4845-ae88-7b388b88a09a
+    PortName: Leave
+    TargetNodeGUID: 1fae8093-b127-4b02-bca5-300c1f23752d
+  - BaseNodeGUID: a72e0a37-a8fa-4793-a0bd-495fac1640e0
+    PortName: Leave
+    TargetNodeGUID: 1fae8093-b127-4b02-bca5-300c1f23752d
+  DialogueNodeData:
+  - NodeGUID: a72e0a37-a8fa-4793-a0bd-495fac1640e0
+    DialogueText: Do you want to trade?
+    Position: {x: 360.8, y: 68}
+  - NodeGUID: b61671ba-491b-4845-ae88-7b388b88a09a
+    DialogueText: Additional dialogue
+    Position: {x: 776.8, y: 4}
+  - NodeGUID: 1fae8093-b127-4b02-bca5-300c1f23752d
+    DialogueText: LEAVE
+    Position: {x: 1070.4, y: 81.600006}
+  ExposedProperties: []
+  CommentBlockData: []

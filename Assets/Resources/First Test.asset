@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c801af6d4af804041aa881ef66ce4dcb, type: 3}
+  m_Name: First Test
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: ddb22986-deb2-4ae7-9467-eb593de06a87
+    PortName: NEXT
+    TargetNodeGUID: 02d20378-e3f4-4e87-9540-e57c049c89de
+  - BaseNodeGUID: 02d20378-e3f4-4e87-9540-e57c049c89de
+    PortName: Merchant
+    TargetNodeGUID: a14e0f8b-1f42-470a-8a49-67d80a063c93
+  - BaseNodeGUID: 02d20378-e3f4-4e87-9540-e57c049c89de
+    PortName: Quest
+    TargetNodeGUID: e9d58e03-59b9-47d6-ac2c-fd38780ccb8b
+  - BaseNodeGUID: 02d20378-e3f4-4e87-9540-e57c049c89de
+    PortName: Random
+    TargetNodeGUID: 493b2fb2-42cd-4f62-9cf9-8439bcf53e55
+  - BaseNodeGUID: 493b2fb2-42cd-4f62-9cf9-8439bcf53e55
+    PortName: Leave
+    TargetNodeGUID: 987bf441-7462-40af-8c9a-cbc03486fe4e
+  - BaseNodeGUID: a14e0f8b-1f42-470a-8a49-67d80a063c93
+    PortName: Trade
+    TargetNodeGUID: 8f5efe87-4612-46c6-a017-0771012be017
+  - BaseNodeGUID: a14e0f8b-1f42-470a-8a49-67d80a063c93
+    PortName: Leave
+    TargetNodeGUID: 987bf441-7462-40af-8c9a-cbc03486fe4e
+  - BaseNodeGUID: 8f5efe87-4612-46c6-a017-0771012be017
+    PortName: Leave
+    TargetNodeGUID: 987bf441-7462-40af-8c9a-cbc03486fe4e
+  - BaseNodeGUID: e9d58e03-59b9-47d6-ac2c-fd38780ccb8b
+    PortName: No
+    TargetNodeGUID: 987bf441-7462-40af-8c9a-cbc03486fe4e
+  - BaseNodeGUID: e3e9e94b-1ed1-43b5-8094-b1c7202ec83a
+    PortName: Leave
+    TargetNodeGUID: 987bf441-7462-40af-8c9a-cbc03486fe4e
+  - BaseNodeGUID: e9d58e03-59b9-47d6-ac2c-fd38780ccb8b
+    PortName: Accept Quest
+    TargetNodeGUID: e3e9e94b-1ed1-43b5-8094-b1c7202ec83a
+  DialogueNodeData:
+  - NodeGUID: 02d20378-e3f4-4e87-9540-e57c049c89de
+    DialogueText: This is the first line of the advanced dialogue system
+    Position: {x: 283.2, y: 152}
+  - NodeGUID: 493b2fb2-42cd-4f62-9cf9-8439bcf53e55
+    DialogueText: Random dialogue
+    Position: {x: 870.4, y: 321.6}
+  - NodeGUID: a14e0f8b-1f42-470a-8a49-67d80a063c93
+    DialogueText: Do you want to trade?
+    Position: {x: 870.4, y: -60.8}
+  - NodeGUID: 8f5efe87-4612-46c6-a017-0771012be017
+    DialogueText: Additional dialogue from trader
+    Position: {x: 1256.8, y: -60.8}
+  - NodeGUID: e9d58e03-59b9-47d6-ac2c-fd38780ccb8b
+    DialogueText: Do you accept the quest?
+    Position: {x: 823.2, y: 164.8}
+  - NodeGUID: e3e9e94b-1ed1-43b5-8094-b1c7202ec83a
+    DialogueText: Additional dialogue from quest giver
+    Position: {x: 1412.8, y: 129.59999}
+  - NodeGUID: 987bf441-7462-40af-8c9a-cbc03486fe4e
+    DialogueText: LEAVE
+    Position: {x: 1729.6, y: 348}
+  ExposedProperties: []
+  CommentBlockData: []

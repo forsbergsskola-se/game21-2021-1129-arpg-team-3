@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b03d68d30abd4d644842528c9a6d8179, type: 3}
+  m_Name: Health Potion
+  m_EditorClassIdentifier: 
+  uiDisplay: {fileID: 21300000, guid: 7a0ae85d98e02f7458ddc9d27b1ab4da, type: 3}
+  stackable: 1
+  baseValue: 0
+  type: 0
+  description: "Will heal you and make you feel good...\n\n\"My ol' lady is a mean
+    drunk.\" \n- Farakin"
+  data:
+    Name: Mommys "Happy-Juice"
+    Id: 0
+    buffs: []
+  playerStats: {fileID: 0}
+  restoreHealthValue: 20

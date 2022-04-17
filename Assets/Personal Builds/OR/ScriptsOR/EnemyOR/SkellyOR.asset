@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a3362bc99298647911456274b7d3e2, type: 3}
+  m_Name: SkellyOR
+  m_EditorClassIdentifier: 
+  enemyName: SkellyOR
+  description: Is a skelly, scary skelly
+  enemyModel: {fileID: 919132149155446097, guid: c39713ab9cb855f4db2a74ba5020d252, type: 3}
+  health: 15
+  speed: 2
+  detectRange: 20
+  damage: 1

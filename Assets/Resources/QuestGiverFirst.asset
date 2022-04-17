@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c801af6d4af804041aa881ef66ce4dcb, type: 3}
+  m_Name: QuestGiverFirst
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: ee43589f-612e-447e-8012-3333beb4354f
+    PortName: NEXT
+    TargetNodeGUID: ac6fc0f3-1154-46ea-9f7d-8dc28a1a30ee
+  - BaseNodeGUID: ac6fc0f3-1154-46ea-9f7d-8dc28a1a30ee
+    PortName: Accept Quest
+    TargetNodeGUID: 445341ee-6c9f-44b3-8060-bc82d2ac2f67
+  - BaseNodeGUID: 445341ee-6c9f-44b3-8060-bc82d2ac2f67
+    PortName: Leave
+    TargetNodeGUID: d8e089c3-7253-44fc-94e0-06640ede3b53
+  - BaseNodeGUID: ac6fc0f3-1154-46ea-9f7d-8dc28a1a30ee
+    PortName: Nah...
+    TargetNodeGUID: 97390107-d061-416e-af3f-c95db4f30c5e
+  - BaseNodeGUID: 97390107-d061-416e-af3f-c95db4f30c5e
+    PortName: Accept Quest
+    TargetNodeGUID: 445341ee-6c9f-44b3-8060-bc82d2ac2f67
+  DialogueNodeData:
+  - NodeGUID: ac6fc0f3-1154-46ea-9f7d-8dc28a1a30ee
+    DialogueText: Dorouka! Farakin the Short has left a big storage of poisonous
+      waste up in the Ikueruk Mountains. You need to destroy every single one of
+      those barrels! Can you help me?
+    Position: {x: 222, y: 274}
+  - NodeGUID: d8e089c3-7253-44fc-94e0-06640ede3b53
+    DialogueText: Leave
+    Position: {x: 2080, y: 313}
+  - NodeGUID: 445341ee-6c9f-44b3-8060-bc82d2ac2f67
+    DialogueText: Great! Just follow the lights behind me to find the waste barrels.
+      Go through the houses and up the mountain path. While you are up there, look
+      out for an object that could come in handy for you.
+    Position: {x: 1347, y: -7}
+  - NodeGUID: 97390107-d061-416e-af3f-c95db4f30c5e
+    DialogueText: Like you even have a choice...
+    Position: {x: 1382, y: 362}
+  ExposedProperties: []
+  CommentBlockData: []

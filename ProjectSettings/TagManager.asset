@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Ground
+  - Destroyable
+  - Damage
+  - UI
+  - wp
+  - wpManager
+  - Selectable
+  - Health
+  - SSword
+  - Dialogue
+  - DoorButton
+  - Door
+  - Key
+  - TradeSystem
+  - BigSword
+  - Store
+  - Item
+  - PlayerOR
+  - PlayerWeapon
+  - Fire
+  - NPC
+  - MonsterCloset
+  - PlayerRange
+  - NPC1
+  - BuyButton
+  - Fire2
+  - Invalid
+  - SellButton
+  - Boss
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Markers
+  - Water
+  - UI
+  - Coin
+  - 
+  - Interact
+  - Obstacles
+  - Minimap
+  - Ground
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
